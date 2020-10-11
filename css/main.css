@@ -67,7 +67,8 @@ body {
 
 
    .carousel-inner > .carousel-item > img {
-    height: 50vh;
+    height: 500px;
+    width: 500px;
     padding: 0%;
     margin: 0%;
   }
