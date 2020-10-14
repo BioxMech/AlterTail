@@ -1,0 +1,89 @@
+/* #signin:hover {
+    opacity: 50%;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#register:hover {
+    opacity: 50%;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    display: inline-bloc;
+} */
+
+.current {
+    border-bottom: 2px solid;
+    border-width: thin;
+}
+
+.rightNavBar {
+    left: 100%;
+}
+
+/* .hoverEffects:hover{
+    background-position: 0 100%;
+    padding-bottom: 5px;
+} */
+
+
+/* .linkBg {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    background: linear-gradient(to right, blue, blue 50%, black 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 700ms ease;
+} */
+
+
+#navbarNav ul { 
+    /* list-style: none; 
+    display: table;
+    text-align: center; */
+    left: 100%;
+  }
+  #navbarNav  li { 
+    /* display: table-cell; 
+    position: relative;  */
+    /* padding: 15px 0; */
+    
+  }
+  #navbarNav  a {
+    color: black;
+    /* text-decoration: none; */
+    display: inline-block;
+    /* padding: 15px 20px; */
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+    
+    
+  }
+  #navbarNav  a:after {    
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background:black;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+  #navbarNav  a:hover:after { 
+    width: 100%; 
+    left: 0;
+  }
+  @media screen and (max-height: 300px) {
+    #navbarNav  ul {
+          margin-top: 40px;
+      }
+  }

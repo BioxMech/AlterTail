@@ -21,10 +21,115 @@
     <link rel="stylesheet" href="node_modules/mdbootstrap/css/mdb.min.css">
     <link rel="stylesheet" href="node_modules/mdbootstrap/css/style.css">   
 
+    <!-- <link rel="stylesheet" href="test.css"> -->
     <title>Hello, world!</title>
   </head>
   <body>
-    <!--Modal: Login / Register Form-->
+ <!-- Modal -->
+<div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <!--Content-->
+  <div class="modal-content form-elegant">
+    <!--Header-->
+    <div class="modal-header text-center">
+      <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Sign in</strong></h3>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <!--Body-->
+    <div class="modal-body mx-4">
+      <!--Body-->
+      <div class="md-form mb-5">
+        <input type="email" id="Form-email1" class="form-control validate">
+        <label data-error="wrong" data-success="right" for="Form-email1">Your email</label>
+      </div>
+
+      <div class="md-form pb-3">
+        <input type="password" id="Form-pass1" class="form-control validate">
+        <label data-error="wrong" data-success="right" for="Form-pass1">Your password</label>
+        <p class="font-small blue-text d-flex justify-content-end">Forgot <a href="#" class="blue-text ml-1">
+            Password?</a></p>
+      </div>
+
+      <div class="text-center mb-3">
+        <button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Sign in</button>
+      </div>
+      <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in
+        with:</p>
+
+      <div class="row my-3 d-flex justify-content-center">
+        <!--Facebook-->
+        <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fab fa-facebook-f text-center"></i></button>
+        <!--Twitter-->
+        <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fab fa-twitter"></i></button>
+        <!--Google +-->
+        <button type="button" class="btn btn-white btn-rounded z-depth-1a"><i class="fab fa-google-plus-g"></i></button>
+      </div>
+    </div>
+    <!--Footer-->
+    <div class="modal-footer mx-5 pt-3 mb-1">
+      <p class="font-small grey-text d-flex justify-content-end">Not a member? <a href="#" class="blue-text ml-1">
+          Sign Up</a></p>
+    </div>
+  </div>
+  <!--/.Content-->
+</div>
+</div>
+<!-- Modal -->
+
+<div class="text-center">
+<a href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#signinModal">Launch
+  modal Login Form</a>
+</div>
+
+
+
+
+<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <i class="fas fa-user prefix grey-text"></i>
+          <input type="text" id="orangeForm-name" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
+        </div>
+        <div class="md-form mb-5">
+          <i class="fas fa-envelope prefix grey-text"></i>
+          <input type="email" id="orangeForm-email" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
+        </div>
+
+        <div class="md-form mb-4">
+          <i class="fas fa-lock prefix grey-text"></i>
+          <input type="password" id="orangeForm-pass" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
+        </div>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button class="btn btn-deep-orange">Sign up</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-center">
+  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm">Launch
+    Modal Register Form</a>
+</div>
+
+
+
 <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog cascading-modal" role="document">
       <!--Content-->
@@ -34,12 +139,12 @@
         <div class="modal-c-tabs">
   
           <!-- Nav tabs -->
-          <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
-            <li class="nav-item">
+          <ul class="nav nav-tabs md-tabs tabs-2 grey darken-3" role="tablist">
+            <li class="nav-item waves-effect waves-light">
               <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
                 Login</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item waves-effect waves-light">
               <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
                 Register</a>
             </li>
@@ -124,12 +229,15 @@
     </div>
   </div>
   <!--Modal: Login / Register Form-->
-  
-  <div class="text-center">
-    <a href="" class="btn btn-default btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm" style="border-radius: 10px;">
-    Launch Modal LogIn/Register</a>
-  </div>
 
+
+
+  
+<div class="text-center">
+    <a href="" class="btn btn-default btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm">Launch
+      Modal LogIn/Register</a>
+  </div>
+  
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
