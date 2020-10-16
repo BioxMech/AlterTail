@@ -18,3 +18,23 @@ body {
     display: block;
   }
   
+.main {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.main img {
+    object-fit: cover;
+    height: 200px;
+}
+
+.navBarLogo {
+    height: 70px;
+    width: 250px;
+}
+
+.carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+  }

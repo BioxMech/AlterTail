@@ -6,129 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <!-- Font Awesome Script -->
-    <!-- <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script> -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
     <!-- Custom css -->
-    <!-- <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/loader.css">
-    <link rel="stylesheet" href="css/animation.css"> -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <link rel="stylesheet" href="node_modules/mdbootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/mdbootstrap/css/mdb.min.css">
-    <link rel="stylesheet" href="node_modules/mdbootstrap/css/style.css">   
+    <link rel="stylesheet" href="node_modules/mdbootstrap/css/style.css"> -->
 
     <!-- <link rel="stylesheet" href="test.css"> -->
     <title>Hello, world!</title>
+
+    <style>
+    .none {
+        padding: 0;
+        margin: 0;
+    }
+
+    .focusme:active,
+    .focusme:focus {
+        color: blueviolet;
+    }
+
+    </style>
+
   </head>
+
+
   <body>
- <!-- Modal -->
-<div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <!--Content-->
-  <div class="modal-content form-elegant">
-    <!--Header-->
-    <div class="modal-header text-center">
-      <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Sign in</strong></h3>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <!--Body-->
-    <div class="modal-body mx-4">
-      <!--Body-->
-      <div class="md-form mb-5">
-        <input type="email" id="Form-email1" class="form-control validate">
-        <label data-error="wrong" data-success="right" for="Form-email1">Your email</label>
-      </div>
+ 
 
-      <div class="md-form pb-3">
-        <input type="password" id="Form-pass1" class="form-control validate">
-        <label data-error="wrong" data-success="right" for="Form-pass1">Your password</label>
-        <p class="font-small blue-text d-flex justify-content-end">Forgot <a href="#" class="blue-text ml-1">
-            Password?</a></p>
-      </div>
-
-      <div class="text-center mb-3">
-        <button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Sign in</button>
-      </div>
-      <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in
-        with:</p>
-
-      <div class="row my-3 d-flex justify-content-center">
-        <!--Facebook-->
-        <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fab fa-facebook-f text-center"></i></button>
-        <!--Twitter-->
-        <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fab fa-twitter"></i></button>
-        <!--Google +-->
-        <button type="button" class="btn btn-white btn-rounded z-depth-1a"><i class="fab fa-google-plus-g"></i></button>
-      </div>
-    </div>
-    <!--Footer-->
-    <div class="modal-footer mx-5 pt-3 mb-1">
-      <p class="font-small grey-text d-flex justify-content-end">Not a member? <a href="#" class="blue-text ml-1">
-          Sign Up</a></p>
-    </div>
-  </div>
-  <!--/.Content-->
-</div>
-</div>
-<!-- Modal -->
-
-<div class="text-center">
-<a href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#signinModal">Launch
-  modal Login Form</a>
-</div>
-
-
-
-
-<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <i class="fas fa-user prefix grey-text"></i>
-          <input type="text" id="orangeForm-name" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
-        </div>
-        <div class="md-form mb-5">
-          <i class="fas fa-envelope prefix grey-text"></i>
-          <input type="email" id="orangeForm-email" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
-        </div>
-
-        <div class="md-form mb-4">
-          <i class="fas fa-lock prefix grey-text"></i>
-          <input type="password" id="orangeForm-pass" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
-        </div>
-
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-deep-orange">Sign up</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="text-center">
-  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm">Launch
-    Modal Register Form</a>
-</div>
-
-
+<!-- ============================================================================ -->
 
 <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog cascading-modal" role="document">
@@ -140,11 +55,11 @@ aria-hidden="true">
   
           <!-- Nav tabs -->
           <ul class="nav nav-tabs md-tabs tabs-2 grey darken-3" role="tablist">
-            <li class="nav-item waves-effect waves-light">
+            <li class="nav-item">
               <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
                 Login</a>
             </li>
-            <li class="nav-item waves-effect waves-light">
+            <li class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
                 Register</a>
             </li>
@@ -227,27 +142,123 @@ aria-hidden="true">
       </div>
       <!--/.Content-->
     </div>
-  </div>
+</div>
   <!--Modal: Login / Register Form-->
-
-
 
   
 <div class="text-center">
     <a href="" class="btn btn-default btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm">Launch
       Modal LogIn/Register</a>
+</div>
+  
+
+    
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+      <div class="modal-content">
+
+        <!-- Tabs -->
+        <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Sign in</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Register</a>
+            </li>
+        </ul>
+        <!-- <ul class="nav nav-tabs nav-justified" id="pills-tab" role="tablist">
+            <li class="nav-item bg-dark " role="presentation">
+              <a class="nav-link active focusme" id="pills-home-tab" data-toggle="tab" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Sign in</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" id="pills-profile-tab" data-toggle="tab" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Register</a>
+            </li>
+        </ul> -->
+        <!-- End of tabs -->
+
+        <div class="modal-body">
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                    <!-- Sign in forms -->
+                    <form>
+                        <div class="form-group row">
+                          <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                          <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                          <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputPassword">
+                          </div>
+                        </div>
+                    </form>
+                    <!-- End of sign in forms -->
+
+                </div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+                    <!-- Register form -->
+                    <form>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Email address</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputPassword1">Password</label>
+                          <input type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="form-group form-check">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                    <!-- End of register form -->
+
+                </div>
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
   </div>
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
   
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> -->
-    <script type="text/javascript" src="node_modules/mdbootstrap/js/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <!-- <script type="text/javascript" src="node_modules/mdbootstrap/js/jquery.min.js"></script>
     <script type="text/javascript" src="node_modules/mdbootstrap/js/popper.min.js"></script>
     <script type="text/javascript" src="node_modules/mdbootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="node_modules/mdbootstrap/js/mdb.min.js"></script>  
-
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/mdb.min.js"></script> -->
 
 </body>
 </html>
