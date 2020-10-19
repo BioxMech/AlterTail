@@ -19,6 +19,7 @@ class UserDAO {
         $phone = $user->getPhone();
         $street_address = $user->getStreetAddress();
         $postal_code = $user->getPostalCode();
+        $unit = $user->getUnit();
         $shopname = $user->getShopName();
         
         $stmt->bindParam(':email',$email,PDO::PARAM_STR);
@@ -29,6 +30,7 @@ class UserDAO {
         $stmt->bindParam(':pw',$pw,PDO::PARAM_STR);
         $stmt->bindParam(':phone',$phone,PDO::PARAM_STR);
         $stmt->bindParam(':street_address',$street_address,PDO::PARAM_STR);
+        $stmt->bindParam(':unit',$unit,PDO::PARAM_STR);
         $stmt->bindParam(':postal_code',$postal_code,PDO::PARAM_STR);
         $stmt->bindParam(':shopname',$shopname,PDO::PARAM_STR);
 

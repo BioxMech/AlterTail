@@ -1,17 +1,17 @@
 <?php
 
 class User {
-    private $email;
-    private $fname;
-    private $lname;
-    private $gender;
-    private $username;
-    private $pw;
-    private $phone;
-    private $street_address;
-    private $unit;
-    private $postal_code;
-    private $shopname;
+    public $email;
+    public $fname;
+    public $lname;
+    public $gender;
+    public $username;
+    public $pw;
+    public $phone;
+    public $street_address;
+    public $unit;
+    public $postal_code;
+    public $shopname;
 
     //construct User object
     function __construct($email,$fname,$lname,$gender,$username,$pw,$phone,$street_address,$unit,$postal_code,$shopname) {
@@ -19,7 +19,7 @@ class User {
         $this->fname = $fname;
         $this->lname = $lname;
         $this->gender = $gender;
-        $this->usrname = $username;
+        $this->username = $username;
         $this->pw = $pw;
         $this->phone = $phone;
         $this->street_address = $street_address;

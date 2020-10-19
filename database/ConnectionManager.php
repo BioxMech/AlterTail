@@ -11,20 +11,24 @@ class ConnectionManager {
         // public $conn;
 
         //get database connection
-        public function getConnection() {
-            $host = 'localhost';
-            $dbname = 'is216_proj';
-            $username = 'root';
-            $password = ''; // MAMP "root"; WAMP empty string
-            $port = 3306; // Check in PHPMyAdmin for port number
-            $url = "mysql:host=$host; dbname=$dbname;port=$port";
+        // public function getConnection() {
+        //     $host = 'localhost';
+        //     $dbname = 'is216_proj';
+        //     $username = 'root';
+        //     $password = ''; // MAMP "root"; WAMP empty string
+        //     $port = 3306; // Check in PHPMyAdmin for port number
+        //     // $url = "mysql:host=$host; dbname=$dbname;port=$port";
 
-            $pdoObject = new PDO($url, $username,$password);
+        //     $conn = new PDO("mysql:host=$host; dbname=$dbname", $username, $password);
+        //     $conn = setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $pdoObject->setAttribute (PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            return $pdoObject;
-        }
+        //     return $conn;
+        // }
+    public function getConnection() {
+        $dsn = "mysql:host=localhost;dbname=is216_proj;port=3306";
+        $pdo = new PDO($dsn, "root", "");
+        return $pdo;
+    }
     
 }
 
