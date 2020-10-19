@@ -21,199 +21,212 @@
     <link rel="stylesheet" href="css/animation.css">
     <!-- <link rel="stylesheet" href="css/buttons.css"> -->
     <link rel="stylesheet" href="css/buttonEffects.css">
+    <link rel="stylesheet" href="css/hamburger.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="test.css">
 
 </head>
 <body>
     
     <!-- Start Navigation Bar -->
-    <nav class="navbar navbar-expand-lg" >
+    <nav class="navbar navbar-expand-lg navbar-light" >
         <a class="navbar-brand" href="index.html">
             <img src="images/logo.jpg" class="d-inline-block align-top navBarLogo" loading="lazy">
         </a>
-        <div class="container">
-            
-            <div class="container">
-
+  
                 <!-- Hamburger Name -->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                MENU <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
                 </button>
+  
+                
+  
+                <!-- Collapse Content (Nav Bar) -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                 
                     <!-- Left Side Nav -->
-                    <ul class="navbar-nav ml-auto" id="leftSideNav">
+                    <ul class="navbar-nav mr-auto" id="leftSideNav">
                         <li class="nav-item">
-                            <a class="nav-link current" href="#" style="padding-bottom:unset;" >Home</a>
+                            <a class="nav-link current" href="index.html" style="padding-bottom:unset;" >Home</a>
                         </li>
                         <li class="nav-item">
-
-                            <!-- Dropdown menu -->
-                            <div class="dropdown">
-                                <a class="nav-link" href="#" style="padding-bottom:unset;" 
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Alterations</a>
-                                <!-- Options -->
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                                <!-- Options -->
-                            </div>
-                            <!-- End of dropdown menu -->
-
+                            <a class="nav-link" href="allTailorPage.html" style="padding-bottom:unset;" >Tailoring</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="allAlterationPage.html" style="padding-bottom:unset;" >Alteration</a>
                         </li>
                         <li class="nav-item">
                             <!-- Dropdown menu -->
                             <div class="dropdown">
                                 <a class="nav-link" href="#" style="padding-bottom:unset;" 
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tailors</a>
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cleaning</a>
                                 <!-- Options -->
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="servicePage.html">Jason's Deluxe Tailor</a>
+                                    <a class="dropdown-item" href="allBagCleaningPage.html">Bag Cleaning</a>
+                                    <a class="dropdown-item" href="allDryCleaningPage.html">Dry Cleaning</a>
                                 </div>
                                 <!-- Options -->
                             </div>
                             <!-- End of dropdown menu -->
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" style="padding-bottom:unset;" >Dry Cleaning</a>
+                            <a class="nav-link" href="aboutUs.html" style="padding-bottom:unset;" >About Us</a>
                         </li>
-                        <!-- <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li> -->
+                      </ul>
+
+                      
+
+                    <ul class="navbar-nav ml-auto">
+                      <li class="nav-item">
+                        <!-- ============================================================================================================================= -->
+                        <form>
+                          <input type="search" placeholder="Search Shop Names">
+                        </form>
+                        <!-- ============================================================================================================================= -->
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="registerSignin" data-target="#registerSigninModal">Register / Sign in</a>
+                      </li>
                     </ul>
                 </div>
-            </div>
-            
-
-            <!-- Right Side Nav -->          
-            <div class="container" id="navbarNav">
-                <!-- <ol class="breadcrumb navbar-light bg-light" >
-                    <li class="breadcrumb-item " id="register" data-toggle="modal" data-target="#registerModal">Register</li>
-                    <li class="breadcrumb-item" id="signin" data-toggle="modal" data-target="#signinModal">Sign in</li>
-                </ol> -->
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a style="padding-bottom:unset;" data-toggle="modal" id="register" data-target="#registerModal">Register</a>
-                    </li>
-                    <li class ="nav-item">
-                        <span style="margin-left: 5px; margin-right: 5px; size: 5px;">/</span>
-                    </li>
-                    <li class="nav-item">
-                        <a style="padding-bottom:unset;" data-toggle="modal" id="signin" data-target="#signinModal">Sign in</a>
-                    </li>
-                </ul>
-            </div>
-                
-            <!-- Sign in modal -->
-            <div class="modal fade" id="signinModal" tabindex="-1" aria-la  belledby="signinModal" aria-hidden="true">
-                <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Sign in</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Register</a>
-                            </li>
-                        </ul>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="tab-content" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                                <form>
-                                    <div class="form-group row">
-                                    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
-                                    </div>
-                                    </div>
-                                    <div class="form-group row">
-                                    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                                    <div class="col-sm-10">
-                                        <input type="password" class="form-control" id="inputPassword">
-                                    </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                                <form>
-                                    <div class="form-group">
-                                    <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                                    </div>
-                                    <div class="form-group">
-                                    <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1">
-                                    </div>
-                                    <div class="form-group form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-                </div>
-            </div>
-            <!-- End of sign in modal -->
-
-            <!-- Start of register modal -->
-            <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header text-center">
-                            <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body mx-3">
-                            <div class="md-form mb-5">
-                            <i class="fas fa-user prefix grey-text"></i>
-                            <input type="text" id="orangeForm-name" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
-                            </div>
-                            <div class="md-form mb-5">
-                            <i class="fas fa-envelope prefix grey-text"></i>
-                            <input type="email" id="orangeForm-email" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
-                            </div>
-
-                            <div class="md-form mb-4">
-                            <i class="fas fa-lock prefix grey-text"></i>
-                            <input type="password" id="orangeForm-pass" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
-                            </div>
-
-                        </div>
-                        <div class="modal-footer d-flex justify-content-center">
-                            <button class="btn btn-deep-orange" data-toggle="modal" data-target="#registerModal">Sign up</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End of register modal -->
-
-            
-        </div>
+                <!-- End of collapse content (Nav Bar) -->
     </nav>
     <!-- End Navigation Bar -->
     
-    
+    <!-- Main Header -->
+    <div class="container-fluid mainHeader bg-dark text-white ">
+        <h1>Alteration Services</h1>
+        <video width="1280" height="720" autoplay muted loop poster="video.jpg" id="videobg">
+            <source src="videos/background.mp4" type="video/mp4">
+        </video>
+    </div>
+    <!-- End of main header -->
+
+    <!-- Sorting -->
+    <div class="container">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="container main">
+
+        <!-- Main Content Cards -->
+        <div class="row row-cols-1 row-cols-md-4">
+            <div class="col mb-4">
+              <div class="card h-100">
+                <img src="images/slider-1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card h-100">
+                <img src="images/scissors.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card h-100">
+                <img src="images/tailor1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card h-100">
+                <img src="images/1.jpeg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+                <div class="card h-100">
+                  <img src="images/2.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col mb-4">
+                <div class="card h-100">
+                  <img src="images/alteration2.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col mb-4">
+                <div class="card h-100">
+                  <img src="images/alteration4.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col mb-4">
+                <div class="card h-100">
+                  <img src="images/scissors.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  </div>
+                </div>
+              </div>
+        </div>        
+        <!-- End of main Content Cards -->
+    </div>
+    <!-- End of Main Content -->
     
 
+
+
+
+
+    <!-- Page Number -->
+    <nav aria-label="...">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <span class="page-link">Previous</span>
+          </li>
+          <li class="page-item active">
+              <span class="page-link">
+                1
+              <span class="sr-only">(current)</span>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">2</a>
+            </span>
+          </li>
+          <li class="page-item">
+              <a class="page-link" href="#">3</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+      
 
 
 

@@ -1,6 +1,8 @@
 body {
     font-family: 'proxima-nova', Helvetica;
 }
+
+/* Carousel */
 .carousel-inner > .carousel-item > img {
     height: 500px;
     width: 500px;
@@ -9,15 +11,25 @@ body {
     /* object-fit: cover; */
 }
 
-.mainContent {
-    text-align: center;
+.carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
 }
+/* ================= */
 
-/* Navbar dropdown menu */
+/* Navbar */
 .dropdown:hover>.dropdown-menu {
     display: block;
   }
+
+.navBarLogo {
+    height: 70px;
+    width: 250px;
+}
+/* ================= */
   
+/* Content */
 .main {
     text-align: center;
     margin-top: 30px;
@@ -28,13 +40,40 @@ body {
     height: 200px;
 }
 
-.navBarLogo {
-    height: 70px;
-    width: 250px;
+/* Special */
+.specialImage {
+    height: 85px;
+    width: 85px;
+    opacity: 25%;
+    display: block;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
 }
 
-.carousel-indicators li {
-    width: 10px;
-    height: 10px;
-    border-radius: 100%;
-  }
+.specialContext p,
+.specialContext h4 {
+    text-align: center;
+}
+
+.specialContext {
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+/* ================= */
+
+/* General all pages */
+.mainHeader {
+    text-align: center;
+    height: 100px;
+}
+
+#videobg {
+    background: url(video.jpg) no-repeat;
+    background-size: cover;
+    object-fit: cover;
+}
+  
+/* ================= */
+
