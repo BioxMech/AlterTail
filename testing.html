@@ -11,17 +11,19 @@
     <!-- Font Awesome Script -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
-    <!-- Custom css -->
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/loader.css">
     <link rel="stylesheet" href="css/animation.css">
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-    <link rel="stylesheet" href="node_modules/mdbootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="node_modules/mdbootstrap/css/mdb.min.css">
-    <link rel="stylesheet" href="node_modules/mdbootstrap/css/style.css"> -->
+    <!-- <link rel="stylesheet" href="css/buttons.css"> -->
+    <link rel="stylesheet" href="css/buttonEffects.css">
+    <link rel="stylesheet" href="css/hamburger.css">
 
-    <!-- <link rel="stylesheet" href="test.css"> -->
+    <!-- Testing CSS -->
+    <link rel="stylesheet" href="test.css">
+
+
     <title>Hello, world!</title>
 
     <style>
@@ -42,7 +44,190 @@
 
   <body>
  
-   <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi rem obcaecati quia nisi ut, doloremque sint. Officiis eius accusamus excepturi deleniti ipsum eaque doloribus dolorem nostrum. Alias atque illum modi.</h1>
+  <nav class="navbar navbar-expand-lg navbar-light" >
+      <a class="navbar-brand" href="index.html">
+          <img src="images/logo.jpg" class="d-inline-block align-top navBarLogo" loading="lazy">
+      </a>
+
+              <!-- Hamburger Name -->
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+              </button>
+
+              
+
+              <!-- Collapse Content (Nav Bar) -->
+              <div class="collapse navbar-collapse" id="navbarNav">
+              
+                  <!-- Left Side Nav -->
+                  <ul class="navbar-nav mr-auto" id="leftSideNav">
+                      <li class="nav-item">
+                          <a class="nav-link current" href="index.html" style="padding-bottom:unset;" >Home</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="allTailorPage.html" style="padding-bottom:unset;" >Tailoring</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="allAlterationPage.html" style="padding-bottom:unset;" >Alteration</a>
+                      </li>
+                      <li class="nav-item">
+                          <!-- Dropdown menu -->
+                          <div class="dropdown">
+                              <a class="nav-link" href="#" style="padding-bottom:unset;" 
+                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cleaning</a>
+                              <!-- Options -->
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <a class="dropdown-item" href="allBagCleaningPage.html">Bag Cleaning</a>
+                                  <a class="dropdown-item" href="allDryCleaningPage.html">Dry Cleaning</a>
+                              </div>
+                              <!-- Options -->
+                          </div>
+                          <!-- End of dropdown menu -->
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="aboutUs.html" style="padding-bottom:unset;" >About Us</a>
+                      </li>
+                      
+                  </ul>
+                  <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="signin" data-target="#registerSigninModal">Register / Sign in</a>
+                    </li>
+                </ul>
+              </div>
+              <!-- End of collapse content (Nav Bar) -->
+
+  </nav>
+  <!-- End Navigation Bar -->
+
+
+
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registerSigninModal">   
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="registerSigninModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+      <div class="modal-content">
+
+        <!-- Tabs -->
+        <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Sign in</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Register</a>
+            </li>
+        </ul>
+
+        <div class="modal-body">
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+
+                    <!-- Sign in forms -->
+                    <form class="form-signin">
+                        <i class="fas fa-envelope prefix"></i>
+                        <div class="form-label-group row">
+                          <input type="text" class="form-control" id="signinEmail" placeholder="email" required="">
+                          <label for="signinEmail">Email Address</label>
+                        </div>
+                        <i class="fas fa-lock prefix"></i>
+                        <div class="form-label-group row">
+                          <input type="password" class="form-control" id="signinPassword" placeholder="password" required="">
+                          <label for="signinPassword"></i>Password</label>
+                        </div>
+                        <div class="form-group form-check row">
+                          <input type="checkbox" class="form-check-input" id="rememberMe">
+                          <label class="form-check-label" for="rememberMe">Remember Me</label>
+                        </div>
+                    </form>
+                    <!-- End of sign in forms -->
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Sign in</button>
+                    </div>
+
+                </div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+                    <!-- Register form -->
+                    <form class="form-signin">
+                        <div class="form-label-group row">
+                          <input type="text" class="form-control" id="registerEmail" placeholder="email" required="">
+                          <label for="registerEmail">Email Address</label>
+                          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+
+                        <div class="form-label-group row">
+                          <input type="text" class="form-control" id="registerUserName" placeholder="email" required="">
+                          <label for="registerUserName">Username</label>
+                          <small id="emailHelp" class="form-text text-muted">It will also be your display name.</small>
+                        </div>
+                        
+                        <div class="form-row row">
+                          <div class="col-sm-6">
+                            <div class="form-label-group">
+                              <input type="text" class="form-control" id="registerFirstName" placeholder="firstName" required="">
+                              <label for="registerFirstName"></i>First Name</label>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-label-group">
+                              <input type="text" class="form-control" id="registerLastName" placeholder="lastName" required="">
+                              <label for="registerLastName"></i>Last Name</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-check form-check-inline row">
+                          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                          <label class="form-check-label" for="exampleRadios1" style="padding-right: 5px;">
+                            Male
+                          </label>
+                          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                          <label class="form-check-label" for="exampleRadios1">
+                            Female
+                          </label>
+                        </div>
+                        <div class="form-label-group row">
+                          <input type="number" class="form-control" id="registerPhoneNumber" placeholder="phonenumber" required="">
+                          <label for="registerPhoneNumber"></i>Phone Number</label>
+                        </div>
+                        <div class="form-label-group row">
+                          <input type="password" class="form-control" id="registerPassword" placeholder="password" required="">
+                          <label for="registerPassword"></i>Password</label>
+                        </div>
+                        <div class="form-group form-check row">
+                          <input type="checkbox" class="form-check-input" id="registerPromotion">
+                          <label class="form-check-label" for="registerPromotion">I'd like to receive exclusive offers and promotions via SMS</label>
+                        </div>
+                    </form>
+                    <!-- End of register form -->
+                    
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Sign up</button>
+                      <small class="form-text text-muted">By clicking "SIGN UP"; I agree to AlterTail's Terms of Use and Privacy Policy</small>
+                    </div>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+    
 <!-- ============================================================================ -->
 
 <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -153,88 +338,7 @@
   
 
     
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-      <div class="modal-content">
 
-        <!-- Tabs -->
-        <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
-            <li class="nav-item" role="presentation">
-              <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Sign in</a>
-            </li>
-            <li class="nav-item" role="presentation">
-              <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Register</a>
-            </li>
-        </ul>
-        <!-- <ul class="nav nav-tabs nav-justified" id="pills-tab" role="tablist">
-            <li class="nav-item bg-dark " role="presentation">
-              <a class="nav-link active focusme" id="pills-home-tab" data-toggle="tab" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Sign in</a>
-            </li>
-            <li class="nav-item" role="presentation">
-              <a class="nav-link" id="pills-profile-tab" data-toggle="tab" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Register</a>
-            </li>
-        </ul> -->
-        <!-- End of tabs -->
-
-        <div class="modal-body">
-            <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-
-                    <!-- Sign in forms -->
-                    <form>
-                        <div class="form-group row">
-                          <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                          <div class="col-sm-10">
-                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                          <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputPassword">
-                          </div>
-                        </div>
-                    </form>
-                    <!-- End of sign in forms -->
-
-                </div>
-                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-
-                    <!-- Register form -->
-                    <form>
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Email address</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputPassword1">Password</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        <div class="form-group form-check">
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                    <!-- End of register form -->
-
-                </div>
-              </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
   
