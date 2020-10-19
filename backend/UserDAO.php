@@ -16,6 +16,7 @@ class UserDAO {
         $gender = $user->getGender();
         $username = $user->getUsername();
         $pw = $user->getPw();
+        $hashed = password_hash($pw, PASSWORD_DEFAULT);
         $phone = $user->getPhone();
         $street_address = $user->getStreetAddress();
         $postal_code = $user->getPostalCode();
@@ -27,7 +28,7 @@ class UserDAO {
         $stmt->bindParam(':lname',$lname,PDO::PARAM_STR);
         $stmt->bindParam(':gender',$gender,PDO::PARAM_STR);
         $stmt->bindParam(':username',$username,PDO::PARAM_STR);
-        $stmt->bindParam(':pw',$pw,PDO::PARAM_STR);
+        $stmt->bindParam(':pw',$hashed,PDO::PARAM_STR);
         $stmt->bindParam(':phone',$phone,PDO::PARAM_STR);
         $stmt->bindParam(':street_address',$street_address,PDO::PARAM_STR);
         $stmt->bindParam(':unit',$unit,PDO::PARAM_STR);
