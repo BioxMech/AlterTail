@@ -78,9 +78,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="aboutUs.html" style="padding-bottom:unset;" >About Us</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="location.html" style="padding-bottom:unset;" >Locate</a>
-                        </li>
                       </ul>
 
                       
@@ -124,7 +121,7 @@
 
 
                     <!-- Sign in forms -->
-                    <form class="form-signin">
+                    <form class="form-signin" action="backend/process_login.php" method="POST">
                         <img src="images/logo.jpg" class="modalFormImage">
                         <i class="fas fa-envelope prefix"></i>
                         <div class="form-label-group row">
@@ -140,28 +137,30 @@
                           <input type="checkbox" class="form-check-input" id="rememberMe">
                           <label class="form-check-label" for="rememberMe">Remember Me</label>
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <!-- <button type="button" class="btn btn-primary">Sign in</button> -->
+                            <input type="submit" class="btn btn-primary">Sign in
+                          </div>
                     </form>
                     <!-- End of sign in forms -->
 
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Sign in</button>
-                    </div>
+                    
 
                 </div>
                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 
                     <!-- Register form -->
-                    <form class="form-signin">
+                    <form class="form-signin" action="backend/process_register.php" method="POST">
                         <img src="images/logo.jpg" class="modalFormImage">
                         <div class="form-label-group row">
-                          <input type="text" class="form-control" id="registerEmail" placeholder="email" required="">
+                          <input type="text" class="form-control" id="registerEmail" placeholder="email" required="" name="email">
                           <label for="registerEmail">Email Address</label>
                           <small class="form-text text-muted">We'll never share your email with anyone else.</small>
                         </div>
 
                         <div class="form-label-group row">
-                          <input type="text" class="form-control" id="registerUserName" placeholder="email" required="">
+                          <input type="text" class="form-control" id="registerUserName" placeholder="email" required="" name="username">
                           <label for="registerUserName">Username</label>
                           <small class="form-text text-muted">It will also be your display name.</small>
                         </div>
@@ -169,18 +168,18 @@
                         <div class="form-row row">
                           <div class="col-sm-6">
                             <div class="form-label-group">
-                              <input type="text" class="form-control" id="registerFirstName" placeholder="firstName" required="">
+                              <input type="text" class="form-control" id="registerFirstName" placeholder="firstName" required="" name="fname">
                               <label for="registerFirstName"></i>First Name</label>
                             </div>
                           </div>
                           <div class="col-sm-6">
                             <div class="form-label-group">
-                              <input type="text" class="form-control" id="registerLastName" placeholder="lastName" required="">
+                              <input type="text" class="form-control" id="registerLastName" placeholder="lastName" required="" name="lname">
                               <label for="registerLastName"></i>Last Name</label>
                             </div>
                           </div>
                         </div>
-                        <div class="form-check form-check-inline row">
+                        <!-- <div class="form-check form-check-inline row">
                           <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
                           <label class="form-check-label" for="exampleRadios1" style="padding-right: 5px;">
                             Male
@@ -189,28 +188,30 @@
                           <label class="form-check-label" for="exampleRadios1">
                             Female
                           </label>
-                        </div>
+                        </div> -->
                         <div class="form-label-group row">
-                          <input type="number" class="form-control" id="registerPhoneNumber" placeholder="phonenumber" required="">
+                          <input type="number" class="form-control" id="registerPhoneNumber" placeholder="phonenumber" required="" name="phone">
                           <label for="registerPhoneNumber"></i>Phone Number</label>
                           <small class="form-text text-muted">Please add the country code at the front, for example "+65 98763210"</small>
                         </div>
                         <div class="form-label-group row">
-                          <input type="password" class="form-control" id="registerPassword" placeholder="password" required="">
+                          <input type="password" class="form-control" id="registerPassword" placeholder="password" required="" name="pw">
                           <label for="registerPassword"></i>Password</label>
                         </div>
                         <div class="form-group form-check row">
                           <input type="checkbox" class="form-check-input" id="registerPromotion">
                           <label class="form-check-label" for="registerPromotion">I'd like to receive exclusive offers and promotions via SMS</label>
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <!-- <button type="button" class="btn btn-primary">Sign up</button> -->
+                            <input type="submit" class="btn btn-primary">Sign up
+                            <small class="form-text text-muted">By clicking "SIGN UP"; I agree to AlterTail's Terms of Use and Privacy Policy</small>
+                          </div>
                     </form>
                     <!-- End of register form -->
                     
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Sign up</button>
-                      <small class="form-text text-muted">By clicking "SIGN UP"; I agree to AlterTail's Terms of Use and Privacy Policy</small>
-                    </div>
+                    
                 </div>
               </div>
         </div>
@@ -238,7 +239,7 @@
             </div>
           </div>
           <div class="carousel-item">
-            <img src="images/alteration5.jpg" class="d-block w-100" alt="...">
+            <img src="images/slider-3.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <h5>Second slide label</h5>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -252,7 +253,7 @@
             </div>
           </div>
           <div class="carousel-item">
-            <img src="images/alteration3.jpg" class="d-block w-100" alt="...">
+            <img src="images/slider-2.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <h5>Third slide label</h5>
               <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>

@@ -37,6 +37,10 @@ body {
     margin-right: auto;
 }
 
+.nav-pills > li > a.active {
+    background-color: #050505bb!important;
+}
+
 /* ================= */
   
 /* Content */

@@ -1,3 +1,9 @@
+drop database if exists is216;
+
+create database is216;
+
+use is216;
+
 create table user
 (email varchar(40) not null,
  fname varchar(50) not null,
