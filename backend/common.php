@@ -6,7 +6,7 @@
     );
 
     require_once "../database/ConnectionManager.php";
-    session_start();
+    // session_start();
 
 
 

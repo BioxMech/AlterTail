@@ -25,7 +25,7 @@ class ConnectionManager {
         //     return $conn;
         // }
     public function getConnection() {
-        $dsn = "mysql:host=localhost;dbname=is216_proj;port=3306";
+        $dsn = "mysql:host=localhost;dbname=is216;port=3306";
         $pdo = new PDO($dsn, "root", "");
         return $pdo;
     }
