@@ -1,0 +1,17 @@
+.btn-location {
+    font-family: Raleway-SemiBold;
+    font-size: 15px;
+    color: black;
+    letter-spacing: 1px;
+    line-height: 15px;
+    border: 2px solid lightgray;
+    border-radius: 40px;
+    background: transparent;
+    transition: all 0.3s ease 0s;
+  }
+  
+  .btn-location:hover {
+    color: black;
+    background: transparent;
+    border: 2px solid gray;
+  }
