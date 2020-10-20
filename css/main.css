@@ -27,6 +27,16 @@ body {
     height: 70px;
     width: 250px;
 }
+
+/* Registration / Sign in modal */
+.modalFormImage {
+    height: 70px;
+    width: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* ================= */
   
 /* Content */
@@ -45,7 +55,6 @@ body {
     height: 85px;
     width: 85px;
     opacity: 25%;
-    display: block;
     display: block;
     margin-left: auto;
     margin-right: auto;
