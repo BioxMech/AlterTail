@@ -40,6 +40,29 @@ class UserDAO {
         $pdo = null;
         return $isAddOK;
     }
+
+    function getHashedPassword($username) {
+        $conn = new ConnectionManager();
+        $pdo = $conn->getConnection();
+
+        $sql = "SELECT * from user where username = :username";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':username',$username,PDO::PARAM_STR);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+        $stmt->execute();
+        if ($row = $stmt->fetch()) {
+            $hashed_password = $row['pw'];
+        }
+        else {
+            $hashed_password = FALSE;
+        }
+
+        $stmt->closeCursor();
+        $pdo = null;
+
+        return $hashed_password;
+    }
 }
 
 

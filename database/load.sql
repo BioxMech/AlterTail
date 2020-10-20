@@ -4,7 +4,7 @@ create table user
  lname varchar(50) not null,
  gender varchar(10) not null,
  username varchar(20) not null,
- pw varchar(30) not null,
+ pw varchar(100) not null,
  phone varchar(10) not null,
  street_address varchar(50) not null,
  unit varchar(20),
