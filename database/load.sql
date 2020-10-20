@@ -15,7 +15,6 @@ create table user
  street_address varchar(50) not null,
  unit varchar(20),
  postal_code varchar(6) not null,
- shopname varchar(20),
  constraint user_pk primary key(email)
  );
 

@@ -11,10 +11,10 @@ class User {
     public $street_address;
     public $unit;
     public $postal_code;
-    public $shopname;
+    
 
     //construct User object
-    function __construct($email,$fname,$lname,$gender,$username,$pw,$phone,$street_address,$unit,$postal_code,$shopname) {
+    function __construct($email,$fname,$lname,$gender,$username,$pw,$phone,$street_address,$unit,$postal_code) {
         $this->email = $email;
         $this->fname = $fname;
         $this->lname = $lname;
@@ -25,7 +25,7 @@ class User {
         $this->street_address = $street_address;
         $this->unit = $unit;
         $this->postal_code = $postal_code;
-        $this->shopname = $shopname;
+        
     }
 
     // getter methods
