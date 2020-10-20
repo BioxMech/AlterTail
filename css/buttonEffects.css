@@ -39,7 +39,7 @@
   border-bottom: 2px solid #262626;
   transform: scaleY(2);
   opacity: 0;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 #navbarNav ul li a:after {
   content: "";
@@ -51,7 +51,7 @@
   background-color: #262626;
   transform: scale(0);
   opacity: 0;
-  transition: 0.3s;
+  transition: 0.5s;
   z-index: -1;
 }
 #navbarNav ul li a:hover {

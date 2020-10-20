@@ -94,27 +94,38 @@
     <!-- End Navigation Bar -->
     
     <!-- Main Header -->
-    <div class="container-fluid mainHeader bg-dark text-white ">
-        <h1>Alteration Services</h1>
-        <video width="1280" height="720" autoplay muted loop poster="video.jpg" id="videobg">
-            <source src="videos/background.mp4" type="video/mp4">
-        </video>
-    </div>
+    <header>
+      <div class="overlay"></div>
+      <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+        <source src="videos/background.mp4" type="video/mp4">
+      </video>
+      <div class="container h-100">
+        <div class="d-flex h-100 text-center align-items-center">
+          <div class="w-100 text-white">
+            <h1 class="display-3">Alteration Services</h1>
+            <p class="lead mb-0">From alteration to tapering to fabric colour changes, you can find all these services here at AlterTail<span style="size: 1px;">&copy;</span></p>
+          </div>
+        </div>
+      </div>
+    </header>
     <!-- End of main header -->
 
-    <!-- Sorting -->
-    <div class="container">
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown button
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div>
+    <!-- Sort -->
+    <div class="container sortPosition">
+      
+      <div class="dropdown">
+        XXX Number of items found in Alteration Services
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sort By
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div>
     </div>
+    <!-- End of Sort -->
 
     <!-- Main Content -->
     <div id="mainContent" class="container main">
