@@ -117,9 +117,9 @@
 
         <div class="modal-body">
             <div class="tab-content" id="pills-tabContent">
+
+                <!-- Sign in tab -->
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-
-
                     <!-- Sign in forms -->
                     <form class="form-signin" action="backend/process_login.php" method="POST">
                         <img src="images/logo.jpg" class="modalFormImage">
@@ -138,16 +138,15 @@
                           <label class="form-check-label" for="rememberMe">Remember Me</label>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <!-- <button type="button" class="btn btn-primary">Sign in</button> -->
-                            <input type="submit" class="btn btn-primary">Sign in
-                          </div>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearAllSignin()">Close</button>
+                            <input type="submit" class="btn btn-primary" value="Sign In">
+                        </div>
                     </form>
                     <!-- End of sign in forms -->
-
-                    
-
                 </div>
+                <!-- End of Signin Tab -->
+
+                <!-- Register Tab -->
                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 
                     <!-- Register form -->
@@ -179,7 +178,7 @@
                             </div>
                           </div>
                         </div>
-                        <!-- <div class="form-check form-check-inline row">
+                        <div class="form-check form-check-inline row">
                           <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
                           <label class="form-check-label" for="exampleRadios1" style="padding-right: 5px;">
                             Male
@@ -188,7 +187,7 @@
                           <label class="form-check-label" for="exampleRadios1">
                             Female
                           </label>
-                        </div> -->
+                        </div>
                         <div class="form-label-group row">
                           <input type="number" class="form-control" id="registerPhoneNumber" placeholder="phonenumber" required="" name="phone">
                           <label for="registerPhoneNumber"></i>Phone Number</label>
@@ -205,14 +204,13 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <!-- <button type="button" class="btn btn-primary">Sign up</button> -->
-                            <input type="submit" class="btn btn-primary">Sign up
+                            <input type="submit" class="btn btn-primary" value="Sign up">
                             <small class="form-text text-muted">By clicking "SIGN UP"; I agree to AlterTail's Terms of Use and Privacy Policy</small>
                           </div>
                     </form>
                     <!-- End of register form -->
-                    
-                    
                 </div>
+                <!-- End of register tab -->
               </div>
         </div>
       </div>
@@ -564,6 +562,10 @@
 
 </footer>
 <!-- Footer -->
+
+
+    <!-- Custom JavaScript -->
+    <script src="js/form.js"></script>
 
 
     <!-- Optional JavaScript -->
