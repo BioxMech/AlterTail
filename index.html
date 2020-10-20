@@ -179,20 +179,35 @@
                             </div>
                           </div>
                         </div>
-                        <!-- <div class="form-check form-check-inline row">
-                          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                          <label class="form-check-label" for="exampleRadios1" style="padding-right: 5px;">
+                        <div class="form-check form-check-inline row">
+                          <input class="form-check-input" type="radio" name="gender" id="male_btn" value="Male">
+                          <label class="form-check-label" for="male_btn" style="padding-right: 5px;">
                             Male
                           </label>
-                          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                          <label class="form-check-label" for="exampleRadios1">
+                          <input class="form-check-input" type="radio" name="gender" id="female_btn" value="Female">
+                          <label class="form-check-label" for="female_btn">
                             Female
                           </label>
-                        </div> -->
+                        </div>
                         <div class="form-label-group row">
                           <input type="number" class="form-control" id="registerPhoneNumber" placeholder="phonenumber" required="" name="phone">
                           <label for="registerPhoneNumber"></i>Phone Number</label>
                           <small class="form-text text-muted">Please add the country code at the front, for example "+65 98763210"</small>
+                        </div>
+                        <div class="form-label-group row">
+                          <input type="text" class="form-control" id="registerStreetAddress" placeholder="Address" required="" name="street_address">
+                          <label for="registerStreetAddress">Street Address</label>
+                          <small class="form-text text-muted">It will also be your home address.</small>
+                        </div>
+                        <div class="form-label-group row">
+                          <input type="text" class="form-control" id="registerUnit" placeholder="Unit" required="" name="unit">
+                          <label for="registerUnit">Unit</label>
+                          <small class="form-text text-muted">It will also be your unit.</small>
+                        </div>
+                        <div class="form-label-group row">
+                          <input type="text" class="form-control" id="registerPostal" placeholder="Postal" required="" name="postal_code">
+                          <label for="registerPostal">Postal Code</label>
+                          <small class="form-text text-muted">It will also be your postal code.</small>
                         </div>
                         <div class="form-label-group row">
                           <input type="password" class="form-control" id="registerPassword" placeholder="password" required="" name="pw">
@@ -205,7 +220,7 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <!-- <button type="button" class="btn btn-primary">Sign up</button> -->
-                            <input type="submit" class="btn btn-primary">Sign up
+                            <input type="submit" class="btn btn-primary">
                             <small class="form-text text-muted">By clicking "SIGN UP"; I agree to AlterTail's Terms of Use and Privacy Policy</small>
                           </div>
                     </form>
