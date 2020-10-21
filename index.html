@@ -17,7 +17,8 @@
     <!-- Title -->
     <title>AltTailor</title>
 
-    <!-- Add Title Image -->
+    <!-- Title Image -->
+    <link rel="icon" href="images/logo2.jpg" type="image/jpg">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/main.css">
@@ -27,6 +28,9 @@
     <link rel="stylesheet" href="css/buttonEffects.css">
     <link rel="stylesheet" href="css/hamburger.css">
     <link rel="stylesheet" href="css/form.css">
+
+    <!-- Vue.js CDN V2.x.x -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
   </head>
   <body>
@@ -40,67 +44,66 @@
             <img src="images/logo.jpg" class="d-inline-block align-top navBarLogo" loading="lazy">
         </a>
   
-                <!-- Hamburger Name -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
+        <!-- Hamburger Name -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
   
                 
   
-                <!-- Collapse Content (Nav Bar) -->
-                <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- Collapse Content (Nav Bar) -->
+        <div class="collapse navbar-collapse" id="navbarNav">
                 
-                    <!-- Left Side Nav -->
-                    <ul class="navbar-nav mr-auto" id="leftSideNav">
-                        <li class="nav-item">
-                            <a class="nav-link current" href="index.html" style="padding-bottom:unset;" >Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="allTailorPage.html" style="padding-bottom:unset;" >Tailoring</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="allAlterationPage.html" style="padding-bottom:unset;" >Alteration</a>
-                        </li>
-                        <li class="nav-item">
-                            <!-- Dropdown menu -->
-                            <div class="dropdown">
-                                <a class="nav-link" href="#" style="padding-bottom:unset;" 
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cleaning</a>
-                                <!-- Options -->
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="allBagCleaningPage.html">Bag Cleaning</a>
-                                    <a class="dropdown-item" href="allDryCleaningPage.html">Dry Cleaning</a>
-                                </div>
-                                <!-- Options -->
-                            </div>
-                            <!-- End of dropdown menu -->
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="aboutUs.html" style="padding-bottom:unset;" >About Us</a>
-                        </li>
-                      </ul>
+            <!-- Left Side Nav -->
+            <ul class="navbar-nav mr-auto" id="leftSideNav">
+                <li class="nav-item">
+                    <a class="nav-link current" href="index.html" style="padding-bottom:unset;" >Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="allTailorPage.html" style="padding-bottom:unset;" >Tailoring</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="allAlterationPage.html" style="padding-bottom:unset;" >Alteration</a>
+                </li>
+                <li class="nav-item">
+                    <!-- Dropdown menu -->
+                    <div class="dropdown">
+                        <a class="nav-link" href="#" style="padding-bottom:unset;" 
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cleaning</a>
+                        <!-- Options -->
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="allBagCleaningPage.html">Bag Cleaning</a>
+                            <a class="dropdown-item" href="allDryCleaningPage.html">Dry Cleaning</a>
+                        </div>
+                        <!-- Options -->
+                    </div>
+                    <!-- End of dropdown menu -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="aboutUs.html" style="padding-bottom:unset;" >About Us</a>
+                </li>
+            </ul>      
 
-                      
+            <!-- Right Side -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <form>
+                        <input type="text" class="searchBar" placeholder="Search Shop Names">
+                    </form>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="registerSignin" data-target="#registerSigninModal">Register / Sign in</a>
+                </li>
+            </ul>
+            <!-- End of right side -->
 
-                    <ul class="navbar-nav ml-auto">
-                      <li class="nav-item">
-                        <!-- ============================================================================================================================= -->
-                        <form>
-                          <input type="search" placeholder="Search Shop Names">
-                        </form>
-                        <!-- ============================================================================================================================= -->
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="registerSignin" data-target="#registerSigninModal">Register / Sign in</a>
-                      </li>
-                    </ul>
-                </div>
-                <!-- End of collapse content (Nav Bar) -->
+        </div>
+        <!-- End of collapse content (Nav Bar) -->
     </nav>
     <!-- End Navigation Bar -->
 
 
-  <!-- Start of Register/Sign up modal -->
+    <!-- Start of Register/Sign up modal -->
   <div class="modal fade" id="registerSigninModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
       <div class="modal-content">
@@ -164,7 +167,7 @@
                           <small class="form-text text-muted">It will also be your display name.</small>
                         </div>
                         
-                        <div class="form-row row">
+                        <!-- <div class="form-row row">
                           <div class="col-sm-6">
                             <div class="form-label-group">
                               <input type="text" class="form-control" id="registerFirstName" placeholder="firstName" required="" name="fname">
@@ -177,6 +180,11 @@
                               <label for="registerLastName"></i>Last Name</label>
                             </div>
                           </div>
+                        </div> -->
+
+                        <div class="form-label-group row">
+                            <input type="text" class="form-control" id="registerName" placeholder="email" required="" name="name">
+                            <label for="registerName">Name</label>
                         </div>
                         <div class="form-check form-check-inline row">
                           <input class="form-check-input" type="radio" name="gender" id="male_btn" value="Male">
@@ -196,17 +204,16 @@
                         <div class="form-label-group row">
                           <input type="text" class="form-control" id="registerStreetAddress" placeholder="Address" required="" name="street_address">
                           <label for="registerStreetAddress">Street Address</label>
-                          <small class="form-text text-muted">It will also be your home address.</small>
+                          <small class="form-text text-muted">Street name, street number and block number</small>
                         </div>
                         <div class="form-label-group row">
                           <input type="text" class="form-control" id="registerUnit" placeholder="Unit" required="" name="unit">
                           <label for="registerUnit">Unit</label>
-                          <small class="form-text text-muted">It will also be your unit.</small>
                         </div>
                         <div class="form-label-group row">
                           <input type="text" class="form-control" id="registerPostal" placeholder="Postal" required="" name="postal_code">
                           <label for="registerPostal">Postal Code</label>
-                          <small class="form-text text-muted">It will also be your postal code.</small>
+                          <small class="form-text text-muted">For example: S512678</small>
                         </div>
                         <div class="form-label-group row">
                           <input type="password" class="form-control" id="registerPassword" placeholder="password" required="" name="pw">
@@ -221,7 +228,7 @@
                             <!-- <button type="button" class="btn btn-primary">Sign up</button> -->
                             <input type="submit" class="btn btn-primary" value="Sign up">
                             <small class="form-text text-muted">By clicking "SIGN UP"; I agree to AlterTail's Terms of Use and Privacy Policy</small>
-                          </div>
+                        </div>
                     </form>
                     <!-- End of register form -->
                 </div>
@@ -571,7 +578,7 @@
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="#">AlterTail.co</a>
+    <a href="aboutus.html">AlterTail.co</a>
   </div>
   <!-- Copyright -->
 
@@ -588,11 +595,20 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <!-- <script type="text/javascript" src="node_modules/mdbootstrap/js/jquery.min.js"></script>
-    <script type="text/javascript" src="node_modules/mdbootstrap/js/popper.min.js"></script>
-    <script type="text/javascript" src="node_modules/mdbootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="node_modules/mdbootstrap/js/mdb.min.js"></script>   -->
 
+
+    <!-- Custom Vue.Js -->
+    <script>
+        var app = new Vue({
+            el: "root",
+            data: {
+
+            },
+            methods: {
+
+            }
+        })
+    </script>
 
   </body>
 </html>
