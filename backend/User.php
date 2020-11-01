@@ -3,7 +3,6 @@
 class User {
     public $email;
     public $fname;
-    public $lname;
     public $gender;
     public $username;
     public $pw;
@@ -14,10 +13,9 @@ class User {
     
 
     //construct User object
-    function __construct($email,$fname,$lname,$gender,$username,$pw,$phone,$street_address,$unit,$postal_code) {
+    function __construct($email,$fname,$gender,$username,$pw,$phone,$street_address,$unit,$postal_code) {
         $this->email = $email;
         $this->fname = $fname;
-        $this->lname = $lname;
         $this->gender = $gender;
         $this->username = $username;
         $this->pw = $pw;
@@ -37,9 +35,6 @@ class User {
         return $this->fname;
     }
 
-    public function getLName() {
-        return $this->lname;
-    }
 
     public function getGender() {
         return $this->gender;

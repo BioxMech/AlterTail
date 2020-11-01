@@ -7,7 +7,6 @@ use is216;
 create table user
 (email varchar(40) not null,
  fname varchar(50) not null,
- lname varchar(50) not null,
  gender varchar(10) not null,
  username varchar(20) not null,
  pw varchar(100) not null,

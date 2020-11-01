@@ -6,13 +6,12 @@ class UserDAO {
     function add($user) {
         $conn = new ConnectionManager();
         $pdo = $conn->getConnection();
-        $sql = 'insert into user (email, fname, lname, gender, username, pw, phone, street_address, unit, postal_code)
-                    values (:email, :fname, :lname, :gender, :username, :pw, :phone, :street_address, :unit, :postal_code)';
+        $sql = 'insert into user (email, fname, gender, username, pw, phone, street_address, unit, postal_code)
+                    values (:email, :fname, :gender, :username, :pw, :phone, :street_address, :unit, :postal_code)';
 
         $stmt = $pdo->prepare($sql);
         $email = $user->getEmail();
         $fname = $user->getFName();
-        $lname = $user->getLName();
         $gender = $user->getGender();
         $username = $user->getUsername();
         $pw = $user->getPw();
@@ -25,7 +24,6 @@ class UserDAO {
         
         $stmt->bindParam(':email',$email,PDO::PARAM_STR);
         $stmt->bindParam(':fname',$fname,PDO::PARAM_STR);
-        $stmt->bindParam(':lname',$lname,PDO::PARAM_STR);
         $stmt->bindParam(':gender',$gender,PDO::PARAM_STR);
         $stmt->bindParam(':username',$username,PDO::PARAM_STR);
         $stmt->bindParam(':pw',$hashed,PDO::PARAM_STR);
