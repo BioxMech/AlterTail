@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -26,31 +28,29 @@
     <link rel="stylesheet" href="css/animation.css">
     <!-- <link rel="stylesheet" href="css/buttons.css"> -->
     <link rel="stylesheet" href="css/buttonEffects.css">
-    <link rel="stylesheet" href="css/hamburger.css">
     <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/inputAnimation.css">
 
-    <!-- Vue.js CDN V2.x.x -->
+    <!-- Vue.js CDN V2 & Axios -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
   </head>
   <body>
-    <!-- Spinners (loading screen) -->
-    <!-- <div class="loader">Loading...</div> -->
-    <!-- End of Spinners -->
 
     <!-- Start Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light" >
-        <a class="navbar-brand" href="index.html">
-            <img src="images/logo.jpg" class="d-inline-block align-top navBarLogo" loading="lazy">
-        </a>
+        
   
         <!-- Hamburger Name -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler mr-4" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
   
-                
-  
+        <a class="navbar-brand mr-auto" href="index.html">
+            <img src="images/logo.jpg" class="d-inline-block align-top navBarLogo" loading="lazy">
+        </a>
+        
         <!-- Collapse Content (Nav Bar) -->
         <div class="collapse navbar-collapse" id="navbarNav">
                 
@@ -92,7 +92,7 @@
                     </form>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="registerSignin" data-target="#registerSigninModal">Register / Sign in</a>
+                    <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="registerSignin" data-target="#registerSigninModal">Register / Login</a>
                 </li>
             </ul>
             <!-- End of right side -->
@@ -111,7 +111,7 @@
         <!-- Tabs -->
         <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
-              <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Sign in</a>
+              <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Login</a>
             </li>
             <li class="nav-item" role="presentation">
               <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Register</a>
@@ -124,21 +124,42 @@
                 <!-- Sign in tab -->
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                     <!-- Sign in forms -->
-                    <form class="form-signin" action="backend/process_login.php" method="POST">
+                    <!-- <form class="form-signin" method="POST" id="root"> -->
+                    <form class="form-signin needs-validation" action="backend/process_login.php" method="POST" novalidate>
 
                         <img src="images/logo.jpg" class="modalFormImage">
-                        <h4><i class="far fa-star"></i>Welcome to AlterTail<i class="far fa-star"></i></h4>
-                        <h5>All-in-one clothing to bag alteration/tailoring/cleaning services platform</h5>
+                        <h5 class="modalDescription mb-4">All-in-one tailoring/alteration/cleaning services platform</h5>
 
-                        <i class="fas fa-envelope prefix"></i>
-                        <div class="form-label-group row">
-                          <input type="text" class="form-control" id="signinEmail" placeholder="email" required="">
-                          <label for="signinEmail">Email Address</label>
+                        
+                        <div class="form-group row">
+                          <i class="fas fa-envelope prefix modalIcon"></i>
+                          <div class="col-sm-11 ml-auto">
+                            <div class="form-label-group row">
+                              <input type="text" class="form-control modalInput" id="signinEmail" placeholder="email" required="" name="email" v-model="email">
+                              <span class="border"></span>
+                              <label for="signinEmail">Email Address</label>
+                            </div>
+                          </div>
                         </div>
-                        <i class="fas fa-lock prefix"></i>
-                        <div class="form-label-group row">
-                          <input type="password" class="form-control" id="signinPassword" placeholder="password" required="">
-                          <label for="signinPassword"></i>Password</label>
+                        
+                        <div class="form-group row">
+                          <i class="fas fa-lock prefix modalIcon"></i>
+                          <div class="col-sm-11 ml-auto">
+                            <div class="form-label-group row">
+                            <input type="password" class="form-control modalInput" id="psw" placeholder="password" required="" name="password" v-model="password">
+                            <span class="border"></span>
+                            <label for="psw"></i>Password</label>
+                          </div>
+                        </div>
+
+                        <div id="message">
+                          <h3>Password must contain the following:</h3>
+                          <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                          <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                          <p id="number" class="invalid">A <b>number</b></p>
+                          <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                        </div>
+                        
                         </div>
                         <div class="form-group form-check row">
                           <input type="checkbox" class="form-check-input" id="rememberMe">
@@ -146,7 +167,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearAllSignin()">Close</button>
-                            <input type="submit" class="btn btn-primary" value="Sign In">
+                            <input type="submit" class="btn btn-primary" value="Sign in">
                         </div>
                     </form>
                     <!-- End of sign in forms -->
@@ -159,9 +180,8 @@
                     <!-- Register form -->
                     <form class="form-signin" action="backend/process_register.php" method="POST">
                         <img src="images/logo.jpg" class="modalFormImage">
-                        <h4><i class="far fa-star"></i>Welcome to AlterTail<i class="far fa-star"></i></h4>
-                        <h5>All-in-one clothing to bag alteration/tailoring/cleaning services platform</h5>
-                        <h5>Sign up with us now to get your clothing or bag cleaned, altered or tailored!!!</h5>
+                        <h5 class="modalDescription mb-4">All-in-one tailoring/alteration/cleaning services platform
+                        <br>Sign up with us now to get your clothing or bag cleaned, altered or tailored!</h5>
 
                         <div class="form-label-group row">
                           <input type="text" class="form-control" id="registerEmail" placeholder="email" required="" name="email">
@@ -189,22 +209,43 @@
                             </div>
                           </div>
                         </div> -->
-
-                        <div class="form-label-group row">
-                            <input type="text" class="form-control" id="registerName" placeholder="email" required="" name="name">
+                        <div class="form-group">
+                          <div class="form-label-group row">
+                            <input type="text" class="form-control" id="registerName" placeholder="email" required name="name" pattern="^[a-z]{2,15}$">
                             <label for="registerName">Name</label>
+                            <small class="form-text text-muted">First name + Last Name | For example: Bob Dylan</small>
+                          </div>
+                        </div>
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+                        
+                        <div class="form-check form-check-inline row">
+                          Gender: 
                         </div>
                         <div class="form-check form-check-inline row">
                           <input class="form-check-input" type="radio" name="gender" id="male_btn" value="Male">
                           <label class="form-check-label" for="male_btn" style="padding-right: 5px;">
                             Male
                           </label>
+                        </div>
+                        <div class="form-check form-check-inline row mb-3">
                           <input class="form-check-input" type="radio" name="gender" id="female_btn" value="Female">
                           <label class="form-check-label" for="female_btn">
                             Female
                           </label>
                         </div>
-                        <div class="form-label-group row">
+                        <div class="form-label-group row" >
                           <input type="number" class="form-control" id="registerPhoneNumber" placeholder="phonenumber" required="" name="phone">
                           <label for="registerPhoneNumber"></i>Phone Number</label>
                           <small class="form-text text-muted">Please add the country code at the front, for example "+65 98763210"</small>
@@ -215,8 +256,9 @@
                           <small class="form-text text-muted">Street name, street number and block number</small>
                         </div>
                         <div class="form-label-group row">
-                          <input type="text" class="form-control" id="registerUnit" placeholder="Unit" required="" name="unit">
+                          <input type="text" class="form-control" id="registerUnit" placeholder="Unit" name="unit">
                           <label for="registerUnit">Unit</label>
+                          <small class="form-text text-muted">For example: #05-64</small>
                         </div>
                         <div class="form-label-group row">
                           <input type="text" class="form-control" id="registerPostal" placeholder="Postal" required="" name="postal_code">
@@ -235,8 +277,8 @@
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <!-- <button type="button" class="btn btn-primary">Sign up</button> -->
                             <input type="submit" class="btn btn-primary" value="Sign up">
-                            <small class="form-text text-muted">By clicking "SIGN UP"; I agree to AlterTail's Terms of Use and Privacy Policy</small>
                         </div>
+                        <small class="form-text text-muted">By clicking "SIGN UP"; I agree to AlterTail's Terms of Use and Privacy Policy</small>
                     </form>
                     <!-- End of register form -->
                 </div>
@@ -538,18 +580,6 @@
   <!-- Footer Links -->
 
   <!-- <hr> -->
-
-  <!-- Call to action -->
-  <!-- <ul class="list-unstyled list-inline text-center py-2">
-    <li class="list-inline-item">
-      <h5 class="mb-1">Register for free</h5>
-    </li>
-    <li class="list-inline-item">
-      <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
-    </li>
-  </ul> -->
-  <!-- Call to action -->
-
   <hr>
 
   <!-- Social buttons -->
@@ -571,11 +601,11 @@
         <i class="fab fa-google-plus-g"> </i>
       </a>
     </li> -->
-    <li class="list-inline-item">
+    <!-- <li class="list-inline-item">
       <a class="btn-floating btn-li mx-1">
         <i class="fab fa-linkedin-in"> </i>
       </a>
-    </li>
+    </li> -->
     <!-- <li class="list-inline-item">
       <a class="btn-floating btn-dribbble mx-1">
         <i class="fab fa-dribbble"> </i>
@@ -596,6 +626,7 @@
 
     <!-- Custom JavaScript -->
     <script src="js/form.js"></script>
+    <script src="js/validation.js"></script>
 
 
     <!-- Optional JavaScript -->
@@ -604,13 +635,15 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
 
     <!-- Custom Vue.Js -->
     <script>
         var app = new Vue({
-            el: "root",
+            el: "#root",
             data: {
-
+              
             },
             methods: {
 

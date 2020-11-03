@@ -38,9 +38,61 @@ body {
     margin-bottom: 15px;
 }
 
-.nav-pills > li > a.active {
-    background-color: #121212!important;
+.nav-pills > li > a {
+  color: black;
 }
+
+.nav-pills > li > a.active {
+  background-color: #121212!important;
+}
+
+.modalDescription {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: black;
+  font-family: 'Copperplate';
+}
+
+.modalIcon {
+  font-size: 30px;
+  text-align: left;
+  margin-top: 1%;
+}
+
+.modalInput {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px solid #929fba;
+}
+
+/* Removes the outline when focus */
+.form-control:focus {
+  border-color: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/* Focus animation */
+.modalInput ~ .border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+}
+
+.modalInput:focus ~ .border {
+  width: 100%;
+  transition: 0.5s;
+}
+
+.border {
+  border: 1px solid black !important;
+  width: 0;
+}
+/* End of focus animation */
 
 /* ================= */
   
@@ -152,3 +204,97 @@ header {
   
 /* ================= */
 
+
+
+
+.button {
+  display: inline-block;
+  padding: .75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: .15rem;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.button:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0cf;
+  border-radius: 10rem;
+  z-index: -2;
+}
+.button:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #008fb3;
+  transition: all .3s;
+  border-radius: 10rem;
+  z-index: -1;
+}
+.button:hover {
+  color: #fff;
+}
+.button:hover:before {
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* The message box is shown when the user clicks on the password field */
+/* #message {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+} */
+
+/* Add a green text color and a checkmark when the requirements are right */
+/* .valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "✔";
+} */
+
+/* Add a red text color and an "x" when the requirements are wrong */
+/* .invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "✖";
+} */

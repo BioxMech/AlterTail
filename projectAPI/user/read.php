@@ -28,7 +28,7 @@ if($num>0) {
         $item = array(
             "email" => $email,
             "fname" => $fname,
-            "lname" => $lname,
+            // "lname" => $lname,
             "gender" => $gender,
             "username" => $username,
             "pw" => $pw,
@@ -36,7 +36,7 @@ if($num>0) {
             "street_address" => $street_address,
             "unit" => $unit,
             "postal_code" => $postal_code,
-            "shopname" => $shopname
+            // "shopname" => $shopname
         );
         array_push($result_arr["records"], $item);
     }

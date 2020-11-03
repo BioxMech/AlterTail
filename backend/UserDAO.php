@@ -39,13 +39,13 @@ class UserDAO {
         return $isAddOK;
     }
 
-    function getHashedPassword($username) {
+    function getHashedPassword($email) {
         $conn = new ConnectionManager();
         $pdo = $conn->getConnection();
 
-        $sql = "SELECT * from user where username = :username";
+        $sql = "SELECT * from user where email = :email";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':username',$username,PDO::PARAM_STR);
+        $stmt->bindParam(':email',$email,PDO::PARAM_STR);
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
         $stmt->execute();
