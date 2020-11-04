@@ -1,8 +1,8 @@
-drop database if exists is216;
+drop database if exists AlterTail;
 
-create database is216;
+create database AlterTail;
 
-use is216;
+use AlterTail;
 
 create table user
 (email varchar(40) not null,

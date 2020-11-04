@@ -27,6 +27,14 @@ body {
     height: 70px;
     width: 250px;
 }
+.navInfo {
+    text-align: center;
+}
+
+.navInfoDescription{
+    text-align: center;
+    
+}
 
 /* Registration / Sign in modal */
 .modalFormImage {

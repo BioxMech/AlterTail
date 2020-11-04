@@ -34,6 +34,26 @@ class User {
     }
 
 
+    public function verification($username, $password) {
+        
+        // hash the password
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+        // select all query
+        $query = "SELECT * FROM user WHERE username = ? AND pw = ?";
+
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        // bind
+        $stmt->bindParam(1, $username);
+        $stmt->bindParam(2, $hashedPassword);
+
+        // execute query
+        $stmt->execute();
+
+        return $stmt;
+    }
 
 
 }
