@@ -15,10 +15,10 @@ $db = $database->getConnection();
 $user = new User($db);
 
 // get search query
-if( isset($_GET["un"]) && isset($_GET["pw"]) && sizeof($_GET) == 2 ) {
+if( isset($_GET["un"]) ) {
     // Gender and Year
-    $stmt = $user->verification($_GET["un"], $_GET["pw"]);
-
+    $stmt = $user->verification($_GET["un"]);
+    
 }
 else {
     // set response code - 404 Not found
@@ -45,13 +45,30 @@ if($num > 0) {
         // this will make $row['name'] to
         // just $name only
         extract($row);
-  
-        $item = array(
+        
+        $status = password_verify($_GET["pw"], $pw);
+
+        if ($status) {
+            $item = array(
             "username" => $username,
             "pw" => $pw
         );
 
         array_push($result_arr["records"], $item);
+        }
+
+        
+    }
+
+    if (count($result_arr['records']) == 0) {
+        // set response code - 404 Not found
+        http_response_code(401);
+        
+        // tell the user no items found
+        echo json_encode(
+            array("message" => "Unauthorized: Incorrect password.")
+        );
+        die;
     }
 
     // Add info node (1 per response)
@@ -66,8 +83,19 @@ if($num > 0) {
   
     // show products data
     echo json_encode($result_arr);
+
+    exit;
 }
-else {
+// else {
+//     // set response code - 404 Not found
+//     http_response_code(404);
+  
+//     // tell the user no items found
+//     echo json_encode(
+//         array("message" => "No records found.")
+//     );
+// }
+
     // set response code - 404 Not found
     http_response_code(404);
   
@@ -75,5 +103,4 @@ else {
     echo json_encode(
         array("message" => "No records found.")
     );
-}
 ?>
