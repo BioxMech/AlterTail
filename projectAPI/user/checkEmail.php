@@ -15,9 +15,9 @@ $db = $database->getConnection();
 $user = new User($db);
 
 // get search query
-if( isset($_GET["un"]) ) {
-    // Gender and Year
-    $stmt = $user->verification($_GET["un"]);
+if( isset($_GET["email"]) ) {
+    // username
+    $stmt = $user->checkEmail($_GET["email"]);
     
 }
 else {
@@ -45,31 +45,16 @@ if($num > 0) {
         // this will make $row['name'] to
         // just $name only
         extract($row);
-        
-        $status = password_verify($_GET["pw"], $pw);
 
-        if ($status) {
-            $item = array(
-            "username" => $username,
-            "pw" => $pw
-        );
+        $item = array(
+            "email" => $email
+            );
 
         array_push($result_arr["records"], $item);
-        }
 
-        
     }
 
-    if (count($result_arr['records']) == 0) {
-        // set response code - 404 Not found
-        http_response_code(401);
-        
-        // tell the user no items found
-        echo json_encode(
-            array("message" => "Unauthorized: Incorrect password.")
-        );
-        die;
-    }
+   
 
     // Add info node (1 per response)
     $date = new DateTime(null, new DateTimeZone('Asia/Singapore'));
@@ -86,16 +71,7 @@ if($num > 0) {
 
     exit;
 }
-// else {
-//     // set response code - 404 Not found
-//     http_response_code(404);
-  
-//     // tell the user no items found
-//     echo json_encode(
-//         array("message" => "No records found.")
-//     );
-// }
-
+else {
     // set response code - 404 Not found
     http_response_code(404);
   
@@ -103,4 +79,6 @@ if($num > 0) {
     echo json_encode(
         array("message" => "No records found.")
     );
+}
+
 ?>

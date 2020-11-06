@@ -67,6 +67,6 @@
   }
 
   /* Disable submit button */
-  input[type="submit"]:disabled {
+  /* input[type="submit"]:disabled {
     background-color: red;
-  }
+  } */

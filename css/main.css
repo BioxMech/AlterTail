@@ -63,9 +63,11 @@ body {
 }
 
 .modalIcon {
-  font-size: 30px;
+  font-size: 27px;
   text-align: left;
-  margin-top: 1%;
+  margin-top: 2%;
+  margin-right: 0%;
+  padding-right: 0%;
 }
 
 .modalInput {
@@ -102,8 +104,10 @@ body {
 }
 /* End of focus animation */
 
+
 /* ================= */
   
+
 /* Content */
 .main {
     text-align: center;
@@ -215,7 +219,7 @@ header {
 
 
 
-.button {
+/* .button {
   display: inline-block;
   padding: .75rem 1.25rem;
   border-radius: 10rem;
@@ -256,7 +260,7 @@ header {
 }
 .button:hover:before {
   width: 100%;
-}
+} */
 
 
 

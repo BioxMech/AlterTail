@@ -29,7 +29,7 @@
     <!-- <link rel="stylesheet" href="css/buttons.css"> -->
     <link rel="stylesheet" href="css/buttonEffects.css">
     <link rel="stylesheet" href="css/form.css">
-    <link rel="stylesheet" href="css/inputAnimation.css">
+    <!-- <link rel="stylesheet" href="css/inputAnimation.css"> -->
 
     <!-- Vue.js CDN V2 & Axios -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -117,15 +117,23 @@
               <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Register</a>
             </li>
         </ul>
+        <!-- End of Tabs -->
+
+        <!-- <div class="modal-header">
+          <img src="images/logo.jpg" class="modalFormImage">
+          <h5 class="modalDescription mb-4">All-in-one tailoring/alteration/cleaning services platform</h5>
+        </div> -->
 
         <div class="modal-body">
             <div class="tab-content" id="pills-tabContent">
 
                 <!-- Sign in tab -->
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
                     <!-- Sign in forms -->
                     <!-- <form class="form-signin" method="POST" id="root"> -->
-                    <form class="form-signin needs-validation" action="backend/process_login.php" method="POST" novalidate>
+                    <!-- <form class="form-signin" action="backend/process_login.php" method="POST" id="signInForm"> -->
+                      <form class="form-signin" action="javascript:void(0);" method="POST" id="signInForm">
 
                         <img src="images/logo.jpg" class="modalFormImage">
                         <h5 class="modalDescription mb-4">All-in-one tailoring/alteration/cleaning services platform</h5>
@@ -135,9 +143,11 @@
                           <i class="fas fa-envelope prefix modalIcon"></i>
                           <div class="col-sm-11 ml-auto">
                             <div class="form-label-group row">
-                              <input type="text" class="form-control modalInput" id="signinEmail" placeholder="email" required="" name="email" v-model="email">
+                              <input type="text" class="form-control modalInput" id="signinEmail" placeholder="email" required name="email" 
+                              v-model="signInEmail">
                               <span class="border"></span>
                               <label for="signinEmail">Email Address</label>
+                              <div v-if="display1"> {{ emailOutcome }} </div>
                             </div>
                           </div>
                         </div>
@@ -146,28 +156,22 @@
                           <i class="fas fa-lock prefix modalIcon"></i>
                           <div class="col-sm-11 ml-auto">
                             <div class="form-label-group row">
-                            <input type="password" class="form-control modalInput" id="psw" placeholder="password" required="" name="password" v-model="password">
+                            <input type="password" class="form-control modalInput" id="psw" placeholder="password" required="" name="password" 
+                            v-model="signInPassword">
                             <span class="border"></span>
                             <label for="psw"></i>Password</label>
+                            <div v-if="display2"> {{ passwordOutcome }} </div>
                           </div>
-                        </div>
-
-                        <div id="message">
-                          <h3>Password must contain the following:</h3>
-                          <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-                          <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-                          <p id="number" class="invalid">A <b>number</b></p>
-                          <p id="length" class="invalid">Minimum <b>8 characters</b></p>
                         </div>
                         
                         </div>
                         <div class="form-group form-check row">
-                          <input type="checkbox" class="form-check-input" id="rememberMe">
+                          <input type="checkbox" class="form-check-input" id="rememberMe" required>
                           <label class="form-check-label" for="rememberMe">Remember Me</label>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearAllSignin()">Close</button>
-                            <input type="submit" class="btn btn-primary" value="Sign in">
+                            <input type="submit" class="btn btn-primary" value="Sign in" @click="verify">
                         </div>
                     </form>
                     <!-- End of sign in forms -->
@@ -178,21 +182,27 @@
                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 
                     <!-- Register form -->
-                    <form class="form-signin" action="backend/process_register.php" method="POST">
+                    <form class="form-signin needs-validation" id="myForm1" action="backend/process_register.php" method="POST" autocomplete="off">
                         <img src="images/logo.jpg" class="modalFormImage">
                         <h5 class="modalDescription mb-4">All-in-one tailoring/alteration/cleaning services platform
                         <br>Sign up with us now to get your clothing or bag cleaned, altered or tailored!</h5>
 
                         <div class="form-label-group row">
-                          <input type="text" class="form-control" id="registerEmail" placeholder="email" required="" name="email">
+                          <input type="text" class="form-control" id="registerEmail" placeholder="email" required="" name="email"
+                          pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" v-model="registerEmail" v-on:change="checkEmail">
                           <label for="registerEmail">Email Address</label>
                           <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                          <div class="valid-feedback" v-bind:style="emailValidStyle"> {{ emailValid }} </div>
+                          <div class="invalid-feedback">The email address entered is invalid</div>
                         </div>
 
                         <div class="form-label-group row">
-                          <input type="text" class="form-control" id="registerUserName" placeholder="email" required="" name="username">
-                          <label for="registerUserName">Username</label>
+                          <input type="text" class="form-control" id="registerUsername" placeholder="username" required="" name="username" 
+                          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{3,}" v-model="registerUsername" v-on:change="checkUsername">
+                          <label for="registerUsername">Username</label>
                           <small class="form-text text-muted">It will also be your display name.</small>
+                          <div class="valid-feedback" v-bind:style="usernameValidStyle"> {{ usernameValid }} </div>
+                          <div class="invalid-feedback">Username needs to be at least 3 characters long</div>
                         </div>
                         
                         <!-- <div class="form-row row">
@@ -209,11 +219,15 @@
                             </div>
                           </div>
                         </div> -->
+
                         <div class="form-group">
                           <div class="form-label-group row">
-                            <input type="text" class="form-control" id="registerName" placeholder="email" required name="name">
+                            <input type="text" class="form-control" id="registerName" placeholder="name" name="name" pattern="^[a-zA-Z]{5,}$" 
+                            v-model="registerName" v-on:blur="display" v-on:focus="display" required>
                             <label for="registerName">Name</label>
                             <small class="form-text text-muted">First name + Last Name | For example: Bob Dylan</small>
+                            <div class="valid-feedback">You have a nice name.</div>
+                            <div class="invalid-feedback">A to Z only (5 to 15 long)</div>
                           </div>
                         </div>
 
@@ -232,30 +246,75 @@
                             Female
                           </label>
                         </div>
+
                         <div class="form-label-group row" >
-                          <input type="number" class="form-control" id="registerPhoneNumber" placeholder="phonenumber" required="" name="phone">
+                          <input type="number" class="form-control" id="registerPhoneNumber" placeholder="Phone Number" required="" name="phone" pattern="[0-9]{8,8}">
                           <label for="registerPhoneNumber"></i>Phone Number</label>
-                          <small class="form-text text-muted">Please add the country code at the front, for example "+65 98763210"</small>
+                          <small class="form-text text-muted">For example "98763210"</small>
+                          <div class="valid-feedback">Your phone number looks good!</div>
+                          <div class="invalid-feedback">Your phone number is invalid.</div>
                         </div>
+
                         <div class="form-label-group row">
-                          <input type="text" class="form-control" id="registerStreetAddress" placeholder="Address" required="" name="street_address">
+                          <input type="text" class="form-control" id="registerStreetAddress" placeholder="Address" required="" name="street_address" pattern="^[a-zA-Z0-9]{10,}$">
                           <label for="registerStreetAddress">Street Address</label>
                           <small class="form-text text-muted">Street name, street number and block number</small>
+                          <div class="valid-feedback">Your street address looks good!</div>
+                          <div class="invalid-feedback">Your street address is invalid.</div>
                         </div>
+
                         <div class="form-label-group row">
-                          <input type="text" class="form-control" id="registerUnit" placeholder="Unit" name="unit">
+                          <input type="text" class="form-control" id="registerUnit" placeholder="Unit" name="unit" pattern="(?=.*\d)[-]?.{5,6}" required>
                           <label for="registerUnit">Unit</label>
-                          <small class="form-text text-muted">For example: #05-64</small>
+                          <small class="form-text text-muted">For example: 05-64</small>
+                          <div class="valid-feedback">Your unit number looks good!</div>
+                          <div class="invalid-feedback">Your unit number is invalid.</div>
                         </div>
+
                         <div class="form-label-group row">
-                          <input type="text" class="form-control" id="registerPostal" placeholder="Postal" required="" name="postal_code">
+                          <input type="text" class="form-control" id="registerPostal" placeholder="Postal" required name="postal_code" pattern="(?=.*\d).{6,6}">
                           <label for="registerPostal">Postal Code</label>
-                          <small class="form-text text-muted">For example: S512678</small>
+                          <small class="form-text text-muted">For example: 512678</small>
+                          <div class="valid-feedback">Your postal code looks good!</div>
+                          <div class="invalid-feedback">Your postal code is invalid.</div>
                         </div>
+                        
                         <div class="form-label-group row">
-                          <input type="password" class="form-control" id="registerPassword" placeholder="password" required="" name="pw">
+                          <input type="password" class="form-control" id="registerPassword" placeholder="password" required="" name="pw"
+                          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" v-model="registerPassword" v-on:blur="display" v-on:focus="display" required>
                           <label for="registerPassword"></i>Password</label>
+                          
+                          <span id="togglePassword1">Show&nbsp</span>password: <i class="fa fa-eye-slash mt-1" id="eye" aria-hidden="true"  class="bg-dark" onclick="if (registerPassword.type == 'text') registerPassword.type = 'password';
+                          else registerPassword.type = 'text'; switchEye()" ></i>
+
+                          <div class="valid-feedback">Your password meets all the requirements!</div>
+                          <div v-if="show" class="invalid-feedback"> 
+                            <ul style="list-style-type: none;">
+                              <li>
+                                <span class="text-success">
+                                  {{ passwordLength() }}</span>
+                                <div v-if="hideLength">✖ Minimum of 6 to 18 characters long</div>
+                              </li>
+                              <li>
+                                <span class="text-success">
+                                  {{ passwordLower() }}</span>
+                                <div v-if="hideLower">✖ MUST contain at least one lowercase letter.</div>
+                              </li>
+                              <li>
+                                <span class="text-success">
+                                  {{ passwordUpper() }}</span>
+                                <div v-if="hideUpper">✖ MUST contain at least one uppercase letter.</div>
+                              </li>
+                              <li>
+                                <span class="text-success">
+                                  {{ passwordNumber() }}</span>
+                                <div v-if="hideNumber">✖ MUST contain at least one number.</div>
+                              </li>
+                            </ul>
+                          </div>
+
                         </div>
+                        
                         <div class="form-group form-check row">
                           <input type="checkbox" class="form-check-input" id="registerPromotion">
                           <label class="form-check-label" for="registerPromotion">I'd like to receive exclusive offers and promotions via SMS</label>
@@ -454,13 +513,6 @@
     <!-- End of Main Content -->
 
 
-
-
-
-
-
-
-
 <!-- Footer -->
 <footer class="page-footer font-small text-white bg-dark pt-4" >
 
@@ -613,7 +665,6 @@
 
     <!-- Custom JavaScript -->
     <script src="js/form.js"></script>
-    <script src="js/validation.js"></script>
 
 
     <!-- Optional JavaScript -->
@@ -628,15 +679,236 @@
     <!-- Custom Vue.Js -->
     <script>
         var app = new Vue({
-            el: "#root",
+            el: "#myForm1",
             data: {
-              
+              show: false,
+              registerName: '',
+              registerPassword: '',
+              hideLength: true,
+              hideUpper: true,
+              hideLower: true,
+              hideNumber: true,
+              registerUsername: '',
+              registerEmail: '',
+              usernameValid: '',
+              usernameValidStyle: {
+                color: 'red'
+              },
+              emailValid: '',
+              emailValidStyle: {
+                color: 'red'
+              }
             },
             methods: {
+              display: function() {
+                if (this.show == false) {
+                  this.show = true
+                }
+                else {
+                  this.show = false
+                }
+              },
+              passwordLength: function() {
+                if (this.registerPassword.length >= 6) {
+                  this.hideLength = false;
+                  return "✔ MUST contain at least 6 characters"
+                }
+                this.hideLength = true;
+                 
+              },
+              passwordUpper: function () {
+                if (/[A-Z]/.test(this.registerPassword)) {
+                  this.hideUpper = false;
+                  return "✔ MUST contain at least one uppercase letter."
+                }
+                this.hideUpper = true;
+              },
+              passwordLower: function () {
+                if (/[a-z]/.test(this.registerPassword)) {
+                  this.hideLower = false;
+                  return "✔ MUST contain at least one lowercase letter."
+                }
+                this.hideLower = true;
+              },
+              passwordNumber: function () {
+                if (/[\d]/.test(this.registerPassword)) {
+                  this.hideNumber = false;
+                  return "✔ MUST contain at least one number."
+                }
+                this.hideNumber = true;
+              },
+              checkUsername: function() {
+                // URL to an API endpoint
+                let url = 'projectAPI/user/checkUsername.php?username=' + this.registerUsername
 
+                // send a req to the above specified API endpoint
+                axios.get(url)
+                .then(response => {
+
+                  // response is the data
+                  let user_objects = response.data
+
+                  // view it
+                  // console.log(response.data)
+
+                  this.usernameValid = this.registerUsername + " already exist."
+                  this.usernameValidStyle.color = "red"
+
+                })
+                .catch(error => {
+                  // shows the status, e.g. 404
+                  // console.log(error.response.status)
+                  this.usernameValid = "You can use " + this.registerUsername + " as your username."
+                  this.usernameValidStyle.color = "green"
+                  
+                })
+              },
+              checkEmail: function() {
+                // URL to an API endpoint
+                let url = 'projectAPI/user/checkEmail.php?email=' + this.registerEmail
+
+                // send a req to the above specified API endpoint
+                axios.get(url)
+                .then(response => {
+
+                  // response is the data
+                  let user_objects = response.data
+
+                  // view it
+                  // console.log(response.data)
+
+                  this.emailValid = this.registerEmail + " already exist."
+                  this.emailValidStyle.color = "red"
+
+                })
+                .catch(error => {
+                  // shows the status, e.g. 404
+                  // console.log(error.response.status)
+                  this.emailValid = "You can use " + this.registerEmail + " as your username."
+                  this.emailValidStyle.color = "green"
+                  
+                })
+              }
             }
         })
+
+        // var validation = new Vue({
+        //   el: '#signInForm',
+        //   data: {
+        //     emailOutcome: '',
+        //     passwordOutcome: '',
+        //     display1: false,
+        //     display2: false,
+        //     signInEmail: '',
+        //     signInPassword: ''
+        //   },
+        //   methods: {
+        //     verify: function() {
+        //       // URL to an API endpoint
+        //       let url = 'projectAPI/user/verification.php?email=' + this.signInEmail + '&pw=' + this.signInPassword
+
+        //       // send a req to the above specified API endpoint
+        //       axios.get(url)
+        //       .then(response => {
+
+        //         // response is the data
+        //         let user_objects = response.data
+
+        //         // view it
+        //         // console.log(response.data)
+
+        //         var email = user_objects.records[0].email
+        //         var hashedPassword = user_objects.records[0].pw
+
+        //       })
+        //       .catch(error => {
+        //         // shows the status, e.g. 404 / 401 (wrong password)
+        //         console.log(error.response.status)
+        //       })
+        //     }
+        //   }
+        // })
+
+
     </script>
+
+
+
+    <!-- Form animation -->
+    <script>
+      $(document).ready(function(){
+      // ----------- Set all elements as INVALID --------------
+      var myInputElements = document.querySelectorAll(".form-control");
+      var i;
+    //   for (i = 0; i < myInputElements.length; i++) {
+    //     myInputElements[i].classList.add('is-invalid');
+    //     myInputElements[i].classList.remove('is-valid');
+    //   }
+      // ------------ Check passwords similarity --------------
+      $('#pwdId, #cPwdId').on('keyup', function () {
+        if ($('#pwdId').val() != '' && $('#cPwdId').val() != '' && $('#pwdId').val() == $('#cPwdId').val() ) {
+          $('#cPwdValid').show();
+          $('#cPwdInvalid').hide();
+          $('#cPwdInvalid').html('Passwords Match').css('color', 'green');
+          $('.myCpwdClass').addClass('is-valid');
+          $('.myCpwdClass').removeClass('is-invalid');
+          $("#submitBtn").attr("disabled",false);
+          $('#submitBtn').addClass('btn-primary').removeClass('btn-secondary');
+          for (i = 0; i < myInputElements.length; i++) {
+            var myElement = document.getElementById(myInputElements[i].id);
+            if (myElement.classList.contains('is-invalid')) {
+              $("#submitBtn").attr("disabled",true);
+              $('#submitBtn').addClass('btn-secondary').removeClass('btn-primary');
+              break;
+            }
+          }
+        } else {
+          $('#cPwdValid').hide();
+          $('#cPwdInvalid').show();
+          $('#cPwdInvalid').html('Not Matching').css('color', 'red');
+          $('.myCpwdClass').removeClass('is-valid');
+          $('.myCpwdClass').addClass('is-invalid');
+          $("#submitBtn").attr("disabled",true);
+          $('#submitBtn').addClass('btn-secondary').removeClass('btn-primary');
+        }
+      });
+      // ----------------- Validate on submit -----------------
+      let currForm1 = document.getElementById('myForm1');
+      currForm1.addEventListener('submit', function(event) {
+        if (currForm1.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        else {
+          $("#submitBtn").attr("disabled",false);
+          $('#submitBtn').addClass('btn-primary').removeClass('btn-secondary');
+          currForm1.classList.add('was-validated');
+        }
+      }, false);
+      // ----------------- Validate on input -----------------
+      currForm1.querySelectorAll('.form-control').forEach(input => {
+        input.addEventListener(('input'), () => {
+          if (input.checkValidity()) {
+            input.classList.remove('is-invalid');
+            input.classList.add('is-valid');
+          } else {
+            input.classList.remove('is-valid');
+            input.classList.add('is-invalid');
+          }
+          var is_valid = $('.form-control').length === $('.form-control.is-valid').length;
+          // $("#submitBtn").attr("disabled", !is_valid);
+          if (is_valid) {
+            $("#submitBtn").attr("disabled",false);
+            $('#submitBtn').addClass('btn-primary').removeClass('btn-secondary');
+          } else {
+            $("#submitBtn").attr("disabled",true);
+            $('#submitBtn').addClass('btn-secondary').removeClass('btn-primary');
+          }
+        });
+      });
+      // ------------------------------------------------------
+    });
+    </script>  
 
   </body>
 </html>
