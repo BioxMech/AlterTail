@@ -13,7 +13,16 @@ function clearAllRegister() {
     document.getElementById("registerPassword").value = '';
 }
 
+// Sign in modal
+function signInVerification() {
+  var emailOutput = document.getElementById("emailOutput");
+  var passwordOutput = document.getElementById("passwordOutput");
+}
 
+
+
+
+// Under register password, to make show/hide + eye logo dynamic
 var check = false
 function switchEye() {
   var current = document.getElementById("togglePassword1")

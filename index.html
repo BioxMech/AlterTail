@@ -143,11 +143,10 @@
                           <i class="fas fa-envelope prefix modalIcon"></i>
                           <div class="col-sm-11 ml-auto">
                             <div class="form-label-group row">
-                              <input type="text" class="form-control modalInput" id="signinEmail" placeholder="email" required name="email" 
-                              v-model="signInEmail">
+                              <input type="text" class="form-control modalInput" id="signinEmail" placeholder="email" required name="email" >
                               <span class="border"></span>
                               <label for="signinEmail">Email Address</label>
-                              <div v-if="display1"> {{ emailOutcome }} </div>
+                              <div id="emailOutput"></div>
                             </div>
                           </div>
                         </div>
@@ -156,22 +155,21 @@
                           <i class="fas fa-lock prefix modalIcon"></i>
                           <div class="col-sm-11 ml-auto">
                             <div class="form-label-group row">
-                            <input type="password" class="form-control modalInput" id="psw" placeholder="password" required="" name="password" 
-                            v-model="signInPassword">
+                            <input type="password" class="form-control modalInput" id="psw" placeholder="password" required="" name="password" >
                             <span class="border"></span>
                             <label for="psw"></i>Password</label>
-                            <div v-if="display2"> {{ passwordOutcome }} </div>
+                            <div id="passwordOutput"></div>
                           </div>
                         </div>
                         
                         </div>
                         <div class="form-group form-check row">
-                          <input type="checkbox" class="form-check-input" id="rememberMe" required>
+                          <input type="checkbox" class="form-check-input" id="rememberMe">
                           <label class="form-check-label" for="rememberMe">Remember Me</label>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearAllSignin()">Close</button>
-                            <input type="submit" class="btn btn-primary" value="Sign in" @click="verify">
+                            <input type="submit" class="btn btn-primary" value="Sign in">
                         </div>
                     </form>
                     <!-- End of sign in forms -->
@@ -193,7 +191,7 @@
                           <label for="registerEmail">Email Address</label>
                           <small class="form-text text-muted">We'll never share your email with anyone else.</small>
                           <div class="valid-feedback" v-bind:style="emailValidStyle"> {{ emailValid }} </div>
-                          <div class="invalid-feedback">The email address entered is invalid</div>
+                          <div class="invalid-feedback">The email address entered is in valid</div>
                         </div>
 
                         <div class="form-label-group row">
