@@ -29,17 +29,26 @@ create table seller
  rating varchar(10) not null,
  rating_num varchar(10) not null,
  image_url varchar(100) not null,
- constraint seller_pk primary key(email),
+ constraint seller_pk primary key(email, shop_name),
  constraint seller_fk1 foreign key(email) references user(email)
 );
 
-create table shop_service 
+create table service 
 (service_id varchar(100) not null,
 shop_name varchar(30) not null,
 service_title varchar(50) not null,
 service_price varchar(10) not null,
 service_description varchar(100) not null,
 service_lead_time varchar(50) not null,
-constraint service_pk primary key(service_id),
-constraint service_fk1 foreign key(shop_name) references seller(shop_name)
+service_img_url varchar(100) not null,
+constraint service_pk primary key(service_id)
+);
+
+create table seller_service 
+( email varchar(40) not null,
+shop_name varchar(30) not null,
+service_id varchar(100) not null,
+constraint seller_service_pk primary key(email, shop_name,service_id),
+constraint seller_service_fk1 foreign key(email, shop_name) references seller(email, shop_name),
+constraint seller_service_fk2 foreign key(service_id) references service(service_id)
 );
