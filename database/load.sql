@@ -34,8 +34,7 @@ create table seller
 );
 
 create table shop_service 
-(service_id varchar(100) not null,
-shop_name varchar(30) not null,
+(shop_name varchar(30) not null,
 service_title varchar(50) not null,
 service_price varchar(10) not null,
 service_description varchar(100) not null,
