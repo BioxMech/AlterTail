@@ -39,6 +39,6 @@ service_title varchar(50) not null,
 service_price varchar(10) not null,
 service_description varchar(100) not null,
 service_lead_time varchar(50) not null,
-constraint seller_pk primary key(shop_name),
-constraint seller_fk1 foreign key(shop_name) references seller(shop_name)
+constraint service_pk primary key(shop_name),
+constraint service_fk1 foreign key(shop_name) references seller(shop_name)
 );
