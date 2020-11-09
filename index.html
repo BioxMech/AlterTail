@@ -63,7 +63,7 @@
                     <a class="nav-link" href="allTailorPage.html" style="padding-bottom:unset;" >Tailoring</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="allAlterationPage.html" style="padding-bottom:unset;" >Alteration</a>
+                    <a class="nav-link" href="location.html" style="padding-bottom:unset;" >Alteration</a>
                 </li>
                 <li class="nav-item">
                     <!-- Dropdown menu -->
@@ -132,12 +132,11 @@
 
                     <!-- Sign in forms -->
                     <!-- <form class="form-signin" method="POST" id="root"> -->
-                    <!-- <form class="form-signin" action="backend/process_login.php" method="POST" id="signInForm"> -->
-                      <form class="form-signin" action="javascript:void(0);" method="POST" id="signInForm">
+                    <form class="form-signin" action="backend/process_login.php" method="POST" id="signInForm" onsubmit="signInVerification()">
+                      <!-- <form class="form-signin" action="javascript:void(0);" method="POST" id="signInForm"> -->
 
                         <img src="images/logo.jpg" class="modalFormImage">
                         <h5 class="modalDescription mb-4">All-in-one tailoring/alteration/cleaning services platform</h5>
-
                             
                         <div class="form-group row">
                           <i class="fas fa-envelope prefix modalIcon"></i>
@@ -169,7 +168,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearAllSignin()">Close</button>
-                            <input type="submit" class="btn btn-primary" value="Sign in">
+                            <input type="submit" class="btn btn-dark" value="Sign in">
                         </div>
                     </form>
                     <!-- End of sign in forms -->
@@ -196,7 +195,7 @@
 
                         <div class="form-label-group row">
                           <input type="text" class="form-control" id="registerUsername" placeholder="username" required="" name="username" 
-                          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{3,}" v-model="registerUsername" v-on:change="checkUsername">
+                          pattern="^[a-zA-Z\d+]{3,}$" v-model="registerUsername" v-on:change="checkUsername">
                           <label for="registerUsername">Username</label>
                           <small class="form-text text-muted">It will also be your display name.</small>
                           <div class="valid-feedback" v-bind:style="usernameValidStyle"> {{ usernameValid }} </div>
@@ -246,7 +245,7 @@
                         </div>
 
                         <div class="form-label-group row" >
-                          <input type="number" class="form-control" id="registerPhoneNumber" placeholder="Phone Number" required="" name="phone" pattern="[0-9]{8,8}">
+                          <input type="text" class="form-control" id="registerPhoneNumber" placeholder="Phone Number" required="" name="phone" pattern="[0-9]{8,8}">
                           <label for="registerPhoneNumber"></i>Phone Number</label>
                           <small class="form-text text-muted">For example "98763210"</small>
                           <div class="valid-feedback">Your phone number looks good!</div>
@@ -254,7 +253,7 @@
                         </div>
 
                         <div class="form-label-group row">
-                          <input type="text" class="form-control" id="registerStreetAddress" placeholder="Address" required="" name="street_address" pattern="^[a-zA-Z0-9]{10,}$">
+                          <input type="text" class="form-control" id="registerStreetAddress" placeholder="Address" required="" name="street_address" pattern="^[a-zA-Z0-9\s]{10,}$">
                           <label for="registerStreetAddress">Street Address</label>
                           <small class="form-text text-muted">Street name, street number and block number</small>
                           <div class="valid-feedback">Your street address looks good!</div>
@@ -262,7 +261,7 @@
                         </div>
 
                         <div class="form-label-group row">
-                          <input type="text" class="form-control" id="registerUnit" placeholder="Unit" name="unit" pattern="(?=.*\d)[-]?.{5,6}" required>
+                          <input type="text" class="form-control" id="registerUnit" placeholder="Unit" name="unit" pattern="\d{1,2}-\d{2,4}">
                           <label for="registerUnit">Unit</label>
                           <small class="form-text text-muted">For example: 05-64</small>
                           <div class="valid-feedback">Your unit number looks good!</div>
