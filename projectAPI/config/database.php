@@ -2,7 +2,7 @@
 
 class Database {
     private $host = "localhost";
-    private $db_name = "is216";
+    private $db_name = "AlterTail";
     private $username = "root";
     private $password = ""; // MAMP "root", WAMP empty string
     private $port = 3306;   // Check in PHPMyAdmin for port number

@@ -34,7 +34,54 @@ class User {
     }
 
 
+    public function verification($email) {
 
+        // select all query
+        $query = "SELECT * FROM user WHERE email = ?";
+
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        // bind
+        $stmt->bindParam(1, $email);
+
+        // execute query
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+    public function checkUsername($username) {
+         // select all query
+         $query = "SELECT * FROM user WHERE username = ?";
+
+         // prepare query statement
+         $stmt = $this->conn->prepare($query);
+ 
+         // bind
+         $stmt->bindParam(1, $username);
+ 
+         // execute query
+         $stmt->execute();
+ 
+         return $stmt;
+    }
+
+    public function checkEmail($email) {
+        // select all query
+        $query = "SELECT * FROM user WHERE email = ?";
+
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        // bind
+        $stmt->bindParam(1, $email);
+
+        // execute query
+        $stmt->execute();
+
+        return $stmt;
+   }
 
 }
 

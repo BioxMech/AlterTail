@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -17,7 +19,8 @@
     <!-- Title -->
     <title>AltTailor</title>
 
-    <!-- Add Title Image -->
+    <!-- Title Image -->
+    <link rel="icon" href="images/logo4.jpg" type="image/jpg">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/main.css">
@@ -25,85 +28,82 @@
     <link rel="stylesheet" href="css/animation.css">
     <!-- <link rel="stylesheet" href="css/buttons.css"> -->
     <link rel="stylesheet" href="css/buttonEffects.css">
-    <link rel="stylesheet" href="css/hamburger.css">
     <link rel="stylesheet" href="css/form.css">
+    <!-- <link rel="stylesheet" href="css/inputAnimation.css"> -->
+
+    <!-- Vue.js CDN V2 & Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
   </head>
   <body>
-    <!-- Spinners (loading screen) -->
-    <!-- <div class="loader">Loading...</div> -->
-    <!-- End of Spinners -->
 
     <!-- Start Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light" >
-        <a class="navbar-brand" href="index.html">
+        
+  
+        <!-- Hamburger Name -->
+        <button class="navbar-toggler mr-4" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <a class="navbar-brand mr-auto" href="index.html">
             <img src="images/logo.jpg" class="d-inline-block align-top navBarLogo" loading="lazy">
         </a>
-  
-                <!-- Hamburger Name -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-  
+        
+        <!-- Collapse Content (Nav Bar) -->
+        <div class="collapse navbar-collapse" id="navbarNav">
                 
-  
-                <!-- Collapse Content (Nav Bar) -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-                
-                    <!-- Left Side Nav -->
-                    <ul class="navbar-nav mr-auto" id="leftSideNav">
-                        <li class="nav-item">
-                            <a class="nav-link current" href="index.html" style="padding-bottom:unset;" >Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="allTailorPage.html" style="padding-bottom:unset;" >Tailoring</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="allAlterationPage.html" style="padding-bottom:unset;" >Alteration</a>
-                        </li>
-                        <li class="nav-item">
-                            <!-- Dropdown menu -->
-                            <div class="dropdown">
-                                <a class="nav-link" href="#" style="padding-bottom:unset;" 
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cleaning</a>
-                                <!-- Options -->
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="allBagCleaningPage.html">Bag Cleaning</a>
-                                    <a class="dropdown-item" href="allDryCleaningPage.html">Dry Cleaning</a>
-                                </div>
-                                <!-- Options -->
-                            </div>
-                            <!-- End of dropdown menu -->
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="aboutUs.html" style="padding-bottom:unset;" >About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="location.html" style="padding-bottom:unset;" >Locate</a>
-                        </li>
-                      </ul>
+            <!-- Left Side Nav -->
+            <ul class="navbar-nav mr-auto" id="leftSideNav">
+                <li class="nav-item">
+                    <a class="nav-link current" href="index.html" style="padding-bottom:unset;" >Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="allTailorPage.html" style="padding-bottom:unset;" >Tailoring</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="allAlterationPage.html" style="padding-bottom:unset;" >Alteration</a>
+                </li>
+                <li class="nav-item">
+                    <!-- Dropdown menu -->
+                    <div class="dropdown">
+                        <a class="nav-link" href="#" style="padding-bottom:unset;" 
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cleaning</a>
+                        <!-- Options -->
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="allBagCleaningPage.html">Bag Cleaning</a>
+                            <a class="dropdown-item" href="allDryCleaningPage.html">Dry Cleaning</a>
+                        </div>
+                        <!-- Options -->
+                    </div>
+                    <!-- End of dropdown menu -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="aboutUs.html" style="padding-bottom:unset;" >About Us</a>
+                </li>
+            </ul>      
 
-                      
+            <!-- Right Side -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <form>
+                        <input type="text" class="searchBar" placeholder="Search Shop Names">
+                    </form>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="registerSignin" data-target="#registerSigninModal">Register / Login</a>
+                </li>
+            </ul>
+            <!-- End of right side -->
 
-                    <ul class="navbar-nav ml-auto">
-                      <li class="nav-item">
-                        <!-- ============================================================================================================================= -->
-                        <form>
-                          <input type="search" placeholder="Search Shop Names">
-                        </form>
-                        <!-- ============================================================================================================================= -->
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="registerSignin" data-target="#registerSigninModal">Register / Sign in</a>
-                      </li>
-                    </ul>
-                </div>
-                <!-- End of collapse content (Nav Bar) -->
+        </div>
+        <!-- End of collapse content (Nav Bar) -->
     </nav>
     <!-- End Navigation Bar -->
 
 
-  <!-- Start of Register/Sign up modal -->
+    <!-- Start of Register/Sign up modal -->
   <div class="modal fade" id="registerSigninModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
       <div class="modal-content">
@@ -111,107 +111,222 @@
         <!-- Tabs -->
         <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
-              <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Sign in</a>
+              <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Login</a>
             </li>
             <li class="nav-item" role="presentation">
               <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Register</a>
             </li>
         </ul>
+        <!-- End of Tabs -->
+
+        <!-- <div class="modal-header">
+          <img src="images/logo.jpg" class="modalFormImage">
+          <h5 class="modalDescription mb-4">All-in-one tailoring/alteration/cleaning services platform</h5>
+        </div> -->
 
         <div class="modal-body">
             <div class="tab-content" id="pills-tabContent">
+
+                <!-- Sign in tab -->
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 
-
                     <!-- Sign in forms -->
-                    <form class="form-signin">
+                    <!-- <form class="form-signin" method="POST" id="root"> -->
+                    <!-- <form class="form-signin" action="backend/process_login.php" method="POST" id="signInForm"> -->
+                      <form class="form-signin" action="javascript:void(0);" method="POST" id="signInForm">
+
                         <img src="images/logo.jpg" class="modalFormImage">
-                        <i class="fas fa-envelope prefix"></i>
-                        <div class="form-label-group row">
-                          <input type="text" class="form-control" id="signinEmail" placeholder="email" required="">
-                          <label for="signinEmail">Email Address</label>
+                        <h5 class="modalDescription mb-4">All-in-one tailoring/alteration/cleaning services platform</h5>
+
+                            
+                        <div class="form-group row">
+                          <i class="fas fa-envelope prefix modalIcon"></i>
+                          <div class="col-sm-11 ml-auto">
+                            <div class="form-label-group row">
+                              <input type="text" class="form-control modalInput" id="signinEmail" placeholder="email" required name="email" >
+                              <span class="border"></span>
+                              <label for="signinEmail">Email Address</label>
+                              <div id="emailOutput"></div>
+                            </div>
+                          </div>
                         </div>
-                        <i class="fas fa-lock prefix"></i>
-                        <div class="form-label-group row">
-                          <input type="password" class="form-control" id="signinPassword" placeholder="password" required="">
-                          <label for="signinPassword"></i>Password</label>
+                        
+                        <div class="form-group row">
+                          <i class="fas fa-lock prefix modalIcon"></i>
+                          <div class="col-sm-11 ml-auto">
+                            <div class="form-label-group row">
+                            <input type="password" class="form-control modalInput" id="psw" placeholder="password" required="" name="password" >
+                            <span class="border"></span>
+                            <label for="psw"></i>Password</label>
+                            <div id="passwordOutput"></div>
+                          </div>
+                        </div>
+                        
                         </div>
                         <div class="form-group form-check row">
                           <input type="checkbox" class="form-check-input" id="rememberMe">
                           <label class="form-check-label" for="rememberMe">Remember Me</label>
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearAllSignin()">Close</button>
+                            <input type="submit" class="btn btn-primary" value="Sign in">
+                        </div>
                     </form>
                     <!-- End of sign in forms -->
-
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Sign in</button>
-                    </div>
-
                 </div>
+                <!-- End of Signin Tab -->
+
+                <!-- Register Tab -->
                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 
                     <!-- Register form -->
-                    <form class="form-signin">
+                    <form class="form-signin needs-validation" id="myForm1" action="backend/process_register.php" method="POST" autocomplete="off">
                         <img src="images/logo.jpg" class="modalFormImage">
+                        <h5 class="modalDescription mb-4">All-in-one tailoring/alteration/cleaning services platform
+                        <br>Sign up with us now to get your clothing or bag cleaned, altered or tailored!</h5>
+
                         <div class="form-label-group row">
-                          <input type="text" class="form-control" id="registerEmail" placeholder="email" required="">
+                          <input type="text" class="form-control" id="registerEmail" placeholder="email" required="" name="email"
+                          pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" v-model="registerEmail" v-on:change="checkEmail">
                           <label for="registerEmail">Email Address</label>
                           <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                          <div class="valid-feedback" v-bind:style="emailValidStyle"> {{ emailValid }} </div>
+                          <div class="invalid-feedback">The email address entered is in valid</div>
                         </div>
 
                         <div class="form-label-group row">
-                          <input type="text" class="form-control" id="registerUserName" placeholder="email" required="">
-                          <label for="registerUserName">Username</label>
+                          <input type="text" class="form-control" id="registerUsername" placeholder="username" required="" name="username" 
+                          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{3,}" v-model="registerUsername" v-on:change="checkUsername">
+                          <label for="registerUsername">Username</label>
                           <small class="form-text text-muted">It will also be your display name.</small>
+                          <div class="valid-feedback" v-bind:style="usernameValidStyle"> {{ usernameValid }} </div>
+                          <div class="invalid-feedback">Username needs to be at least 3 characters long</div>
                         </div>
                         
-                        <div class="form-row row">
+                        <!-- <div class="form-row row">
                           <div class="col-sm-6">
                             <div class="form-label-group">
-                              <input type="text" class="form-control" id="registerFirstName" placeholder="firstName" required="">
+                              <input type="text" class="form-control" id="registerFirstName" placeholder="firstName" required="" name="fname">
                               <label for="registerFirstName"></i>First Name</label>
                             </div>
                           </div>
                           <div class="col-sm-6">
                             <div class="form-label-group">
-                              <input type="text" class="form-control" id="registerLastName" placeholder="lastName" required="">
+                              <input type="text" class="form-control" id="registerLastName" placeholder="lastName" required="" name="lname">
                               <label for="registerLastName"></i>Last Name</label>
                             </div>
                           </div>
+                        </div> -->
+
+                        <div class="form-group">
+                          <div class="form-label-group row">
+                            <input type="text" class="form-control" id="registerName" placeholder="name" name="name" pattern="^[a-zA-Z]{5,}$" 
+                            v-model="registerName" v-on:blur="display" v-on:focus="display" required>
+                            <label for="registerName">Name</label>
+                            <small class="form-text text-muted">First name + Last Name | For example: Bob Dylan</small>
+                            <div class="valid-feedback">You have a nice name.</div>
+                            <div class="invalid-feedback">A to Z only (5 to 15 long)</div>
+                          </div>
+                        </div>
+
+                        <div class="form-check form-check-inline row">
+                          Gender: 
                         </div>
                         <div class="form-check form-check-inline row">
-                          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                          <label class="form-check-label" for="exampleRadios1" style="padding-right: 5px;">
+                          <input class="form-check-input" type="radio" name="gender" id="male_btn" value="Male">
+                          <label class="form-check-label" for="male_btn" style="padding-right: 5px;">
                             Male
                           </label>
-                          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                          <label class="form-check-label" for="exampleRadios1">
+                        </div>
+                        <div class="form-check form-check-inline row mb-3">
+                          <input class="form-check-input" type="radio" name="gender" id="female_btn" value="Female">
+                          <label class="form-check-label" for="female_btn">
                             Female
                           </label>
                         </div>
-                        <div class="form-label-group row">
-                          <input type="number" class="form-control" id="registerPhoneNumber" placeholder="phonenumber" required="">
+
+                        <div class="form-label-group row" >
+                          <input type="number" class="form-control" id="registerPhoneNumber" placeholder="Phone Number" required="" name="phone" pattern="[0-9]{8,8}">
                           <label for="registerPhoneNumber"></i>Phone Number</label>
-                          <small class="form-text text-muted">Please add the country code at the front, for example "+65 98763210"</small>
+                          <small class="form-text text-muted">For example "98763210"</small>
+                          <div class="valid-feedback">Your phone number looks good!</div>
+                          <div class="invalid-feedback">Your phone number is invalid.</div>
                         </div>
+
                         <div class="form-label-group row">
-                          <input type="password" class="form-control" id="registerPassword" placeholder="password" required="">
-                          <label for="registerPassword"></i>Password</label>
+                          <input type="text" class="form-control" id="registerStreetAddress" placeholder="Address" required="" name="street_address" pattern="^[a-zA-Z0-9]{10,}$">
+                          <label for="registerStreetAddress">Street Address</label>
+                          <small class="form-text text-muted">Street name, street number and block number</small>
+                          <div class="valid-feedback">Your street address looks good!</div>
+                          <div class="invalid-feedback">Your street address is invalid.</div>
                         </div>
+
+                        <div class="form-label-group row">
+                          <input type="text" class="form-control" id="registerUnit" placeholder="Unit" name="unit" pattern="(?=.*\d)[-]?.{5,6}" required>
+                          <label for="registerUnit">Unit</label>
+                          <small class="form-text text-muted">For example: 05-64</small>
+                          <div class="valid-feedback">Your unit number looks good!</div>
+                          <div class="invalid-feedback">Your unit number is invalid.</div>
+                        </div>
+
+                        <div class="form-label-group row">
+                          <input type="text" class="form-control" id="registerPostal" placeholder="Postal" required name="postal_code" pattern="(?=.*\d).{6,6}">
+                          <label for="registerPostal">Postal Code</label>
+                          <small class="form-text text-muted">For example: 512678</small>
+                          <div class="valid-feedback">Your postal code looks good!</div>
+                          <div class="invalid-feedback">Your postal code is invalid.</div>
+                        </div>
+                        
+                        <div class="form-label-group row">
+                          <input type="password" class="form-control" id="registerPassword" placeholder="password" required="" name="pw"
+                          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" v-model="registerPassword" v-on:blur="display" v-on:focus="display" required>
+                          <label for="registerPassword"></i>Password</label>
+                          
+                          <span id="togglePassword1">Show&nbsp</span>password: <i class="fa fa-eye-slash mt-1" id="eye" aria-hidden="true"  class="bg-dark" onclick="if (registerPassword.type == 'text') registerPassword.type = 'password';
+                          else registerPassword.type = 'text'; switchEye()" ></i>
+
+                          <div class="valid-feedback">Your password meets all the requirements!</div>
+                          <div v-if="show" class="invalid-feedback"> 
+                            <ul style="list-style-type: none;">
+                              <li>
+                                <span class="text-success">
+                                  {{ passwordLength() }}</span>
+                                <div v-if="hideLength">✖ Minimum of 6 to 18 characters long</div>
+                              </li>
+                              <li>
+                                <span class="text-success">
+                                  {{ passwordLower() }}</span>
+                                <div v-if="hideLower">✖ MUST contain at least one lowercase letter.</div>
+                              </li>
+                              <li>
+                                <span class="text-success">
+                                  {{ passwordUpper() }}</span>
+                                <div v-if="hideUpper">✖ MUST contain at least one uppercase letter.</div>
+                              </li>
+                              <li>
+                                <span class="text-success">
+                                  {{ passwordNumber() }}</span>
+                                <div v-if="hideNumber">✖ MUST contain at least one number.</div>
+                              </li>
+                            </ul>
+                          </div>
+
+                        </div>
+                        
                         <div class="form-group form-check row">
                           <input type="checkbox" class="form-check-input" id="registerPromotion">
                           <label class="form-check-label" for="registerPromotion">I'd like to receive exclusive offers and promotions via SMS</label>
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <!-- <button type="button" class="btn btn-primary">Sign up</button> -->
+                            <input type="submit" class="btn btn-primary" value="Sign up">
+                        </div>
+                        <small class="form-text text-muted">By clicking "SIGN UP"; I agree to AlterTail's Terms of Use and Privacy Policy</small>
                     </form>
                     <!-- End of register form -->
-                    
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Sign up</button>
-                      <small class="form-text text-muted">By clicking "SIGN UP"; I agree to AlterTail's Terms of Use and Privacy Policy</small>
-                    </div>
                 </div>
+                <!-- End of register tab -->
               </div>
         </div>
       </div>
@@ -238,7 +353,7 @@
             </div>
           </div>
           <div class="carousel-item">
-            <img src="images/alteration5.jpg" class="d-block w-100" alt="...">
+            <img src="images/slider-3.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <h5>Second slide label</h5>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -252,7 +367,7 @@
             </div>
           </div>
           <div class="carousel-item">
-            <img src="images/alteration3.jpg" class="d-block w-100" alt="...">
+            <img src="images/slider-2.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <h5>Third slide label</h5>
               <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
@@ -396,13 +511,6 @@
     <!-- End of Main Content -->
 
 
-
-
-
-
-
-
-
 <!-- Footer -->
 <footer class="page-footer font-small text-white bg-dark pt-4" >
 
@@ -509,18 +617,6 @@
   <!-- Footer Links -->
 
   <!-- <hr> -->
-
-  <!-- Call to action -->
-  <!-- <ul class="list-unstyled list-inline text-center py-2">
-    <li class="list-inline-item">
-      <h5 class="mb-1">Register for free</h5>
-    </li>
-    <li class="list-inline-item">
-      <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
-    </li>
-  </ul> -->
-  <!-- Call to action -->
-
   <hr>
 
   <!-- Social buttons -->
@@ -542,11 +638,11 @@
         <i class="fab fa-google-plus-g"> </i>
       </a>
     </li> -->
-    <li class="list-inline-item">
+    <!-- <li class="list-inline-item">
       <a class="btn-floating btn-li mx-1">
         <i class="fab fa-linkedin-in"> </i>
       </a>
-    </li>
+    </li> -->
     <!-- <li class="list-inline-item">
       <a class="btn-floating btn-dribbble mx-1">
         <i class="fab fa-dribbble"> </i>
@@ -557,7 +653,7 @@
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="#">AlterTail.co</a>
+    <a href="aboutus.html">AlterTail.co</a>
   </div>
   <!-- Copyright -->
 
@@ -565,16 +661,252 @@
 <!-- Footer -->
 
 
+    <!-- Custom JavaScript -->
+    <script src="js/form.js"></script>
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <!-- <script type="text/javascript" src="node_modules/mdbootstrap/js/jquery.min.js"></script>
-    <script type="text/javascript" src="node_modules/mdbootstrap/js/popper.min.js"></script>
-    <script type="text/javascript" src="node_modules/mdbootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="node_modules/mdbootstrap/js/mdb.min.js"></script>   -->
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+
+    <!-- Custom Vue.Js -->
+    <script>
+        var app = new Vue({
+            el: "#myForm1",
+            data: {
+              show: false,
+              registerName: '',
+              registerPassword: '',
+              hideLength: true,
+              hideUpper: true,
+              hideLower: true,
+              hideNumber: true,
+              registerUsername: '',
+              registerEmail: '',
+              usernameValid: '',
+              usernameValidStyle: {
+                color: 'red'
+              },
+              emailValid: '',
+              emailValidStyle: {
+                color: 'red'
+              }
+            },
+            methods: {
+              display: function() {
+                if (this.show == false) {
+                  this.show = true
+                }
+                else {
+                  this.show = false
+                }
+              },
+              passwordLength: function() {
+                if (this.registerPassword.length >= 6) {
+                  this.hideLength = false;
+                  return "✔ MUST contain at least 6 characters"
+                }
+                this.hideLength = true;
+                 
+              },
+              passwordUpper: function () {
+                if (/[A-Z]/.test(this.registerPassword)) {
+                  this.hideUpper = false;
+                  return "✔ MUST contain at least one uppercase letter."
+                }
+                this.hideUpper = true;
+              },
+              passwordLower: function () {
+                if (/[a-z]/.test(this.registerPassword)) {
+                  this.hideLower = false;
+                  return "✔ MUST contain at least one lowercase letter."
+                }
+                this.hideLower = true;
+              },
+              passwordNumber: function () {
+                if (/[\d]/.test(this.registerPassword)) {
+                  this.hideNumber = false;
+                  return "✔ MUST contain at least one number."
+                }
+                this.hideNumber = true;
+              },
+              checkUsername: function() {
+                // URL to an API endpoint
+                let url = 'projectAPI/user/checkUsername.php?username=' + this.registerUsername
+
+                // send a req to the above specified API endpoint
+                axios.get(url)
+                .then(response => {
+
+                  // response is the data
+                  let user_objects = response.data
+
+                  // view it
+                  // console.log(response.data)
+
+                  this.usernameValid = this.registerUsername + " already exist."
+                  this.usernameValidStyle.color = "red"
+
+                })
+                .catch(error => {
+                  // shows the status, e.g. 404
+                  // console.log(error.response.status)
+                  this.usernameValid = "You can use " + this.registerUsername + " as your username."
+                  this.usernameValidStyle.color = "green"
+                  
+                })
+              },
+              checkEmail: function() {
+                // URL to an API endpoint
+                let url = 'projectAPI/user/checkEmail.php?email=' + this.registerEmail
+
+                // send a req to the above specified API endpoint
+                axios.get(url)
+                .then(response => {
+
+                  // response is the data
+                  let user_objects = response.data
+
+                  // view it
+                  // console.log(response.data)
+
+                  this.emailValid = this.registerEmail + " already exist."
+                  this.emailValidStyle.color = "red"
+
+                })
+                .catch(error => {
+                  // shows the status, e.g. 404
+                  // console.log(error.response.status)
+                  this.emailValid = "You can use " + this.registerEmail + " as your username."
+                  this.emailValidStyle.color = "green"
+                  
+                })
+              }
+            }
+        })
+
+        // var validation = new Vue({
+        //   el: '#signInForm',
+        //   data: {
+        //     emailOutcome: '',
+        //     passwordOutcome: '',
+        //     display1: false,
+        //     display2: false,
+        //     signInEmail: '',
+        //     signInPassword: ''
+        //   },
+        //   methods: {
+        //     verify: function() {
+        //       // URL to an API endpoint
+        //       let url = 'projectAPI/user/verification.php?email=' + this.signInEmail + '&pw=' + this.signInPassword
+
+        //       // send a req to the above specified API endpoint
+        //       axios.get(url)
+        //       .then(response => {
+
+        //         // response is the data
+        //         let user_objects = response.data
+
+        //         // view it
+        //         // console.log(response.data)
+
+        //         var email = user_objects.records[0].email
+        //         var hashedPassword = user_objects.records[0].pw
+
+        //       })
+        //       .catch(error => {
+        //         // shows the status, e.g. 404 / 401 (wrong password)
+        //         console.log(error.response.status)
+        //       })
+        //     }
+        //   }
+        // })
+
+
+    </script>
+
+
+
+    <!-- Form animation -->
+    <script>
+      $(document).ready(function(){
+      // ----------- Set all elements as INVALID --------------
+      var myInputElements = document.querySelectorAll(".form-control");
+      var i;
+    //   for (i = 0; i < myInputElements.length; i++) {
+    //     myInputElements[i].classList.add('is-invalid');
+    //     myInputElements[i].classList.remove('is-valid');
+    //   }
+      // ------------ Check passwords similarity --------------
+      $('#pwdId, #cPwdId').on('keyup', function () {
+        if ($('#pwdId').val() != '' && $('#cPwdId').val() != '' && $('#pwdId').val() == $('#cPwdId').val() ) {
+          $('#cPwdValid').show();
+          $('#cPwdInvalid').hide();
+          $('#cPwdInvalid').html('Passwords Match').css('color', 'green');
+          $('.myCpwdClass').addClass('is-valid');
+          $('.myCpwdClass').removeClass('is-invalid');
+          $("#submitBtn").attr("disabled",false);
+          $('#submitBtn').addClass('btn-primary').removeClass('btn-secondary');
+          for (i = 0; i < myInputElements.length; i++) {
+            var myElement = document.getElementById(myInputElements[i].id);
+            if (myElement.classList.contains('is-invalid')) {
+              $("#submitBtn").attr("disabled",true);
+              $('#submitBtn').addClass('btn-secondary').removeClass('btn-primary');
+              break;
+            }
+          }
+        } else {
+          $('#cPwdValid').hide();
+          $('#cPwdInvalid').show();
+          $('#cPwdInvalid').html('Not Matching').css('color', 'red');
+          $('.myCpwdClass').removeClass('is-valid');
+          $('.myCpwdClass').addClass('is-invalid');
+          $("#submitBtn").attr("disabled",true);
+          $('#submitBtn').addClass('btn-secondary').removeClass('btn-primary');
+        }
+      });
+      // ----------------- Validate on submit -----------------
+      let currForm1 = document.getElementById('myForm1');
+      currForm1.addEventListener('submit', function(event) {
+        if (currForm1.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        else {
+          $("#submitBtn").attr("disabled",false);
+          $('#submitBtn').addClass('btn-primary').removeClass('btn-secondary');
+          currForm1.classList.add('was-validated');
+        }
+      }, false);
+      // ----------------- Validate on input -----------------
+      currForm1.querySelectorAll('.form-control').forEach(input => {
+        input.addEventListener(('input'), () => {
+          if (input.checkValidity()) {
+            input.classList.remove('is-invalid');
+            input.classList.add('is-valid');
+          } else {
+            input.classList.remove('is-valid');
+            input.classList.add('is-invalid');
+          }
+          var is_valid = $('.form-control').length === $('.form-control.is-valid').length;
+          // $("#submitBtn").attr("disabled", !is_valid);
+          if (is_valid) {
+            $("#submitBtn").attr("disabled",false);
+            $('#submitBtn').addClass('btn-primary').removeClass('btn-secondary');
+          } else {
+            $("#submitBtn").attr("disabled",true);
+            $('#submitBtn').addClass('btn-secondary').removeClass('btn-primary');
+          }
+        });
+      });
+      // ------------------------------------------------------
+    });
+    </script>  
 
   </body>
 </html>

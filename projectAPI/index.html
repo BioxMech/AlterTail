@@ -1,0 +1,107 @@
+<html>
+<head>
+    <title>AlterTail API Documentation</title>
+</head>
+<body>
+
+    <h1>AlterTail API v1.0 - Documentation</h1>
+    
+    <hr>
+    
+    
+    <h2>Read</h2>
+    <p>
+        <b>Description</b>
+        <br>
+        Returns all Users in JSON format.
+    </p>
+    <p>
+        <b>HTTP request</b>
+        <br>
+        <font face="Courier New" color="blue">GET http://localhost/AlterTail/projectAPI/user/read.php</font>
+        <br>
+        <i><font color="red">In the case of local API installation, the exact URL may vary - please check your local setup.</font></i>
+    </p>
+    
+    <hr>
+    
+    <h2>Verification</h2>
+    <p>
+        <b>Description</b>
+        <br>
+        Checks whether the username entered exist and whether the password is correct.
+    </p>
+    <p>
+        <b>HTTP request</b>
+        <br>
+        <font face="Courier New" color="blue">GET http://localhost/AlterTail/projectAPI/user/verification.php?un=jimmyboi&pw=jimmy</font>
+        <br>
+        where <b>un</b> is the <b>username</b> parameter, and<br>
+        jimmyboi is the username value.
+        <br>
+        Additionally, <b>pw</b> is the <b>password</b> parameter, and<br>
+        jimmy is the password value
+        <i><font color="red">In the case of local API installation, the exact URL may vary - please check your local setup.</font></i>
+    </p>
+    
+    <!-- <hr>
+    
+    <h2>search</h2>
+    <p>
+        <b>Description</b>
+        <br>
+        Returns a collection of stars matching the search query in JSON format.
+    </p>
+    <p>
+        <b>HTTP request</b>
+        <ul>
+            <li>
+                Search all actors/actresses whose gender is <b>male</b>
+                <br>
+                <font face="Courier New" color="blue">GET http://localhost/midterm/api/winner/search.php?g=m</font>
+                <br>
+                where <b>g</b> is the <b>gender</b> parameter, and<br>
+                f (or F) indicates female<br>
+                m (or M) indicates male
+            </li>
+            
+            <br>
+            
+            <li>
+                Search all actors/actresses whose Oscar award winning movies were released in a certain <b>decade</b>
+                <br>
+                <font face="Courier New" color="blue">GET http://localhost/midterm/api/winner/search.php?d=1930</font>
+                <br>
+                where <b>d</b> is the <b>decade</b> parameter, and<br>
+                1930 is the decade.<br>
+                The above API call will result in a response containing 6 actors/actresses.
+            </li>
+            
+            <br>
+            
+            <li>
+                Search all actors/actresses whose Oscar award winning movies were released in a certain <b>decade</b> AND <b>gender</b> is female/male
+                <br>
+                <font face="Courier New" color="blue">GET http://localhost/midterm/api/winner/search.php?g=m&d=1940</font>
+                <br>
+                where <b>g</b> is the <b>gender</b> parameter, and m (or M) indicates male or female
+                <br>
+                <b>AND</b>
+                <b>d</b> is the <b>decade</b> parameter, and 1940 is the decade.<br>
+                The above GET request will return James Stewart and Bing Crosby.
+            </li>
+
+            <br>
+
+            <li>
+                <i><font color="red">In the case of local API installation, the exact URL may vary - please check your local setup.</font></i>
+            </li>
+        </ul>
+        
+    </p> -->
+    
+    <hr>
+    
+    <footer>&copy; Copyright 2020 AlterTail.co</footer>
+</body>
+</html>

@@ -1,7 +1,12 @@
+drop database if exists AlterTail;
+
+create database AlterTail;
+
+use AlterTail;
+
 create table user
 (email varchar(40) not null,
  fname varchar(50) not null,
- lname varchar(50) not null,
  gender varchar(10) not null,
  username varchar(20) not null,
  pw varchar(100) not null,
@@ -9,7 +14,6 @@ create table user
  street_address varchar(50) not null,
  unit varchar(20),
  postal_code varchar(6) not null,
- shopname varchar(20),
  constraint user_pk primary key(email)
  );
 

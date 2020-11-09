@@ -2,24 +2,24 @@
 require_once "common.php";
 require_once "UserDAO.php";
 
-$username = $_POST["username"];
-$pw = $_POST['pw'];
+$email = $_POST["email"];
+$pw = $_POST['password'];
 
 $dao = new UserDAO();
-$hashed = $dao->getHashedPassword($username);
+$hashed = $dao->getHashedPassword($email);
 $status = password_verify($pw, $hashed);
 
 if ($status) {
     session_start();
-    $_SESSION['username'] = $username;
+    $_SESSION['email'] = $email;
     echo "Success!";
     header("Location: post_login.php");
 }
 else {
     echo "Failed!";
-    // echo $username;
+    // echo $email;
     echo $hashed;
-    header("Location: ../index.html");
+    header("Location: ../index.html#");
 }
 
 ?>
