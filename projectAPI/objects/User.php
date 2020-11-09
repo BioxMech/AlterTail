@@ -23,7 +23,17 @@ class User {
         $this->conn=$db;
     }
 
-    public function read() {
+    public function retrieveShopPage() {
+        $query = "SELECT * FROM shop_service";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+    public function retrieveProfile() {
         $query = "SELECT * FROM user";
 
         $stmt = $this->conn->prepare($query);

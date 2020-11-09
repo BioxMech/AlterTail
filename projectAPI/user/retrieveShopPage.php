@@ -26,23 +26,17 @@ if($num>0) {
         extract($row);
 
         $item = array(
-            "email" => $email,
-            "fname" => $fname,
-            // "lname" => $lname,
-            "gender" => $gender,
-            "username" => $username,
-            "pw" => $pw,
-            "phone" => $phone,
-            "street_address" => $street_address,
-            "unit" => $unit,
-            "postal_code" => $postal_code,
-            // "shopname" => $shopname
+            "shop_name" => $shop_name,
+            "service_title" => $service_title,
+            "service_price" => $service_price,
+            "service_description" => $service_description,
+            "service_lead_time" => $service_lead_time
         );
         array_push($result_arr["records"], $item);
     }
     $date = new DateTime(null, new DateTimeZone('Asia/Singapore'));
     $result_arr["info"] = array(
-        "author" => "Petras",
+        "author" => "Jason",
         "response_datetime_singapore" => $date->format('Y-m-d H:i:sP')
     );
 

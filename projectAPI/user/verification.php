@@ -56,7 +56,6 @@ if($num > 0) {
 
         array_push($result_arr["records"], $item);
         }
-
         
     }
 
