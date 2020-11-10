@@ -132,7 +132,7 @@
 
                     <!-- Sign in forms -->
                     <!-- <form class="form-signin" method="POST" id="root"> -->
-                    <form class="form-signin" action="backend/process_login.php" method="POST" id="signInForm" onsubmit="signInVerification()">
+                    <form class="form-signin" action="backend/process_login.php" method="POST" id="signInForm">
                       <!-- <form class="form-signin" action="javascript:void(0);" method="POST" id="signInForm"> -->
 
                         <img src="images/logo.jpg" class="modalFormImage">
@@ -145,8 +145,8 @@
                               <input type="text" class="form-control modalInput" id="signinEmail" placeholder="email" required name="email" >
                               <span class="border"></span>
                               <label for="signinEmail">Email Address</label>
-                              <div id="emailOutput"></div>
                             </div>
+                            <div id="emailOutput"></div>
                           </div>
                         </div>
                         
@@ -168,7 +168,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearAllSignin()">Close</button>
-                            <input type="submit" class="btn btn-dark" value="Sign in">
+                            <input type="submit" class="btn btn-dark" value="Sign in" id="signinSubmit">
                         </div>
                     </form>
                     <!-- End of sign in forms -->
@@ -185,8 +185,8 @@
                         <br>Sign up with us now to get your clothing or bag cleaned, altered or tailored!</h5>
 
                         <div class="form-label-group row">
-                          <input type="text" class="form-control" id="registerEmail" placeholder="email" required="" name="email"
-                          pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" v-model="registerEmail" v-on:change="checkEmail">
+                          <input type="text" class="form-control" v-bind:class="{'is-invalid': notValid, 'is-valid': isValid}" id="registerEmail" placeholder="email" required="" name="email"
+                          pattern="^[a-zA-Z\d+]+@([\w-]+\.)+[\w-]{2,4}$" v-model="registerEmail" v-on:keyup="checkEmail">
                           <label for="registerEmail">Email Address</label>
                           <small class="form-text text-muted">We'll never share your email with anyone else.</small>
                           <div class="valid-feedback" v-bind:style="emailValidStyle"> {{ emailValid }} </div>
@@ -195,7 +195,7 @@
 
                         <div class="form-label-group row">
                           <input type="text" class="form-control" id="registerUsername" placeholder="username" required="" name="username" 
-                          pattern="^[a-zA-Z\d+]{3,}$" v-model="registerUsername" v-on:change="checkUsername">
+                          pattern="^[a-zA-Z\d+]{3,}$" v-model="registerUsername" v-on:keyup="checkUsername">
                           <label for="registerUsername">Username</label>
                           <small class="form-text text-muted">It will also be your display name.</small>
                           <div class="valid-feedback" v-bind:style="usernameValidStyle"> {{ usernameValid }} </div>
@@ -678,6 +678,8 @@
         var app = new Vue({
             el: "#myForm1",
             data: {
+              isValid: false,
+              notValid: false,
               show: false,
               registerName: '',
               registerPassword: '',
@@ -749,15 +751,19 @@
                   // console.log(response.data)
 
                   this.usernameValid = this.registerUsername + " already exist."
-                  this.usernameValidStyle.color = "red"
-
+                  // this.usernameValidStyle.color = "red"
+                  
+                  // this.isValid = false
+                  // this.notValid = true
                 })
                 .catch(error => {
                   // shows the status, e.g. 404
                   // console.log(error.response.status)
                   this.usernameValid = "You can use " + this.registerUsername + " as your username."
-                  this.usernameValidStyle.color = "green"
-                  
+                  // this.usernameValidStyle.color = "green"
+
+                  // this.isValid = true
+                  // this.notValid = false
                 })
               },
               checkEmail: function() {
@@ -775,15 +781,18 @@
                   // console.log(response.data)
 
                   this.emailValid = this.registerEmail + " already exist."
-                  this.emailValidStyle.color = "red"
+                  // this.emailValidStyle.color = "red"
 
+                  this.notValid = true
+                  this.isValid = false
                 })
                 .catch(error => {
                   // shows the status, e.g. 404
                   // console.log(error.response.status)
-                  this.emailValid = "You can use " + this.registerEmail + " as your username."
-                  this.emailValidStyle.color = "green"
-                  
+                  this.emailValid = "You can use " + this.registerEmail + " as your email."
+                  // this.emailValidStyle.color = "green"
+                  this.notValid = false
+                  this.isValid = true
                 })
               }
             }
@@ -825,7 +834,6 @@
         //     }
         //   }
         // })
-
 
     </script>
 
@@ -905,6 +913,61 @@
       });
       // ------------------------------------------------------
     });
+
+
+    // this is the id of the form
+    $("#signInForm").submit(function(e) {
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+
+    var form = $(this);
+    var emailOutput = document.getElementById("emailOutput");
+    var passwordOutput = document.getElementById("passwordOutput");
+    var email = document.getElementById("signinEmail").value;
+    var password = document.getElementById("psw").value;
+
+    
+    $.ajax({
+          type: "GET",
+          url: "projectAPI/user/verification.php?email=" + email + "&pw=" + password,
+          data: form.serialize(), // serializes the form's elements.
+          // success: function(data)
+          // {
+          //   $('#signInForm').attr('validated',true);
+          //   $('#signInForm').submit();
+          //   alert("YAY");
+          // },
+          statusCode: {
+              401: function() {
+                emailOutput.innerHTML = "";
+                passwordOutput.innerHTML = "Wrong Password";
+                // alert( "Incorrect password" );
+              },
+              404: function() {
+                passwordOutput.innerHTML = "";
+                emailOutput.innerHTML = "Email does not exist";
+                // alert( "No Email!" );
+              },
+              200: function() {
+                // $('#signInForm').attr('validated',true);
+                // $('#signInForm').submit();
+                submitForm()
+                alert("YAY");
+              }
+            }
+            
+        });
+
+        return false; 
+
+    });
+
+    function submitForm(){ 
+  // Call submit() method on <form id='myform'>
+  document.getElementById('signInForm').submit(); 
+} 
+
+
     </script>  
 
   </body>

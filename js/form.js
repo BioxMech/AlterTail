@@ -17,6 +17,8 @@ function clearAllRegister() {
 function signInVerification() {
   var emailOutput = document.getElementById("emailOutput");
   var passwordOutput = document.getElementById("passwordOutput");
+  var email = document.getElementById("signinEmail");
+  var password = document.getElementById("psw");
 
   var request = new XMLHttpRequest(); // Prep to make an HTTP request
     request.onreadystatechange = function() {
@@ -56,8 +58,41 @@ function signInVerification() {
     request.open("GET", url, true);
 
     request.send();
+
+    return false
     
 }
+
+
+// // this is the id of the form
+// $("#signInForm").submit(function(e) {
+
+//       e.preventDefault(); // avoid to execute the actual submit of the form.
+
+//       var form = $(this);
+//       var emailOutput = document.getElementById("emailOutput");
+//       var passwordOutput = document.getElementById("passwordOutput");
+//       var email = document.getElementById("signinEmail");
+//       var password = document.getElementById("psw");
+
+//       $.ajax({
+//             type: "GET",
+//             url: "projectAPI/user/verification.php?email=" + email + "&pw=" + password,
+//             data: form.serialize(), // serializes the form's elements.
+//             success: function(data)
+//             {
+//                 alert(data); // show response from the php script.
+//             },
+//             statusCode: {
+//                 401: function() {
+//                 alert( "Incorrect password" );
+//                 }
+//               }
+//           });
+//       alert("WORKS")
+//       return true
+// });
+
 
 
 // Under register password, to make show/hide + eye logo dynamic
@@ -76,3 +111,5 @@ function switchEye() {
   }
   
 }
+
+
