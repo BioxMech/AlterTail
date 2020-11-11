@@ -1,3 +1,8 @@
+
+function loadme() {
+    console.log(sessionStorage.getItem("email"))
+}
+
 function show_profile()
 {
     document.getElementById("profile").getAttributeNode("active").value = "active";
