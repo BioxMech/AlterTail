@@ -41,7 +41,7 @@ if($num>0) {
     }
     $date = new DateTime(null, new DateTimeZone('Asia/Singapore'));
     $result_arr["info"] = array(
-        "author" => "Petras",
+        "author" => "Jason",
         "response_datetime_singapore" => $date->format('Y-m-d H:i:sP')
     );
 
