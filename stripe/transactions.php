@@ -50,7 +50,7 @@
       </tbody>
     </table>
     <br>
-    <p><a href="index.php">Pay Page</a></p>
+    <p><a href="paymentPage.php">Pay Page</a></p>
   </div>
 </body>
 </html>
