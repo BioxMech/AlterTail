@@ -126,3 +126,11 @@ function show_password()
 
 
 }
+
+console.log(sessionStorage.getItem("email"))
+
+function protect() {
+    if (sessionStorage.length == 0 ) {
+        window.location.replace("/AlterTail/index.html");
+    }
+}
