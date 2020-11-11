@@ -36,7 +36,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
   </head>
-  <body>
+  <body onload="loggedIn()">
 
     <!-- Start Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light" >
@@ -85,7 +85,7 @@
             </ul>      
 
             <!-- Right Side -->
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto" id="rightNav">
                 <li class="nav-item">
                     <form>
                         <input type="text" class="searchBar" placeholder="Search Shop Names">
@@ -93,12 +93,24 @@
                 </li>
                 <li class="nav-item">
                     <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="registerSignin" data-target="#registerSigninModal">Register / Login</a>
+                    <!-- <button type="button" class="btn btn-outline-dark">
+                        Hello Mr. Trump <img id="profileImage" class="nav-link" href="#" src="images/profile_image.jpg" />
+                    </button> -->
+                    <!-- <a href=""><img id="profileImage" class="nav-link" href="#" src="images/profile_image.jpg" /></a> -->
                 </li>
             </ul>
             <!-- End of right side -->
 
         </div>
         <!-- End of collapse content (Nav Bar) -->
+        <!-- <div id="navbarNav">
+            <ul class="navbar-nav mr-auto" >
+                <li class="nav-item" id="registerProfile">
+                    <a href="" class="nav-link"> <!-- User's Name --> <img id="profileImage" src="images/profile_image.jpg" /></a>
+                </li>
+            </ul>
+            
+        </div> -->
     </nav>
     <!-- End Navigation Bar -->
 
@@ -133,7 +145,6 @@
                     <!-- Sign in forms -->
                     <!-- <form class="form-signin" method="POST" id="root"> -->
                     <form class="form-signin" action="backend/process_login.php" method="POST" id="signInForm">
-                      <!-- <form class="form-signin" action="javascript:void(0);" method="POST" id="signInForm"> -->
 
                         <img src="images/logo.jpg" class="modalFormImage">
                         <h5 class="modalDescription mb-4">All-in-one tailoring/alteration/cleaning services platform</h5>
@@ -157,8 +168,8 @@
                             <input type="password" class="form-control modalInput" id="psw" placeholder="password" required="" name="password" >
                             <span class="border"></span>
                             <label for="psw"></i>Password</label>
-                            <div id="passwordOutput"></div>
                           </div>
+                          <div id="passwordOutput"></div>
                         </div>
                         
                         </div>
@@ -185,21 +196,21 @@
                         <br>Sign up with us now to get your clothing or bag cleaned, altered or tailored!</h5>
 
                         <div class="form-label-group row">
-                          <input type="text" class="form-control" v-bind:class="{'is-invalid': notValid, 'is-valid': isValid}" id="registerEmail" placeholder="email" required="" name="email"
+                          <input type="text" class="form-control" v-bind:class="{'is-invalid': emailnotValid, 'is-valid': emailisValid}" id="registerEmail" placeholder="email" required="" name="email"
                           pattern="^[a-zA-Z\d+]+@([\w-]+\.)+[\w-]{2,4}$" v-model="registerEmail" v-on:keyup="checkEmail">
                           <label for="registerEmail">Email Address</label>
                           <small class="form-text text-muted">We'll never share your email with anyone else.</small>
                           <div class="valid-feedback" v-bind:style="emailValidStyle"> {{ emailValid }} </div>
-                          <div class="invalid-feedback">The email address entered is in valid</div>
+                          <div class="invalid-feedback"> {{ emailInvalid }} </div>
                         </div>
 
                         <div class="form-label-group row">
-                          <input type="text" class="form-control" id="registerUsername" placeholder="username" required="" name="username" 
+                          <input type="text" class="form-control" v-bind:class="{'is-invalid': usernamenotValid, 'is-valid': usernameisValid}" id="registerUsername" placeholder="username" required="" name="username" 
                           pattern="^[a-zA-Z\d+]{3,}$" v-model="registerUsername" v-on:keyup="checkUsername">
                           <label for="registerUsername">Username</label>
                           <small class="form-text text-muted">It will also be your display name.</small>
                           <div class="valid-feedback" v-bind:style="usernameValidStyle"> {{ usernameValid }} </div>
-                          <div class="invalid-feedback">Username needs to be at least 3 characters long</div>
+                          <div class="invalid-feedback"> {{ usernameInvalid }} </div>
                         </div>
                         
                         <!-- <div class="form-row row">
@@ -219,12 +230,12 @@
 
                         <div class="form-group">
                           <div class="form-label-group row">
-                            <input type="text" class="form-control" id="registerName" placeholder="name" name="name" pattern="^[a-zA-Z]{5,}$" 
+                            <input type="text" class="form-control" id="registerName" placeholder="name" name="name" pattern="^[a-zA-Z\s]{3,}$" 
                             v-model="registerName" v-on:blur="display" v-on:focus="display" required>
                             <label for="registerName">Name</label>
                             <small class="form-text text-muted">First name + Last Name | For example: Bob Dylan</small>
                             <div class="valid-feedback">You have a nice name.</div>
-                            <div class="invalid-feedback">A to Z only (5 to 15 long)</div>
+                            <div class="invalid-feedback"></div>
                           </div>
                         </div>
 
@@ -281,7 +292,7 @@
                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" v-model="registerPassword" v-on:blur="display" v-on:focus="display" required>
                           <label for="registerPassword"></i>Password</label>
                           
-                          <span id="togglePassword1">Show&nbsp</span>password: <i class="fa fa-eye-slash mt-1" id="eye" aria-hidden="true"  class="bg-dark" onclick="if (registerPassword.type == 'text') registerPassword.type = 'password';
+                          <span id="togglePassword1">Show&nbsp</span>password: <i class="fa fa-eye-slash mt-1" id="eye1" aria-hidden="true"  class="bg-dark" onclick="if (registerPassword.type == 'text') registerPassword.type = 'password';
                           else registerPassword.type = 'text'; switchEye()" ></i>
 
                           <div class="valid-feedback">Your password meets all the requirements!</div>
@@ -309,8 +320,21 @@
                               </li>
                             </ul>
                           </div>
+                        </div>
+
+                        <div class="form-label-group row">
+                          <input type="password" id="cregisterPassword" class="form-control myCpwdClass" placeholder="password" required="" name="pw2" 
+                          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" required>
+                          <label for="cregisterPassword"></i>Confirm Password</label>
+
+                          <div id="cPwdValid" class="valid-feedback">Passwords Match</div>
+                          <div id="cPwdInvalid" class="invalid-feedback"></div>
+                              
+                          <span id="togglePassword2">Show&nbsp</span>password: <i class="fa fa-eye-slash mt-1" id="eye2" aria-hidden="true"  class="bg-dark" onclick="if (cregisterPassword.type == 'text') cregisterPassword.type = 'password';
+                          else cregisterPassword.type = 'text'; cswitchEye()" ></i>
 
                         </div>
+                          
                         
                         <div class="form-group form-check row">
                           <input type="checkbox" class="form-check-input" id="registerPromotion">
@@ -319,7 +343,7 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <!-- <button type="button" class="btn btn-primary">Sign up</button> -->
-                            <input type="submit" class="btn btn-primary" value="Sign up">
+                            <input type="submit" class="btn btn-primary" value="Sign up" id="submitBtn">
                         </div>
                         <small class="form-text text-muted">By clicking "SIGN UP"; I agree to AlterTail's Terms of Use and Privacy Policy</small>
                     </form>
@@ -384,6 +408,7 @@
     </div>
     <!-- End of Carousel -->
     
+    <!-- ======================================== BODY ======================================== -->
 
     <!-- Special Context  -->
     <div class="container specialContext">
@@ -413,8 +438,6 @@
     </div>
     <!-- End of Special Context -->
 
-
-
     <!-- Main Content -->
     <div id="mainContent" class="container main">
 
@@ -427,7 +450,7 @@
                 </a>
                 <div class="card-body">
                   <h5 class="card-title">Kingsmen</h5>
-                  <p class="card-text">A leading custom tailor of bespoke menswear and accessories, Kingsmen Shop traces its heritage back to 1954, when it was then known as Great Central Modern Tailor. The prestigious Kingsmen name was adopted in the early 1970s and we have since become synonymous as the pioneer of leading menswear and top-notch fashion accessories for the well-dressed male.</p>
+                  <p class="card-text" id="cardTest">A leading custom tailor of bespoke menswear and accessories, Kingsmen Shop traces its heritage back to 1954, when it was then known as Great Central Modern Tailor. The prestigious Kingsmen name was adopted in the early 1970s and we have since become synonymous as the pioneer of leading menswear and top-notch fashion accessories for the well-dressed male.</p>
                 </div>
               </div>
             </div>
@@ -470,33 +493,6 @@
               <div class="col mb-4">
                 <div class="card h-100">
                   <img src="images/alteration2.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card h-100">
-                  <img src="images/alteration4.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card h-100">
-                  <img src="images/scissors.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card h-100">
-                  <img src="images/scissors.jpg" class="card-img-top" alt="...">
                   <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -627,26 +623,10 @@
     </li>
     
     <li class="list-inline-item">
-      <a class="btn-floating btn-tw mx-1" href="https://twitter.com/AltertailS"
-      target="_blank" rel="noopener">
+      <a class="btn-floating btn-tw mx-1" href="https://twitter.com/AltertailS" target="_blank" rel="noopener">
         <i class="fab fa-twitter"> </i>
       </a>
     </li>
-    <!-- <li class="list-inline-item">
-      <a class="btn-floating btn-gplus mx-1">
-        <i class="fab fa-google-plus-g"> </i>
-      </a>
-    </li> -->
-    <!-- <li class="list-inline-item">
-      <a class="btn-floating btn-li mx-1">
-        <i class="fab fa-linkedin-in"> </i>
-      </a>
-    </li> -->
-    <!-- <li class="list-inline-item">
-      <a class="btn-floating btn-dribbble mx-1">
-        <i class="fab fa-dribbble"> </i>
-      </a>
-    </li> -->
   </ul>
   <!-- Social buttons -->
 
@@ -678,8 +658,10 @@
         var app = new Vue({
             el: "#myForm1",
             data: {
-              isValid: false,
-              notValid: false,
+              emailisValid: false,
+              emailnotValid: false,
+              usernameisValid: false,
+              usernamenotValid: false,
               show: false,
               registerName: '',
               registerPassword: '',
@@ -696,7 +678,9 @@
               emailValid: '',
               emailValidStyle: {
                 color: 'red'
-              }
+              },
+              emailInvalid: 'The email address entered is invalid',
+              usernameInvalid: 'Username needs to be at least 3 characters long'
             },
             methods: {
               display: function() {
@@ -750,20 +734,23 @@
                   // view it
                   // console.log(response.data)
 
-                  this.usernameValid = this.registerUsername + " already exist."
-                  // this.usernameValidStyle.color = "red"
+                  this.usernameInvalid = this.registerUsername + " already exist."
+                //   this.usernameValidStyle.color = "red"
+
                   
-                  // this.isValid = false
-                  // this.notValid = true
+                  this.usernameisValid = false
+                  this.usernamenotValid = true
                 })
                 .catch(error => {
                   // shows the status, e.g. 404
                   // console.log(error.response.status)
                   this.usernameValid = "You can use " + this.registerUsername + " as your username."
-                  // this.usernameValidStyle.color = "green"
+                  this.usernameValidStyle.color = "green"
 
-                  // this.isValid = true
-                  // this.notValid = false
+                  this.usernameInvalid = "Username needs to be at least 3 characters long"
+
+                  this.usernameisValid = true
+                  this.usernamenotValid = false
                 })
               },
               checkEmail: function() {
@@ -780,19 +767,23 @@
                   // view it
                   // console.log(response.data)
 
-                  this.emailValid = this.registerEmail + " already exist."
-                  // this.emailValidStyle.color = "red"
+                  this.emailInvalid = this.registerEmail + " already exist."
+                //   this.emailValidStyle.color = "red"
 
-                  this.notValid = true
-                  this.isValid = false
+                  this.emailnotValid = true
+                  this.emailisValid = false
                 })
                 .catch(error => {
                   // shows the status, e.g. 404
                   // console.log(error.response.status)
+
                   this.emailValid = "You can use " + this.registerEmail + " as your email."
-                  // this.emailValidStyle.color = "green"
-                  this.notValid = false
-                  this.isValid = true
+                  this.emailValidStyle.color = "green"
+
+                  this.emailInvalid = "The email address entered is invalid"
+
+                  this.emailnotValid = false
+                  this.emailisValid = true
                 })
               }
             }
@@ -850,8 +841,8 @@
     //     myInputElements[i].classList.remove('is-valid');
     //   }
       // ------------ Check passwords similarity --------------
-      $('#pwdId, #cPwdId').on('keyup', function () {
-        if ($('#pwdId').val() != '' && $('#cPwdId').val() != '' && $('#pwdId').val() == $('#cPwdId').val() ) {
+      $('#registerPassword, #cregisterPassword').on('keyup', function () {
+        if ($('#registerPassword').val() != '' && $('#cregisterPassword').val() != '' && $('#registerPassword').val() == $('#cregisterPassword').val() ) {
           $('#cPwdValid').show();
           $('#cPwdInvalid').hide();
           $('#cPwdInvalid').html('Passwords Match').css('color', 'green');
@@ -914,6 +905,10 @@
       // ------------------------------------------------------
     });
 
+    function submitForm(){ 
+  // Call submit() method on <form id='myform'>
+  document.getElementById('signInForm').submit(); 
+} 
 
     // this is the id of the form
     $("#signInForm").submit(function(e) {
@@ -931,12 +926,20 @@
           type: "GET",
           url: "projectAPI/user/verification.php?email=" + email + "&pw=" + password,
           data: form.serialize(), // serializes the form's elements.
-          // success: function(data)
-          // {
-          //   $('#signInForm').attr('validated',true);
-          //   $('#signInForm').submit();
-          //   alert("YAY");
-          // },
+          success: function(data)
+          {
+            // $('#signInForm').attr('validated',true);
+            // $('#signInForm').submit();
+
+            // sets a session
+            sessionStorage.setItem('email', email);
+
+            // refreshes the page
+            submitForm()
+
+            // testing
+            // alert("YAY");
+          },
           statusCode: {
               401: function() {
                 emailOutput.innerHTML = "";
@@ -947,13 +950,13 @@
                 passwordOutput.innerHTML = "";
                 emailOutput.innerHTML = "Email does not exist";
                 // alert( "No Email!" );
-              },
-              200: function() {
-                // $('#signInForm').attr('validated',true);
-                // $('#signInForm').submit();
-                submitForm()
-                alert("YAY");
               }
+            //   200: function() {
+            //     // $('#signInForm').attr('validated',true);
+            //     // $('#signInForm').submit();
+            //     submitForm()
+            //     alert("YAY");
+            //   }
             }
             
         });
@@ -962,11 +965,8 @@
 
     });
 
-    function submitForm(){ 
-  // Call submit() method on <form id='myform'>
-  document.getElementById('signInForm').submit(); 
-} 
 
+console.log(sessionStorage.getItem('email'));
 
     </script>  
 

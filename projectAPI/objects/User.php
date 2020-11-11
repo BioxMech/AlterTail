@@ -23,20 +23,24 @@ class User {
         $this->conn=$db;
     }
 
-    public function retrieveShopPage() {
-        $query = "SELECT * FROM shop_service";
+    public function retrieveShopPage($shop_name) {
+        $query = "SELECT * FROM shop_service WHERE shop_name = ?";
 
         $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(1, $shop_name);
 
         $stmt->execute();
 
         return $stmt;
     }
 
-    public function retrieveProfile() {
-        $query = "SELECT * FROM user";
+    public function retrieveProfile($email) {
+        $query = "SELECT * FROM user WHERE email = ?";
 
         $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(1, $email);
 
         $stmt->execute();
 

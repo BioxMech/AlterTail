@@ -64,52 +64,49 @@ function signInVerification() {
 }
 
 
-// // this is the id of the form
-// $("#signInForm").submit(function(e) {
-
-//       e.preventDefault(); // avoid to execute the actual submit of the form.
-
-//       var form = $(this);
-//       var emailOutput = document.getElementById("emailOutput");
-//       var passwordOutput = document.getElementById("passwordOutput");
-//       var email = document.getElementById("signinEmail");
-//       var password = document.getElementById("psw");
-
-//       $.ajax({
-//             type: "GET",
-//             url: "projectAPI/user/verification.php?email=" + email + "&pw=" + password,
-//             data: form.serialize(), // serializes the form's elements.
-//             success: function(data)
-//             {
-//                 alert(data); // show response from the php script.
-//             },
-//             statusCode: {
-//                 401: function() {
-//                 alert( "Incorrect password" );
-//                 }
-//               }
-//           });
-//       alert("WORKS")
-//       return true
-// });
-
-
 
 // Under register password, to make show/hide + eye logo dynamic
 var check = false
 function switchEye() {
   var current = document.getElementById("togglePassword1")
   if (check == false) {
-    document.getElementById("eye").setAttribute("class", "fa-eye mt-1")
+    document.getElementById("eye1").setAttribute("class", "fa-eye mt-1")
     check = true
     current.innerHTML = "Hide&nbsp"
   }
   else {
-    document.getElementById("eye").setAttribute("class", "fa fa-eye-slash mt-1")
+    document.getElementById("eye1").setAttribute("class", "fa fa-eye-slash mt-1")
     check = false
     current.innerHTML = "Show&nbsp"
   }
   
 }
 
+var ccheck = false
+function cswitchEye() {
+    var current = document.getElementById("togglePassword2")
+    if (ccheck == false) {
+      document.getElementById("eye2").setAttribute("class", "fa-eye mt-1")
+      ccheck = true
+      current.innerHTML = "Hide&nbsp"
+    }
+    else {
+      document.getElementById("eye2").setAttribute("class", "fa fa-eye-slash mt-1")
+      ccheck = false
+      current.innerHTML = "Show&nbsp"
+    }
+    
+  }
 
+
+function signOut() {
+    sessionStorage.clear();
+    window.location.replace("/AlterTail/index.html");
+}
+
+
+function loggedIn() {
+    if (sessionStorage.length != 0) {
+        getProfileDetails(sessionStorage.getItem("email"), true)
+    }
+}

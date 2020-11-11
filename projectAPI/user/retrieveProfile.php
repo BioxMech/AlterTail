@@ -35,6 +35,7 @@ if($num>0) {
             "street_address" => $street_address,
             "unit" => $unit,
             "postal_code" => $postal_code,
+            "image_url" => $image_url
         );
         array_push($result_arr["records"], $item);
     }

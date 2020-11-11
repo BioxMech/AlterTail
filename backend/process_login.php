@@ -19,7 +19,7 @@ else {
     echo "Failed!";
     // echo $email;
     echo $hashed;
-    header("Location: ../index.html#");
+    header("Location: index.html");
 }
 
 ?>

@@ -70,7 +70,8 @@
 
 /* Search button */
 .searchBar {
-	outline: none;
+    outline: none;
+    bottom: unset;
 }
 .searchBar[type=text] {
 	-webkit-appearance: textfield;

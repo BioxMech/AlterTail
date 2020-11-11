@@ -31,6 +31,13 @@
     <link rel="stylesheet" href="css/animation.css">
     <!-- <link rel="stylesheet" href="css/buttons.css"> -->
     <link rel="stylesheet" href="css/buttonEffects.css">
+
+    <!-- To Protect the page JS -->
+    <script>
+        if (sessionStorage.length == 0) {
+        window.location.replace("/AlterTail/index.html");
+    }
+    </script>
     
 
   </head>
