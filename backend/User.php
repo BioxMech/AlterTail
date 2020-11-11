@@ -3,6 +3,7 @@
 class User {
     public $email;
     public $fname;
+    public $SuperSaaS_user_id;
     public $gender;
     public $username;
     public $pw;
@@ -13,9 +14,10 @@ class User {
     
 
     //construct User object
-    function __construct($email,$fname,$gender,$username,$pw,$phone,$street_address,$unit,$postal_code) {
+    function __construct($email,$fname,$SuperSaaS_user_id,$gender,$username,$pw,$phone,$street_address,$unit,$postal_code) {
         $this->email = $email;
         $this->fname = $fname;
+        $this->SuperSaaS_user_id = $SuperSaaS_user_id;
         $this->gender = $gender;
         $this->username = $username;
         $this->pw = $pw;
@@ -35,6 +37,9 @@ class User {
         return $this->fname;
     }
 
+    public function getSuperSaaSUserId() {
+        return $this->SuperSaaS_user_id;
+    }
 
     public function getGender() {
         return $this->gender;
