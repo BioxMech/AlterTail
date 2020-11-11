@@ -15,7 +15,7 @@ $db = $database->getConnection();
 $user = new User($db);
 
 //query products
-$stmt = $user->read();
+$stmt = $user->retrieveProfile($_GET["email"]);
 $num = $stmt->rowCount();
 
 if($num>0) {
@@ -34,14 +34,14 @@ if($num>0) {
             "phone" => $phone,
             "street_address" => $street_address,
             "unit" => $unit,
-            "postal_code" => $postal_code,
-            "image_url" => $image_url
+            "postal_code" => $postal_code
+            // "image_url" => $image_url
         );
         array_push($result_arr["records"], $item);
     }
     $date = new DateTime(null, new DateTimeZone('Asia/Singapore'));
     $result_arr["info"] = array(
-        "author" => "Petras",
+        "author" => "Jason",
         "response_datetime_singapore" => $date->format('Y-m-d H:i:sP')
     );
 

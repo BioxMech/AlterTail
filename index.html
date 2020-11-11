@@ -35,8 +35,14 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
+
   </head>
   <body onload="loggedIn()">
+
+    <div id="overlay">
+        <div id="progstat"></div>
+        <div id="progress"></div>
+    </div>
 
     <!-- Start Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light" >
@@ -91,27 +97,21 @@
                         <input type="text" class="searchBar" placeholder="Search Shop Names">
                     </form>
                 </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="registerSignin" data-target="#registerSigninModal">Register / Login</a>
-                    <!-- <button type="button" class="btn btn-outline-dark">
-                        Hello Mr. Trump <img id="profileImage" class="nav-link" href="#" src="images/profile_image.jpg" />
-                    </button> -->
-                    <!-- <a href=""><img id="profileImage" class="nav-link" href="#" src="images/profile_image.jpg" /></a> -->
-                </li>
+                <!-- <li class="nav-item"> -->
+                    <!-- <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="registerSignin" data-target="#registerSigninModal">Register / Login</a> -->
+                <!-- </li> -->
             </ul>
             <!-- End of right side -->
 
         </div>
         <!-- End of collapse content (Nav Bar) -->
-        <!-- <div id="navbarNav">
+        <div id="navbarNav">
             <ul class="navbar-nav mr-auto" >
                 <li class="nav-item" id="registerProfile">
-                -->
-                    <a href="profile.html" class="nav-link"> <!-- User's Name --> <img id="profileImage" src="images/profile_image.jpg"/></a>
+                    <!-- <a href="" class="nav-link"> Trump <img id="profileImage" src="images/profile_image.jpg" /></a> -->
                 </li>
             </ul>
-            
-        </div> 
+        </div>
     </nav>
     <!-- End Navigation Bar -->
 
@@ -197,8 +197,8 @@
                         <br>Sign up with us now to get your clothing or bag cleaned, altered or tailored!</h5>
 
                         <div class="form-label-group row">
-                          <input type="text" class="form-control" v-bind:class="{'is-invalid': emailnotValid, 'is-valid': emailisValid}" id="registerEmail" placeholder="email" required="" name="email"
-                          pattern="^[a-zA-Z\d+]+@([\w-]+\.)+[\w-]{2,4}$" v-model="registerEmail" v-on:keyup="checkEmail">
+                          <input type="text" class="form-control" v-bind:class="{'is-invalid': emailnotValid, 'is-valid': emailisValid }" id="registerEmail" placeholder="email" required="" name="email"
+                          pattern="^[a-zA-Z\d+.]+@([\w-]+\.)+[\w-]{2,4}$" v-model="registerEmail" v-on:keyup="checkEmail">
                           <label for="registerEmail">Email Address</label>
                           <small class="form-text text-muted">We'll never share your email with anyone else.</small>
                           <div class="valid-feedback" v-bind:style="emailValidStyle"> {{ emailValid }} </div>
@@ -938,26 +938,16 @@
             // refreshes the page
             submitForm()
 
-            // testing
-            // alert("YAY");
           },
           statusCode: {
               401: function() {
                 emailOutput.innerHTML = "";
                 passwordOutput.innerHTML = "Wrong Password";
-                // alert( "Incorrect password" );
               },
               404: function() {
                 passwordOutput.innerHTML = "";
                 emailOutput.innerHTML = "Email does not exist";
-                // alert( "No Email!" );
               }
-            //   200: function() {
-            //     // $('#signInForm').attr('validated',true);
-            //     // $('#signInForm').submit();
-            //     submitForm()
-            //     alert("YAY");
-            //   }
             }
             
         });
@@ -966,8 +956,43 @@
 
     });
 
-
+// testing purpose
 console.log(sessionStorage.getItem('email'));
+
+
+// Animate the Loader
+;(function(){
+  function id(v){return document.getElementById(v); }
+  function loadbar() {
+    var ovrl = id("overlay"),
+        prog = id("progress"),
+        stat = id("progstat"),
+        img = document.images,
+        c = 0;
+        tot = img.length;
+
+    function imgLoaded(){
+      c += 1;
+      var perc = ((100/tot*c) << 0) +"%";
+      prog.style.width = perc;
+      stat.innerHTML = "Loading "+ perc;
+      if(c===tot) return doneLoading();
+    }
+    function doneLoading(){
+      ovrl.style.opacity = 0;
+      setTimeout(function(){ 
+        ovrl.style.display = "none";
+      }, 1200);
+    }
+    for(var i=0; i<tot; i++) {
+      var tImg     = new Image();
+      tImg.onload  = imgLoaded;
+      tImg.onerror = imgLoaded;
+      tImg.src     = img[i].src;
+    }    
+  }
+  document.addEventListener('DOMContentLoaded', loadbar, false);
+}());
 
     </script>  
 

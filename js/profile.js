@@ -1,8 +1,4 @@
 
-function loadme() {
-    console.log(sessionStorage.getItem("email"))
-}
-
 function show_profile()
 {
     document.getElementById("profile").getAttributeNode("active").value = "active";
@@ -130,4 +126,12 @@ function show_password()
     document.getElementById("content").innerHTML = str;
 
 
+}
+
+console.log(sessionStorage.getItem("email"))
+
+function protect() {
+    if (sessionStorage.length == 0 ) {
+        window.location.replace("/AlterTail/index.html");
+    }
 }
