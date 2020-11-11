@@ -212,7 +212,7 @@ function displaycard(){
                     </div>
                     <div class = "col-xs-4">
                         <p class = "font-weight-bold" style="margin: 0px; padding-top: 2px; padding-left:5px;">
-                            ${shop.rating}${shop.rating_num}
+                            ${shop.rating} (${shop.rating_num})
                         </p>
                     </div>
                 </div>
