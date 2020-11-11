@@ -15,7 +15,7 @@ $db = $database->getConnection();
 $user = new User($db);
 
 //query products
-$stmt = $user->read();
+$stmt = $user->retrieveShopPage($_GET["shop_page"]);
 $num = $stmt->rowCount();
 
 if($num>0) {

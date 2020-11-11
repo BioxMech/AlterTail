@@ -8,7 +8,6 @@ class User {
     //object properties
     public $email;
     public $fname;
-    public $lname;
     public $gender;
     public $username;
     public $pw;
@@ -16,7 +15,6 @@ class User {
     public $street_address;
     public $unit;
     public $postal_code;
-    public $shopname;
 
     //constructor with $db as database connection
     public function __construct($db) {

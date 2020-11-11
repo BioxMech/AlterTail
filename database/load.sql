@@ -14,7 +14,7 @@ create table user
  street_address varchar(50) not null,
  unit varchar(20),
  postal_code varchar(6) not null,
- image_url varchar(100) not null,
+ image_url varchar(100),
  constraint user_pk primary key(email)
  );
 
@@ -29,7 +29,7 @@ create table seller
  shop_category varchar(20) not null,
  rating varchar(10) not null,
  rating_num varchar(10) not null,
- image_url varchar(100) not null,
+ image_url varchar(100),
  constraint seller_pk primary key(email,shop_name),
  constraint seller_fk1 foreign key(email) references user(email)
 );
