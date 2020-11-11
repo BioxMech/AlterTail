@@ -1,16 +1,19 @@
 function clearAllSignin() {
     document.getElementById("signinEmail").value = '';
-    document.getElementById("signinPassword").value = '';
+    document.getElementById("psw").value = '';
 }
 
 function clearAllRegister() {
     document.getElementById("registerEmail").value = '';
     document.getElementById("registerUserName").value = '';
-    // document.getElementById("registerFirstName").value = '';
-    // document.getElementById("registerLastName").value = '';
     document.getElementById("registerName").value = '';
     document.getElementById("registerPhoneNumber").value = '';
     document.getElementById("registerPassword").value = '';
+    document.getElementById("registerStreetAddress").value = '';
+    document.getElementById("registerUnit").value = '';
+    document.getElementById("registerPostal").value = '';
+    document.getElementById("registerPassword").value = '';
+    document.getElementById("cregisterPassword").value = '';
 }
 
 // Sign in modal
@@ -62,7 +65,6 @@ function signInVerification() {
     return false
     
 }
-
 
 
 // Under register password, to make show/hide + eye logo dynamic
@@ -172,4 +174,9 @@ function getProfileDetails(email, isProfilePage) {
 
     request.send();
 
+}
+
+
+function saveSession() {
+    sessionStorage.setItem("email", document.getElementById("registerEmail").value);
 }

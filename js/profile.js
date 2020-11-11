@@ -128,14 +128,8 @@ function show_password()
 
 }
 
-console.log(sessionStorage.getItem("email"))
-document.getElementById("email").innerHTML = sessionStorage.getItem("email");
 
-function protect() {
-    if (sessionStorage.length == 0 ) {
-        window.location.replace("/AlterTail/index.html");
-    }
-}
+
 
 function getProfileDetails(email, isProfilePage=true) {
 
