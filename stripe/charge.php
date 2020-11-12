@@ -5,7 +5,7 @@
   require_once('models/Customer.php');
   require_once('models/Transaction.php');
 
-  \Stripe\Stripe::setApiKey('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');
+  \Stripe\Stripe::setApiKey('sk_test_51HYTEuFW7whrGeRW9iflK349xjEmCUf4OOsSMRuztxa8DY1MDhCNdupz9ZGr3ayP1upXm1JW0aYUxd6okkikK9TY00rxWyiEyK');
 
  // Sanitize POST Array
  $POST = filter_var_array($_POST, FILTER_SANITIZE_STRING);
@@ -23,7 +23,7 @@ $customer = \Stripe\Customer::create(array(
 
 // Charge Customer
 $charge = \Stripe\Charge::create(array(
-  "amount" => 500,
+  "amount" => 100,
   "currency" => "sgd",
   "description" => "Payment",
   "customer" => $customer->id

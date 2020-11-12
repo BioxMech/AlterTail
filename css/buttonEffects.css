@@ -66,6 +66,69 @@
   opacity: 1;
 }
 
+/* Consistent */
+
+#navbarNavRight ul {
+    /* position: absolute;
+  
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex; */
+  }
+  #navbarNavRight ul li {
+    list-style: none;
+  }
+  #navbarNavRight ul li a {
+    position: relative;
+    display: block;
+    /* text-transform: uppercase; */
+    /* margin: 20px 0; */
+    /* padding: 10px 20px; */
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #262626;
+    transition: 0.5s;
+    z-index: 1;
+  }
+  #navbarNavRight ul li a:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid #262626;
+    border-bottom: 2px solid #262626;
+    transform: scaleY(2);
+    opacity: 0;
+    transition: 0.5s;
+  }
+  #navbarNavRight ul li a:after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #262626;
+    transform: scale(0);
+    opacity: 0;
+    transition: 0.5s;
+    z-index: -1;
+  }
+  #navbarNavRight ul li a:hover {
+    color: #fff;
+  }
+  #navbarNavRight ul li a:hover:before {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  #navbarNavRight ul li a:hover:after {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+
+
 /*# sourceMappingURL=buttonEffects.css.map */
 
 /* Search button */

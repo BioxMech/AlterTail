@@ -3,6 +3,8 @@ email = (sessionStorage.getItem("email"));
 function clearAllSignin() {
     document.getElementById("signinEmail").value = '';
     document.getElementById("psw").value = '';
+    document.getElementById("emailOutput").value = '';
+     document.getElementById("passwordOutput").value = '';``
 }
 
 function clearAllRegister() {
@@ -108,15 +110,82 @@ function signOut() {
     window.location.replace("/AlterTail/index.html");
 }
 
+function generateSaaS() {
+    var SuperSaaS_user_id = "";
+    for (var i = 0; i < 3; i++) {
+        var n = Math.floor((Math.random(1,9) * 10)).toString();
+        SuperSaaS_user_id += n;
+    }
+    SuperSaaS_user_id += "fk";
+    return SuperSaaS_user_id;
+}
+
+function CreateUser(email, fname,SuperSaaS_user_id) {
+    var request = new XMLHttpRequest();
+    // request.withCredentials = true;
+    // console.log(email);
+    
+    request.onreadystatechange = function() {
+      console.log(this.readyState);
+      console.log(this.status);
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(request.responseText);
+      }
+    }
+
+    // var url = `https://www.supersaas.com/api/users/567fk.json?account=PetrasTYR&api_key=60Sdu0PWYumxHliWn1Uieg&user[name]=user1@example.com&user[password]=secret1&user[full_name]=Test%20Name`;
+    var url = `https://www.supersaas.com/api/users/${SuperSaaS_user_id}.json?account=PetrasTYR&api_key=60Sdu0PWYumxHliWn1Uieg&user[name]=${email}&user[full_name]=${fname}`;
+    request.open("POST",url,true);
+    // console.log(email);
+    request.send();
+    // console.log(email);
+  }
 
 function loggedIn() {
+
+    // Signed in already
     if (sessionStorage.length != 0) {
-        getProfileDetails(sessionStorage.getItem("email"), false)
+        getProfileDetails(sessionStorage.getItem("email"), false);
+        createSaaS();
+        console.log("called1");
+        console.log(sessionStorage.getItem("SaaSID"));
+    }
+
+    //  not yet signed in
+    else {
+        document.getElementById("registerProfile").innerHTML += `    
+            <li class="nav-item mt-2 mr-1" id="change">
+                <form>
+                    <input type="text" class="searchBar" placeholder="Search Shop Names">
+                </form>
+            </li>
+            <li class="nav-item mt-1" >
+                <!-- Replace me with Sign in or Profile -->
+                <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="registerSignin" data-target="#registerSigninModal">Register / Login</a>
+            </li>
+        `;
+        var generatedSaaS = generateSaaS();
+        console.log("First load " + generatedSaaS)
+        document.getElementById("SuperSaaS_user_id").value = generatedSaaS;
+    }
+}
+
+
+
+function createSaaS() {
+    if (sessionStorage.getItem("SaaS") == "false") {
+        console.log('called SaaS false');
+        console.log(sessionStorage.getItem("email"));
+        console.log(sessionStorage.getItem("name"));
+        console.log(sessionStorage.getItem("SaaSID"));
+        // var generatedSaaS = generateSaaS();
+        // console.log(generatedSaaS)
+        // document.getElementById("SuperSaaS_user_id").value = generatedSaaS;
+        CreateUser(sessionStorage.getItem("email"),sessionStorage.getItem("name"),sessionStorage.getItem("SaaSID"));
+        sessionStorage.setItem("SaaS",true);
     }
     else {
-        document.getElementById("registerProfile").innerHTML = `
-        <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="registerSignin" data-target="#registerSigninModal">Register / Login</a>
-        `;
+        console.log("called SaaS not false")
     }
 }
 
@@ -136,6 +205,7 @@ function getProfileDetails(email, isProfilePage) {
            for (profile of records) {
             var email = profile.email;
             var name = profile.fname;
+            var SuperSaaS_user_id = profile.SuperSaaS_user_id;
             var gender = profile.gender;
             var username = profile.username;
             var password = profile.pw;
@@ -152,17 +222,28 @@ function getProfileDetails(email, isProfilePage) {
             else {
                 var registerProfile = document.getElementById("registerProfile");
         
-                registerProfile.innerHTML = `
-                <div class="dropdown">
-                    <a class="nav-link" href="profile.html" style="padding-bottom:unset;" 
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> ${username}&nbsp<img id="profileImage" src="images/profile_image.jpg" /></a>
+                registerProfile.innerHTML += `
+                <li class="nav-item mt-4 mr-1" id="change">
+                <form>
+                    <input type="text" class="searchBar" placeholder="Search Shop Names">
+                </form>
+                </li>
+                <li class="nav-item mt-1" >
+                    <!-- Replace me with Sign in or Profile -->
+                    <div class="dropdown">
+                        <a class="nav-link" href="profile.html" style="padding-bottom:unset;" 
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> ${username}&nbsp<img id="profileImage" src="images/profile_image.jpg" /></a>
 
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="profile.html">My Profile</a>
-                        <a class="dropdown-item" href="#" onclick="signOut()">Sign Out</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="profile.html">My Profile</a>
+                            <a class="dropdown-item" href="#" onclick="signOut()">Sign Out</a>
+                        </div>
                     </div>
-                </div>
+                </li>
+                
                 `;
+
+                sessionStorage.setItem("SaaSID", SuperSaaS_user_id);
             }
 
         }
@@ -178,7 +259,11 @@ function getProfileDetails(email, isProfilePage) {
 
 }
 
-
+// Call upon Registration
 function saveSession() {
     sessionStorage.setItem("email", document.getElementById("registerEmail").value);
+    sessionStorage.setItem("SaaS", "false");
+    sessionStorage.setItem("name", document.getElementById("registerName").value)
+    sessionStorage.setItem("SaaSID", document.getElementById("SuperSaaS_user_id").value)
+
 }
