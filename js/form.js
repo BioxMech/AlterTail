@@ -242,6 +242,8 @@ function getProfileDetails(email, isProfilePage) {
                 </li>
                 
                 `;
+
+                sessionStorage.setItem("SaaSID", SuperSaaS_user_id);
             }
 
         }
@@ -257,7 +259,7 @@ function getProfileDetails(email, isProfilePage) {
 
 }
 
-
+// Call upon Registration
 function saveSession() {
     sessionStorage.setItem("email", document.getElementById("registerEmail").value);
     sessionStorage.setItem("SaaS", "false");
