@@ -142,13 +142,16 @@ function CreateUser(email, fname,SuperSaaS_user_id) {
   }
 
 function loggedIn() {
+
+    // Signed in already
     if (sessionStorage.length != 0) {
         getProfileDetails(sessionStorage.getItem("email"), false);
         createSaaS();
         console.log("called1");
         console.log(sessionStorage.getItem("SaaSID"));
-
     }
+
+    //  not yet signed in
     else {
         document.getElementById("registerProfile").innerHTML += `    
             <li class="nav-item mt-2 mr-1" id="change">
