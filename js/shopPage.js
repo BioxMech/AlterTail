@@ -1,5 +1,4 @@
-//console.log(sessionStorage.getItem("shop_name"));
-var shopname = (sessionStorage.getItem("shop_name"));
+
 
 function show_shopPage(shopname){
     var request = new XMLHttpRequest(); // Prep to make an HTTP request
@@ -15,21 +14,35 @@ function show_shopPage(shopname){
 
             console.log(records)
 
-           for (profile of records) {
-            var email = profile.email;
-            var name = profile.fname;
-            var gender = profile.gender;
-            var username = profile.username;
-            var password = profile.pw;
-            var phone = profile.phone;
-            var address = profile.street_address;
-            var unit = profile.unit;
-            var postalCode = profile.postalCode;
-            var image_url = profile.image_url;
-           }
-
+            for(var record of records) {
+                counter ++; 
+    
+                shop_name = record.shop_name;
+                shop_image = record.image_url;
+                shop_description = record.shop_description;
+    
+                service_id = record.services.service_id;
+                service_title = record.services.service_title;
+                service_lead_time = record.services.service_lead_time;
+                service_price = record.services.service_price;
+                service_description = record.services.service_description;
+    
+                img_str = `
+                <img src="images/kingsman.jpg" class="img-fluid" alt="Responsive image"
+                style= "display: block;
+                        margin-left: auto;
+                        margin-right: auto;
+                        " >
+                `;
+            }
         }
-    }
-
-    document.getElementById("shop_image").innerHTML = str;
+    
+        document.getElementById("shop_image").innerHTML = str;
+        document.getElementById("shop_image").innerHTML = img_str;
+        }
+        var url = "projectAPI/user/retrieveShopPage.php?shopname=" + shopname;
+    
+        request.open("GET", url, true);
+    
+        request.send();
 }
