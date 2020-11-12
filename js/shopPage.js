@@ -1,13 +1,12 @@
-
-
-function show_shopPage(shopname){
+var shopname = "kingsmen";
+function show_shopPage(){
     var request = new XMLHttpRequest(); // Prep to make an HTTP request
 
     request.onreadystatechange = function() {
 
         // Check if response is ready!
         if( this.readyState == 4 && this.status == 200 ) {
-            
+            alert("lalalla");
             // Convert responseText to JSON
             var response_json = JSON.parse(this.responseText);
             var records = response_json.records;
@@ -35,12 +34,13 @@ function show_shopPage(shopname){
                         " >
                 `;
             }
+            document.getElementById("shop_image").innerHTML = img_str;
         }
     
-        document.getElementById("shop_image").innerHTML = str;
-        document.getElementById("shop_image").innerHTML = img_str;
+
+        
         }
-        var url = "projectAPI/user/retrieveShopPage.php?shopname=" + shopname;
+        var url = "projectAPI/user/retrieveShopPage.php?shop_name=" + shopname;
     
         request.open("GET", url, true);
     
