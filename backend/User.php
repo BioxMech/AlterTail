@@ -11,6 +11,7 @@ class User {
     public $street_address;
     public $unit;
     public $postal_code;
+    public $image_url;
     
 
     //construct User object
