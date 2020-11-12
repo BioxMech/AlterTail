@@ -1,4 +1,4 @@
-email = (sessionStorage.getItem("email"));
+// email = (sessionStorage.getItem("email"));
 
 function clearAllSignin() {
     document.getElementById("signinEmail").value = '';
@@ -103,7 +103,8 @@ function cswitchEye() {
     }
     
   }
-
+  
+// =========================================================================== //
 
 function signOut() {
     sessionStorage.clear();
@@ -169,8 +170,6 @@ function loggedIn() {
         document.getElementById("SuperSaaS_user_id").value = generatedSaaS;
     }
 }
-
-
 
 function createSaaS() {
     if (sessionStorage.getItem("SaaS") == "false") {

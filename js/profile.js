@@ -89,7 +89,6 @@ function show_password()
     document.getElementById("content").innerHTML = "";
     var str = ""
     str += `
-
     <div class = "col-lg-9 shadow bg-white rounded" style="padding: 30px">
     <div>
         <p style = "margin-bottom: 5px;">Change Password</p>
@@ -171,7 +170,6 @@ function getProfile(isProfilePage=true) {
                 var str = ""
                 var str1 =""
                 str += `
-
                         <div class = "col-lg-9 shadow bg-white rounded" style="padding: 30px">
                         <div>
                             <p style = "margin-bottom: 5px;">My Profile</p>
