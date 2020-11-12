@@ -12,10 +12,10 @@ $database = new Database();
 $db = $database->getConnection();
 
 //initialize object
-$user = new User($db);
+$seller = new Seller($db);
 
 //query products
-$stmt = $user->retrieveShop($_GET["email"]);
+$stmt = $seller->retrieveShop($_GET["email"]);
 $num = $stmt->rowCount();
 
 if($num>0) {
@@ -26,16 +26,17 @@ if($num>0) {
         extract($row);
 
         $item = array(
+            "email" => $email,
             "shop_name" => $shop_name,
             "street_address" => $street_address,
             "shop_summary" => $shop_summary,
             "shop_description" => $shop_description,
-            "unit" => $unit
-            "postal_code" => $postal_code
-            "shop_category" => $shop_category
-            "rating" => $rating
-            "rating_num" => $rating_num
-            "img_url" => $img_url
+            "unit" => $unit,
+            "postal_code" => $postal_code,
+            "shop_category" => $shop_category,
+            "rating" => $rating,
+            "rating_num" => $rating_num,
+            "image_url" => $image_url
         );
         array_push($result_arr["records"], $item);
     }
