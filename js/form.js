@@ -142,18 +142,18 @@ function CreateUser(email, fname,SuperSaaS_user_id) {
   }
 
 function loggedIn() {
+
+    // Signed in already
     if (sessionStorage.length != 0) {
         getProfileDetails(sessionStorage.getItem("email"), false);
         createSaaS();
         console.log("called1");
         console.log(sessionStorage.getItem("SaaSID"));
-
     }
+
+    //  not yet signed in
     else {
-        document.getElementById("registerProfile").innerHTML = `
-            <li class="nav-item mt-2 mr-1">
-                <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="book" data-target="#bookModal">Book an appointment</a>
-            </li>    
+        document.getElementById("registerProfile").innerHTML += `    
             <li class="nav-item mt-2 mr-1" id="change">
                 <form>
                     <input type="text" class="searchBar" placeholder="Search Shop Names">
@@ -222,7 +222,7 @@ function getProfileDetails(email, isProfilePage) {
             else {
                 var registerProfile = document.getElementById("registerProfile");
         
-                registerProfile.innerHTML = `
+                registerProfile.innerHTML += `
                 <li class="nav-item mt-4 mr-1" id="change">
                 <form>
                     <input type="text" class="searchBar" placeholder="Search Shop Names">
@@ -242,6 +242,8 @@ function getProfileDetails(email, isProfilePage) {
                 </li>
                 
                 `;
+
+                sessionStorage.setItem("SaaSID", SuperSaaS_user_id);
             }
 
         }
@@ -257,7 +259,7 @@ function getProfileDetails(email, isProfilePage) {
 
 }
 
-
+// Call upon Registration
 function saveSession() {
     sessionStorage.setItem("email", document.getElementById("registerEmail").value);
     sessionStorage.setItem("SaaS", "false");
