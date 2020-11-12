@@ -160,6 +160,9 @@ function loggedIn() {
             </li>
         
         `;
+        var generatedSaaS = generateSaaS();
+        console.log("First load " + generatedSaaS)
+        document.getElementById("SuperSaaS_user_id").value = generatedSaaS;
     }
 }
 
@@ -170,10 +173,11 @@ function createSaaS() {
         console.log('called SaaS false');
         console.log(sessionStorage.getItem("email"));
         console.log(sessionStorage.getItem("name"));
-        var generatedSaaS = generateSaaS();
-        console.log(generatedSaaS)
-        document.getElementById("SuperSaaS_user_id").value = generatedSaaS;
-        CreateUser(sessionStorage.getItem("email"),sessionStorage.getItem("name"),generatedSaaS);
+        console.log(sessionStorage.getItem("SaaSID"));
+        // var generatedSaaS = generateSaaS();
+        // console.log(generatedSaaS)
+        // document.getElementById("SuperSaaS_user_id").value = generatedSaaS;
+        CreateUser(sessionStorage.getItem("email"),sessionStorage.getItem("name"),sessionStorage.getItem("SaaSID"));
         sessionStorage.setItem("SaaS",true);
     }
     else {
@@ -254,6 +258,6 @@ function saveSession() {
     sessionStorage.setItem("email", document.getElementById("registerEmail").value);
     sessionStorage.setItem("SaaS", "false");
     sessionStorage.setItem("name", document.getElementById("registerName").value)
-    
+    sessionStorage.setItem("SaaSID", document.getElementById("SuperSaaS_user_id").value)
 
 }
