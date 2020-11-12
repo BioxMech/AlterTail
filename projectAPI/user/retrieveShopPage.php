@@ -15,7 +15,7 @@ $db = $database->getConnection();
 $user = new User($db);
 
 //query products
-$stmt = $user->retrieveShopPage($_GET["shop_page"]);
+$stmt = $user->retrieveShopPage($_GET["shop_name"]);
 $num = $stmt->rowCount();
 
 if($num>0) {
@@ -25,18 +25,27 @@ if($num>0) {
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
 
+
         $item = array(
             "shop_name" => $shop_name,
-            "service_title" => $service_title,
-            "service_price" => $service_price,
-            "service_description" => $service_description,
-            "service_lead_time" => $service_lead_time
+            "image_url" => $shop_image_url,
+            "shop_description" => $shop_description,
+
+            "services" => [
+                "service_id" => $service_id,
+                "service_title" => $service_title,
+                "service_lead_time" => $service_lead_time,
+                "service_price" => $service_price,
+                "service_description" => $service_description,
+                "service_image_url" => $service_image_ur
+            ]
         );
+
         array_push($result_arr["records"], $item);
     }
     $date = new DateTime(null, new DateTimeZone('Asia/Singapore'));
     $result_arr["info"] = array(
-        "author" => "Jason",
+        "author" => "Jiali",
         "response_datetime_singapore" => $date->format('Y-m-d H:i:sP')
     );
 

@@ -18,7 +18,7 @@
     <title>AltTailor</title>
 
     <!-- Title Image -->
-    <link rel="icon" href="images/logo2.jpg" type="image/jpg">
+    <link rel="icon" href="images/logo4.jpg" type="image/jpg">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/main.css">
@@ -482,29 +482,6 @@
     </div>
   <!-- End of Book modal -->
 
-  <!-- Start of Payment modal-->
-  <div class="modal fade" id="PaymentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-
-        <!--left-->
-          <div class="left_bookmodal" style="margin-left: 20px;">
-            <img src="images/logo.jpg" class="modalFormImage">
-            <hr>
-            <p><strong>Kingsmen</strong></p>
-            <h4><strong>Payment Method</strong></h4>
-            <br> 
-
-
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End of Payment modal -->
 
   <!-- Start of Register/Sign up modal -->
   <div class="modal fade" id="registerSigninModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -741,12 +718,13 @@
 
 
     <!--Image bg-->
+    <div id="shop_image">
     <img src="images/kingsman.jpg" class="img-fluid" alt="Responsive image"
       style= "display: block;
               margin-left: auto;
               margin-right: auto;
               " >
-
+    </div>
     <div class="shopname" id="shopname" style ="position: absolute;
                                   top: 50%;
                                   left: 50%; 
@@ -1038,6 +1016,7 @@
       <!-- Custom JavaScript -->
       <script src="js/form.js"></script>
       <script src="js/modal.js"></script>
+      <script src="js/shopPage.js"></script>
       <!-- If you're using Stripe for payments -->
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
