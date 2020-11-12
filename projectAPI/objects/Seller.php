@@ -18,6 +18,13 @@ class Seller {
     public $rating_num;
     public $image_url;
 
+    public $service_id;
+    public $service_title;
+    public $service_lead_time;
+    public $service_price;
+    public $service_description;
+    public $service_image_url;
+
     //constructor with $db as database connection
     public function __construct($db) {
         $this->conn=$db;
@@ -35,7 +42,20 @@ class Seller {
         return $stmt;
     }
 
+    public function retrieveShopPage($shop_name) {
+        $query = "SELECT * FROM seller_service s, service v, seller e
+        WHERE s.service_id = v.service_id and e.shop_name = s.shop_name
+        WHERE shop_name = ?";
 
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(1, $shop_name);
+
+        $stmt->execute();
+
+        return $stmt;
+    }
 }
 
 

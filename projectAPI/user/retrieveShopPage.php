@@ -12,10 +12,10 @@ $database = new Database();
 $db = $database->getConnection();
 
 //initialize object
-$user = new User($db);
+$seller = new Seller($db);
 
 //query products
-$stmt = $user->retrieveShopPage($_GET["shop_name"]);
+$stmt = $seller->retrieveShopPage($_GET["shop_name"]);
 $num = $stmt->rowCount();
 
 if($num>0) {
