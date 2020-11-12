@@ -34,8 +34,9 @@ $dao = new UserDAO();
 $isAddOK = $dao->add($user);
 
 if ($isAddOK) {
-    echo "Person is added";
+   
     header("Location: ../index.html");
+    exit;
 }
 else {
     echo "Person is not added";
@@ -43,4 +44,3 @@ else {
 
 
 ?>
-

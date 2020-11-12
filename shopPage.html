@@ -35,72 +35,336 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
   </head>
-  <body>
-    <!-- Spinners (loading screen) -->
-    <!-- <div class="loader">Loading...</div> -->
-    <!-- End of Spinners -->
+
+  <body onload="loggedIn()">
+    
+
+    <div id="overlay">
+      <div id="progstat"></div>
+      <div id="progress"></div>
+  </div>
 
     <!-- Start Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light" >
+        
+  
+      <!-- Hamburger Name -->
+      <button class="navbar-toggler mr-4" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <a class="navbar-brand mr-auto" href="index.html">
+          <img src="images/logo.jpg" class="d-inline-block align-top navBarLogo" loading="lazy">
+      </a>
       
+      <!-- Collapse Content (Nav Bar) -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+              
+          <!-- Left Side Nav -->
+          <ul class="navbar-nav mr-auto" id="leftSideNav">
+              <li class="nav-item">
+                  <a class="nav-link current" href="index.html" style="padding-bottom:unset;" >Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="allTailorPage.html" style="padding-bottom:unset;" >Tailoring</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="location.html" style="padding-bottom:unset;" >Alteration</a>
+              </li>
+              <li class="nav-item">
+                  <!-- Dropdown menu -->
+                  <div class="dropdown">
+                      <a class="nav-link" href="#" style="padding-bottom:unset;" 
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cleaning</a>
+                      <!-- Options -->
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="allBagCleaningPage.html">Bag Cleaning</a>
+                          <a class="dropdown-item" href="allDryCleaningPage.html">Dry Cleaning</a>
+                      </div>
+                      <!-- Options -->
+                  </div>
+                  <!-- End of dropdown menu -->
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="aboutUs.html" style="padding-bottom:unset;" >About Us</a>
+              </li>
+          </ul>      
 
-    <!-- Hamburger Name -->
-    <button class="navbar-toggler mr-4" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
+          <!-- Right Side -->
+          <!-- <ul class="navbar-nav ml-auto" id="rightNav">
+              <li class="nav-item">
+                  <form>
+                      <input type="text" class="searchBar" placeholder="Search Shop Names">
+                  </form>
+              </li> -->
+              <!-- <li class="nav-item"> -->
+                  <!-- <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="registerSignin" data-target="#registerSigninModal">Register / Login</a> -->
+              <!-- </li> -->
+          <!-- </ul> -->
+          <!-- End of right side -->
 
-    <a class="navbar-brand mr-auto" href="index.html">
-        <img src="images/logo.jpg" class="d-inline-block align-top navBarLogo" loading="lazy">
-    </a>
-    
-    <!-- Collapse Content (Nav Bar) -->
-    <div class="collapse navbar-collapse" id="navbarNav">
-            
-        <!-- Left Side Nav -->
-        <ul class="navbar-nav mr-auto" id="leftSideNav">
-            <li class="nav-item">
-                <a class="nav-link current" href="index.html" style="padding-bottom:unset;" >Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="allTailorPage.html" style="padding-bottom:unset;" >Tailoring</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="allAlterationPage.html" style="padding-bottom:unset;" >Alteration</a>
-            </li>
-            <li class="nav-item">
-                <!-- Dropdown menu -->
-                <div class="dropdown">
-                    <a class="nav-link" href="#" style="padding-bottom:unset;" 
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cleaning</a>
-                    <!-- Options -->
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="allBagCleaningPage.html">Bag Cleaning</a>
-                        <a class="dropdown-item" href="allDryCleaningPage.html">Dry Cleaning</a>
-                    </div>
-                    <!-- Options -->
-                </div>
-                <!-- End of dropdown menu -->
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="aboutUs.html" style="padding-bottom:unset;" >About Us</a>
-            </li>
-        </ul>      
+      </div>
+      <!-- End of collapse content (Nav Bar) -->
 
-        <!-- Right Side -->
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="book" data-target="#bookModal">Book a Pickup Now</a>
+      <div id="navbarNav1">
+          <ul class="navbar-nav flex-row ml-auto" >
+            <li class="nav-item mt-4 mr-1">
+              <form>
+                  <input type="text" class="searchBar" placeholder="Search Shop Names">
+              </form>
             </li>
-            <li class="nav-item">
-                <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="registerSignin" data-target="#registerSigninModal">Register / Login</a>
+            <li class="nav-item" id="registerProfile">
+                <!-- Replace me with Sign in or Profile -->
             </li>
-        </ul>
-        <!-- End of right side -->
+          </ul>
+      </div>
+  </nav>
+  <!-- End Navigation Bar -->
 
+
+  <!-- Start of Register/Sign up modal -->
+<div class="modal fade" id="registerSigninModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+    <div class="modal-content">
+
+      <!-- Tabs -->
+      <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Login</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Register</a>
+          </li>
+      </ul>
+      <!-- End of Tabs -->
+
+      <!-- <div class="modal-header">
+        <img src="images/logo.jpg" class="modalFormImage">
+        <h5 class="modalDescription mb-4">All-in-one tailoring/alteration/cleaning services platform</h5>
+      </div> -->
+
+      <div class="modal-body">
+          <div class="tab-content" id="pills-tabContent">
+
+              <!-- Sign in tab -->
+              <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                  <!-- Sign in forms -->
+                  <!-- <form class="form-signin" method="POST" id="root"> -->
+                  <form class="form-signin" action="backend/process_login.php" method="POST" id="signInForm">
+
+                      <img src="images/logo.jpg" class="modalFormImage">
+                      <h5 class="modalDescription mb-4">All-in-one tailoring/alteration/cleaning services platform</h5>
+                          
+                      <div class="form-group row">
+                        <i class="fas fa-envelope prefix modalIcon"></i>
+                        <div class="col-sm-11 ml-auto">
+                          <div class="form-label-group row">
+                            <input type="text" class="form-control modalInput" id="signinEmail" placeholder="email" required name="email" >
+                            <span class="border"></span>
+                            <label for="signinEmail">Email Address</label>
+                          </div>
+                          <!-- Error Message -->
+                          <div id="emailOutput"></div>
+                        </div>
+                      </div>
+                      
+                      <div class="form-group row">
+                        <i class="fas fa-lock prefix modalIcon"></i>
+                        <div class="col-sm-11 ml-auto">
+                          <div class="form-label-group row">
+                          <input type="password" class="form-control modalInput" id="psw" placeholder="password" required="" name="password" >
+                          <span class="border"></span>
+                          <label for="psw"></i>Password</label>
+                        </div>
+                        <!-- Error Message -->
+                        <div id="passwordOutput"></div>
+                      </div>
+                      
+                      </div>
+                      <div class="form-group form-check row">
+                        <input type="checkbox" class="form-check-input" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">Remember Me</label>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearAllSignin()">Close</button>
+                          <input type="submit" class="btn btn-dark" value="Sign in" id="signinSubmit">
+                      </div>
+                  </form>
+                  <!-- End of sign in forms -->
+              </div>
+              <!-- End of Signin Tab -->
+
+              <!-- Register Tab -->
+              <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+                  <!-- Register form -->
+                  <form class="form-signin needs-validation" id="myForm1" action="backend/process_register.php" method="POST" autocomplete="off" onsubmit="saveSession()">
+                      <img src="images/logo.jpg" class="modalFormImage">
+                      <h5 class="modalDescription mb-4">All-in-one tailoring/alteration/cleaning services platform
+                      <br>Sign up with us now to get your clothing or bag cleaned, altered or tailored!</h5>
+
+                      <div class="form-label-group row">
+                        <input type="text" class="form-control" v-bind:class="{'is-invalid': emailnotValid, 'is-valid': emailisValid }" id="registerEmail" placeholder="email" required="" name="email"
+                        pattern="^[a-zA-Z\d+.]+@([\w-]+\.)+[\w-]{2,4}$" v-model="registerEmail" v-on:keyup="checkEmail">
+                        <label for="registerEmail">Email Address</label>
+                        <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <div class="valid-feedback" v-bind:style="emailValidStyle"> {{ emailValid }} </div>
+                        <div class="invalid-feedback"> {{ emailInvalid }} </div>
+                      </div>
+
+                      <div class="form-label-group row">
+                        <input type="text" class="form-control" v-bind:class="{'is-invalid': usernamenotValid, 'is-valid': usernameisValid}" id="registerUsername" placeholder="username" required="" name="username" 
+                        pattern="^[a-zA-Z\d+]{3,}$" v-model="registerUsername" v-on:keyup="checkUsername">
+                        <label for="registerUsername">Username</label>
+                        <small class="form-text text-muted">It will also be your display name.</small>
+                        <div class="valid-feedback" v-bind:style="usernameValidStyle"> {{ usernameValid }} </div>
+                        <div class="invalid-feedback"> {{ usernameInvalid }} </div>
+                      </div>
+                      
+                      <!-- <div class="form-row row">
+                        <div class="col-sm-6">
+                          <div class="form-label-group">
+                            <input type="text" class="form-control" id="registerFirstName" placeholder="firstName" required="" name="fname">
+                            <label for="registerFirstName"></i>First Name</label>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-label-group">
+                            <input type="text" class="form-control" id="registerLastName" placeholder="lastName" required="" name="lname">
+                            <label for="registerLastName"></i>Last Name</label>
+                          </div>
+                        </div>
+                      </div> -->
+
+                      <div class="form-group">
+                        <div class="form-label-group row">
+                          <input type="text" class="form-control" id="registerName" placeholder="name" name="name" pattern="^[a-zA-Z\s]{3,}$" 
+                          v-model="registerName" v-on:blur="display" v-on:focus="display" required>
+                          <label for="registerName">Name</label>
+                          <small class="form-text text-muted">First name + Last Name | For example: Bob Dylan</small>
+                          <div class="valid-feedback">You have a nice name.</div>
+                          <div class="invalid-feedback"></div>
+                        </div>
+                      </div>
+
+                      <div class="form-check form-check-inline row">
+                        Gender: 
+                      </div>
+                      <div class="form-check form-check-inline row">
+                        <input class="form-check-input" type="radio" name="gender" id="male_btn" value="Male" required>
+                        <label class="form-check-label" for="male_btn" style="padding-right: 5px;">
+                          Male
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline row mb-3">
+                        <input class="form-check-input" type="radio" name="gender" id="female_btn" value="Female">
+                        <label class="form-check-label" for="female_btn">
+                          Female
+                        </label>
+                      </div>
+
+                      <div class="form-label-group row" >
+                        <input type="text" class="form-control" id="registerPhoneNumber" placeholder="Phone Number" required="" name="phone" pattern="[0-9]{8,8}">
+                        <label for="registerPhoneNumber"></i>Phone Number</label>
+                        <small class="form-text text-muted">For example "98763210"</small>
+                        <div class="valid-feedback">Your phone number looks good!</div>
+                        <div class="invalid-feedback">Your phone number is invalid.</div>
+                      </div>
+
+                      <div class="form-label-group row">
+                        <input type="text" class="form-control" id="registerStreetAddress" placeholder="Address" required="" name="street_address" pattern="^[a-zA-Z0-9\s]{10,}$">
+                        <label for="registerStreetAddress">Street Address</label>
+                        <small class="form-text text-muted">Street name, street number and block number</small>
+                        <div class="valid-feedback">Your street address looks good!</div>
+                        <div class="invalid-feedback">Your street address is invalid.</div>
+                      </div>
+
+                      <div class="form-label-group row">
+                        <input type="text" class="form-control" id="registerUnit" placeholder="Unit" name="unit" pattern="\d{1,2}-\d{2,4}">
+                        <label for="registerUnit">Unit</label>
+                        <small class="form-text text-muted">For example: 05-64</small>
+                        <div class="valid-feedback">Your unit number looks good!</div>
+                        <div class="invalid-feedback">Your unit number is invalid.</div>
+                      </div>
+
+                      <div class="form-label-group row">
+                        <input type="text" class="form-control" id="registerPostal" placeholder="Postal" required name="postal_code" pattern="(?=.*\d).{6,6}">
+                        <label for="registerPostal">Postal Code</label>
+                        <small class="form-text text-muted">For example: 512678</small>
+                        <div class="valid-feedback">Your postal code looks good!</div>
+                        <div class="invalid-feedback">Your postal code is invalid.</div>
+                      </div>
+                      
+                      <div class="form-label-group row">
+                        <input type="password" class="form-control" id="registerPassword" placeholder="password" required="" name="pw"
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" v-model="registerPassword" v-on:blur="display" v-on:focus="display" required>
+                        <label for="registerPassword"></i>Password</label>
+                        
+                        <span id="togglePassword1">Show&nbsp</span>password: <i class="fa fa-eye-slash mt-1" id="eye1" aria-hidden="true"  class="bg-dark" onclick="if (registerPassword.type == 'text') registerPassword.type = 'password';
+                        else registerPassword.type = 'text'; switchEye()" ></i>
+
+                        <div class="valid-feedback">Your password meets all the requirements!</div>
+                        <div v-if="show" class="invalid-feedback"> 
+                          <ul style="list-style-type: none;">
+                            <li>
+                              <span class="text-success">
+                                {{ passwordLength() }}</span>
+                              <div v-if="hideLength">✖ Minimum of 6 to 18 characters long</div>
+                            </li>
+                            <li>
+                              <span class="text-success">
+                                {{ passwordLower() }}</span>
+                              <div v-if="hideLower">✖ MUST contain at least one lowercase letter.</div>
+                            </li>
+                            <li>
+                              <span class="text-success">
+                                {{ passwordUpper() }}</span>
+                              <div v-if="hideUpper">✖ MUST contain at least one uppercase letter.</div>
+                            </li>
+                            <li>
+                              <span class="text-success">
+                                {{ passwordNumber() }}</span>
+                              <div v-if="hideNumber">✖ MUST contain at least one number.</div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div class="form-label-group row">
+                        <input type="password" id="cregisterPassword" class="form-control myCpwdClass" placeholder="password" required="" name="pw2" 
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" required>
+                        <label for="cregisterPassword"></i>Confirm Password</label>
+
+                        <div id="cPwdValid" class="valid-feedback">Passwords Match</div>
+                        <div id="cPwdInvalid" class="invalid-feedback"></div>
+                            
+                        <span id="togglePassword2">Show&nbsp</span>password: <i class="fa fa-eye-slash mt-1" id="eye2" aria-hidden="true"  class="bg-dark" onclick="if (cregisterPassword.type == 'text') cregisterPassword.type = 'password';
+                        else cregisterPassword.type = 'text'; cswitchEye()" ></i>
+
+                      </div>
+                        
+                      
+                      <div class="form-group form-check row">
+                        <input type="checkbox" class="form-check-input" id="registerPromotion">
+                        <label class="form-check-label" for="registerPromotion">I'd like to receive exclusive offers and promotions via SMS</label>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearAllRegister()">Close</button>
+                          <!-- <button type="button" class="btn btn-primary">Sign up</button> -->
+                          <input type="submit" class="btn btn-primary" value="Sign up" id="submitBtn">
+                      </div>
+                      <small class="form-text text-muted">By clicking "SIGN UP"; I agree to AlterTail's Terms of Use and Privacy Policy</small>
+                  </form>
+                  <!-- End of register form -->
+              <!-- End of register tab -->
+            </div>
+      </div>
     </div>
-    <!-- End of collapse content (Nav Bar) -->
-    </nav>
-    <!-- End Navigation Bar -->
+  </div>
+</div>
+<!-- End of Register/Sign up modal -->
+<hr>
 
     <!--Start of Book modal-->
     <div class="modal fade" id="bookModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -199,10 +463,15 @@
               <button type="button" class="btn btn-outline-secondary btn-sm">
                 Schedule Event Only
               </button>
-              <button id="proceedToPayment" class="btn btn-dark btn-sm" data-target="#PaymentModal" data-toggle="modal" data-dismiss="modal" >Proceed to payment
+              <a class="shop_url" href="stripe/paymentPage.html">
+
+              <button id="proceedToPayment" class="btn btn-dark btn-sm" data-toggle="modal"  >
+                Proceed to payment
                 <i style="font-size:18px" class="fa">&#xf155;</i>
+                
               </button>
 
+              </a>
               </div>
             </div>
           </div>
@@ -781,6 +1050,42 @@
     <script type="text/javascript" src="node_modules/mdbootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="node_modules/mdbootstrap/js/mdb.min.js"></script>   -->
 
+
+    <script>
+      // Animate the Loader
+      ;(function(){
+        function id(v){return document.getElementById(v); }
+        function loadbar() {
+          var ovrl = id("overlay"),
+              prog = id("progress"),
+              stat = id("progstat"),
+              img = document.images,
+              c = 0;
+              tot = img.length;
+
+          function imgLoaded(){
+            c += 1;
+            var perc = ((100/tot*c) << 0) +"%";
+            prog.style.width = perc;
+            stat.innerHTML = "Loading "+ perc;
+            if(c===tot) return doneLoading();
+          }
+          function doneLoading(){
+            ovrl.style.opacity = 0;
+            setTimeout(function(){ 
+              ovrl.style.display = "none";
+            }, 1200);
+          }
+          for(var i=0; i<tot; i++) {
+            var tImg     = new Image();
+            tImg.onload  = imgLoaded;
+            tImg.onerror = imgLoaded;
+            tImg.src     = img[i].src;
+          }    
+        }
+        document.addEventListener('DOMContentLoaded', loadbar, false);
+      }());
+    </script>
 
   </body>
 </html>
