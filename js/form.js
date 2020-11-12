@@ -115,7 +115,16 @@ function loggedIn() {
     }
     else {
         document.getElementById("registerProfile").innerHTML = `
-        <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="registerSignin" data-target="#registerSigninModal">Register / Login</a>
+            <li class="nav-item mt-2 mr-1" id="change">
+                <form>
+                    <input type="text" class="searchBar" placeholder="Search Shop Names">
+                </form>
+            </li>
+            <li class="nav-item mt-1" >
+                <!-- Replace me with Sign in or Profile -->
+                <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="registerSignin" data-target="#registerSigninModal">Register / Login</a>
+            </li>
+        
         `;
     }
 }
@@ -153,15 +162,24 @@ function getProfileDetails(email, isProfilePage) {
                 var registerProfile = document.getElementById("registerProfile");
         
                 registerProfile.innerHTML = `
-                <div class="dropdown">
-                    <a class="nav-link" href="profile.html" style="padding-bottom:unset;" 
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> ${username}&nbsp<img id="profileImage" src="images/profile_image.jpg" /></a>
+                <li class="nav-item mt-4 mr-1" id="change">
+                <form>
+                    <input type="text" class="searchBar" placeholder="Search Shop Names">
+                </form>
+                </li>
+                <li class="nav-item mt-1" >
+                    <!-- Replace me with Sign in or Profile -->
+                    <div class="dropdown">
+                        <a class="nav-link" href="profile.html" style="padding-bottom:unset;" 
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> ${username}&nbsp<img id="profileImage" src="images/profile_image.jpg" /></a>
 
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="profile.html">My Profile</a>
-                        <a class="dropdown-item" href="#" onclick="signOut()">Sign Out</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="profile.html">My Profile</a>
+                            <a class="dropdown-item" href="#" onclick="signOut()">Sign Out</a>
+                        </div>
                     </div>
-                </div>
+                </li>
+                
                 `;
             }
 
