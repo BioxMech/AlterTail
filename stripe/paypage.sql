@@ -7,6 +7,7 @@
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
@@ -21,6 +22,12 @@ SET time_zone = "+00:00";
 --
 -- Database: `paypage`
 --
+drop database if exists paypage;
+
+create database paypage;
+
+use paypage;
+
 
 -- --------------------------------------------------------
 
