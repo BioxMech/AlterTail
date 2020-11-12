@@ -1,3 +1,5 @@
+email = (sessionStorage.getItem("email"));
+
 function clearAllSignin() {
     document.getElementById("signinEmail").value = '';
     document.getElementById("psw").value = '';
