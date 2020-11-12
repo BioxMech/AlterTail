@@ -3,6 +3,8 @@ email = (sessionStorage.getItem("email"));
 function clearAllSignin() {
     document.getElementById("signinEmail").value = '';
     document.getElementById("psw").value = '';
+    document.getElementById("emailOutput").value = '';
+     document.getElementById("passwordOutput").value = '';``
 }
 
 function clearAllRegister() {
@@ -149,6 +151,9 @@ function loggedIn() {
     }
     else {
         document.getElementById("registerProfile").innerHTML = `
+            <li class="nav-item mt-2 mr-1">
+                <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="book" data-target="#bookModal">Book an appointment</a>
+            </li>    
             <li class="nav-item mt-2 mr-1" id="change">
                 <form>
                     <input type="text" class="searchBar" placeholder="Search Shop Names">
@@ -158,7 +163,6 @@ function loggedIn() {
                 <!-- Replace me with Sign in or Profile -->
                 <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="registerSignin" data-target="#registerSigninModal">Register / Login</a>
             </li>
-        
         `;
         var generatedSaaS = generateSaaS();
         console.log("First load " + generatedSaaS)
