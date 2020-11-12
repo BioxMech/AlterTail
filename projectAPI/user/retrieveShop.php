@@ -5,7 +5,7 @@ header("Content-Type: application/json; charset=UTF-8");
 
 // include database and object files
 include_once '../config/database.php';
-include_once '../objects/User.php';
+include_once '../objects/Seller.php';
 
 // instantiate database and product object
 $database = new Database();
@@ -15,7 +15,7 @@ $db = $database->getConnection();
 $user = new User($db);
 
 //query products
-$stmt = $user->retrieveShopPage($_GET["email"]);
+$stmt = $user->retrieveShop($_GET["email"]);
 $num = $stmt->rowCount();
 
 if($num>0) {

@@ -23,7 +23,18 @@ class User {
         $this->conn=$db;
     }
 
-    
+    public function retrieveShop($email) {
+        $query = "SELECT * FROM seller WHERE email = ?";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(1, $email);
+
+        $stmt->execute();
+
+        return $stmt;
+    }
+
 
 }
 

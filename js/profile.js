@@ -165,7 +165,7 @@ function getProfile(isProfilePage=true) {
            }
 
            document.getElementById("name").innerHTML = name;
-           console.log(name);
+           //console.log(name);
 
             if (isProfilePage) {
                 var str = ""
