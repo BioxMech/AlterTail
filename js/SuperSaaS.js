@@ -18,7 +18,7 @@ function Initiate() {
 function CreateUser(email, fname,SuperSaaS_user_id) {
     var xhr = new XMLHttpRequest();
     // xhr.withCredentials = true;
-    alert("fuck");
+    
   
     xhr.addEventListener("readystatechange", function() {
       if(this.readyState === 4) {
