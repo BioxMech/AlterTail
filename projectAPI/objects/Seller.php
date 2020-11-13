@@ -53,6 +53,16 @@ class Seller {
         return $stmt;
     }
 
+    public function retrieveAllShopByRating() {
+        $query = "SELECT * FROM seller ORDER BY rating DESC";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt;
+    }
+
     public function retrieveShop($email) {
         $query = "SELECT * FROM seller WHERE email = :email";
 
@@ -83,6 +93,10 @@ class Seller {
 
         return $stmt;
     }
+
+    
+
+
 }
 
 
