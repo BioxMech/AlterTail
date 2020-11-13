@@ -25,6 +25,7 @@ create table seller
  street_address varchar(50) not null,
  shop_summary varchar(200) not null,
  shop_description varchar(1000) not null,
+ schedule_id varchar(10) not null,
  unit varchar(20),
  postal_code varchar(6) not null,
  shop_category varchar(20) not null,

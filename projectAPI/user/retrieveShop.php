@@ -31,6 +31,7 @@ if($num>0) {
             "street_address" => $street_address,
             "shop_summary" => $shop_summary,
             "shop_description" => $shop_description,
+            "schedule_id" => $schedule_id,
             "unit" => $unit,
             "postal_code" => $postal_code,
             "shop_category" => $shop_category,

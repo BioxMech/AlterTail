@@ -11,6 +11,7 @@ class Seller {
     public $street_address;
     public $shop_summary;
     public $shop_description;
+    public $schedule_id;
     public $unit;
     public $postal_code;
     public $shop_category;

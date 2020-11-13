@@ -30,6 +30,7 @@ if($num>0) {
             "shop_name" => $shop_name,
             "image_url" => $shop_image_url,
             "shop_description" => $shop_description,
+            "schedule_id" => $schedule_id,
 
             "services" => [
                 "service_id" => $service_id,

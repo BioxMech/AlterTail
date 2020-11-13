@@ -32,4 +32,20 @@ function CreateUser(email, fname,SuperSaaS_user_id) {
     xhr.send();
 }
 
+function CreateEvent() {
+  var request = new XMLHttpRequest();
+
+  request.onreadystatechange = function() {
+    console.log(this.readyState);
+    console.log(this.status);
+
+    if (this.readyState == 4 && this.status == 201) {
+      console.log("Done")
+    }
+  }
+  var url = `https://www.supersaas.com/api/bookings.json?schedule_id=534325&api_key=60Sdu0PWYumxHliWn1Uieg&booking[start]=2020-11-13%2010:00:00&booking[finish]=2020-11-13%2011:00:00&user_id=914fk&booking[full_name]=Tan%20Yi%20Rui%20Petras`;
+  
+  request.open("POST", url, true);
+  request.send();
+}
 
