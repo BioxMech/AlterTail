@@ -1,36 +1,5 @@
 <?php
 
-
-// $connect = new PDO("mysql:host=localhost; dbname=AlterTail", "root", "");
-
-// $received_data = json_decode(file_get_contents("php://input"));
-
-// $data = array();
-// echo "<script type='text/javascript'>alert('Fetch.php entered');</script>";
-// if($received_data->query != '')
-// {
-//     echo "<script type='text/javascript'>alert($received_data->query);</script>";
-    
-//  $query = "
-//  SELECT shop_name FROM seller 
-//  WHERE shop_name LIKE '%".$received_data->query."%' 
-//  ORDER BY shop_name ASC 
-//  LIMIT 10
-//  ";
-
-//  $statement = $connect->prepare($query);
-
-//  $statement->execute();
-
-//  while($row = $statement->fetch(PDO::FETCH_ASSOC))
-//  {
-//   $data[] = $row;
-//  }
-// }
-
-// echo json_encode($data);
-
-
 // required headers
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");

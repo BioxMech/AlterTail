@@ -48,8 +48,6 @@ class Seller {
 
         $stmt = $this->conn->prepare($query);
 
-        $stmt->bindParam(1);
-
         $stmt->execute();
 
         return $stmt;
