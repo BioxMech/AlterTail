@@ -296,6 +296,3 @@ function displaycard(){
   document.getElementById("shop_cards").innerHTML = str;
 }
 
-
-
-
