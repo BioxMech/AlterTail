@@ -33,60 +33,38 @@ function CreateUser(email, fname,SuperSaaS_user_id) {
 }
 
 function getAppointments(schedule_id) {
-  var request = new XMLHttpRequest();
+  // var request = new XMLHttpRequest();
 
-  request.onreadystatechange = function() {
-    if(this.readyState == 4 && this.status == 200) {
-      var response_json = JSON.parse(request.responseText);
-      console.log(response_json);
-    }
-  }
+  // request.onreadystatechange = function() {
+  //   if(this.readyState == 4 && this.status == 200) {
+  //     var response_json = JSON.parse(request.responseText);
+  //     console.log(response_json);
+  //   }
+  // }
   var url = `https://www.supersaas.com/api/range/${schedule_id}.json?api_key=60Sdu0PWYumxHliWn1Uieg`;
-  request.open("GET",url,true);
-  request.send()
-}
+  let final_url = `${'https://cors-anywhere.herokuapp.com/'}${url}`;
 
-function getAgenda(schedule_id, email) {
-  var request = new XMLHttpRequest();
-
-  request.onreadystatechange = function() {
-    if(this.readyState == 4 && this.status == 200) {
-      var response_json = JSON.parse(request.responseText);
-      console.log(response_json);
+  axios.get(`${'https://cors-anywhere.herokuapp.com/'}${url}`,
+  {
+    headers: {
+      "Access-Control-Allow-Headers": "x-requested-with, x-requested-by"
     }
-  }
-  var url = `https://www.supersaas.com/api/agenda/${schedule_id}.json?user=${email}&api_key=60Sdu0PWYumxHliWn1Uieg`;
-  request.open("GET",url,true);
-  request.send();
+  })
+  .then((res) => {
+    console.log("=========== DEBUG (success) ==========");
+    console.log(res);
+  })
+  .catch((err) => {
+    console.log("=========== DEBUG (error) ==========");
+    console.log(err.response);
+  })
+  // request.open("GET",url,true);
+  // request.send()
 }
 
-// DEBUG
-function getAgenda2(schedule_id, email) {
-  var url = `https://www.supersaas.com/api/agenda/${schedule_id}.json?user=${email}&api_key=60Sdu0PWYumxHliWn1Uieg`;
-  // let headers = new Headers();
-  // headers.append('Content-Type', 'application/json');
-  // headers.append('Accept', 'application/json');
-  // headers.append('Origin','http://localhost:3000');
-
-  fetch(url, {
-      mode: 'no-cors',
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Origin': 'http://localhost:3000'
-      }
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log("======== success =======");
-    console.log(data);
-  })
-  .catch(error => console.log('Error : ' + error.message));
-}
 
 // DEBUG
-function getAgenda3(schedule_id, email) {
+function getAgenda(schedule_id, email) {
 
   console.log("======== DEBUG (getAgenda3) ===========");
 
