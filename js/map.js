@@ -1,3 +1,6 @@
+
+
+
 var map = null;
 var radius_circle;
 var markers_on_map = [];
@@ -6,7 +9,7 @@ var infowindow;
 var shop_array = [];
 
 //all_locations is just a sample, you will probably load those from database
-var all_locations = [{
+var all_locations1 = [{
   type: "Shop",
   name: "Q MENSWEAR",
   img:"images/alteration_shop1 .jpg", 
@@ -68,6 +71,42 @@ var all_locations = [{
   lng: 103.8411
 }];
 
+
+function getLat(address)
+{
+  var geocoder = new google.maps.Geocoder();
+
+  geocoder.geocode( { 'address': address}, function(results, status) {
+
+  if (status == google.maps.GeocoderStatus.OK) {
+    var latitude = results[0].geometry.location.lat();
+    console.log(latitude);
+    return (latitude);
+  } 
+}); 
+  //console.log(latitude);
+}
+
+function getLng(address)
+{
+  var geocoder = new google.maps.Geocoder();
+
+  geocoder.geocode( { 'address': address}, function(results, status) {
+
+  if (status == google.maps.GeocoderStatus.OK) {
+    var longitude = results[0].geometry.location.lng();
+    return longitude;
+  } 
+}); 
+}
+
+function getaaa(){
+  var a = getLat("8 Kaki Bukit Ave 4")
+console.log(a);
+
+}
+
+
 function getAllShops()
 {
   var request = new XMLHttpRequest(); // Prep to make an HTTP request\\\
@@ -77,13 +116,13 @@ function getAllShops()
       // Check if response is ready!
       if( this.readyState == 4 && this.status == 200 ) {
 
-        console.log(this.responseText);
+        //console.log(this.responseText);
 
          // Convert responseText to JSON
          var response_json = JSON.parse(this.responseText);
          var records = response_json.records;
 
-         console.log(records);
+         //console.log(records);
 
          for (shop of records) {
           var email = shop.email;
@@ -97,10 +136,8 @@ function getAllShops()
           var rating = shop.rating;
           var rating_num = shop.rating_num;
           var image_url = shop.image_url;
-         }
 
-      
-         var shop_details = {};
+        var shop_details = {};
          var name = shop_name;
          var img = image_url;
          var star = "images/star.png";
@@ -108,8 +145,16 @@ function getAllShops()
          var shop_description = shop_description;
          var rating_num = rating_num;
          var postal_code = postal_code;
-         shop_details = {name, img, star, rating, shop_description, rating_num, postal_code}
-         console.log(shop_details)
+         //var lat = getLat(street_address);
+         //var lng = getLng(street_address);
+         //console.log(lat);
+         //console.log(lng);
+         shop_details = {name, img, star, rating, shop_description, rating_num, lat, lng};
+         //console.log(shop_details);
+         shop_array.push(shop_details);
+         }
+        //console.log(shop_array);
+        
       }
   }
 
@@ -121,11 +166,10 @@ function getAllShops()
 
   request.send();
 
+  return (shop_array);
 }
 
-
-
-
+var all_locations = getAllShops();
 
 //initialize map on document ready
 document.addEventListener("DOMContentLoaded", function() {
@@ -167,6 +211,7 @@ function showCloseLocations() {
     }
   }
 
+  
   if (geocoder) {
     geocoder.geocode({
       'address': address
@@ -181,6 +226,7 @@ function showCloseLocations() {
             clickable: false,
             map: map
           });
+          
           if (radius_circle) map.fitBounds(radius_circle.getBounds());
           for (var j = 0; j < all_locations.length; j++) {
             (function(location) {
@@ -296,3 +342,77 @@ function displaycard(){
   document.getElementById("shop_cards").innerHTML = str;
 }
 
+function displayfilteredcard(){
+  var str = "";
+  for(i = 0; i < all_locations.length; i++) {
+    var shop = all_locations[i];
+    // console.log(shop_array);
+    // console.log(shop);  
+    //console.log(shop_array.indexOf(shop.name));
+    var final_array = sortarray(all_locations);
+    console.log(final_array);
+    
+    if(final_array.indexOf(shop.name) > -1) {
+      str += `
+        <div class="card mb-3" style="max-width: 1000px;">
+        <div class="row no-gutters">
+          <div class="col-md-4" style = "margin-top: auto; margin-bottom: auto;">
+            <img src="${shop.img}" class="card-img" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+                <div class = "row">
+                   <h5 class="card-title col-xs-5" style = "margin-left: 15px; margin-top: 1px;">${shop.name}</h5>
+                    <div class = "col-xs-3" style = "margin-left:15px;">
+                        <img class="card-img-top" src="images/star.png" alt="Card image cap" style="width: 15px; height: 15px;">
+                    </div>
+                    <div class = "col-xs-4">
+                        <p class = "font-weight-bold" style="margin: 0px; padding-top: 2px; padding-left:5px;">
+                            ${shop.rating} (${shop.rating_num})
+                        </p>
+                    </div>
+                </div>
+              <p class="card-text">${shop.description}</p>
+              <button type="button" class="btn btn-link" style = "padding-left: 0px; padding-top: 0px; color:darkslategrey;">Read More</button>
+            </div>
+          </div>
+        </div>
+        </div>
+      `;
+    }
+    else{
+      str+= `
+
+
+      `;
+
+
+    }
+  }
+  document.getElementById("shop_cards").innerHTML = str;
+
+}
+
+function sortarray(all_locations){
+  var shop_array = [];
+  for(i = 0; i < all_locations.length; i++) {
+    var shop = all_locations[i];
+    // console.log(shop_array);
+    console.log(shop);  
+    //console.log(shop_array.indexOf(shop.name));
+    if(shop_array.indexOf(shop.name) > -1) {
+     var rating = shop.rating;
+     var shop_img = shop.img;
+     var shop_name = shop.name;
+     var rating_num = shop.rating_num;
+    var shop_description = shop.description;
+     console.log(rating);
+    shop_array.push([rating,shop_img,shop_name,rating_num,shop_description]);
+   }
+    //console.log(shop_array);
+  shop_array.sort(function (x, y) {
+      return x.rating - y.rating;
+   });
+   }
+   return shop_array;
+}
