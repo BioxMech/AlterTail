@@ -5,6 +5,8 @@ var geocoder;
 var infowindow;
 var shop_array = [];
 
+var email = (sessionStorage.getItem("email"));
+
 
 //all_locations is just a sample, you will probably load those from database
 var all_locations = [{
@@ -68,6 +70,61 @@ var all_locations = [{
   lat: 1.3010,
   lng: 103.8411
 }];
+
+function getAllShops()
+{
+  var request = new XMLHttpRequest(); // Prep to make an HTTP request
+
+  request.onreadystatechange = function() {
+
+      // Check if response is ready!
+      if( this.readyState == 4 && this.status == 200 ) {
+
+         // Convert responseText to JSON
+         var response_json = JSON.parse(this.responseText);
+         var records = response_json.records;
+
+         for (shop of records) {
+          var email = shop.email;
+          var shop_name = shop.shop_name;
+          var street_address = shop.street_address;
+          var shop_summary = shop.shop_summary;
+          var shop_description = shop.shop_description;
+          var unit = shop.unit;
+          var postal_code = shop.postal_code;
+          var shop_category = shop.shop_category;
+          var rating = shop.rating;
+          var rating_num = shop.rating_num;
+          var image_url = shop.image_url;
+         }
+
+      
+         var shop_details = {};
+         var name = shop_name;
+         var img = image_url;
+         var star = "images/star.png";
+         var rating = rating;
+         var shop_description = shop_description;
+         var rating_num = rating_num;
+         var postal_code = postal_code;
+         shop_details = {name, img, star, rating, shop_description, rating_num, postal_code}
+         console.log(shop_details)
+      }
+  }
+
+
+  // Using the api to retrieve the user's shop details
+  var url = "projectAPI/user/retrieveAllShop.php";
+
+  request.open("GET", url, true);
+
+  request.send();
+
+}
+
+
+
+
 
 //initialize map on document ready
 document.addEventListener("DOMContentLoaded", function() {
@@ -241,56 +298,3 @@ function displaycard(){
 
 
 
-/* 
-str += `
-<div class="card mb-3" style="max-width: 540px;">
-<div class="row no-gutters">
-  <div class="col-md-4">
-    <img src="${shop.img}" class="card-img" alt="...">
-  </div>
-  <div class="col-md-8">
-    <div class="card-body">
-        <div class = "row" style = "margin-bottom: 5px">
-            <div class = "col-xs-6" style = "margin-left:15px;">
-                <img class="card-img-top" src="images/star.png" alt="Card image cap" style="width: 15px; height: 15px;">
-            </div>
-            <div class = "col-xs-6">
-                <p class = "font-weight-bold" style="margin: 0px; padding-top: 2px; padding-left:5px;">
-                    ${shop.rating}${shop.rating_num}
-                </p>
-            </div>
-        </div>
-      <h5 class="card-title">${shop.name}</h5>
-      <p class="card-text">${shop.description}</p>
-     
-    </div>
-  </div>
-</div>
-</div>
-`; */
-
-
-
-// str += `
-// <div class="row row-cols-1 row-cols-md-2">
-//     <div class="col mb-2">
-//         <div class="card h-100">
-//             <img src="${shop.img}" class="card-img-top" alt="..." style = "min-height: 100px;">
-//             <div class="card-body">
-//             <div class = "row" style = "margin-bottom: 5px">
-//                 <div class = "col-xs-6" style = "margin-left:15px;">
-//                     <img class="card-img-top" src="images/star.png" alt="Card image cap" style="width: 15px; height: 15px;">
-//                 </div>
-//                 <div class = "col-xs-6">
-//                     <p class = "font-weight-bold" style="margin: 0px; padding-top: 2px; padding-left:5px;">
-//                         ${shop.rating}${shop.rating_num}
-//                     </p>
-//                 </div>
-//             </div>
-//             <h5 class="card-title">${shop.name}</h5>
-//             <p class="card-text" style = "margin-bottom: 3px;">${shop.description}</p>
-//             <button type="button" class="btn btn-link" style = "padding-left: 0px; padding-top: 0px; color:darkslategrey;">Read More</button>
-//             </div>
-//         </div>
-//     </div>
-// `;

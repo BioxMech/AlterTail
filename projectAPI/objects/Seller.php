@@ -31,6 +31,19 @@ class Seller {
         $this->conn=$db;
     }
 
+
+    public function retrieveAllShop() {
+        $query = "SELECT * FROM seller ";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(1);
+
+        $stmt->execute();
+
+        return $stmt;
+    }
+
     public function retrieveShop($email) {
         $query = "SELECT * FROM seller WHERE email = ?";
 
