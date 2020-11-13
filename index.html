@@ -28,7 +28,6 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/loader.css">
     <link rel="stylesheet" href="css/animation.css">
-    <!-- <link rel="stylesheet" href="css/buttons.css"> -->
     <link rel="stylesheet" href="css/buttonEffects.css">
     <link rel="stylesheet" href="css/form.css">
 
@@ -96,14 +95,13 @@
         <!-- Right side -->
         <div id="navbarNavRight">
             <ul class="navbar-nav flex-row ml-auto" id="registerProfile">
-              <!-- <li class="nav-item mt-2 mr-1" id="change">
-                <form>
-                    <input type="text" class="searchBar" placeholder="Search Shop Names">
-                </form>
-              </li>
-              <li class="nav-item mt-1" > -->
-                  <!-- Replace me with Sign in or Profile -->
-              <!-- </li> -->
+              <li class="nav-item mt-2 mr-1" id="change">
+                <!-- Search bar -->
+                <search-component></search-component>
+             </li>
+             <div id="change2">
+                <!-- Replace me with Sign in or Profile -->
+             </div>
             </ul>
         </div>
         <!-- End of right side -->
@@ -196,7 +194,7 @@
 
                         <div class="form-label-group row">
                           <input type="text" class="form-control" v-bind:class="{'is-invalid': emailnotValid, 'is-valid': emailisValid }" id="registerEmail" placeholder="email" required="" name="email"
-                          pattern="^[a-zA-Z\d+.]+@([\w-]+\.)+[\w-]{2,4}$" v-model="registerEmail" v-on:keyup="checkEmail">
+                          pattern="^[a-zA-Z\d+._]+@([\w-]+\.)+[\w-]{2,4}$" v-model="registerEmail" v-on:keyup="checkEmail">
                           <label for="registerEmail">Email Address</label>
                           <small class="form-text text-muted">We'll never share your email with anyone else.</small>
                           <div class="valid-feedback" v-bind:style="emailValidStyle"> {{ emailValid }} </div>
@@ -791,6 +789,61 @@
             }
         })
 
+
+        Vue.component('search-component',  {
+          template: `
+          <div class="dropdown">
+            <input type="text" class="searchBar" placeholder="Search Shop Names" v-model="query" @keyup="getData()" autocomplete="off" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
+            <div class="dropdown-menu" v-if="search_data.length">
+              <ul class="list-group">
+                <a href="shopPage.html" class="dropdown-item" v-for="data1 in search_data" @click="getName(data1.shop_name)">{{ data1.shop_name }}</a>
+              </ul>
+            </div>
+          </div>
+          `,
+          data:function(){
+            return{
+              query:'',
+              search_data:[]
+            }
+          },
+          methods:{
+            getData:function(){
+              // this.search_data = [];
+
+              // axios.post('projectAPI/user/fetch.php', {
+              //   query:this.query
+              // })
+
+              // .then(response => {
+              //   this.search_data = response.data;
+              // });
+              let url = 'projectAPI/user/fetch.php?query=' + this.query;
+
+              axios.get(url)
+                .then(response => {
+                  let user_objects = response.data;
+
+                  // view it
+                  // console.log(response.data);
+
+                  this.search_data = user_objects.records
+                  
+                })
+              
+            },
+            getName:function(shop_name){
+              this.query = shop_name;
+              this.search_data = [];
+            }
+          }
+        });
+
+        var application = new Vue({
+          el:'#registerProfile'
+        });
+
+
         // var validation = new Vue({
         //   el: '#signInForm',
         //   data: {
@@ -948,7 +1001,7 @@
                 // passwordOutput.innerHTML = "Wrong Password";
                 passwordOutput.innerHTML = `
                 <div class="w3-animate-left text-danger">
-                  &#x274C Wrong or invalid password
+                  &#x274C Password is <b>wrong</b> or <b>invalid</b> 
                 </div>
                 `;
               },
@@ -957,7 +1010,7 @@
                 // emailOutput.innerHTML = "Email does not exist";
                 emailOutput.innerHTML = `
                 <div class="w3-animate-left text-danger">
-                  &#x274C Email does not exist
+                  &#x274C Email does <b>not exist</b> or <b>invalid</b> 
                 </div>
                 `;
               }

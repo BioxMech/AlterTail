@@ -31,6 +31,17 @@ class Seller {
         $this->conn=$db;
     }
 
+    public function fetch($shop_name) {
+        $query = "SELECT * FROM seller WHERE shop_name LIKE '%' ? '%' ORDER BY shop_name ASC LIMIT 10";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(1, $shop_name);    
+
+        $stmt->execute();
+
+        return $stmt;
+    }
 
     public function retrieveAllShop() {
         $query = "SELECT * FROM seller ";

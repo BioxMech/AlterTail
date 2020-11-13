@@ -3,8 +3,8 @@
 function clearAllSignin() {
     document.getElementById("signinEmail").value = '';
     document.getElementById("psw").value = '';
-    document.getElementById("emailOutput").value = '';
-     document.getElementById("passwordOutput").value = '';``
+    document.getElementById("emailOutput").innerHTML = '';
+    document.getElementById("passwordOutput").innerHTML = '';
 }
 
 function clearAllRegister() {
@@ -152,13 +152,11 @@ function loggedIn(isProfilePage=false) {
     }
 
     //  not yet signed in
-    else {
-        document.getElementById("registerProfile").innerHTML += `    
-            <li class="nav-item mt-2 mr-1" id="change">
-                <form>
-                    <input type="text" class="searchBar" placeholder="Search Shop Names">
-                </form>
-            </li>
+    else { 
+        // <form>
+        //             <input type="text" class="searchBar" placeholder="Search Shop Names">
+        //         </form>
+        document.getElementById("change2").innerHTML = `    
             <li class="nav-item mt-1" >
                 <!-- Replace me with Sign in or Profile -->
                 <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="registerSignin" data-target="#registerSigninModal">Register / Login</a>
@@ -344,19 +342,14 @@ function getProfileDetails(email, isProfilePage) {
                      document.getElementById("content").innerHTML = str + str1;
             }
             
-                var registerProfile = document.getElementById("registerProfile");
-        
-                registerProfile.innerHTML += `
-                <li class="nav-item mt-4 mr-1" id="change">
-                <form>
-                    <input type="text" class="searchBar" placeholder="Search Shop Names">
-                </form>
-                </li>
+                
+                document.getElementById("change").setAttribute("class", "nav-item mt-4 mr-1");
+                document.getElementById("change2").innerHTML = `
                 <li class="nav-item mt-1" >
                     <!-- Replace me with Sign in or Profile -->
                     <div class="dropdown">
                         <a class="nav-link" href="profile.html" style="padding-bottom:unset;" 
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> ${username}&nbsp<img id="profileImage" src="images/profile_image.jpg" /></a>
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> ${name}&nbsp<img id="profileImage" src="images/profile_image.jpg" /></a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="profile.html">My Profile</a>
