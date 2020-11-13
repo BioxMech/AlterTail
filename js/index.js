@@ -15,13 +15,15 @@ function displayHome() {
 
             for(var record of records) {
                 str += `
-                <div class="card h-100">
-                    <a class="shop_url" href="shopPage.html?shop_name=${record.shop_name}">
-                        <img src="${record.image_url}"  class="card-img-top">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title">${record.shop_name}</h5>
-                        <p class="card-text">${record.shop_summary}</p>
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <a class="shop_url" href="shopPage.html?shop_name=${record.shop_name}">
+                            <img src="${record.image_url}"  class="card-img-top">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">${record.shop_name}</h5>
+                            <p class="card-text">${record.shop_summary}</p>
+                        </div>
                     </div>
                 </div>
                 `;
