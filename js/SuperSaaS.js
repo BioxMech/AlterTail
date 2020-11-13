@@ -32,6 +32,8 @@ function CreateUser(email, fname,SuperSaaS_user_id) {
     xhr.send();
 }
 
+function Get
+
 function CreateEvent() {
   var request = new XMLHttpRequest();
 
