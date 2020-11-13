@@ -33,7 +33,7 @@ function getAvailabilities(schedule_id) {
   })
   .then((res) => {
     console.log("=========== DEBUG (success) ==========");
-    // console.log(res);
+    console.log(res);
     var slots_array = res['data']['slots'];
     // console.log(slots_array);
     var html_str = ``;
@@ -48,6 +48,7 @@ function getAvailabilities(schedule_id) {
       html_str += `<button class='dropdown-item' value='${booking_start}'>${date} ${start_time}-${end_time}</button>`;
 
     }
+    console.log(html_str);
     document.getElementById("dropdownMenu").innerHTML = html_str;
   })
   .catch((err) => {
@@ -82,7 +83,7 @@ function getAppointments(schedule_id) {
 // DEBUG
 function getAgenda(schedule_id, email) {
 
-  console.log("======== DEBUG (getAgenda3) ===========");
+  console.log("======== DEBUG (getAgenda) ===========");
 
   var url = `https://www.supersaas.com/api/agenda/${schedule_id}.json?user=${email}&api_key=60Sdu0PWYumxHliWn1Uieg`;
 

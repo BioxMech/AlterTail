@@ -36,7 +36,7 @@
 
   </head>
 
-  <body onload="show_shopPage('SuitYourse')">
+  <body onload="show_shopPage('SuitYourse'); getAvailabilities(535042)">
     
 
     <div id="overlay">
@@ -390,7 +390,16 @@
 
                 <!-- dropdown-menu is here -->
 
-
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Timeslots
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdownMenu">
+                    <!-- <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a> -->
+                  </div>
+                </div>
 
 
 
@@ -1038,6 +1047,7 @@
       <script src="js/form.js"></script>
       <script src="js/shopPage.js"></script>
       <script src="js/loaded.js"></script>
+      <script src="js/SuperSaaS.js"></script>
 
       <!-- If you're using Stripe for payments -->
       <script type="text/javascript" src="https://js.stripe.com/v2/"></script>

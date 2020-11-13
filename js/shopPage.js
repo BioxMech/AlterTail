@@ -110,9 +110,9 @@ function retrieveProfileDetails() {
                 document.getElementById("bookName").setAttribute("value", record.fname);
                 document.getElementById("bookEmail").setAttribute("value", record.email);
                 document.getElementById("bookPhoneNumber").setAttribute("value", record.phone);
-                document.getElementById("bookStreetAddress").setAttribute("value", record.street_address);
-                document.getElementById("bookUnit").setAttribute("value", record.unit);
-                document.getElementById("bookPostal").setAttribute("value", record.postal_code);
+                // document.getElementById("bookStreetAddress").setAttribute("value", record.street_address);
+                // document.getElementById("bookUnit").setAttribute("value", record.unit);
+                // document.getElementById("bookPostal").setAttribute("value", record.postal_code);
 
             }
             document.getElementById("shop_image").innerHTML = img_str;
