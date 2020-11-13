@@ -127,8 +127,8 @@ function CreateUser(email, fname,SuperSaaS_user_id) {
     // console.log(email);
     
     request.onreadystatechange = function() {
-      console.log(this.readyState);
-      console.log(this.status);
+    //   console.log(this.readyState);
+    //   console.log(this.status);
       if (this.readyState == 4 && this.status == 200) {
         console.log(request.responseText);
       }
@@ -148,7 +148,6 @@ function loggedIn(isProfilePage=false) {
     if (sessionStorage.length != 0) {
         getProfileDetails(sessionStorage.getItem("email"), isProfilePage);
         createSaaS();
-        console.log("called1");
         console.log(sessionStorage.getItem("SaaSID"));
     }
 
@@ -173,10 +172,7 @@ function loggedIn(isProfilePage=false) {
 
 function createSaaS() {
     if (sessionStorage.getItem("SaaS") == "false") {
-        console.log('called SaaS false');
-        console.log(sessionStorage.getItem("email"));
-        console.log(sessionStorage.getItem("name"));
-        console.log(sessionStorage.getItem("SaaSID"));
+        // console.log('called SaaS false');
         // var generatedSaaS = generateSaaS();
         // console.log(generatedSaaS)
         // document.getElementById("SuperSaaS_user_id").value = generatedSaaS;
@@ -184,7 +180,7 @@ function createSaaS() {
         sessionStorage.setItem("SaaS",true);
     }
     else {
-        console.log("called SaaS not false")
+        // console.log("called SaaS not false")
     }
 }
 
