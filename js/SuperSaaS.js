@@ -1,19 +1,6 @@
-function Initiate() {
-    var email = document.getElementById("registerEmail").value;
-    var fname = document.getElementById('registerName').value;
-    var SuperSaaS_user_id = "";
-    for (var i = 0; i < 3; i++) {
-        var n = (Math.random(1,9) * 10).toString;
-        SuperSaaS_user_id += n;
-    }
-    SuperSaaS_user_id += "fk";
-    alert(SuperSaaS_user_id);
-    alert(email);
-    alert(fname);
-    document.getElementById("SuperSaaS_user_id").value = SuperSaaS_user_id;
-    var pw = document.getElementById("registerPassword").value;
-    // CreateUser(email, fname,SuperSaaS_user_id, pw);
-}
+var currentdate = new Date();
+var currYear = currentdate.getFullYear() + "-" + (currentdate.getMonth()+1) + "-" + currentdate.getDate();
+var currTime = currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
 
 function CreateUser(email, fname,SuperSaaS_user_id) {
     var xhr = new XMLHttpRequest();
@@ -32,15 +19,28 @@ function CreateUser(email, fname,SuperSaaS_user_id) {
     xhr.send();
 }
 
-function getAppointments(schedule_id) {
-  // var request = new XMLHttpRequest();
+function getAvailabilities(schedule_id) {
+  var url = `https://www.supersaas.com/api/free/${schedule_id}.json?from=${currYear}%20${currTime}&api_key=60Sdu0PWYumxHliWn1Uieg&maxresults=20`;
+  let final_url = `${'https://cors-anywhere.herokuapp.com/'}${url}`;
 
-  // request.onreadystatechange = function() {
-  //   if(this.readyState == 4 && this.status == 200) {
-  //     var response_json = JSON.parse(request.responseText);
-  //     console.log(response_json);
-  //   }
-  // }
+  axios.get(`${'https://cors-anywhere.herokuapp.com/'}${url}`,
+  {
+    headers: {
+      "Access-Control-Allow-Headers": "x-requested-with, x-requested-by"
+    }
+  })
+  .then((res) => {
+    console.log("=========== DEBUG (success) ==========");
+    console.log(res['data']['slots']);
+  })
+  .catch((err) => {
+    console.log("=========== DEBUG (error) ==========");
+    console.log(err.response);
+  })
+}
+
+function getAppointments(schedule_id) {
+  
   var url = `https://www.supersaas.com/api/range/${schedule_id}.json?api_key=60Sdu0PWYumxHliWn1Uieg`;
   let final_url = `${'https://cors-anywhere.herokuapp.com/'}${url}`;
 
@@ -52,14 +52,13 @@ function getAppointments(schedule_id) {
   })
   .then((res) => {
     console.log("=========== DEBUG (success) ==========");
-    console.log(res);
+    console.log(res['data']['bookings']);
   })
   .catch((err) => {
     console.log("=========== DEBUG (error) ==========");
     console.log(err.response);
   })
-  // request.open("GET",url,true);
-  // request.send()
+
 }
 
 
@@ -105,4 +104,8 @@ function CreateEvent() {
   request.open("POST", url, true);
   request.send();
 }
+
+
+
+
 
