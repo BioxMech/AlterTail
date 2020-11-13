@@ -109,7 +109,7 @@
       <div id="navbarNavRight">
         <ul class="navbar-nav flex-row ml-auto" id="registerProfile">
             <li class="nav-item mt-2 mr-1">
-                <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="book" data-target="#bookModal">Book an appointment</a>
+                <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="book" data-target="#bookModal" onclick="retrieveProfileDetails()">Book an appointment</a>
             </li>
           <!-- <li class="nav-item mt-2 mr-1" id="change">
             <form>
@@ -401,36 +401,40 @@
             <div class="col-lg-6">
               <br>
               <h4 class="h4-responsive">
-                <strong>Enter Details</strong>
+                <strong>Your Details</strong>
               </h4>
 
               <div class="right_form" style="margin: 10px; width:90%">
 
                 <div class="form-label-group row">
-                  
-                  <input type="text" class="form-control" id="registerName" placeholder="Name" required="" name="registerName"
+                  <input type="text" class="form-control" id="bookName" placeholder="Name" required="" name="registerName"
                   pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" >
                   <label for="registerName">Name</label>
                 </div>
 
                 <div class="form-label-group row">
-                  <input type="text" class="form-control" id="registerEmail" placeholder="email" required="" name="email"
+                  <input type="text" class="form-control" id="bookEmail" placeholder="email" required="" name="email"
                   pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
                   <label for="registerEmail">Email Address</label>
                 </div>
 
                 <div class="form-label-group row" >
-                  <input type="number" class="form-control" id="registerPhoneNumber" placeholder="Phone Number" required="" name="phone" pattern="[0-9]{8,8}">
+                  <input type="number" class="form-control" id="bookPhoneNumber" placeholder="Phone Number" required="" name="phone" pattern="[0-9]{8,8}">
                   <label for="registerPhoneNumber"></i>Phone Number</label>
                 </div>
                 
                 <div class="form-label-group row">
-                  <input type="text" class="form-control" id="registerStreetAddress" placeholder="Address" required="" name="street_address" pattern="^[a-zA-Z0-9]{10,}$">
+                  <input type="text" class="form-control" id="bookStreetAddress" placeholder="Address" required="" name="street_address" pattern="^[a-zA-Z0-9]{10,}$">
                   <label for="registerStreetAddress">Address</label>
                 </div>
 
                 <div class="form-label-group row">
-                  <input type="text" class="form-control" id="registerPostal" placeholder="Postal" required name="postal_code" pattern="(?=.*\d).{6,6}">
+                  <input type="text" class="form-control" id="bookUnit" placeholder="Unit" name="unit" pattern="\d{1,2}-\d{2,4}">
+                  <label for="registerUnit">Unit</label>
+                </div>
+
+                <div class="form-label-group row">
+                  <input type="text" class="form-control" id="bookPostal" placeholder="Postal" required name="postal_code" pattern="(?=.*\d).{6,6}">
                   <label for="registerPostal">Postal Code</label>
                 </div>
                 
@@ -1018,10 +1022,11 @@
 
       <!-- Custom JavaScript -->
       <script src="js/form.js"></script>
-      <!-- <script src="js/modal.js"></script> -->
       <script src="js/shopPage.js"></script>
+
       <!-- If you're using Stripe for payments -->
-    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+      <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
 
 
     <!-- Optional JavaScript -->
@@ -1029,10 +1034,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <!-- <script type="text/javascript" src="node_modules/mdbootstrap/js/jquery.min.js"></script>
-    <script type="text/javascript" src="node_modules/mdbootstrap/js/popper.min.js"></script>
-    <script type="text/javascript" src="node_modules/mdbootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="node_modules/mdbootstrap/js/mdb.min.js"></script>   -->
+
 
 
     <script>
