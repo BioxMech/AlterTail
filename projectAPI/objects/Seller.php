@@ -56,11 +56,11 @@ class Seller {
     }
 
     public function retrieveShop($email) {
-        $query = "SELECT * FROM seller WHERE email = ?";
+        $query = "SELECT * FROM seller WHERE email = :email";
 
         $stmt = $this->conn->prepare($query);
 
-        $stmt->bindParam(1, $email);
+        $stmt->bindParam(":email", $email);
 
         $stmt->execute();
 
@@ -70,12 +70,16 @@ class Seller {
     public function retrieveShopPage($shop_name) {
         $query = "SELECT * FROM seller_service s, service v, seller e
         WHERE s.service_id = v.service_id and e.shop_name = s.shop_name
-        WHERE shop_name = ?";
+        and e.shop_name = :shop_name";
+
+        // $query = "select * from seller s, seller_service e where s.shop_name = 'Alt-To-Fit';";
+
+        // $query = "SELECT * from seller where shop_name = :shop_name";
 
 
         $stmt = $this->conn->prepare($query);
 
-        $stmt->bindParam(1, $shop_name);
+        $stmt->bindParam(":shop_name", $shop_name,PDO::PARAM_STR);
 
         $stmt->execute();
 

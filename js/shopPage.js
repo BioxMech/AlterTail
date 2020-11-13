@@ -1,20 +1,21 @@
-var shopname = "kingsmen";
-function show_shopPage(){
+// var shopname = "Red Dot Bespoke";
+function show_shopPage(shop_name){
     var request = new XMLHttpRequest(); // Prep to make an HTTP request
 
     request.onreadystatechange = function() {
-
+        
         // Check if response is ready!
         if( this.readyState == 4 && this.status == 200 ) {
             alert("lalalla");
             // Convert responseText to JSON
+            console.log(this.responseText);
             var response_json = JSON.parse(this.responseText);
             var records = response_json.records;
 
             console.log(records)
 
             for(var record of records) {
-                counter ++; 
+                // counter ++; 
     
                 shop_name = record.shop_name;
                 shop_image = record.image_url;
@@ -27,7 +28,7 @@ function show_shopPage(){
                 service_description = record.services.service_description;
     
                 img_str = `
-                <img src="images/kingsman.jpg" class="img-fluid" alt="Responsive image"
+                <img src="${shop_image}" class="img-fluid" alt="Responsive image"
                 style= "display: block;
                         margin-left: auto;
                         margin-right: auto;
@@ -40,7 +41,8 @@ function show_shopPage(){
 
         
         }
-        var url = "projectAPI/user/retrieveShopPage.php?shop_name=" + shopname;
+        var url = "projectAPI/user/retrieveShopPage.php?shop_name=" + shop_name;
+        
     
         request.open("GET", url, true);
     

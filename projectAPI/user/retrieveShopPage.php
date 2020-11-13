@@ -15,8 +15,9 @@ $db = $database->getConnection();
 $seller = new Seller($db);
 
 //query products
-$stmt = $seller->retrieveShopPage($_GET["shop_name"]);
+$stmt = $seller->retrieveShopPage($_GET['shop_name']);
 $num = $stmt->rowCount();
+
 
 if($num>0) {
     $result_arr = array();
@@ -28,7 +29,7 @@ if($num>0) {
 
         $item = array(
             "shop_name" => $shop_name,
-            "image_url" => $shop_image_url,
+            "image_url" => $image_url,
             "shop_description" => $shop_description,
             "schedule_id" => $schedule_id,
 
@@ -38,7 +39,7 @@ if($num>0) {
                 "service_lead_time" => $service_lead_time,
                 "service_price" => $service_price,
                 "service_description" => $service_description,
-                "service_image_url" => $service_image_ur
+                "service_image_url" => $service_image_url
             ]
         );
 

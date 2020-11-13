@@ -10,3 +10,11 @@ AlterTail bridges the gap between the users and the tailoring and alteration ser
 
 # About
 AlterTail is a web application project produced by 5 individuals who are currently enrolled in Singapore Management University, pursuing a bachelor of Science (Information Systems) degree.
+
+# Instructions
+
+* Install Stripe Dependencies 
+Using command prompt, change current working directory to stripe folder 
+Install library by running 'composer require stripe/stripe-php' 
+
+* Import database from database/load.sql
