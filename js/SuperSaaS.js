@@ -45,7 +45,7 @@ function getAvailabilities(schedule_id) {
       var start_time = slot.start.slice(11);
       var end_time = slot.finish.slice(11);
       
-      html_str += `<button class='dropdown-item'>${date} ${start_time}-${end_time}</button>`;
+      html_str += `<button class='dropdown-item' value='${booking_start}'>${date} ${start_time}-${end_time}</button>`;
 
     }
     document.getElementById("dropdownMenu").innerHTML = html_str;
