@@ -40,7 +40,7 @@ create table service
 (service_id varchar(50) not null,
 service_title varchar(50) not null,
 service_price varchar(10) not null,
-service_description varchar(100) not null,
+service_description varchar(1000) not null,
 service_lead_time varchar(50) not null,
 service_image_url varchar(100) not null,
 constraint service_pk primary key(service_id)
@@ -98,3 +98,7 @@ INSERT INTO `seller` (`email`, `shop_name`, `street_address`, `shop_summary`, `s
 ('meiko@gmail.com', 'Meiko Tailor', '7 Raffles Blvd', 'With over 50 years of experience, Meiko Tailor has been continuously providing the locality with their fine craft and premium fabric. Throughout the business, they have developed the style in suit cra', 'With over 50 years of experience, Meiko Tailor has been continuously providing the locality with their fine craft and premium fabric. Throughout the business, they have developed the style in suit crafting pants and shirts, particularly bespoke suit. Their resident styling advisor has been trained in Academy of ImageWorks (AIM) which largely influenced his work. The shop accepts overseas order via mail and door to door visit within a specific area. ', '535049','02-01', '039595', 'Tailoring', '4.8', '23', 'images/alteration_shop18.jpg'),
 ('perfect.attire@gmail.com', 'Perfect Attire', 'Oxley 138 Robinson Rd', 'Perfect Attire specialises in handcrafted bespoke suits, custom shirts and tailored pants at accessible prices. Founded by Tulsi Kamath and Shriram Iyer, who both share a passion for tailored clothing', 'Perfect Attire specialises in handcrafted bespoke suits, custom shirts and tailored pants at accessible prices. Founded by Tulsi Kamath and Shriram Iyer, who both share a passion for tailored clothing, the store prides itself for giving its customers the full bespoke experience with two fittings: muslin and basted', '535050','03-38', '068906', 'Tailoring', '5.0', '51', 'images/alteration_shop17.jpg'),
 ('red.dot.bespoke@gmail.com', 'Red Dot Bespoke', '11 New Bridge Rd', 'A new age bespoke tailor, Red Dot Bespoke strives to bring quality, comfort, and style while being friendly to your wallet.', 'A new age bespoke tailor, Red Dot Bespoke strives to bring quality, comfort, and style while being friendly to your wallet.', '535051','02-01', '059383', 'Tailoring', '4.9', '86', 'images/alteration_shop15jpg');
+
+INSERT INTO `service`(`service_id`, `service_title`, `service_price`, `service_description`, `service_lead_time`, `service_image_url`) VALUES ('01','Tailored Shirt','109','100% customisable, made to measure shirts. Choose your fabric, collar, cuffs and buttons, and personalise your shirt with your very own monogram.','2 weeks','kingsmen3.jpg');
+
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES ('suityourse@gmail.com','SuitYourse','01');
