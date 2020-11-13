@@ -1,6 +1,6 @@
 var currentdate = new Date();
-var currYear = currentdate.getFullYear() + "-" + (currentdate.getMonth()+1) + "-" + currentdate.getDate();
-var currTime = currentdate.getHours();
+var currYear = currentdate.getFullYear() + "-" + (currentdate.getMonth()+1) + "-" + (currentdate.getDate().toString().padStart(2, "0"));
+var currTime = (currentdate.getHours().toString().padStart(2,"0"));
 
 function CreateUser(email, fname,SuperSaaS_user_id) {
     var xhr = new XMLHttpRequest();
@@ -23,7 +23,7 @@ function getAvailabilities(schedule_id) {
   console.log(currYear);
   console.log(currTime);
   var url = `https://www.supersaas.com/api/free/${schedule_id}.json?from=${currYear}%20${currTime}:00:00&api_key=60Sdu0PWYumxHliWn1Uieg&maxresults=20`;
-  let final_url = `${'https://cors-anywhere.herokuapp.com/'}${url}`;
+  // let final_url = `${'https://cors-anywhere.herokuapp.com/'}${url}`;
 
   axios.get(`${'https://cors-anywhere.herokuapp.com/'}${url}`,
   {
@@ -35,12 +35,12 @@ function getAvailabilities(schedule_id) {
     console.log("=========== DEBUG (success) ==========");
     // console.log(res);
     var slots_array = res['data']['slots'];
-    console.log(slots_array);
+    // console.log(slots_array);
     var html_str = ``;
     for (slot of slots_array) {
-      console.log(slot);
+      // console.log(slot);
       var booking_start = slot.start;
-      var booking_end = slot.finish;
+      // var booking_end = slot.finish;
       var date = slot.start.slice(0,10);
       var start_time = slot.start.slice(11);
       var end_time = slot.finish.slice(11);
