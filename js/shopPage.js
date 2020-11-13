@@ -6,7 +6,7 @@ function show_shopPage(shop_name){
         
         // Check if response is ready!
         if( this.readyState == 4 && this.status == 200 ) {
-            alert("lalalla");
+            // alert("lalalla");
             // Convert responseText to JSON
             console.log(this.responseText);
             var response_json = JSON.parse(this.responseText);

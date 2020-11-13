@@ -1,6 +1,6 @@
 var currentdate = new Date();
 var currYear = currentdate.getFullYear() + "-" + (currentdate.getMonth()+1) + "-" + currentdate.getDate();
-var currTime = currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+var currTime = currentdate.getHours();
 
 function CreateUser(email, fname,SuperSaaS_user_id) {
     var xhr = new XMLHttpRequest();
@@ -20,7 +20,9 @@ function CreateUser(email, fname,SuperSaaS_user_id) {
 }
 
 function getAvailabilities(schedule_id) {
-  var url = `https://www.supersaas.com/api/free/${schedule_id}.json?from=${currYear}%20${currTime}&api_key=60Sdu0PWYumxHliWn1Uieg&maxresults=20`;
+  console.log(currYear);
+  console.log(currTime);
+  var url = `https://www.supersaas.com/api/free/${schedule_id}.json?from=${currYear}%20${currTime}:00:00&api_key=60Sdu0PWYumxHliWn1Uieg&maxresults=20`;
   let final_url = `${'https://cors-anywhere.herokuapp.com/'}${url}`;
 
   axios.get(`${'https://cors-anywhere.herokuapp.com/'}${url}`,
