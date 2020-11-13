@@ -1,7 +1,7 @@
 
 //console.log(sessionStorage.getItem("email"));
 var email = (sessionStorage.getItem("email"));
-document.getElementById("email").innerHTML = email;
+// document.getElementById("email").innerHTML = email;
 
 function show_profile()
 {
@@ -480,23 +480,6 @@ function getShop(isProfilePage=true) {
                 document.getElementById("content").innerHTML = str + str1;
 
             }
-            // else {
-            //     var registerProfile = document.getElementById("try");
-        
-            //     registerProfile.innerHTML = `
-            //     <div class="dropdown">
-            //         <a class="nav-link" href="profile.html" style="padding-bottom:unset;" 
-            //         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> ${username}&nbsp<img id="profileImage" src="images/profile_image.jpg" /></a>
-
-            //         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            //             <a class="dropdown-item" href="profile.html">My Profile</a>
-            //             <a class="dropdown-item" href="#" onclick="signOut()">Sign Out</a>
-            //         </div>
-            //     </div>
-            //     `;
-            // }
-
-            // document.getElementById("try").innerHTML = registerProfile;
 
         }
 
