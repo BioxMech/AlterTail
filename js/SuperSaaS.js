@@ -82,7 +82,7 @@ function getAppointments(schedule_id) {
 // DEBUG
 function getAgenda(schedule_id, email) {
 
-  console.log("======== DEBUG (getAgenda3) ===========");
+  console.log("======== DEBUG (getAgenda) ===========");
 
   var url = `https://www.supersaas.com/api/agenda/${schedule_id}.json?user=${email}&api_key=60Sdu0PWYumxHliWn1Uieg`;
 

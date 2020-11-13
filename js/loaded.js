@@ -9,24 +9,24 @@ function generateSaaS() {
 }
 
 function CreateUser(email, fname,SuperSaaS_user_id) {
-    var request = new XMLHttpRequest();
-    // request.withCredentials = true;
-    // console.log(email);
-    
-    request.onreadystatechange = function() {
-    //   console.log(this.readyState);
-    //   console.log(this.status);
-      if (this.readyState == 4 && this.status == 200) {
-        console.log(request.responseText);
-      }
-    }
-
-    // var url = `https://www.supersaas.com/api/users/567fk.json?account=PetrasTYR&api_key=60Sdu0PWYumxHliWn1Uieg&user[name]=user1@example.com&user[password]=secret1&user[full_name]=Test%20Name`;
     var url = `https://www.supersaas.com/api/users/${SuperSaaS_user_id}.json?account=PetrasTYR&api_key=60Sdu0PWYumxHliWn1Uieg&user[name]=${email}&user[full_name]=${fname}`;
-    request.open("POST",url,true);
-    // console.log(email);
-    request.send();
-    // console.log(email);
+  
+
+    axios.post(`${'https://cors-anywhere.herokuapp.com/'}${url}`,
+    {
+        headers: {
+        "Access-Control-Allow-Headers": "x-requested-with, x-requested-by"
+        }
+    })
+    .then((res) => {
+        console.log("=========== DEBUG (success) ==========");
+        console.log(res);
+    })
+    .catch((err) => {
+        console.log("=========== DEBUG (error) ==========");
+        console.log(err.response);
+    })
+
   }
 
 function loggedIn(isProfilePage=false) {
@@ -57,15 +57,12 @@ function loggedIn(isProfilePage=false) {
 
 function createSaaS() {
     if (sessionStorage.getItem("SaaS") == "false") {
-        // console.log('called SaaS false');
-        // var generatedSaaS = generateSaaS();
-        // console.log(generatedSaaS)
-        // document.getElementById("SuperSaaS_user_id").value = generatedSaaS;
+        console.log('======= DEBUG (SUCCESS) =====');
         CreateUser(sessionStorage.getItem("email"),sessionStorage.getItem("name"),sessionStorage.getItem("SaaSID"));
         sessionStorage.setItem("SaaS",true);
     }
     else {
-        // console.log("called SaaS not false")
+        console.log("===== DEBUG (ERROR) =====")
     }
 }
 
