@@ -25,10 +25,11 @@ function displayHome() {
                     <div class="col mb-4">
                         <div class="card h-100">
                             <a class="shop_url" href="shopPage.html?shop_name=${record.shop_name}">
-                                <img src="${record.image_url}"  class="card-img-top">
+                                <img src="${record.image_url}" class="card-img-top">
                             </a>
                             <div class="card-body">
                                 <h4 class="card-title">${record.shop_name}</h4>
+                                <h5>${record.rating} / 5.0 <img class="mb-1" src="images/star.png" style="max-width: 6%; height:auto;"> (${record.rating_num})</h5>
                                 <p class="card-text">${record.shop_summary}</p>
                             </div>
                         </div>
@@ -44,7 +45,7 @@ function displayHome() {
                         car += `        
                         <div class="carousel-item">
                             <img src="${record.image_url}" class="d-block w-100">
-                            <div class="carousel-caption d-none d-md-block carouselDescription">
+                            <div class="carousel-caption d-none d-md-block carouselDescription" >
                                 <h2 class="star_h2" id="slide_heading1"><b>${record.shop_name}</b></h2>
                                 <p>${record.shop_summary}</p>
                             </div>
@@ -67,6 +68,9 @@ function displayHome() {
                 }
 
                 counter += 1;
+                if (counter >= 9 && carCounter >= 4) {
+                    break;
+                }
                 
             }
 

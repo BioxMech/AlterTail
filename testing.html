@@ -317,49 +317,35 @@ $(document).ready(function(){
   Vue.component('search-component',  {
           template: `
           <div class="dropdown">
-            <input type="text" class="searchBar dropdown-toggle" placeholder="Search Shop Names" v-model="query" @keyup="getData()" autocomplete="off" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
-            <div class="" v-if="search_data.length" style="display: block;">
+            <input type="text" class="searchBar" placeholder="Search Shop Names" v-model="query" @keyup="getData()" autocomplete="off" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
+            <div class="dropdown-menu" v-if="search_data.length" aria-labelledby="dropdownMenuButton">
               <ul class="list-group">
-                <a href="shopPage.html" class="dropdown-item" v-for="data1 in search_data" @click="getName(data1.shop_name)">{{ data1.shop_name }}</a>
+                <a href="#" class="dropdown-item" v-for="data1 in search_data" v-on:click="goToPage( data1.shop_name )">{{ data1.shop_name }}</a>
               </ul>
             </div>
           </div>
           `,
-
           data:function(){
             return{
               query:'',
-              search_data:[]
+              search_data:[],
+              shop_name: ''
             }
           },
           methods:{
             getData:function(){
-              // this.search_data = [];
-
-              // axios.post('projectAPI/user/fetch.php', {
-              //   query:this.query
-              // })
-
-              // .then(response => {
-              //   this.search_data = response.data;
-              // });
               let url = 'projectAPI/user/fetch.php?query=' + this.query;
 
               axios.get(url)
                 .then(response => {
                   let user_objects = response.data;
-
-                  // view it
-                  console.log(response.data);
-
                   this.search_data = user_objects.records
                   
                 })
               
             },
-            getName:function(shop_name){
-              this.query = shop_name;
-              this.search_data = [];
+            goToPage: function(shop_name) {
+              window.location.replace("/AlterTail/shopPage.html?shop_name=" + shop_name);
             }
           }
         });
