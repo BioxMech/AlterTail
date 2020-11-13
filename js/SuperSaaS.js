@@ -33,7 +33,22 @@ function getAvailabilities(schedule_id) {
   })
   .then((res) => {
     console.log("=========== DEBUG (success) ==========");
-    console.log(res['data']['slots']);
+    // console.log(res);
+    var slots_array = res['data']['slots'];
+    console.log(slots_array);
+    var html_str = ``;
+    for (slot of slots_array) {
+      console.log(slot);
+      var booking_start = slot.start;
+      var booking_end = slot.finish;
+      var date = slot.start.slice(0,10);
+      var start_time = slot.start.slice(11);
+      var end_time = slot.finish.slice(11);
+      
+      html_str += `<button class='dropdown-item' value='${booking_start}'>${date} ${start_time}-${end_time}</button>`;
+
+    }
+    document.getElementById("dropdownMenu").innerHTML = html_str;
   })
   .catch((err) => {
     console.log("=========== DEBUG (error) ==========");

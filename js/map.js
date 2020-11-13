@@ -78,6 +78,7 @@ function getAllShops()
       if( this.readyState == 4 && this.status == 200 ) {
 
         console.log(this.responseText);
+
          // Convert responseText to JSON
          var response_json = JSON.parse(this.responseText);
          var records = response_json.records;
@@ -114,7 +115,7 @@ function getAllShops()
 
 
   // Using the api to retrieve the user's shop details
-  var url = "projectAPI/user/retrieveAllShop.php?";
+  var url = "projectAPI/user/retrieveAllShop.php";
 
   request.open("GET", url);
 
