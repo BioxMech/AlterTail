@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function showCloseLocations() {
   var i;
   var radius_km = $('#radius_km').val();
-  var address = $('#address').val();
+  var address = $('#address').val() + "Singapore";
 
   //remove all radii and markers from map before displaying new ones
   if (radius_circle) {
@@ -189,6 +189,8 @@ function showCloseLocations() {
 //console.log(all_locations);
 //console.log(shop_array);
 
+
+
 function displaycard(){
   var str = "";
   for(i = 0; i < all_locations.length; i++) {
@@ -224,9 +226,19 @@ function displaycard(){
         </div>
       `;
     }
+    else{
+      str+= `
+
+
+      `;
+
+
+    }
   }
   document.getElementById("shop_cards").innerHTML = str;
 }
+
+
 
 
 /* 

@@ -2,6 +2,8 @@
 //console.log(sessionStorage.getItem("email"));
 var email = (sessionStorage.getItem("email"));
 document.getElementById("email").innerHTML = email;
+//console.log(email)
+
 
 function show_profile()
 {

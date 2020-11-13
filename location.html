@@ -384,7 +384,7 @@
         <div class="row">
           <div class="col-lg-6 text-left pt-5">
             <div class = "shadow rounded-pill row" style = "width: 470px; height: 50px;">
-                <input class="form-control col-sm-5 border-0" id="address" value="Location, Singapore" placeholder="Input Address" style = "margin-left: 20px; margin-top: 5px; margin-right: 5px; margin-bottom: 5px;"/>
+                <input class="form-control col-sm-5 border-0" id="address" value="Location" placeholder="Input Address" style = "margin-left: 20px; margin-top: 5px; margin-right: 5px; margin-bottom: 5px;"/>
                 <select class = " form-control col-sm-2" id="radius_km" style = "margin-top: 5px;  margin-bottom: 5px; margin-right: 5px; margin-left: 5px;">
                     <option value=1>1km</option>
                     <option value=2>2km</option>
@@ -567,6 +567,23 @@
             </div>
             
             <!-- End of Filtered Cards -->
+
+            <nav aria-label="...">
+              <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item active" id="page_num">
+                  <a class="page-link" href="#" id="page1">1 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="page-item" id="page2"><a class="page-link" href="#">2</a></li>
+                <li class="page-item" id="page3"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Next</a>
+                </li>
+              </ul>
+            </nav>
+
           </div>
 
         <div class="col-lg-6">
