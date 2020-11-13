@@ -99,6 +99,14 @@ INSERT INTO `seller` (`email`, `shop_name`, `street_address`, `shop_summary`, `s
 ('perfect.attire@gmail.com', 'Perfect Attire', 'Oxley 138 Robinson Rd', 'Perfect Attire specialises in handcrafted bespoke suits, custom shirts and tailored pants at accessible prices. Founded by Tulsi Kamath and Shriram Iyer, who both share a passion for tailored clothing', 'Perfect Attire specialises in handcrafted bespoke suits, custom shirts and tailored pants at accessible prices. Founded by Tulsi Kamath and Shriram Iyer, who both share a passion for tailored clothing, the store prides itself for giving its customers the full bespoke experience with two fittings: muslin and basted', '535050','03-38', '068906', 'Tailoring', '5.0', '51', 'images/alteration_shop17.jpg'),
 ('red.dot.bespoke@gmail.com', 'Red Dot Bespoke', '11 New Bridge Rd', 'A new age bespoke tailor, Red Dot Bespoke strives to bring quality, comfort, and style while being friendly to your wallet.', 'A new age bespoke tailor, Red Dot Bespoke strives to bring quality, comfort, and style while being friendly to your wallet.', '535051','02-01', '059383', 'Tailoring', '4.9', '86', 'images/alteration_shop15jpg');
 
-INSERT INTO `service`(`service_id`, `service_title`, `service_price`, `service_description`, `service_lead_time`, `service_image_url`) VALUES ('01','Tailored Shirt','109','100% customisable, made to measure shirts. Choose your fabric, collar, cuffs and buttons, and personalise your shirt with your very own monogram.','2 weeks','kingsmen3.jpg');
+INSERT INTO `service`(`service_id`, `service_title`, `service_price`, `service_description`, `service_lead_time`, `service_image_url`) VALUES 
+('01','Tailored Shirt','109','100% customisable, made to measure shirts. Choose your fabric, collar, cuffs and buttons, and personalise your shirt with your very own monogram.','2 weeks','kingsmen3.jpg'),
+('02','2-Piece Suit','910',"The jewel of a man's wardrobe. We challenge you to find us a man that looks bad in a well tailored suit.​ Our in-store advisors will take your measurements, find out more about your lifestyle and budget, and suggest the most suitable fabrics and fit necessary to craft you a suit that is sure to make you feel like a billion bucks.",'4-5 weeks','16.jpg'),
+('03','3-Piece Suit','1020',"The 3pc suit is the most flattering garment that a man can own. The vest cinches in the waist, giving a natural V-shape to the upper body. You may also wear the vest, shirt and trousers without a jacket - a way to upkeep formality without compromising on style.",'4-5 weeks','kingsman8.jpg'),
+('04','Tuxedo Suit','990',"Tuxedos are versatile formal wear for black tie occasions. The main difference between a tuxedo and a 2 piece suit is in the suit lapel - a tuxedo has a satin lapel and a shawl collar. You may choose to wear the tuxedo with a tuxedo bib front shirt, or a regular white shirt.",'4-5 weeks','kingsman7.jpg');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES ('suityourse@gmail.com','SuitYourse','01');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
+('suityourse@gmail.com','SuitYourse','01'),
+('suityourse@gmail.com','SuitYourse','02'),
+('suityourse@gmail.com','SuitYourse','03'),
+('suityourse@gmail.com','SuitYourse','04');

@@ -1,19 +1,6 @@
-function Initiate() {
-    var email = document.getElementById("registerEmail").value;
-    var fname = document.getElementById('registerName').value;
-    var SuperSaaS_user_id = "";
-    for (var i = 0; i < 3; i++) {
-        var n = (Math.random(1,9) * 10).toString;
-        SuperSaaS_user_id += n;
-    }
-    SuperSaaS_user_id += "fk";
-    alert(SuperSaaS_user_id);
-    alert(email);
-    alert(fname);
-    document.getElementById("SuperSaaS_user_id").value = SuperSaaS_user_id;
-    var pw = document.getElementById("registerPassword").value;
-    // CreateUser(email, fname,SuperSaaS_user_id, pw);
-}
+var currentdate = new Date();
+var currYear = currentdate.getFullYear() + "-" + (currentdate.getMonth()+1) + "-" + currentdate.getDate();
+var currTime = currentdate.getHours();
 
 function CreateUser(email, fname,SuperSaaS_user_id) {
     var xhr = new XMLHttpRequest();
@@ -32,61 +19,53 @@ function CreateUser(email, fname,SuperSaaS_user_id) {
     xhr.send();
 }
 
+function getAvailabilities(schedule_id) {
+  console.log(currYear);
+  console.log(currTime);
+  var url = `https://www.supersaas.com/api/free/${schedule_id}.json?from=${currYear}%20${currTime}:00:00&api_key=60Sdu0PWYumxHliWn1Uieg&maxresults=20`;
+  let final_url = `${'https://cors-anywhere.herokuapp.com/'}${url}`;
+
+  axios.get(`${'https://cors-anywhere.herokuapp.com/'}${url}`,
+  {
+    headers: {
+      "Access-Control-Allow-Headers": "x-requested-with, x-requested-by"
+    }
+  })
+  .then((res) => {
+    console.log("=========== DEBUG (success) ==========");
+    console.log(res['data']['slots']);
+  })
+  .catch((err) => {
+    console.log("=========== DEBUG (error) ==========");
+    console.log(err.response);
+  })
+}
+
 function getAppointments(schedule_id) {
-  var request = new XMLHttpRequest();
-
-  request.onreadystatechange = function() {
-    if(this.readyState == 4 && this.status == 200) {
-      var response_json = JSON.parse(request.responseText);
-      console.log(response_json);
-    }
-  }
+  
   var url = `https://www.supersaas.com/api/range/${schedule_id}.json?api_key=60Sdu0PWYumxHliWn1Uieg`;
-  request.open("GET",url,true);
-  request.send()
-}
+  let final_url = `${'https://cors-anywhere.herokuapp.com/'}${url}`;
 
-function getAgenda(schedule_id, email) {
-  var request = new XMLHttpRequest();
-
-  request.onreadystatechange = function() {
-    if(this.readyState == 4 && this.status == 200) {
-      var response_json = JSON.parse(request.responseText);
-      console.log(response_json);
+  axios.get(`${'https://cors-anywhere.herokuapp.com/'}${url}`,
+  {
+    headers: {
+      "Access-Control-Allow-Headers": "x-requested-with, x-requested-by"
     }
-  }
-  var url = `https://www.supersaas.com/api/agenda/${schedule_id}.json?user=${email}&api_key=60Sdu0PWYumxHliWn1Uieg`;
-  request.open("GET",url,true);
-  request.send();
+  })
+  .then((res) => {
+    console.log("=========== DEBUG (success) ==========");
+    console.log(res['data']['bookings']);
+  })
+  .catch((err) => {
+    console.log("=========== DEBUG (error) ==========");
+    console.log(err.response);
+  })
+
 }
 
-// DEBUG
-function getAgenda2(schedule_id, email) {
-  var url = `https://www.supersaas.com/api/agenda/${schedule_id}.json?user=${email}&api_key=60Sdu0PWYumxHliWn1Uieg`;
-  // let headers = new Headers();
-  // headers.append('Content-Type', 'application/json');
-  // headers.append('Accept', 'application/json');
-  // headers.append('Origin','http://localhost:3000');
-
-  fetch(url, {
-      mode: 'no-cors',
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Origin': 'http://localhost:3000'
-      }
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log("======== success =======");
-    console.log(data);
-  })
-  .catch(error => console.log('Error : ' + error.message));
-}
 
 // DEBUG
-function getAgenda3(schedule_id, email) {
+function getAgenda(schedule_id, email) {
 
   console.log("======== DEBUG (getAgenda3) ===========");
 
@@ -127,4 +106,8 @@ function CreateEvent() {
   request.open("POST", url, true);
   request.send();
 }
+
+
+
+
 

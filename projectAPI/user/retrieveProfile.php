@@ -28,6 +28,7 @@ if($num>0) {
         $item = array(
             "email" => $email,
             "fname" => $fname,
+            "SuperSaaS_user_id" => $SuperSaaS_user_id,
             "gender" => $gender,
             "username" => $username,
             "pw" => $pw,
