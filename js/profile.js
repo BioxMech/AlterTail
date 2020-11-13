@@ -2,6 +2,7 @@
 //console.log(sessionStorage.getItem("email"));
 var email = (sessionStorage.getItem("email"));
 document.getElementById("email").innerHTML = email;
+
 //console.log(email)
 
 
@@ -442,7 +443,7 @@ function getShop(isProfilePage=true) {
                                                             <img  id = "img1" class="" src="${img_path + image_url}" alt="Card image cap">
                                                         </div>
                                                         <div class="card-body">
-                                                            <button type="button" class="btn btn-outline-secondary" style = "width: 120px; height: 35px; font-size: 15px;">Select Image</button>
+                                                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
                                                             <p class="card-text" style = "font-size: 15px; color:gray; margin-top: 20px;">File size: maximum 1 MB</p>
                                                             <p class="card-text" style = "font-size: 15px; color: gray; margin-left: 12px;">File extension: JPEG, PNG</p>
                                                         </div>
@@ -474,3 +475,20 @@ function getShop(isProfilePage=true) {
 }
 
 
+document.getElementById("username").innerHTML = username;
+document.getElementById("address").innerHTML = address;
+document.getElementById("num").innerHTML = num;
+
+if(document.getElementById("female").checked == true)
+{
+    var gender = "Female"
+}
+else
+{
+    var gender = "Male"
+}
+
+
+function updateProfile(){
+
+}

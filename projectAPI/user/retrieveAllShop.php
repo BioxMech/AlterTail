@@ -52,6 +52,7 @@ if($num>0) {
 
     // show products data in json format
     echo json_encode($result_arr);
+    echo 'console.log('. json_encode( $result_arr ) .')';
 }
 else {
     // set response code - 404 Not found
@@ -62,8 +63,6 @@ else {
         array("message" => "No records found.")
     );
 }
-
-
 
 
 ?>

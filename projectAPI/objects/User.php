@@ -36,6 +36,31 @@ class User {
         return $stmt;
     }
 
+    public function updateProfile($email, $username, $phone, $gender){
+        $query = "UPDATE user SET email= ?, username = ?, phone = ?, gender = ? WHERE email = ?";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(1, $email);
+
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+    
+    public function updatePassword($email, $pw){
+        $query = "UPDATE user SET pw = ? WHERE email = ?";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(1, $email);
+
+        $stmt->execute();
+
+        return $stmt;
+    }
+
     public function retrieveProfile($email) {
         $query = "SELECT * FROM user WHERE email = ?";
 

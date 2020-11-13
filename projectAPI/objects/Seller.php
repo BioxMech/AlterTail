@@ -44,7 +44,7 @@ class Seller {
     }
 
     public function retrieveAllShop() {
-        $query = "SELECT * FROM seller ";
+        $query = "SELECT * FROM seller";
 
         $stmt = $this->conn->prepare($query);
 

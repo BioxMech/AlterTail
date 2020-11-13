@@ -5,9 +5,6 @@ var geocoder;
 var infowindow;
 var shop_array = [];
 
-var email = (sessionStorage.getItem("email"));
-
-
 //all_locations is just a sample, you will probably load those from database
 var all_locations = [{
   type: "Shop",
@@ -73,16 +70,19 @@ var all_locations = [{
 
 function getAllShops()
 {
-  var request = new XMLHttpRequest(); // Prep to make an HTTP request
+  var request = new XMLHttpRequest(); // Prep to make an HTTP request\\\
 
   request.onreadystatechange = function() {
 
       // Check if response is ready!
       if( this.readyState == 4 && this.status == 200 ) {
 
+        console.log(this.responseText);
          // Convert responseText to JSON
          var response_json = JSON.parse(this.responseText);
          var records = response_json.records;
+
+         console.log(records);
 
          for (shop of records) {
           var email = shop.email;
@@ -114,9 +114,9 @@ function getAllShops()
 
 
   // Using the api to retrieve the user's shop details
-  var url = "projectAPI/user/retrieveAllShop.php";
+  var url = "projectAPI/user/retrieveAllShop.php?";
 
-  request.open("GET", url, true);
+  request.open("GET", url);
 
   request.send();
 
@@ -141,12 +141,12 @@ document.addEventListener("DOMContentLoaded", function() {
   };
   map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
   geocoder = new google.maps.Geocoder();
-  /*google.maps.event.addListener(map, 'click', function() {
+  google.maps.event.addListener(map, 'click', function() {
     if (infowindow) {
       infowindow.setMap(null);
       infowindow = null;
     }
-  });*/
+  });
 });
 
 function showCloseLocations() {
