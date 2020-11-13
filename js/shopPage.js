@@ -1,4 +1,5 @@
 // var shopname = "Red Dot Bespoke";
+
 function show_shopPage(shop_name){
     var request = new XMLHttpRequest(); // Prep to make an HTTP request
 
@@ -78,6 +79,49 @@ function show_shopPage(shop_name){
     
         }
         var url = "projectAPI/user/retrieveShopPage.php?shop_name=" + shop_name;
+        
+    
+        request.open("GET", url, true);
+    
+        request.send();
+}
+
+// session email 
+var email = sessionStorage.getItem("email")
+
+function retrieveProfileDetails() {
+    var request = new XMLHttpRequest(); // Prep to make an HTTP request
+
+    request.onreadystatechange = function() {
+        
+        // Check if response is ready!
+        if( this.readyState == 4 && this.status == 200 ) {
+
+            // Convert responseText to JSON
+            console.log(this.responseText);
+            var response_json = JSON.parse(this.responseText);
+            var records = response_json.records;
+
+            console.log(records)
+
+            for(var record of records) {
+                // counter ++; 
+    
+                document.getElementById("bookName").setAttribute("value", record.fname);
+                document.getElementById("bookEmail").setAttribute("value", record.email);
+                document.getElementById("bookPhoneNumber").setAttribute("value", record.phone);
+                document.getElementById("bookStreetAddress").setAttribute("value", record.street_address);
+                document.getElementById("bookUnit").setAttribute("value", record.unit);
+                document.getElementById("bookPostal").setAttribute("value", record.postal_code);
+
+            }
+            document.getElementById("shop_image").innerHTML = img_str;
+        }
+    
+
+        
+        }
+        var url = "projectAPI/user/retrieveProfile.php?email=" + email;
         
     
         request.open("GET", url, true);
