@@ -55,7 +55,7 @@
 
   </head>
 
-  <body onload="show_shopPage(shop_name); getAvailabilities(schedule_id)">
+  <body onload="show_shopPage(shop_name); getAvailabilities(schedule_id); loggedIn()">
     
 
     <div id="overlay">
@@ -130,6 +130,7 @@
             <li class="nav-item mt-2 mr-1">
                 <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="book" data-target="#bookModal" onclick="retrieveProfileDetails()">Book an appointment</a>
             </li>
+
           <!-- <li class="nav-item mt-2 mr-1" id="change">
             <form>
                 <input type="text" class="searchBar" placeholder="Search Shop Names">
@@ -402,7 +403,8 @@
               <div class="left_bookmodal" style="margin-left: 20px;">
                 <img src="images/logo.jpg" class="modalFormImage">
                 <hr>
-                <p style="font-weight:bold; ">Kingsmen</p>
+                <p id="shop_name" class="shop_name" style="font-weight:bold;" >
+                </p>
                 <h4 style="font-weight:bold; ">Meet up with our Exports</h4>
                 <br><br>
                 <p><strong>Choose preferred time slot</strong></p>
@@ -486,8 +488,8 @@
 
               
               <p><strong>Type of Service</strong></p>
-              <div class="serviceCheckbox">
-                <label class="container">Tailored Shirts
+              <div id="serviceCheckbox">
+                <!-- <label class="container">Tailored Shirts
                     <input type="checkbox" name = "services[]" value="Tailored Shirts" >
                     <span class="checkmark"></span>
                 </label>
@@ -505,7 +507,7 @@
                 <label class="container">Tuxedo Suit
                     <input type="checkbox" name = "services[]" value="Tuxedo Suits">
                     <span class="checkmark"></span>
-                </label>
+                </label> -->
                 </div>
 
               <br>
@@ -514,7 +516,7 @@
               </textarea>
               <br><br>
 
-              <button type="button" class="btn btn-outline-secondary btn-sm">
+              <button type="button" class="btn btn-outline-secondary btn-sm" onclick="getSlotDetails(schedule_id)">
                 Schedule Event Only
               </button>
               <a class="shop_url" href="stripe/paymentPage.html">
@@ -769,6 +771,7 @@
   <!-- End of Register/Sign up modal -->
 
 
+
     <!--Image bg-->
     <div id="shop_image">
     <!-- <img src="images/kingsman.jpg" class="img-fluid" alt="Responsive image"
@@ -778,8 +781,12 @@
               " > -->
     </div>
 
+  <!-- Shop Address -->
+  <div id="shop_address" style = "text-align: center; margin-top: 20px;">
+  </div>
+
     <!-- Shop Name -->
-    <div class="shopname" id="shop_name" style ="position: absolute;
+    <div class="shop_name" id="shop_name" style ="position: absolute;
                                   top: 50%;
                                   left: 50%; 
                                   transform: translate(-50%, -50%);

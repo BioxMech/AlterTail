@@ -32,6 +32,9 @@ if($num>0) {
             "image_url" => $image_url,
             "shop_description" => $shop_description,
             "schedule_id" => $schedule_id,
+            "street_address" => $street_address,
+            "unit" => $unit,
+            "postal_code" => $postal_code,
 
             "services" => [
                 "service_id" => $service_id,

@@ -23,6 +23,9 @@ function show_shopPage(shop_name){
                 shop_name = record.shop_name;
                 shop_image = record.image_url;
                 shop_description = record.shop_description;
+                street_address = record.street_address;
+                unit = record.unit;
+                postal_code = record.postal_code,
     
                 service_id = record.services.service_id;
                 service_title = record.services.service_title;
@@ -35,7 +38,7 @@ function show_shopPage(shop_name){
                 <font size="12">
                     <b>${shop_name}</b>
                 </font>
-                `
+                `;
                 img_str = `
                 <img src="${shop_image}" class="img-fluid" alt="Responsive image"
                 style= "display: block;
@@ -46,7 +49,13 @@ function show_shopPage(shop_name){
 
                 shop_description_str = `
                 <p>${shop_description}</p>
-                `
+                `;
+
+                shop_address_str = `
+                <p><strong>
+                    Shop Address: ${street_address}, ${unit} ${postal_code}
+                </strong></p>
+                `;
 
                 service_str += `
                     <div class="card" style="width: 100%;">
@@ -67,14 +76,23 @@ function show_shopPage(shop_name){
                             </div>
                         </div>
                     </div>
-                `
-                // }
-                
+                `;
+
+                serviceCheckbox_str = `
+                <label class="container">${service_title}
+                    <input type="checkbox" name = "services[]" value="${service_title}" >
+                    <span class="checkmark"></span>
+                </label>
+                `;
+                console.log(serviceCheckbox_str)
             }
-            document.getElementById("shop_name").innerHTML = shop_name_str;
+            document.getElementsByClassName("shop_name")[0].innerHTML = shop_name_str;
+            document.getElementsByClassName("shop_name")[1].innerHTML = shop_name_str;
             document.getElementById("shop_image").innerHTML = img_str;
             document.getElementById("shop_description").innerHTML = shop_description_str;
             document.getElementById("shop_services").innerHTML = service_str;
+            document.getElementById("shop_address").innerHTML = shop_address_str;
+            document.getElementById("serviceCheckbox").innerHTML = serviceCheckbox_str;
         }
     
         }
@@ -106,14 +124,15 @@ function retrieveProfileDetails() {
 
             for(var record of records) {
                 // counter ++; 
-                console.log(record);
+                // console.log(record);
                 document.getElementById("bookName").setAttribute("value", record.fname);
+                sessionStorage.setItem("fname",record.fname);
                 document.getElementById("bookEmail").setAttribute("value", record.email);
                 document.getElementById("bookPhoneNumber").setAttribute("value", record.phone);
                 var SuperSaaS_user_id = record.SuperSaaS_user_id;
                 sessionStorage.setItem("SaaS_user_id", SuperSaaS_user_id);
                 // console.log(SuperSaaS_user_id);
-                // console.log(sessionStorage.getItem("SaaS_user_id"));
+                console.log(sessionStorage.getItem("SaaS_user_id"));
                 // document.getElementById("bookStreetAddress").setAttribute("value", record.street_address);
                 // document.getElementById("bookUnit").setAttribute("value", record.unit);
                 // document.getElementById("bookPostal").setAttribute("value", record.postal_code);
@@ -133,8 +152,8 @@ function retrieveProfileDetails() {
         request.send();
 }
 
-function displaySlot() {
-    var selectedSlot = document.getElementById("slotDropdownItem").value;
-    console.log(selectedSlot);
-    document.getElementById("dropdownMenuButton").innerText = selectedSlot;
-}
+// function displaySlot() {
+//     var selectedSlot = document.getElementById("slotDropdownItem").value;
+//     console.log(selectedSlot);
+//     document.getElementById("dropdownMenuButton").innerText = selectedSlot;
+// }
