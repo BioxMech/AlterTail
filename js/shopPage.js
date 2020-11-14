@@ -17,8 +17,6 @@ function show_shopPage(shop_name){
 
             service_str = "";
             serviceCheckbox_str = "";
-
-
             for(var record of records) {
                 // counter ++; 
     
@@ -41,6 +39,7 @@ function show_shopPage(shop_name){
                     <b>${shop_name}</b>
 
                 `;
+
                 img_str = `
                 <img src="${shop_image}" class="img-fluid" alt="Responsive image"
                 style= "display: block;
@@ -86,7 +85,7 @@ function show_shopPage(shop_name){
 
                 serviceCheckbox_str += `
                 <label class="container">${service_title} - $${service_price}
-                    <input type="checkbox" name = "services[]" value="${service_title}" >
+                    <input type="checkbox" name = "services[]" value="${service_price}" id = "${service_title}_checkbox" onchange = "Price_Calculator('${service_title}', '${service_price}')">
                     <span class="checkmark"></span>
                 </label>
                 `;
@@ -105,17 +104,16 @@ function show_shopPage(shop_name){
             document.getElementById("serviceCheckbox").innerHTML = serviceCheckbox_str;
         }
     
-        }
-        var url = "projectAPI/user/retrieveShopPage.php?shop_name=" + shop_name;
-        
+    }
+    var url = "projectAPI/user/retrieveShopPage.php?shop_name=" + shop_name;
     
-        request.open("GET", url, true);
-    
-        request.send();
+    request.open("GET", url, true);
+
+    request.send();
 }
 
 // session email 
-var email = sessionStorage.getItem("email")
+var email = sessionStorage.getItem("email");
 
 function retrieveProfileDetails() {
     var request = new XMLHttpRequest(); // Prep to make an HTTP request
@@ -151,15 +149,12 @@ function retrieveProfileDetails() {
             document.getElementById("shop_image").innerHTML = img_str;
         }
     
+    }
+    var url = "projectAPI/user/retrieveProfile.php?email=" + email;
+    
+    request.open("GET", url, true);
 
-        
-        }
-        var url = "projectAPI/user/retrieveProfile.php?email=" + email;
-        
-    
-        request.open("GET", url, true);
-    
-        request.send();
+    request.send();
 }
 
 // function displaySlot() {
@@ -167,3 +162,22 @@ function retrieveProfileDetails() {
 //     console.log(selectedSlot);
 //     document.getElementById("dropdownMenuButton").innerText = selectedSlot;
 // }
+
+var total_price = 0;
+function Price_Calculator(service_title, service_price){
+    // console.log(service_title + '_checkbox');
+    // console.log(service_price);
+    var checkbox = document.getElementById(service_title + '_checkbox');
+    if (checkbox.checked == true){
+        // console.log(service_price);
+        total_price += parseInt(service_price);
+    }
+    else {
+        total_price -= parseInt(service_price);
+    }
+
+    total_price_str = `Total: $${total_price}`;
+
+    document.getElementById('TotalCosts').innerHTML = total_price_str;
+}
+
