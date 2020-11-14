@@ -94,7 +94,7 @@
             <!-- Right side -->
             <div id="navbarNavRight">
                 <ul class="navbar-nav flex-row ml-auto" id="registerProfile">
-                  <li class="nav-item mt-2 mr-1" id="change">
+                  <li class="nav-item mt-2 mr-1 " id="change">
                     <!-- Search bar -->
                     <search-component></search-component>
                  </li>
@@ -364,7 +364,7 @@
       </header> -->
 
       <div class="container" id="mainContent">
-        <table class="table">
+        <table class="table" style="margin-top: 30px;">
             <thead>
               <tr>
                 <th scope="col" colspan="4" style="text-align: center;">My Appointments</th>
@@ -372,13 +372,101 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <!-- <th scope="row">1</th> -->
+                <!-- Image + Shop Name -->
+                <td>
+                  <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="images/alteration_shop12.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title" style="text-align: center;">Assemble</h5>
+                    </div>
+                  </div>
+                </td>
+
+                <!-- Details -->
+                <td>
+                  <strong>$50</strong>
+                  <p>3-Piece Suit</p>
+                  <p>
+                    08:00 - 11:00, Wednesday, <br>
+                            November 11, 2020
+
+                  </p>
+                  <p>
+                    The 3pc suit is the most flattering garment that a man can own. The vest cinches in the waist, giving a natural V-shape to the upper body. You may also wear the vest, shirt and trousers without a jacket - a way to upkeep formality without compromising on style.
+                  </p>
+                  <p>
+                    DateTime
+                  </p>
+                  <p>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmation">
+                      Cancel
+                    </button>
+                    &nbsp
+                    <button type="button" class="btn btn-dark">
+                      To Assemble
+                    </button>
+                  </p>
+                </td>
+              </tr>
+
+              <tr>
+                <!-- Image + Shop Name -->
+                <td>
+                  <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="images/alteration_shop12.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title" style="text-align: center;">Assemble</h5>
+                    </div>
+                  </div>
+                </td>
+
+                <!-- Details -->
+                <td>
+                  <p><strong>$50</strong> &nbsp (3-Piece Suit)</p>
+                  <p><strong>
+                    08:00 - 11:00, Wednesday, <br>
+                            November 11, 2020
+
+                          </strong></p>
+                  <p>
+                    The 3pc suit is the most flattering garment that a man can own. The vest cinches in the waist, giving a natural V-shape to the upper body. You may also wear the vest, shirt and trousers without a jacket - a way to upkeep formality without compromising on style.
+                  </p>
+                  <p>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmation">
+                      Cancel
+                    </button>
+                    &nbsp
+                    <button type="button" class="btn btn-dark">
+                      To Assemble
+                    </button>
+                  </p>
+                </td>
               </tr>
             </tbody>
           </table>
+      </div>
+
+
+      <!-- Confirmation Modal -->
+      <div class="modal fade" id="confirmation" tabindex="-1" role="dialog" aria-labelledby="confirmationLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="confirmationLabel">Confirmation to cancel appointment with Assemble</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to cancel your appointment with Assemble? Once cancel, your appointment timeslot will be given away.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-danger" onclick="alert('Cancelled')">Cancel Appointment</button>
+            </div>
+          </div>
+        </div>
       </div>
 
 
@@ -547,7 +635,7 @@
         <!-- Custom Javscript -->
         <script src="js/form.js"></script>
         <script src="js/loaded.js"></script>
-        <!-- <script src="js/profile.js"></script> -->
+        <script src="js/protect.js"></script>
     
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
