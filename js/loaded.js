@@ -259,3 +259,4 @@ function getProfileDetails(email, isProfilePage) {
     request.send();
 
 }
+

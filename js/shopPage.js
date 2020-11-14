@@ -102,11 +102,11 @@ function retrieveProfileDetails() {
             var response_json = JSON.parse(this.responseText);
             var records = response_json.records;
 
-            console.log(records)
+            // console.log(records)
 
             for(var record of records) {
                 // counter ++; 
-    
+                console.log(record);
                 document.getElementById("bookName").setAttribute("value", record.fname);
                 document.getElementById("bookEmail").setAttribute("value", record.email);
                 document.getElementById("bookPhoneNumber").setAttribute("value", record.phone);
