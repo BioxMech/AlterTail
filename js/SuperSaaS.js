@@ -45,7 +45,7 @@ function getAvailabilities(schedule_id) {
       var start_time = slot.start.slice(11);
       var end_time = slot.finish.slice(11);
       
-      html_str += `<li class='dropdown-item' value='${booking_start}'>${date} ${start_time}-${end_time}</li>`;
+      html_str += `<li class='dropdown-item' id='slotDropdownItem' value='${booking_start}' onselect='displaySlot()'>${date} ${start_time}-${end_time}</li>`;
 
     }
     // console.log(html_str);

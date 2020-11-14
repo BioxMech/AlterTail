@@ -128,3 +128,9 @@ function retrieveProfileDetails() {
     
         request.send();
 }
+
+function displaySlot() {
+    var selectedSlot = document.getElementById("slotDropdownItem").value;
+    console.log(selectedSlot);
+    document.getElementById("dropdownMenuButton").innerText = selectedSlot;
+}
