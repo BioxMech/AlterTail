@@ -1,10 +1,7 @@
-
-
-
 var map = null;
 var radius_circle;
 var markers_on_map = [];
-var geocoder;
+var geocoder = new google.maps.Geocoder();
 var infowindow;
 var shop_array = [];
 
@@ -71,43 +68,103 @@ var all_locations1 = [{
   lng: 103.8411
 }];
 
-
-function getLat(address)
-{
-  var geocoder = new google.maps.Geocoder();
-
-  geocoder.geocode( { 'address': address}, function(results, status) {
-
-  if (status == google.maps.GeocoderStatus.OK) {
-    var latitude = results[0].geometry.location.lat();
-    console.log(latitude);
-    return (latitude);
-  } 
-}); 
-  //console.log(latitude);
-}
-
-function getLng(address)
-{
-  var geocoder = new google.maps.Geocoder();
-
-  geocoder.geocode( { 'address': address}, function(results, status) {
-
-  if (status == google.maps.GeocoderStatus.OK) {
-    var longitude = results[0].geometry.location.lng();
-    return longitude;
-  } 
-}); 
-}
-
-function getaaa(){
-  var a = getLat("8 Kaki Bukit Ave 4")
-console.log(a);
-
-}
+// function getLatLng(address, callback)
+// {
+//   var latitude, longitude;
+//   geocoder.geocode( { 'address': address}, function(results, status) {
+//     if (status == google.maps.GeocoderStatus.OK) {
+//       latitude = results[0].geometry.location.lat();
+//       longitude = results[0].geometry.location.lng();
+//       callback(latitude, longitude);
+//     } 
+//   }); 
+// }
 
 
 function getAllShops()
+{
+  var request = new XMLHttpRequest(); // Prep to make an HTTP request\\\
+
+  request.onreadystatechange = function() {
+
+      // Check if response is ready!
+      if( this.readyState == 4 && this.status == 200 ) {
+
+         // Convert responseText to JSON
+         var response_json = JSON.parse(this.responseText);
+         var records = response_json.records;
+
+         //console.log(records);
+
+
+
+         for (shop of records) 
+         {
+              var email = shop.email;
+              var shop_name = shop.shop_name;
+              var street_address = shop.street_address;
+              var shop_summary = shop.shop_summary;
+              var shop_description = shop.shop_description;
+              var unit = shop.unit;
+              var postal_code = shop.postal_code;
+              var shop_category = shop.shop_category;
+              var rating = shop.rating;
+              var rating_num = shop.rating_num;
+              var image_url = shop.image_url;
+              var lat = shop.lat;
+              var lng = shop.lng;
+
+              var shop_details = {};
+              var name = shop_name;
+              var img = image_url;
+              var star = "images/star.png";
+              var rating = rating;
+              var shop_description = shop_description;
+              var shop_summary = shop_summary;
+              var rating_num = rating_num;
+              var postal_code = postal_code;
+              var street_address = street_address;
+
+
+            shop_details = {name, img, star, rating, shop_summary, rating_num, lat, lng };
+            //shop_details = shop;
+            shop_array.push(shop_details);
+            //console.log(shop_details);
+          // count = 1
+          //   getLatLng(street_address, 
+          //   function(latitude, longitude) 
+          //   {
+          //     var lat;
+          //     var lng;
+          //     lat = latitude;
+          //     lng = longitude;
+          //     shop_details = Object.assign({}, shop,{lat, lng});
+          //     // console.log(shop_details)
+          //     shop_array.push(shop_details);
+          //    count +=1;
+          //    console.log(count)
+          //     //console.log(shop_array);
+          //   }
+          //   );
+            
+
+        }
+          
+      }
+  }
+
+
+  // Using the api to retrieve the user's shop details
+  var url = "projectAPI/user/retrieveAllShop.php";
+
+  request.open("GET", url);
+
+  request.send();
+
+  return (shop_array);
+}
+
+function getShops()
 {
   var request = new XMLHttpRequest(); // Prep to make an HTTP request\\\
 
@@ -125,34 +182,31 @@ function getAllShops()
          //console.log(records);
 
          for (shop of records) {
-          var email = shop.email;
-          var shop_name = shop.shop_name;
-          var street_address = shop.street_address;
-          var shop_summary = shop.shop_summary;
-          var shop_description = shop.shop_description;
-          var unit = shop.unit;
-          var postal_code = shop.postal_code;
-          var shop_category = shop.shop_category;
-          var rating = shop.rating;
-          var rating_num = shop.rating_num;
-          var image_url = shop.image_url;
+            var email = shop.email;
+            var shop_name = shop.shop_name;
+            var street_address = shop.street_address;
+            var shop_summary = shop.shop_summary;
+            var shop_description = shop.shop_description;
+            var unit = shop.unit;
+            var postal_code = shop.postal_code;
+            var shop_category = shop.shop_category;
+            var rating = shop.rating;
+            var rating_num = shop.rating_num;
+            var image_url = shop.image_url;
 
-        var shop_details = {};
-         var name = shop_name;
-         var img = image_url;
-         var star = "images/star.png";
-         var rating = rating;
-         var shop_description = shop_description;
-         var rating_num = rating_num;
-         var postal_code = postal_code;
-         //var lat = getLat(street_address);
-         //var lng = getLng(street_address);
-         //console.log(lat);
-         //console.log(lng);
-         shop_details = {name, img, star, rating, shop_description, rating_num, lat, lng};
-         //console.log(shop_details);
-         shop_array.push(shop_details);
-         }
+            var shop_details = {};
+            var name = shop_name;
+            var img = image_url;
+            var star = "images/star.png";
+            var rating = rating;
+            var description = shop_description;
+            var summary = shop_summary;
+            var rating_num = rating_num;
+            var postal_code = postal_code;
+            shop_details = {name, img, star, rating, summary, rating_num};
+            //console.log(shop_details);
+            shop_array.push(shop_details);
+        }
         //console.log(shop_array);
         
       }
@@ -170,6 +224,9 @@ function getAllShops()
 }
 
 var all_locations = getAllShops();
+console.log(all_locations);
+
+//var shop_info = getShops();
 
 //initialize map on document ready
 document.addEventListener("DOMContentLoaded", function() {
@@ -227,6 +284,7 @@ function showCloseLocations() {
             map: map
           });
           
+          //console.log(all_locations);
           if (radius_circle) map.fitBounds(radius_circle.getBounds());
           for (var j = 0; j < all_locations.length; j++) {
             (function(location) {
@@ -235,7 +293,7 @@ function showCloseLocations() {
               var distance_from_location = google.maps.geometry.spherical.computeDistanceBetween(address_lat_lng, marker_lat_lng); //distance in meters between your location and the marker
               var n = distance_from_location.toFixed(2)
               if (distance_from_location <= radius_km * 1000) {
-                var new_marker = new 
+                  var new_marker = new 
                   google.maps.Marker({
                   position: marker_lat_lng,
                   map: map,
@@ -245,6 +303,8 @@ function showCloseLocations() {
                 ;
 
                 shop_array.push(location.name);
+                console.log(location);
+               
 
                 google.maps.event.addListener(new_marker, 'click', function() {
                   if (infowindow) {
@@ -259,7 +319,7 @@ function showCloseLocations() {
                     '<div class="card-body">' +
                       '<div class = "row" style = "margin-bottom: 5px">'+ '<div class = "col-xs-6" style = "margin-left:15px;"><img class="card-img-top" src="' + location.star + '" alt="Card image cap" style="width: 15px; height: 15px;"></div>'+'<div class = "col-xs-6"><p class = "font-weight-bold" style="margin: 0px; padding-top: 2px; padding-left:5px;">'+ location.rating +' ('  + location.rating_num + ')' + '</p></div>'+ '</div>' +
                       '<h6 class="card-title" style = "margin: 0px">'+ location.name + '</h6>'+
-                      '<div style = "margin-top: 5px">' + location.description +' </div>'+
+                      '<div style = "margin-top: 5px">' + location.shop_summary +' </div>'+
                       '<p class="card-text" style = "margin-top: 5px" >' + n + ' meters from my location'+ '</p>'+
                     '</div>'+
                      '</div>',
@@ -278,6 +338,7 @@ function showCloseLocations() {
                 markers_on_map.push(new_marker);
               }
             })(all_locations[j]);
+            
           }
           displaycard();
         } else {
@@ -322,7 +383,7 @@ function displaycard(){
                         </p>
                     </div>
                 </div>
-              <p class="card-text">${shop.description}</p>
+              <p class="card-text">${shop.shop_summary}</p>
               <button type="button" class="btn btn-link" style = "padding-left: 0px; padding-top: 0px; color:darkslategrey;">Read More</button>
             </div>
           </div>
@@ -332,7 +393,7 @@ function displaycard(){
     }
     else{
       str+= `
-
+          
 
       `;
 
@@ -342,17 +403,18 @@ function displaycard(){
   document.getElementById("shop_cards").innerHTML = str;
 }
 
+
 function displayfilteredcard(){
+  console.log(shop_info);
   var str = "";
-  for(i = 0; i < all_locations.length; i++) {
-    var shop = all_locations[i];
+  for(i = 0; i < shop_info.length; i++) {
     // console.log(shop_array);
     // console.log(shop);  
     //console.log(shop_array.indexOf(shop.name));
-    var final_array = sortarray(all_locations);
-    console.log(final_array);
+    var sorted_array = sortarray(shop_info);
+    console.log(sorted_array);
     
-    if(final_array.indexOf(shop.name) > -1) {
+    if(sorted_array.length > -1) {
       str += `
         <div class="card mb-3" style="max-width: 1000px;">
         <div class="row no-gutters">
@@ -393,9 +455,9 @@ function displayfilteredcard(){
 
 }
 
-function sortarray(all_locations){
+function sortarray(shop_info){
   var shop_array = [];
-  for(i = 0; i < all_locations.length; i++) {
+  for(i = 0; i < shop_info.length; i++) {
     var shop = all_locations[i];
     // console.log(shop_array);
     console.log(shop);  

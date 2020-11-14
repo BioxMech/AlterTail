@@ -37,7 +37,9 @@ if($num>0) {
             "shop_category" => $shop_category,
             "rating" => $rating,
             "rating_num" => $rating_num,
-            "image_url" => $image_url
+            "image_url" => $image_url,
+            "lat" => $lat,
+            "lng" => $lng
         );
         array_push($result_arr["records"], $item);
     }

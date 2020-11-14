@@ -380,7 +380,6 @@
   <hr style="margin: 0;">
   
      <!--Main Content-->
-     <button onclick=" getaaa()">try</button>
      
     <div class = "shadow pl-5 mb-5 bg-white rounded">
         <div class="row">
@@ -393,9 +392,10 @@
                     <option value=5>5km</option>
                     <option value=30>30km</option>
                 </select>
-                <button clss = "col-sm-2" onClick="showCloseLocations();" id = "search_button"><i class="fa fa-search"></i></button>
+                <button type="button" class="btn btn-outline-secondary" style = "height: 38px; margin-top: 5px; margin-left: 10px;" onclick="displayfilteredcard()">Rating</button>
+                <button class = "col-sm-1" onClick="showCloseLocations();" id = "search_button" style = "margin-left: 15px;"><i class="fa fa-search"></i></button>
             </div>
-              <button type="button" class="btn btn-outline-danger" onclick="displayfilteredcard()" style="margin-top: 10px;">Rating</button>
+            <a href=""><button class="btn btn-default default1">default</button></a>
               <h2 class = "font-weight-bold mb-3" style = "margin-top: 15px;">Shops near you</h2>
               <!-- <h5 class= "mb-3 font-weight-bold">Orchard</h5> -->
 
@@ -545,48 +545,10 @@
                       </div>
                     </div>
                   </div>
-                <!-- <div class="row row-cols-1 row-cols-md-2">
-                    <div class="col mb-2">
-                        <div class="card h-100">
-                            <img src="images/alteration_shop1 .jpg" class="card-img-top" alt="..." style = "min-height: 100px;">
-                            <div class="card-body">
-                            <div class = "row" style = "margin-bottom: 5px">
-                                <div class = "col-xs-6" style = "margin-left:15px;">
-                                    <img class="card-img-top" src="images/star.png" alt="Card image cap" style="width: 15px; height: 15px;">
-                                </div>
-                                <div class = "col-xs-6">
-                                    <p class = "font-weight-bold" style="margin: 0px; padding-top: 2px; padding-left:5px;">
-                                        4.4 (17)
-                                    </p>
-                                </div>
-                            </div>
-                            <h5 class="card-title">Q MENSWEAR</h5>
-                            <p class="card-text" style = "margin-bottom: 3px;">Every house has their own signature cut, technical expertise or style which sets it apart from other houses or menswear brand. At Q MENSWEAR, we also have our own set of standards when it comes to our garments.</p>
-                            <button type="button" class="btn btn-link" style = "padding-left: 0px; padding-top: 0px; color:darkslategrey;">Read More</button>
-                            </div>
-                        </div>
-                    </div>   
-                 -->
+               
             </div>
             
             <!-- End of Filtered Cards -->
-
-            <nav aria-label="...">
-              <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
-                  <a class="page-link" href="#" tabindex="-1">Previous</a>
-                </li>
-                <li class="page-item active" id="page_num">
-                  <a class="page-link" href="#" id="page1">1 <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="page-item" id="page2"><a class="page-link" href="#">2</a></li>
-                <li class="page-item" id="page3"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#">Next</a>
-                </li>
-              </ul>
-            </nav>
-
           </div>
 
         <div class="col-lg-6">
@@ -598,8 +560,8 @@
       <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
       <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVSvjaWcTJLKRKyfzrBYvKVFZ0MoCfCuc&callback=initMap&libraries=&v=weekly"
-        defer
-      ></script>
+        ></script>
+        <!-- defer -->
 
       <link rel="stylesheet" type="text/css" href="css/map.css" />
       
