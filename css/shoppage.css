@@ -66,3 +66,9 @@
     transform: rotate(45deg);
   }
 
+  .relative{ position: relative; }
+
+  #shop_image{
+    width: 100%;
+    height: auto;
+  }
