@@ -38,7 +38,7 @@ function show_shopPage(shop_name){
                 <font size="12">
                     <b>${shop_name}</b>
                 </font>
-                `
+                `;
                 img_str = `
                 <img src="${shop_image}" class="img-fluid" alt="Responsive image"
                 style= "display: block;
@@ -49,13 +49,13 @@ function show_shopPage(shop_name){
 
                 shop_description_str = `
                 <p>${shop_description}</p>
-                `
+                `;
+
                 shop_address_str = `
                 <p><strong>
                     Shop Address: ${street_address}, ${unit} ${postal_code}
                 </strong></p>
-                `
-
+                `;
 
                 service_str += `
                     <div class="card" style="width: 100%;">
@@ -76,9 +76,15 @@ function show_shopPage(shop_name){
                             </div>
                         </div>
                     </div>
-                `
-                // }
-                
+                `;
+
+                serviceCheckbox_str = `
+                <label class="container">${service_title}
+                    <input type="checkbox" name = "services[]" value="${service_title}" >
+                    <span class="checkmark"></span>
+                </label>
+                `;
+                console.log(serviceCheckbox_str)
             }
             document.getElementsByClassName("shop_name")[0].innerHTML = shop_name_str;
             document.getElementsByClassName("shop_name")[1].innerHTML = shop_name_str;
@@ -86,6 +92,7 @@ function show_shopPage(shop_name){
             document.getElementById("shop_description").innerHTML = shop_description_str;
             document.getElementById("shop_services").innerHTML = service_str;
             document.getElementById("shop_address").innerHTML = shop_address_str;
+            document.getElementById("serviceCheckbox").innerHTML = serviceCheckbox_str;
         }
     
         }
