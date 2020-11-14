@@ -23,6 +23,9 @@ function show_shopPage(shop_name){
                 shop_name = record.shop_name;
                 shop_image = record.image_url;
                 shop_description = record.shop_description;
+                street_address = record.street_address;
+                unit = record.unit;
+                postal_code = record.postal_code,
     
                 service_id = record.services.service_id;
                 service_title = record.services.service_title;
@@ -47,6 +50,12 @@ function show_shopPage(shop_name){
                 shop_description_str = `
                 <p>${shop_description}</p>
                 `
+                shop_address_str = `
+                <p style = "margin: 20px"><strong>
+                    Shop Address: ${street_address}, ${unit} ${postal_code}
+                </strong></p>
+                `
+
 
                 service_str += `
                     <div class="card" style="width: 100%;">
@@ -75,6 +84,7 @@ function show_shopPage(shop_name){
             document.getElementById("shop_image").innerHTML = img_str;
             document.getElementById("shop_description").innerHTML = shop_description_str;
             document.getElementById("shop_services").innerHTML = service_str;
+            document.getElementById("shop_address").innerHTML = shop_address_str;
         }
     
         }
