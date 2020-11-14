@@ -2,21 +2,7 @@ var currentdate = new Date();
 var currYear = currentdate.getFullYear() + "-" + (currentdate.getMonth()+1) + "-" + (currentdate.getDate().toString().padStart(2, "0"));
 var currTime = (currentdate.getHours().toString().padStart(2,"0"));
 
-function CreateUser(email, fname,SuperSaaS_user_id) {
-    var xhr = new XMLHttpRequest();
-    
-  
-    xhr.addEventListener("readystatechange", function() {
-      if(this.readyState === 4) {
-        console.log(this.responseText);
-      }
-    });
-
-    xhr.open("POST", `https://www.supersaas.com/api/users/${SuperSaaS_user_id}.json?account=PetrasTYR&api_key=60Sdu0PWYumxHliWn1Uieg&user[name]=${email}&user[full_name]=${fname}`,true);
-
-    xhr.send();
-}
-
+//Retrieve available timeslots for each Tailor
 function getAvailabilities(schedule_id) {
   console.log(currYear);
   console.log(currTime);
@@ -58,6 +44,7 @@ function getAvailabilities(schedule_id) {
   })
 }
 
+//Retrieve appointments made for the Tailor
 function getAppointments(schedule_id) {
   
   var url = `https://www.supersaas.com/api/range/${schedule_id}.json?api_key=60Sdu0PWYumxHliWn1Uieg`;
@@ -81,7 +68,7 @@ function getAppointments(schedule_id) {
 }
 
 
-// DEBUG
+//Retrieve appointments made
 function getAgenda(schedule_id, email) {
 
   console.log("======== DEBUG (getAgenda) ===========");
