@@ -37,9 +37,9 @@ function show_shopPage(shop_name){
                 service_image = record.services.service_image_url;
                 
                 shop_name_str = `
-                <font size="12">
+
                     <b>${shop_name}</b>
-                </font>
+
                 `;
                 img_str = `
                 <img src="${shop_image}" class="img-fluid" alt="Responsive image"
@@ -91,6 +91,7 @@ function show_shopPage(shop_name){
             // console.log(services)
             document.getElementsByClassName("shop_name")[0].innerHTML = shop_name_str;
             document.getElementsByClassName("shop_name")[1].innerHTML = shop_name_str;
+            document.getElementsByClassName("shop_name")[2].innerHTML = shop_name_str;
             document.getElementById("shop_image").innerHTML = img_str;
             document.getElementById("shop_description").innerHTML = shop_description_str;
             document.getElementById("shop_services").innerHTML = service_str;
