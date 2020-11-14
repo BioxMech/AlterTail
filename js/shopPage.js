@@ -80,7 +80,8 @@ function show_shopPage(shop_name){
                 // }
                 
             }
-            document.getElementById("shop_name").innerHTML = shop_name_str;
+            document.getElementsByClassName("shop_name")[0].innerHTML = shop_name_str;
+            document.getElementsByClassName("shop_name")[1].innerHTML = shop_name_str;
             document.getElementById("shop_image").innerHTML = img_str;
             document.getElementById("shop_description").innerHTML = shop_description_str;
             document.getElementById("shop_services").innerHTML = service_str;
