@@ -715,7 +715,7 @@
             <input type="text" class="searchBar" placeholder="Search Shop Names" v-model="query" @keyup="getData()" autocomplete="off" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
             <div class="dropdown-menu" v-if="search_data.length">
               <ul class="list-group">
-                <a href="#" class="dropdown-item" v-for="data1 in search_data" v-on:click="goToPage( data1.shop_name )">{{ data1.shop_name }}</a>
+                <a href="#" class="dropdown-item" v-for="data1 in search_data" v-on:click="goToPage( data1.shop_name, data1.schedule_id )">{{ data1.shop_name }}</a>
               </ul>
             </div>
           </div>
@@ -724,7 +724,8 @@
             return{
               query:'',
               search_data:[],
-              shop_name: ''
+              shop_name: '',
+              schedule_id: ''
             }
           },
           methods:{
@@ -735,12 +736,11 @@
                 .then(response => {
                   let user_objects = response.data;
                   this.search_data = user_objects.records
-                  
                 })
               
             },
-            goToPage: function(shop_name) {
-              window.location.replace("/AlterTail/shopPage.html?shop_name=" + shop_name);
+            goToPage: function(shop_name, schedule_id) {
+              window.location.replace("/AlterTail/shopPage.html?shop_name=" + shop_name + "&schedule_id=" + schedule_id);
             }
           }
         });

@@ -48,7 +48,8 @@ if($num > 0) {
         extract($row);
 
         $item = array(
-            "shop_name" => $shop_name
+            "shop_name" => $shop_name,
+            "schedule_id" => $schedule_id
             );
 
         array_push($result_arr["records"], $item);
