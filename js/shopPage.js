@@ -51,7 +51,7 @@ function show_shopPage(shop_name){
                 <p>${shop_description}</p>
                 `
                 shop_address_str = `
-                <p style = "margin: 20px"><strong>
+                <p><strong>
                     Shop Address: ${street_address}, ${unit} ${postal_code}
                 </strong></p>
                 `
