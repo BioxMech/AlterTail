@@ -41,9 +41,21 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
+    <script>
+      var parts = window.location.search.substr(1).split("&");
+      var $_GET = {};
+      for (var i = 0; i < parts.length; i++) {
+          var temp = parts[i].split("=");
+          $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
+      }
+      var shop_name = $_GET['shop_name'];
+      var schedule_id = $_GET['schedule_id'];
+      alert(shop_name);
+    </script>
+
   </head>
 
-  <body onload="show_shopPage('SuitYourse'); getAvailabilities(535042)">
+  <body onload="show_shopPage(shop_name); getAvailabilities(schedule_id)">
     
 
     <div id="overlay">
@@ -396,19 +408,24 @@
                 <p><strong>Choose preferred time slot</strong></p>
 
                 <!-- Availabilities dropdown menu -->
-                <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <!-- <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onchange='displaySlot()'>
                     Timeslots
                   </button>
                   <ul class="dropdown-menu scrollable-menu" role="menu" id="dropdownMenu">
-                    <!-- <li><a href="#">Action</a></li>
+                    <li><a href="#">Action</a></li>
                     <li><a href="#">Another action</a></li>
                     <li><a href="#">Something else here</a></li>
                     <li><a href="#">Action</a></li>
                       ..
                     <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li> -->
+                    <li><a href="#">Another action</a></li>
                  </ul>
+                </div> -->
+                <div>
+                  <select id='dropDownMenu'>
+                    <!-- <option>Hello</option> -->
+                  </select>
                 </div>
 
 

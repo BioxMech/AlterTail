@@ -110,6 +110,9 @@ function retrieveProfileDetails() {
                 document.getElementById("bookName").setAttribute("value", record.fname);
                 document.getElementById("bookEmail").setAttribute("value", record.email);
                 document.getElementById("bookPhoneNumber").setAttribute("value", record.phone);
+                var SuperSaaS_user_id = record.SuperSaaS_user_id;
+                sessionStorage.setItem
+                console.log(SuperSaaS_user_id);
                 // document.getElementById("bookStreetAddress").setAttribute("value", record.street_address);
                 // document.getElementById("bookUnit").setAttribute("value", record.unit);
                 // document.getElementById("bookPostal").setAttribute("value", record.postal_code);
