@@ -15,7 +15,9 @@ function show_shopPage(shop_name){
 
             // console.log(records)
 
-            service_str = ``;
+            service_str = "";
+            serviceCheckbox_str = "";
+
 
             for(var record of records) {
                 // counter ++; 
@@ -78,7 +80,7 @@ function show_shopPage(shop_name){
                     </div>
                 `;
 
-                serviceCheckbox_str = `
+                serviceCheckbox_str += `
                 <label class="container">${service_title}
                     <input type="checkbox" name = "services[]" value="${service_title}" >
                     <span class="checkmark"></span>
