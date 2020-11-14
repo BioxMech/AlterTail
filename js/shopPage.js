@@ -106,14 +106,15 @@ function retrieveProfileDetails() {
 
             for(var record of records) {
                 // counter ++; 
-                console.log(record);
+                // console.log(record);
                 document.getElementById("bookName").setAttribute("value", record.fname);
+                sessionStorage.setItem("fname",record.fname);
                 document.getElementById("bookEmail").setAttribute("value", record.email);
                 document.getElementById("bookPhoneNumber").setAttribute("value", record.phone);
                 var SuperSaaS_user_id = record.SuperSaaS_user_id;
                 sessionStorage.setItem("SaaS_user_id", SuperSaaS_user_id);
                 // console.log(SuperSaaS_user_id);
-                // console.log(sessionStorage.getItem("SaaS_user_id"));
+                console.log(sessionStorage.getItem("SaaS_user_id"));
                 // document.getElementById("bookStreetAddress").setAttribute("value", record.street_address);
                 // document.getElementById("bookUnit").setAttribute("value", record.unit);
                 // document.getElementById("bookPostal").setAttribute("value", record.postal_code);
@@ -133,8 +134,8 @@ function retrieveProfileDetails() {
         request.send();
 }
 
-function displaySlot() {
-    var selectedSlot = document.getElementById("slotDropdownItem").value;
-    console.log(selectedSlot);
-    document.getElementById("dropdownMenuButton").innerText = selectedSlot;
-}
+// function displaySlot() {
+//     var selectedSlot = document.getElementById("slotDropdownItem").value;
+//     console.log(selectedSlot);
+//     document.getElementById("dropdownMenuButton").innerText = selectedSlot;
+// }
