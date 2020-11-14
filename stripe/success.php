@@ -39,4 +39,3 @@
 </body>
 </html>
 
-<script src="../js/try.js"></script>
