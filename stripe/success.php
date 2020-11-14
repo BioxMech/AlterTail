@@ -24,6 +24,11 @@
     <hr>
     <p>Your transaction ID is <?php echo $tid; ?></p>
     <p>Check your email for more info</p>
+    <br>
+
+    <p>Thank you for the booking.</p>
+    <p>Your appointment with xxx will be on xxxx. <p>
+
     <p><a href="paymentPage.html" class="btn btn-light mt-2">Go Back</a></p>
   </div>
 </body>
