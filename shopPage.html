@@ -29,6 +29,13 @@
     <link rel="stylesheet" href="css/form.css">
     <link rel="stylesheet" href="css/shoppage.css">
     <!-- <link rel="stylesheet" href="css/inputAnimation.css"> -->
+    <style>
+      .scrollable-menu {
+        height: auto;
+        max-height: 200px;
+        overflow-x: hidden;
+      }
+    </style>
 
     <!-- Vue.js CDN V2 & Axios -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -394,11 +401,15 @@
                   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Timeslots
                   </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdownMenu">
-                    <!-- <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a> -->
-                  </div>
+                  <ul class="dropdown-menu scrollable-menu" role="menu" id="dropdownMenu">
+                    <!-- <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li><a href="#">Action</a></li>
+                      ..
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li> -->
+                 </ul>
                 </div>
 
 

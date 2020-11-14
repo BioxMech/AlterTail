@@ -22,7 +22,7 @@ function CreateUser(email, fname,SuperSaaS_user_id) {
 function getAvailabilities(schedule_id) {
   console.log(currYear);
   console.log(currTime);
-  var url = `https://www.supersaas.com/api/free/${schedule_id}.json?from=${currYear}%20${currTime}:00:00&api_key=60Sdu0PWYumxHliWn1Uieg&maxresults=20`;
+  var url = `https://www.supersaas.com/api/free/${schedule_id}.json?from=${currYear}%20${currTime}:00:00&api_key=60Sdu0PWYumxHliWn1Uieg&maxresults=50`;
   // let final_url = `${'https://cors-anywhere.herokuapp.com/'}${url}`;
 
   axios.get(`${'https://cors-anywhere.herokuapp.com/'}${url}`,
@@ -45,7 +45,7 @@ function getAvailabilities(schedule_id) {
       var start_time = slot.start.slice(11);
       var end_time = slot.finish.slice(11);
       
-      html_str += `<button class='dropdown-item' value='${booking_start}'>${date} ${start_time}-${end_time}</button>`;
+      html_str += `<li class='dropdown-item' value='${booking_start}'>${date} ${start_time}-${end_time}</li>`;
 
     }
     console.log(html_str);
