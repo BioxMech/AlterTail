@@ -34,9 +34,14 @@ body {
 /* ================= */
 
 /* Navbar */
-.nav-item > .dropdown:hover>.dropdown-menu {
+.nav-item > .dropdown:hover >.dropdown-menu {
     display: block;
   }
+
+/* Search Bar */
+#change > .dropdown:focus-within >.dropdown-menu {
+    display: block;
+}
 
 .navBarLogo {
     height: 70px;

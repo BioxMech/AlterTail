@@ -48,7 +48,7 @@ function getAvailabilities(schedule_id) {
       html_str += `<li class='dropdown-item' id='slotDropdownItem' value='${booking_start}' onselect='displaySlot()'>${date} ${start_time}-${end_time}</li>`;
 
     }
-    console.log(html_str);
+    // console.log(html_str);
     document.getElementById("dropdownMenu").innerHTML = html_str;
   })
   .catch((err) => {
