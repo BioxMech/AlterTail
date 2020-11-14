@@ -403,7 +403,7 @@
               <div class="left_bookmodal" style="margin-left: 20px;">
                 <img src="images/logo.jpg" class="modalFormImage">
                 <hr>
-                <p id="shop_name" class="shop_name" style="font-weight:bold;" >
+                <p id="shop_name" class="shop_name" style ="font-size: 40px;font-weight:bold;" >
                 </p>
                 <h4 style="font-weight:bold; ">Meet up with our Exports</h4>
                 <br><br>
@@ -429,8 +429,6 @@
                     <!-- <option>Hello</option> -->
                   </select>
                 </div>
-
-
 
                 <!-- <i style="font-size:24px" class="fa">&#xf073;</i>
                 <span style="margin-left: 10px;">  
@@ -515,10 +513,12 @@
               <textarea name="remarks" rows="4" cols="40" >
               </textarea>
               <br><br>
-
-              <button type="button" class="btn btn-outline-secondary btn-sm" onclick="getSlotDetails(schedule_id)">
+              
+              <button type="button" id="scheduleEvent" class="btn btn-outline-secondary btn-sm" onclick="getSlotDetails(schedule_id)" data-toggle="modal" data-dismiss="modal" data-target="#bookedSuccessModal" >
                 Schedule Event Only
               </button>
+
+      
               <a class="shop_url" href="stripe/paymentPage.html">
 
               <button id="proceedToPayment" class="btn btn-dark btn-sm" data-toggle="modal"  >
@@ -535,6 +535,32 @@
       </div>
     </div>
   <!-- End of Book modal -->
+
+  <!-- Start of bookedSuccess modal -->
+
+  <div class="modal fade" id="bookedSuccessModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+
+          <img src="images/logo.jpg" class="modalFormImage">
+          <hr>
+
+          <p id="shop_name" class="shop_name" style="font-size:40px;font-weight:bold;" >
+            
+          </p>
+                    <div>
+            Thank you for the booking.
+            <br>
+            Your appointment with xxx is on xxxx
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of bookedSuccess modal -->
 
 
   <!-- Start of Register/Sign up modal -->
@@ -770,10 +796,6 @@
   </div>
   <!-- End of Register/Sign up modal -->
 
-  <!-- Shop Address -->
-  <div id="shop_address" style = "text-align: center; margin-top: 20px;">
-  </div>
-
     <!--Image bg-->
   <div class= "shoptitle relative">
     <div id="shop_image">
@@ -781,10 +803,9 @@
     <!-- Shop Name -->
     <div class="shop_name" id="shop_name" 
         style ="
-          /* background-color: rgba(0, 0, 0, 0.582); */
           text-shadow: 3px 3px 3px #000000; 
           font-family: 'open_sansbold';
-          font-size: 32px;
+          font-size: 50px;
           color: white;
           position: absolute;
           top: 0;
@@ -797,14 +818,15 @@
           height: 30px;
           text-align: center;
           line-height: 1em; ">
-    <!-- <font size="12"><b>Kingsmen</b></font> -->
-    </div>
 
+    </div>
   </div>
 
-    <!-- style="background-color: gainsboro;" -->
-    
-        <!-- Shop description -->
+  <!-- Shop Address -->
+  <div id="shop_address" style = "text-align: center; margin-top: 20px;">
+  </div>
+  
+  <!-- Shop description -->
     <div class="container main" id="shop_description">   
         <!-- <div class="main-titles-head"> -->
         <!-- <p>A leading custom tailor of bespoke menswear and accessories, Kingsmen Shop traces its heritage back to 1954, when it was then known as Great Central Modern Tailor. The prestigious Kingsmen name was adopted in the early 1970s and we have since become synonymous as the pioneer of leading menswear and top-notch fashion accessories for the well-dressed male.
@@ -926,163 +948,135 @@
 <!-- Footer -->
 <footer class="page-footer font-small text-white bg-dark pt-4" >
 
-    <!-- Footer Links -->
-    <div class="container text-center text-md-left">
-  
-      <!-- Grid row -->
-      <div class="row">
-  
-        <!-- Grid column -->
-        <div class="col-md-4 mx-auto">
-  
-          <!-- Content -->
-          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">AlterTail</h5>
-          <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-            consectetur
-            adipisicing elit.</p>
-  
-        </div>
-        <!-- Grid column -->
-  
-        <hr class="clearfix w-100 d-md-none">
-  
-        <!-- Grid column -->
-        <div class="col-md-2 mx-auto">
-  
-          <!-- Links -->
-          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">About us</h5>
-  
-          <ul class="list-unstyled">
-            <li>
-              <a href="#!">About Us</a>
-            </li>
-            <li>
-              <a href="#!">Community</a>
-            </li>
-            <li>
-              <a href="#!">Career</a>
-            </li>
-            <li>
-              <a href="#!">Contact Us</a>
-            </li>
-          </ul>
-  
-        </div>
-        <!-- Grid column -->
-  
-        <hr class="clearfix w-100 d-md-none">
-  
-        <!-- Grid column -->
-        <div class="col-md-2 mx-auto">
-  
-          <!-- Links -->
-          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Services</h5>
-  
-          <ul class="list-unstyled">
-            <li>
-              <a href="#!">Alterations</a>
-            </li>
-            <li>
-              <a href="#!">Tailoring</a>
-            </li>
-            <li>
-              <a href="#!">Bag Cleaning</a>
-            </li>
-            <li>
-              <a href="#!">Dry Cleaning</a>
-            </li>
-          </ul>
-  
-        </div>
-        <!-- Grid column -->
-  
-        <hr class="clearfix w-100 d-md-none">
-  
-        <!-- Grid column -->
-        <div class="col-md-2 mx-auto">
-  
-          <!-- Links -->
-          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Information</h5>
-  
-          <ul class="list-unstyled">
-            <li>
-              <a href="#!">Payment methods</a>
-            </li>
-            <li>
-              <a href="#!">Shipping methods</a>
-            </li>
-            <li>
-              <a href="#!">Terms and conditions</a>
-            </li>
-            <li>
-              <a href="#!">Privacy Policy</a>
-            </li>
-          </ul>
-  
-        </div>
-        <!-- Grid column -->
-  
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-4 mx-auto">
+
+        <!-- Content -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">AlterTail</h5>
+        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+          consectetur
+          adipisicing elit.</p>
+
       </div>
-      <!-- Grid row -->
-  
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">About us</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="aboutus.html">About Us</a>
+          </li>
+          <li>
+            <a href="#!">Community</a>
+          </li>
+          <li>
+            <a href="#!">Career</a>
+          </li>
+          <li>
+            <a href="#!">Contact Us</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Services</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Alterations</a>
+          </li>
+          <li>
+            <a href="#!">Tailoring</a>
+          </li>
+          <li>
+            <a href="#!">Bag Cleaning</a>
+          </li>
+          <li>
+            <a href="#!">Dry Cleaning</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Information</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Payment methods</a>
+          </li>
+          <li>
+            <a href="#!">Shipping methods</a>
+          </li>
+          <li>
+            <a href="#!">Terms and conditions</a>
+          </li>
+          <li>
+            <a href="#!">Privacy Policy</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
     </div>
-    <!-- Footer Links -->
-  
-    <!-- <hr> -->
-  
-    <!-- Call to action -->
-    <!-- <ul class="list-unstyled list-inline text-center py-2">
-      <li class="list-inline-item">
-        <h5 class="mb-1">Register for free</h5>
-      </li>
-      <li class="list-inline-item">
-        <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
-      </li>
-    </ul> -->
-    <!-- Call to action -->
-  
-    <hr>
-  
-    <!-- Social buttons -->
-    <ul class="list-unstyled list-inline text-center">
-      <li class="list-inline-item">
-        <a class="btn-floating btn-fb mx-1" href="https://www.facebook.com/sg.altertail.3" target="_blank" rel="noopener"> 
-          <i class="fab fa-facebook-f"> </i>
-        </a>
-      </li>
-      
-      <li class="list-inline-item">
-        <a class="btn-floating btn-tw mx-1" href="https://twitter.com/AltertailS"
-        target="_blank" rel="noopener">
-          <i class="fab fa-twitter"> </i>
-        </a>
-      </li>
-      <li class="list-inline-item">
-        <a class="btn-floating btn-gplus mx-1">
-          <i class="fab fa-google-plus-g"> </i>
-        </a>
-      </li>
-      <li class="list-inline-item">
-        <a class="btn-floating btn-li mx-1">
-          <i class="fab fa-linkedin-in"> </i>
-        </a>
-      </li>
-      <li class="list-inline-item">
-        <a class="btn-floating btn-dribbble mx-1">
-          <i class="fab fa-dribbble"> </i>
-        </a>
-      </li>
-    </ul>
-    <!-- Social buttons -->
-  
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2020 Copyright:
-      <a href="#">AlterTail.co</a>
-    </div>
-    <!-- Copyright -->
-  
-  </footer>
-  <!-- Footer -->
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- <hr> -->
+  <hr>
+
+  <!-- Social buttons -->
+  <ul class="list-unstyled list-inline text-center">
+    <li class="list-inline-item">
+      <a class="btn-floating btn-fb mx-1" href="https://www.facebook.com/sg.altertail.3" target="_blank" rel="noopener"> 
+        <i class="fab fa-facebook-f"> </i>
+      </a>
+    </li>
+    
+    <li class="list-inline-item">
+      <a class="btn-floating btn-tw mx-1" href="https://twitter.com/AltertailS" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"> </i>
+      </a>
+    </li>
+  </ul>
+  <!-- Social buttons -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="aboutus.html">AlterTail.co</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
 
       <!-- Custom JavaScript -->
       <script src="js/form.js"></script>
