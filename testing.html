@@ -25,6 +25,11 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
+  
+  <link rel="stylesheet" href="css/new.css">
+  <link rel="stylesheet" href="css/new2.css">
+  <!-- <link rel="stylesheet" href="css/new3.css"> -->
+
 </head>
 <!-- <body onload="getAppointments(535044)"> -->
 <body onload="getAvailabilities(535044)">
@@ -120,7 +125,16 @@
             <div class="carousel-caption d-none d-md-block">
               <h2 class="star_h2" id="slide_heading1" style="padding: 5px; background-color: grey; color: white">First slide label</h2>
               <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-              <a href="#" class="button">Hover me</a>
+              <div class="wrapper">
+                <div class="link_wrapper">
+                  <a href="shopPage.html">Assembly</a>
+                  <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268.832 268.832">
+                      <path d="M265.17 125.577l-80-80c-4.88-4.88-12.796-4.88-17.677 0-4.882 4.882-4.882 12.796 0 17.678l58.66 58.66H12.5c-6.903 0-12.5 5.598-12.5 12.5 0 6.903 5.597 12.5 12.5 12.5h213.654l-58.66 58.662c-4.88 4.882-4.88 12.796 0 17.678 2.44 2.44 5.64 3.66 8.84 3.66s6.398-1.22 8.84-3.66l79.997-80c4.883-4.882 4.883-12.796 0-17.678z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
             </div>
             
           </div>
@@ -158,7 +172,7 @@
     <!-- End of Carousel -->
    
     <div class="container">
-        <a href="#" class="button">Hover me</a>
+        
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Timeslots
@@ -169,6 +183,18 @@
           <a class="dropdown-item" href="#">Something else here</a> -->
         </div>
       </div>
+    </div>
+
+    <div class="container">
+      <h1>Pure Css Button Hover effect</h1>
+      <a href="#" class="button">Hover me</a>
+      <br>
+      <br>
+      <br>
+      <!-- new 2 ripple effect -->
+      <button class="button">Submit</button>
+      
+
     </div>
 
 <script>
