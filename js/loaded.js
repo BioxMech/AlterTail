@@ -237,6 +237,7 @@ function getProfileDetails(email, isProfilePage) {
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="profile.html">My Profile</a>
+                            <a class="dropdown-item" href="cart.html">My Appointment</a>
                             <a class="dropdown-item" href="#" onclick="signOut()">Sign Out</a>
                         </div>
                     </div>
