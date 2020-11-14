@@ -55,7 +55,7 @@
 
   </head>
 
-  <body onload="show_shopPage(shop_name); getAvailabilities(schedule_id)">
+  <body onload="show_shopPage(shop_name); getAvailabilities(schedule_id); loggedIn()">
     
 
     <div id="overlay">
@@ -516,7 +516,7 @@
               </textarea>
               <br><br>
 
-              <button type="button" class="btn btn-outline-secondary btn-sm">
+              <button type="button" class="btn btn-outline-secondary btn-sm" onclick="getSlotDetails(schedule_id)">
                 Schedule Event Only
               </button>
               <a class="shop_url" href="stripe/paymentPage.html">
