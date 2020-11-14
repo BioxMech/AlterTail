@@ -81,13 +81,14 @@ function show_shopPage(shop_name){
                 `;
 
                 serviceCheckbox_str += `
-                <label class="container">${service_title}
+                <label class="container">${service_title} - $${service_price}
                     <input type="checkbox" name = "services[]" value="${service_title}" >
                     <span class="checkmark"></span>
                 </label>
                 `;
-                console.log(serviceCheckbox_str)
+                
             }
+            // console.log(services)
             document.getElementsByClassName("shop_name")[0].innerHTML = shop_name_str;
             document.getElementsByClassName("shop_name")[1].innerHTML = shop_name_str;
             document.getElementById("shop_image").innerHTML = img_str;
