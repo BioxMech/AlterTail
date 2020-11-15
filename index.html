@@ -64,10 +64,24 @@
                     <a class="nav-link current" href="index.html" style="padding-bottom:unset;" >Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="location.html" style="padding-bottom:unset;" >Tailoring</a>
+                    <a class="nav-link" href="allTailorPage.html" style="padding-bottom:unset;" >Tailoring</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="location.html" style="padding-bottom:unset;" >Alteration</a>
+                </li>
+                <li class="nav-item">
+                    <!-- Dropdown menu -->
+                    <div class="dropdown">
+                        <a class="nav-link" href="#" style="padding-bottom:unset;" 
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cleaning</a>
+                        <!-- Options -->
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="allBagCleaningPage.html">Bag Cleaning</a>
+                            <a class="dropdown-item" href="allDryCleaningPage.html">Dry Cleaning</a>
+                        </div>
+                        <!-- Options -->
+                    </div>
+                    <!-- End of dropdown menu -->
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="aboutUs.html" style="padding-bottom:unset;" >About Us</a>
@@ -423,7 +437,9 @@
 
         <!-- Content -->
         <h5 class="font-weight-bold text-uppercase mt-3 mb-4">AlterTail</h5>
-        <p>AlterTail is a one-stop fashion maintenance portal for residents in Singapore, providing fashion services such as alteration service, tailors and dry-cleaners.</p>
+        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+          consectetur
+          adipisicing elit.</p>
 
       </div>
       <!-- Grid column -->
@@ -434,11 +450,20 @@
       <div class="col-md-2 mx-auto">
 
         <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Backgroundfinfo</h5>
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">About us</h5>
 
         <ul class="list-unstyled">
           <li>
-            <a href="aboutus.html">About Us</a>
+            <a href="#!">About Us</a>
+          </li>
+          <li>
+            <a href="#!">Community</a>
+          </li>
+          <li>
+            <a href="#!">Career</a>
+          </li>
+          <li>
+            <a href="#!">Contact Us</a>
           </li>
         </ul>
 
@@ -460,6 +485,12 @@
           <li>
             <a href="#!">Tailoring</a>
           </li>
+          <li>
+            <a href="#!">Bag Cleaning</a>
+          </li>
+          <li>
+            <a href="#!">Dry Cleaning</a>
+          </li>
         </ul>
 
       </div>
@@ -475,10 +506,16 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="terms.html">Terms and conditions</a>
+            <a href="#!">Payment methods</a>
           </li>
           <li>
-            <a href="privacypolicy.html">Privacy Policy</a>
+            <a href="#!">Shipping methods</a>
+          </li>
+          <li>
+            <a href="#!">Terms and conditions</a>
+          </li>
+          <li>
+            <a href="#!">Privacy Policy</a>
           </li>
         </ul>
 
@@ -713,43 +750,7 @@
         });
 
 
-        // var validation = new Vue({
-        //   el: '#signInForm',
-        //   data: {
-        //     emailOutcome: '',
-        //     passwordOutcome: '',
-        //     display1: false,
-        //     display2: false,
-        //     signInEmail: '',
-        //     signInPassword: ''
-        //   },
-        //   methods: {
-        //     verify: function() {
-        //       // URL to an API endpoint
-        //       let url = 'projectAPI/user/verification.php?email=' + this.signInEmail + '&pw=' + this.signInPassword
-
-        //       // send a req to the above specified API endpoint
-        //       axios.get(url)
-        //       .then(response => {
-
-        //         // response is the data
-        //         let user_objects = response.data
-
-        //         // view it
-        //         // console.log(response.data)
-
-        //         var email = user_objects.records[0].email
-        //         var hashedPassword = user_objects.records[0].pw
-
-        //       })
-        //       .catch(error => {
-        //         // shows the status, e.g. 404 / 401 (wrong password)
-        //         console.log(error.response.status)
-        //       })
-        //     }
-        //   }
-        // })
-
+       
     </script>
 
 

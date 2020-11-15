@@ -1,5 +1,3 @@
-
-
 function show_shopPage(shop_name){
     var request = new XMLHttpRequest(); // Prep to make an HTTP request
 
@@ -94,9 +92,9 @@ function show_shopPage(shop_name){
             // console.log(services)
             document.getElementsByClassName("shop_name")[0].innerHTML = shop_name_str;
             document.getElementsByClassName("shop_name")[1].innerHTML = shop_name_str;
-            document.getElementsByClassName("shop_name")[2].innerHTML = shop_name_str;
+            // document.getElementsByClassName("shop_name")[2].innerHTML = shop_name_str;
 
-            document.getElementById("bookingConfirm").innerHTML = booking_confirm_str;
+            // document.getElementById("bookingConfirm").innerHTML = booking_confirm_str;
             document.getElementById("shop_image").innerHTML = img_str;
             document.getElementById("shop_description").innerHTML = shop_description_str;
             document.getElementById("shop_services").innerHTML = service_str;
@@ -109,6 +107,9 @@ function show_shopPage(shop_name){
             }
             else {
                 document.getElementById("bookButton").setAttribute("class", "nav-item mt-1 mr-1");
+                document.getElementById("modalDeveloper").innerHTML = `
+                
+                `;
             }
         }
     
@@ -228,28 +229,9 @@ function delay (URL) {
 function setSpinner() {
     document.getElementById("proceedToPayment").innerHTML = "Loading...<div class='spinner-border' role='status'></div>"
 }
-// function pass_to_stripe(){
-//     // alert('lit');
-//     var request = new XMLHttpRequest(); // Prep to make an HTTP request
 
-//     request.onreadystatechange = function() {
-        
-//         // Check if response is ready!
-//         alert(this.readyState);
-//         alert(this.status);
-//         if( this.readyState == 4 && this.status == 200 ){
-//             alert('x');
-//         }
-//     }
-
-//     var url = "./stripe/charge.php?totalprice=" + total_price;
-//     // alert(url);
-//     request.open("GET", url, true);
-//     request.send();
-// }
-
-
-
-function grabScheduleID(schedule_id) {
+function grabScheduleID(schedule_id, shop_name) {
       sessionStorage.setItem("shop_page_schedule_id", schedule_id);
+      sessionStorage.setItem("shop_page_shop_name",shop_name);
+      
 }
