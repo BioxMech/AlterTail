@@ -1,78 +1,76 @@
 <?php
 
-class User {
-    public $email;
-    public $fname;
-    public $SuperSaaS_user_id;
-    public $gender;
-    public $username;
-    public $pw;
-    public $phone;
-    public $street_address;
-    public $unit;
-    public $postal_code;
+class Appointment {
+    public $user_email;
+    public $seller_email;
+    public $schedule_id;
+    public $shop_name;
     public $image_url;
+    public $service_id;
+    public $service_title;
+    public $service_description;
+    public $service_price;
+    public $appt_date_time;
+    
     
 
     //construct User object
-    function __construct($email,$fname,$SuperSaaS_user_id,$gender,$username,$pw,$phone,$street_address,$unit,$postal_code) {
-        $this->email = $email;
-        $this->fname = $fname;
-        $this->SuperSaaS_user_id = $SuperSaaS_user_id;
-        $this->gender = $gender;
-        $this->username = $username;
-        $this->pw = $pw;
-        $this->phone = $phone;
+    function __construct($user_email,$seller_email,$schedule_id,$shop_name,$image_url,$service_id,$service_title,$service_description,$service_price,$appt_date_time) {
+        $this->user_email = $user_email;
+        $this->seller_email = $seller_email;
+        $this->schedule_id = $schedule_id;
+        $this->shop_name = $shop_name;
+        $this->image_url = $image_url;
+        $this->service_id = $service_id;
+        $this->service_title = $service_title;
+        $this->service_description = $service_description;
         $this->street_address = $street_address;
-        $this->unit = $unit;
-        $this->postal_code = $postal_code;
+        $this->service_price = $service_price;
+        $this->appt_date_time = $appt_date_time;
         
     }
 
     // getter methods
-    public function getEmail() {
-        return $this->email;
+    public function getUserEmail() {
+        return $this->user_email;
+    }
+    public function getSellerEmail() {
+        return $this->seller_email;
     }
 
-    public function getFName() {
-        return $this->fname;
-    }
-
-    public function getSuperSaaSUserId() {
-        return $this->SuperSaaS_user_id;
-    }
-
-    public function getGender() {
-        return $this->gender;
-    }
-
-    public function getUsername() {
-        return $this->username;
-    }
-
-    public function getPw() {
-        return $this->pw;
-    }
-
-    public function getPhone() {
-        return $this->phone;
-    }
-
-    public function getStreetAddress() {
-        return $this->street_address;
-    }
-
-    public function getUnit() {
-        return $this->unit;
-    }
-
-    public function getPostalCode() {
-        return $this->postal_code;
+    public function getScheduleID() {
+        return $this->schedule_id;
     }
 
     public function getShopName() {
-        return $this->shopname;
+        return $this->shop_name;
     }
+
+    public function getImageURL() {
+        return $this->image_url;
+    }
+
+    public function getServiceID() {
+        return $this->service_id;
+    }
+
+    public function getServiceTitle() {
+        return $this->service_title;
+    }
+
+    public function getServiceDescription() {
+        return $this->service_description;
+    }
+
+    public function getServicePrice() {
+        return $this->service_price;
+    }
+
+    public function getApptDateTime() {
+        return $this->appt_date_time;
+    }
+
+    
 
     //To implement setter methods
 
