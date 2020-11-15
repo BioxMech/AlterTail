@@ -119,6 +119,7 @@
         // $Total = $_GET['Total']; 
         echo "<input type='hidden' id='shop_page_total' name='Total' value=''>";
         echo "<input type='hidden' id='shop_page_user_email' name='user_email' value=''>";
+        echo "<input type='hidden' id='shop_page_seller_email' name='seller_email' value=''>";
         echo "<input type='hidden' id='shop_page_name' name='name' value=''>";
         echo "<input type='hidden' id='shop_page_phone' name='phone' value=''>";
         echo "<input type='hidden' id='shop_page_schedule_id' name='schedule_id' value=''>";
@@ -285,11 +286,13 @@
     console.log(sessionStorage.getItem("shop_page_timeslot"));
     console.log(sessionStorage.getItem("shop_page_total"));
     console.log(sessionStorage.getItem("shop_page_shop_name"));
+    console.log(sessionStorage.getItem("shop_page_seller_email"))
     // console.log(sessionStorage.getItem("shop_page_shop_image"));
     var total_amt = sessionStorage.getItem("shop_page_total");
     // console.log(total_amt);
     document.getElementById("shop_page_total").value = total_amt;
     document.getElementById("shop_page_user_email").value = sessionStorage.getItem("shop_page_user_email");
+    document.getElementById("shop_page_seller_email").value = sessionStorage.getItem("shop_page_seller_email");
     document.getElementById("shop_page_name").value = sessionStorage.getItem("shop_page_name");
     document.getElementById("shop_page_phone").value = sessionStorage.getItem("shop_page_phone");
     document.getElementById("shop_page_schedule_id").value = sessionStorage.getItem("shop_page_schedule_id");

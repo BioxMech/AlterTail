@@ -6,7 +6,6 @@ class Appointment {
     public $schedule_id;
     public $shop_name;
     public $image_url;
-    public $service_id;
     public $service_title;
     public $service_description;
     public $service_price;

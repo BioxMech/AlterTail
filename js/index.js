@@ -24,7 +24,7 @@ function displayHome() {
                     str += `
                     <div class="col mb-4">
                         <div class="card h-100">
-                            <a class="shop_url" href="shopPage.html?shop_name=${record.shop_name}&schedule_id=${record.schedule_id}">
+                            <a class="shop_url" href="shopPage.html?shop_name=${record.shop_name}&schedule_id=${record.schedule_id}&seller_email=${record.email}">
                                 <img src="${record.image_url}" class="card-img-top">
                             </a>
                             <div class="card-body">

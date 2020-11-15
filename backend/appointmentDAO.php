@@ -6,8 +6,8 @@ class AppointmentDAO {
     function add($appointment) {
         $conn = new ConnectionManager();
         $pdo = $conn->getConnection();
-        $sql = 'insert into appointments (user_email,seller_email,schedule_id,shop_name,image_url,service_id,service_title,service_description,service_price,appt_date_time)
-                    values (:user_email,:seller_email,:schedule_id,:shop_name,:image_url,:service_id,:service_title,:service_description,:service_price,:appt_date_time)';
+        $sql = 'insert into appointment (user_email,seller_email,schedule_id,shop_name,image_url,service_title,service_description,service_price,appt_date_time)
+                    values (:user_email,:seller_email,:schedule_id,:shop_name,:image_url,:service_title,:service_description,:service_price,:appt_date_time)';
 
         $stmt = $pdo->prepare($sql);
 
@@ -16,7 +16,6 @@ class AppointmentDAO {
         $schedule_id = $appointment->getScheduleID();
         $shop_name = $appointment->getShopName();
         $image_url = $appointment->getImageURL();
-        $service_id = $appointment->getServiceID();
         $service_title = $appointment->getServiceTitle();
         $service_description = $appointment->getServiceDescription();
         $service_price = $appointment->getServicePrice();
@@ -27,7 +26,6 @@ class AppointmentDAO {
         $stmt->bindParam(':schedule_id',$schedule_id,PDO::PARAM_STR);
         $stmt->bindParam(':shop_name',$shop_name,PDO::PARAM_STR);
         $stmt->bindParam(':image_url',$image_url,PDO::PARAM_STR);
-        $stmt->bindParam(':service_id',$service_id,PDO::PARAM_STR);
         $stmt->bindParam(':service_title',$service_title,PDO::PARAM_STR);
         $stmt->bindParam(':service_description',$service_description,PDO::PARAM_STR);
         $stmt->bindParam(':service_price',$service_price,PDO::PARAM_STR);
