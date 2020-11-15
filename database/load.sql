@@ -225,10 +225,12 @@ INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES
 ('ethan.men@gmail.com','Ethan Men','04');
 
 INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('gentlementale@gmail.com',"Ezra's Alteration",'01'),
-('gentlementale@gmail.com',"Ezra's Alteration",'02'),
-('gentlementale@gmail.com',"Ezra's Alteration",'03'),
-('gentlementale@gmail.com',"Ezra's Alteration",'04');
+
+('gentlementale@gmail.com',"Ezra's Alteration",'14'),
+('gentlementale@gmail.com',"Ezra's Alteration",'05'),
+('gentlementale@gmail.com',"Ezra's Alteration",'06'),
+('gentlementale@gmail.com',"Ezra's Alteration",'07'),
+('gentlementale@gmail.com',"Ezra's Alteration",'08');
 
 INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
 ('ginz.collection@gmail.com','Ginz Collection','05'),
