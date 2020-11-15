@@ -102,6 +102,7 @@
             
         </div> 
     </nav>
+   
     <!-- End Navigation Bar -->
   <div class="container">
     <h2 class="my-4 text-center">Payment</h2>
@@ -110,7 +111,16 @@
        <input type="text" name="first_name" class="form-control mb-3 StripeElement StripeElement--empty" placeholder="First Name">
        <input type="text" name="last_name" class="form-control mb-3 StripeElement StripeElement--empty" placeholder="Last Name">
        <input type="email" name="email" class="form-control mb-3 StripeElement StripeElement--empty" placeholder="Email Address">
-        <div id="card-element" class="form-control">
+       <input type="hidden" name="shop_name">
+       <input type="hidden" name="time">
+       
+
+        <?php
+        // $Total = $_GET['Total']; 
+        echo "<input type='hidden' id='shop_page_total' name='Total' value=>";
+        ?>
+
+       <div id="card-element" class="form-control">
           <!-- a Stripe Element will be inserted here. -->
         </div>
 
@@ -257,5 +267,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://js.stripe.com/v3/"></script>
   <script src="./js/charge.js"></script>
+  <script>
+    console.log(sessionStorage.getItem("shop_page_total"));
+    var total_amt = sessionStorage.getItem("shop_page_total");
+    console.log(total_amt);
+    document.getElementById("shop_page_total").value = total_amt;
+  </script>
 </body>
 </html>

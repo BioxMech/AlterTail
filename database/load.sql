@@ -45,31 +45,32 @@ service_price varchar(10) not null,
 service_description varchar(1000) not null,
 service_lead_time varchar(50) not null,
 service_image_url varchar(100) not null,
-constraint services_pk primary key(service_id)
+constraint services_pk primary key(service_title)
 );
 
 create table seller_service
 ( email varchar(50) not null,
 shop_name varchar(40) not null,
-service_id varchar(50) not null,
-constraint seller_service_pk primary key(email, shop_name, service_id),
+service_title varchar(50) not null,
+constraint seller_service_pk primary key(email, shop_name, service_title),
 constraint seller_service_fk1 foreign key(email, shop_name) references seller(email, shop_name),
-constraint seller_service_fk2 foreign key(service_id) references service(service_id)
+constraint seller_service_fk2 foreign key(service_title) references service(service_title)
 );
 
-create table transactions
+create table apppintments
 (user_email varchar(50) not null,
 seller_email varchar(50 ) not null,
+schedule_id varchar(50) not null,
 shop_name varchar(40) not null,
 image_url varchar(100),
-service_id varchar(50) not null,
+service_title varchar(50) not null,
 service_description varchar(1000) not null,
 service_price varchar(10) not null,
 appt_date_time varchar(50) not null,
-constraint transactions_pk primary key(user_email, shop_name,service_id),
+constraint transactions_pk primary key(user_email, shop_name,service_title),
 constraint transactions_fk1 foreign key(user_email) references  user(email),
 constraint transactions_fk2 foreign key(seller_email,shop_name) references seller(email,shop_name),
-constraint transactions_fk3 foreign key(service_id) references service(service_id)
+constraint transactions_fk3 foreign key(service_title) references service(service_title)
 );
 
 INSERT INTO `user` (`email`, `fname`, `SuperSaaS_user_id`, `gender`, `username`, `pw`, `phone`, `street_address`, `unit`, `postal_code`, `image_url`) VALUES
@@ -108,7 +109,6 @@ Now through ehkaycornertailor.com, the Singapore tailor tradition of craftsmansh
 <br><br>
 
 ', 
-
 '535035', '01-57', '238841', 'Tailoring', '4.9', '235', 'images/alteration_shop6.jpg', '1.300907', '103.8387333'),
 ('ginz.collection@gmail.com', 'Ginz Collection', '503 Bishan Street 11', 'Loyal customers swear by this heartland tailor for fast alterations and super reliable service. Besides creating custom clothes, Ginz Collection is ace at altering all sorts of materials from denim to', 'Loyal customers swear by this heartland tailor for fast alterations and super reliable service. Besides creating custom clothes, Ginz Collection is ace at altering all sorts of materials from denim to cotton, and will even add a touch of detail such as pom-poms or sequins if you want to!', '535036','01-446', '570503', 'Alteration ', '3.4', '13', 'images/alteration_shop8.jpg', '1.3493942', '103.845896'),
 ('haute@gmail.com', 'Haute Alteration Initiative', 'Tiong Poh Rd', 'If you’re in need of tailors with lots of experience with couture pieces, Haute Alteration Initiative is the place to go. Prices start from S$20 for a basic shortening job, and yes, they may be pricey', 
@@ -118,9 +118,9 @@ Our clients include leading professionals, government officials, executives, bus
 
 '535037', '01-124', '168898', 'Alteration ', '5.0', '1', 'images/alteration_shop7.jpg', '1.2833984', '103.8313791'),
 
-('jeansfix@gmail.com', 'JeansFix', '1 Raffles Link', 'Not all jeans fit your body perfectly but denim connoisseur, Jeansfix, will come to the rescue. Whether be amending a waistband or fixing rips that have happened over time, they’re the experts in this', 'Not all jeans fit your body perfectly but denim connoisseur, Jeansfix, will come to the rescue. Whether be amending a waistband or fixing rips that have happened over time, they’re the experts in this area.', '535038','B1-06', '039393', 'Alteration', '4.7', '7', 'images/alteration_shop5.jpg', '1.292053', '103.8536675'),
-('jenny.dress@gmail.com', 'Jenny & Me Dressmaking', '211 Holland Ave ', 'With over three decades of experience under her belt, Jenny is a force to be reckoned with. Aside from her well-honed expertise at crafting dresses and shirts from scratch, she does meticulous alterat', 'With over three decades of experience under her belt, Jenny is a force to be reckoned with. Aside from her well-honed expertise at crafting dresses and shirts from scratch, she does meticulous alterations for all sorts of clothing, and won’t hesitate to dish our her professional advice on how best to get the right fit.', '535039','03-45','278967', 'Tailoring ', '4.8', '105', 'images/alteration_shop10.jpg', '1.3105374', '103.7933396'),
-('may.tailor@gmail.com', 'May Tailor & Laundry', '304 Orchard Road ', 'Our mission is to provide excellent laundry & tailoring service, coupled with our competitive prices, to deliver the clothes that suits you as well as to put a smile on your face. Your satisfaction is', 'Our mission is to provide excellent laundry & tailoring service, coupled with our competitive prices, to deliver the clothes that suits you as well as to put a smile on your face. Your satisfaction is our responsibility!', '535040','04-56', '238863', 'Tailoring', '3.7', '6', 'images/alteration_shop3.jpg', '1.3587297', '103.8237878'),
+('jeansfix@gmail.com', 'JeansFix', '1 Raffles Link', 'Not all jeans fit your body perfectly but denim connoisseur, Jeansfix, will come to the rescue. Whether be amending a waistband or fixing rips that have happened over time, they’re the experts in this', 'Not all jeans fit your body perfectly but denim connoisseur, Jeansfix, will come to the rescue. Whether be amending a waistband or fixing rips that have happened over time, they’re the experts in this area.', '535038','B1-06', '039393', 'Alteration', '4.7', '7', 'images/scissors.jpg', '1.292053', '103.8536675'),
+('jenny.dress@gmail.com', "JennyMe Dressmaking", '211 Holland Ave ', 'With over three decades of experience under her belt, Jenny is a force to be reckoned with. Aside from her well-honed expertise at crafting dresses and shirts from scratch, she does meticulous alterat', 'With over three decades of experience under her belt, Jenny is a force to be reckoned with. Aside from her well-honed expertise at crafting dresses and shirts from scratch, she does meticulous alterations for all sorts of clothing, and won’t hesitate to dish our her professional advice on how best to get the right fit.', '535039','03-45','278967', 'Tailoring ', '4.8', '105', 'images/alteration_shop10.jpg', '1.3105374', '103.7933396'),
+('may.tailor@gmail.com', 'May Tailor Laundry', '304 Orchard Road ', 'Our mission is to provide excellent laundry & tailoring service, coupled with our competitive prices, to deliver the clothes that suits you as well as to put a smile on your face. Your satisfaction is', 'Our mission is to provide excellent laundry & tailoring service, coupled with our competitive prices, to deliver the clothes that suits you as well as to put a smile on your face. Your satisfaction is our responsibility!', '535040','04-56', '238863', 'Tailoring', '3.7', '6', 'images/alteration_shop3.jpg', '1.3587297', '103.8237878'),
 ('qmen@gmail.com', 'Q MENSWEAR', '116A Telok Ayer St', 'Every house has their own signature cut, technical expertise or style which sets it apart from other houses or menswear brand. At Q MENSWEAR, we also have our own set of standards when it comes to our', 'Every house has their own signature cut, technical expertise or style which sets it apart from other houses or menswear brand. At Q MENSWEAR, we also have our own set of standards when it comes to our garments.', '535041','01-123', '068585', 'Alteration', '4.4', '17', 'images/alteration_shop1 .jpg', '1.281934', '103.8460651'),
 ('suityourself@gmail.com', 'SuitYourself', '14 Scotts Rd', 'We specialise in creating high quality suits and shirts for your everyday and once-in-a-lifetime moments at affordable prices.', 
 'We specialise in creating high quality suits and shirts for your everyday and once-in-a-lifetime moments at affordable prices. We have extensive knowledge of modern fashion trends and provide excellent cut and workmanship, accompanied by reasonable prices. Our friendly and personalised services include: tuxedos, evening suits, casual suits, formal suits and wedding suits. A wide selection of high quality imported textiles & accessories will also be provided to compliment your suit. <br><br>
@@ -131,14 +131,14 @@ Our clients include leading professionals, government officials, executives, bus
 <br><br>
 we have a team of experienced and professional tailors who are capable to provide meticulous stitching, sewing and alteration services in Singapore. A selected number of outlets are equipped with individual fitting rooms where you are able to fit your clothings and allow our tailors to make tailored and personalised adjustments for your garments. We use premium quality zippers, threads and sewing accessories sourced locally in Singapore.', 
 '535043','03-35', '180270', 'Alteration ', '5', '1', 'images/alteration_shop11.jpg', '1.3008231', '103.8521835'),
-('gentlementale@gmail.com', 'A Gentleman\'s Tale', '27 Toa Payoh E', 'A Gentleman’s Tale was founded in 2015 Kenneth and Lyn with the aim of combining their passion and skills in fashion and tailoring. ', 
-'A Gentleman’s Tale was founded in 2015 Kenneth and Lyn with the aim of combining their passion and skills in fashion and tailoring.
+('gentlementale@gmail.com', 'A Gentleman\'s Tale', '27 Toa Payoh E', 'Home business - A Gentleman’s Tale was founded in 2015 Ezra Chooi with the aim of combining his passion and skills in fashion and tailoring. ', 
+"Home business - A Gentleman’s Tale was founded in 2015 Ezra Chooi with the aim of combining his passion and skills in fashion and tailoring.
 <br><br>
-As a premium bespoke tailor, the final result is constructed with precise measurements, and made to customers’ specifications. Without the use of base templates, our professional tailors create a new pattern for each individual customer so that we do not miss out on hints of differences on the wearer’s body.
+As a premium bespoke tailor, the final result is constructed with precise measurements, and made to customers’ specifications. Without the use of base templates, a new pattern for each individual customer will be created so that we do not miss out on hints of differences on the wearer’s body.
 <br><br>
-We cherish cultivating long-lasting relationships with our customers as we believe that people are always on the search to find the perfect tailor to serve them as they reach different milestones in their lives – we want A Gentleman\'s Tale to be there for them every step of the way. We are meticulous, have a keen eye for detail and are dedicated to going above and beyond to provide first-class customer service for our customers. ', 
+We cherish cultivating long-lasting relationships with our customers as we believe that people are always on the search to find the perfect tailor to serve them as they reach different milestones in their lives – we want A Gentleman\'s Tale to be there for them every step of the way. We are meticulous, have a keen eye for detail and are dedicated to going above and beyond to provide first-class customer service for our customers. ", 
 '535052','01-184', '310027', 'Tailoring', '5.0', '16', 'images/kingsman.jpg', '1.3323619', '103.8545369'),
-('AB.dry.clean@gmail.com', 'A&B Professional Dry Clean & L', '8 Kaki Bukit Ave 4', 'A&B Professional Dry Clean & Laundry ensures that their team handles each of your items with care. Trust that they will follow each item’s washing methods meticulously.', 'A&B Professional Dry Clean & Laundry ensures that their team handles each of your items with care. Trust that they will follow each item’s washing methods meticulously.', '535044','03-07', '415875', 'Laundry', '3.7', '3', 'images/alteration_shop20.jpg', '1.338600', '103.9063877'),
+('AB.dry.clean@gmail.com', 'AB Professional Dry Clean', '8 Kaki Bukit Ave 4', 'AB Professional Dry Clean ensures that their team handles each of your items with care. Trust that they will follow each item’s washing methods meticulously.', 'AB Professional Dry Clean ensures that their team handles each of your items with care. Trust that they will follow each item’s washing methods meticulously.', '535044','03-07', '415875', 'Laundry', '3.7', '3', 'images/alteration_shop20.jpg', '1.338600', '103.9063877'),
 ('assemble@gmail.com', 'Assemble', '181 Orchard Rd', 'Assemble Singapore was founded in 2014 by a local duo, Ken and Lyn. Their love for dressing up fashionably led them to pursue a business in tailoring. Touted as the first tailor in Singapore to provid', 
 'Assemble Singapore was founded in 2014 by a local duo, Ken and Lyn. Their love for dressing up fashionably led them to pursue a business in tailoring. Touted as the first tailor in Singapore to provide in-house and customisable lining, Assemble Singapore recently opened their flagship store at Orchard Central.
 <br><br>
@@ -156,7 +156,13 @@ With Edit Suits Co, you are always dressed for the occasion, be it a formal even
 ('lai.en@gmail.com', 'Lai En Tailor', '2 Defu Lane 10', 'Lai En Tailor is a small quaint tailor tucked in the east of Singapore. A local men-and-women tailor, Lai En Tailor has a reputation for great workmanship.', 'Lai En Tailor is a small quaint tailor tucked in the east of Singapore. A local men-and-women tailor, Lai En Tailor has a reputation for great workmanship.', '535048','02-533', '539183', 'Tailoring', '4.1', '61', 'images/alteration_shop13.jpg', '1.3587307', '103.8916398'),
 ('meiko@gmail.com', 'Meiko Tailor', '7 Raffles Blvd', 'With over 50 years of experience, Meiko Tailor has been continuously providing the locality with their fine craft and premium fabric. Throughout the business, they have developed the style in suit cra', 'With over 50 years of experience, Meiko Tailor has been continuously providing the locality with their fine craft and premium fabric. Throughout the business, they have developed the style in suit crafting pants and shirts, particularly bespoke suit. Their resident styling advisor has been trained in Academy of ImageWorks (AIM) which largely influenced his work. The shop accepts overseas order via mail and door to door visit within a specific area. ', '535049','02-01', '039595', 'Tailoring', '4.8', '23', 'images/2.jpg', '1.29221', '103.8563422'),
 ('perfect.attire@gmail.com', 'Perfect Attire', 'Oxley 138 Robinson Rd', 'Perfect Attire specialises in handcrafted bespoke suits, custom shirts and tailored pants at accessible prices. Founded by Tulsi Kamath and Shriram Iyer, who both share a passion for tailored clothing', 'Perfect Attire specialises in handcrafted bespoke suits, custom shirts and tailored pants at accessible prices. Founded by Tulsi Kamath and Shriram Iyer, who both share a passion for tailored clothing, the store prides itself for giving its customers the full bespoke experience with two fittings: muslin and basted', '535050','03-38', '068906', 'Tailoring', '5.0', '51', 'images/alteration_shop17.jpg', '1.278646', '103.8462309'),
-('red.dot.bespoke@gmail.com', 'Red Dot Bespoke', '11 New Bridge Rd', 'A new age bespoke tailor, Red Dot Bespoke strives to bring quality, comfort, and style while being friendly to your wallet.', 'A new age bespoke tailor, Red Dot Bespoke strives to bring quality, comfort, and style while being friendly to your wallet.', '535051','02-01', '059383', 'Tailoring', '4.9', '86', 'images/alteration_shop15.jpg', '1.2890101', '103.8455098');
+('red.dot.bespoke@gmail.com', 'Red Dot Bespoke', '11 New Bridge Rd', 'A new age bespoke tailor, Red Dot Bespoke strives to bring quality, comfort, and style while being friendly to your wallet.', 'A new age bespoke tailor, Red Dot Bespoke strives to bring quality, comfort, and style while being friendly to your wallet.', '535051','02-01', '059383', 'Tailoring', '4.9', '86', 'images/alteration_shop15.jpg', '1.2890101', '103.8455098'),
+('wetailoring@gmail.com', 'We Tailoring', '26 TOA PAYOH EAST KIM KEAT VILLE', 'Home business - A new age bespoke tailor, We Tailoring strives to bring quality, comfort, and style while being friendly to your wallet.', 'Home business - A new age bespoke tailor, We Tailoring strives to bring quality, comfort, and style while being friendly to your wallet.', '535445','02-01', '310026', 'Tailoring', '4.6', '86', 'images/tailor2.jpg', '1.3328809', '103.8392874'),
+('wingonn@gmail.com', 'Wing Onn Tailor', '184 Toa Payoh Central', 'Home business - With over 50 years of experience, Wing Onn Tailor has been continuously providing the locality with their fine craft and premium fabric. Throughout the business, they have developed the style in suit cra', 
+'Home business - With over 50 years of experience, Wing Onn Tailor has been continuously providing the locality with their fine craft and premium fabric. Throughout the business, they have developed the style in suit cra.', '535446','18-21', '310184', 'Tailoring', '4.0', '10', 'images/tailor2.jpg', '1.3324969', '103.8404862'),
+('wonderfulas@gmail.com', 'Wonderful Alteration Store', 'Blk 127 Lor 1 Toa Payoh', 'Home business - If you’re in need of tailors with lots of experience with couture pieces, Wonderful Alteration Store is the place to go. Prices start from S$20 for a basic shortening job.', 
+'Home business - If you’re in need of tailors with lots of experience with couture pieces, Wonderful Alteration Store is the place to go. Prices start from S$20 for a basic shortening job. With over 50 years of experience, Wonderful Alteration Store has been continuously providing the locality with their fine craft and premium fabric. Throughout the business, they have developed the style in suit cra.', '535448','01-53', '310127', 'Tailoring', '4.0', '8', 'images/slider-2.jpg', '1.3380839', '103.8359692')
+;
 
 INSERT INTO `service`(`service_id`, `service_title`, `service_price`, `service_description`, `service_lead_time`, `service_image_url`) VALUES 
 ('01','Tailored Shirt','109','100% customisable, made to measure shirts. Choose your fabric, collar, cuffs and buttons, and personalise your shirt with your very own monogram.','2 weeks','kingsmen3.jpg'),
@@ -174,123 +180,142 @@ INSERT INTO `service`(`service_id`, `service_title`, `service_price`, `service_d
 ('12','Bag Cleaning Services','50',"We have years of experience in luxury bag repair and restoration. We provide the best Bag – Wallet Cleaning Service In Singapore. Our goal is to preserve the tip-top conditions of your luxury bags, hence enhancing the value you have invested in them.",'8 days','cleaning3.jpg');
 
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('suityourself@gmail.com','SuitYourself','01'),
-('suityourself@gmail.com','SuitYourself','02'),
-('suityourself@gmail.com','SuitYourself','03'),
-('suityourself@gmail.com','SuitYourself','04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('suityourself@gmail.com','SuitYourself','Tailored Shirt'),
+('suityourself@gmail.com','SuitYourself','2-Piece Suit'),
+('suityourself@gmail.com','SuitYourself','3-Piece Suit'),
+('suityourself@gmail.com','SuitYourself','Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('alt.unisex@gmail.com','Alteration of Unisex Clothing','05'),
-('alt.unisex@gmail.com','Alteration of Unisex Clothing','06'),
-('alt.unisex@gmail.com','Alteration of Unisex Clothing','07'),
-('alt.unisex@gmail.com','Alteration of Unisex Clothing','08');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('alt.unisex@gmail.com','Alteration of Unisex Clothing','Mending & Sewing Service'),
+('alt.unisex@gmail.com','Alteration of Unisex Clothing','Zip Replacements'),
+('alt.unisex@gmail.com','Alteration of Unisex Clothing','Length Adjustments'),
+('alt.unisex@gmail.com','Alteration of Unisex Clothing','Buttons Replacement');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('assemble@gmail.com','Assemble','01'),
-('assemble@gmail.com','Assemble','02'),
-('assemble@gmail.com','Assemble','03'),
-('assemble@gmail.com','Assemble','04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('assemble@gmail.com','Assemble','Tailored Shirt'),
+('assemble@gmail.com','Assemble','2-Piece Suit'),
+('assemble@gmail.com','Assemble','3-Piece Suit'),
+('assemble@gmail.com','Assemble','Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('editsuits@gmail.com','Edit Suits Co','01'),
-('editsuits@gmail.com','Edit Suits Co','02'),
-('editsuits@gmail.com','Edit Suits Co','03'),
-('editsuits@gmail.com','Edit Suits Co','04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('editsuits@gmail.com','Edit Suits Co','Tailored Shirt'),
+('editsuits@gmail.com','Edit Suits Co','2-Piece Suit'),
+('editsuits@gmail.com','Edit Suits Co','3-Piece Suit'),
+('editsuits@gmail.com','Edit Suits Co','Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('ehkay@gmail.com','Ehkay Corner Tailors','01'),
-('ehkay@gmail.com','Ehkay Corner Tailors','02'),
-('ehkay@gmail.com','Ehkay Corner Tailors','03'),
-('ehkay@gmail.com','Ehkay Corner Tailors','04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('ehkay@gmail.com','Ehkay Corner Tailors','Tailored Shirt'),
+('ehkay@gmail.com','Ehkay Corner Tailors','2-Piece Suit'),
+('ehkay@gmail.com','Ehkay Corner Tailors','3-Piece Suit'),
+('ehkay@gmail.com','Ehkay Corner Tailors','Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('ethan.men@gmail.com','Ethan Men','01'),
-('ethan.men@gmail.com','Ethan Men','02'),
-('ethan.men@gmail.com','Ethan Men','03'),
-('ethan.men@gmail.com','Ethan Men','04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('ethan.men@gmail.com','Ethan Men','Tailored Shirt'),
+('ethan.men@gmail.com','Ethan Men','2-Piece Suit'),
+('ethan.men@gmail.com','Ethan Men','3-Piece Suit'),
+('ethan.men@gmail.com','Ethan Men','Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('gentlementale@gmail.com',"A Gentleman's Tale",'01'),
-('gentlementale@gmail.com',"A Gentleman's Tale",'02'),
-('gentlementale@gmail.com',"A Gentleman's Tale",'03'),
-('gentlementale@gmail.com',"A Gentleman's Tale",'04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('gentlementale@gmail.com',"A Gentleman's Tale",'Tailored Shirt'),
+('gentlementale@gmail.com',"A Gentleman's Tale",'2-Piece Suit'),
+('gentlementale@gmail.com',"A Gentleman's Tale",'3-Piece Suit'),
+('gentlementale@gmail.com',"A Gentleman's Tale",'Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('ginz.collection@gmail.com','Ginz Collection','05'),
-('ginz.collection@gmail.com','Ginz Collection','06'),
-('ginz.collection@gmail.com','Ginz Collection','07'),
-('ginz.collection@gmail.com','Ginz Collection','08');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('ginz.collection@gmail.com','Ginz Collection','Mending & Sewing Service'),
+('ginz.collection@gmail.com','Ginz Collection','Zip Replacements'),
+('ginz.collection@gmail.com','Ginz Collection','Length Adjustments'),
+('ginz.collection@gmail.com','Ginz Collection','Buttons Replacement');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
 
-('haute@gmail.com','Haute Alteration Initiative','05'),
-('haute@gmail.com','Haute Alteration Initiative','06'),
-('haute@gmail.com','Haute Alteration Initiative','07'),
-('haute@gmail.com','Haute Alteration Initiative','08');
+('haute@gmail.com','Haute Alteration Initiative','Mending & Sewing Service'),
+('haute@gmail.com','Haute Alteration Initiative','Zip Replacements'),
+('haute@gmail.com','Haute Alteration Initiative','Length Adjustments'),
+('haute@gmail.com','Haute Alteration Initiative','Buttons Replacement');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('jeansfix@gmail.com','JeansFix','05'),
-('jeansfix@gmail.com','JeansFix','06'),
-('jeansfix@gmail.com','JeansFix','07'),
-('jeansfix@gmail.com','JeansFix','08');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('jeansfix@gmail.com','JeansFix','Mending & Sewing Service'),
+('jeansfix@gmail.com','JeansFix','Zip Replacements'),
+('jeansfix@gmail.com','JeansFix','Length Adjustments'),
+('jeansfix@gmail.com','JeansFix','Buttons Replacement');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('jenny.dress@gmail.com','Jenny & Me Dressmaking','01'),
-('jenny.dress@gmail.com','Jenny & Me Dressmaking','02'),
-('jenny.dress@gmail.com','Jenny & Me Dressmaking','03'),
-('jenny.dress@gmail.com','Jenny & Me Dressmaking','04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('jenny.dress@gmail.com','JennyMe Dressmaking','Tailored Shirt'),
+('jenny.dress@gmail.com','JennyMe Dressmaking','2-Piece Suit'),
+('jenny.dress@gmail.com','JennyMe Dressmaking','3-Piece Suit'),
+('jenny.dress@gmail.com','JennyMe Dressmaking','Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('lai.en@gmail.com','Lai En Tailor','01'),
-('lai.en@gmail.com','Lai En Tailor','02'),
-('lai.en@gmail.com','Lai En Tailor','03'),
-('lai.en@gmail.com','Lai En Tailor','04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('lai.en@gmail.com','Lai En Tailor','Tailored Shirt'),
+('lai.en@gmail.com','Lai En Tailor','2-Piece Suit'),
+('lai.en@gmail.com','Lai En Tailor','3-Piece Suit'),
+('lai.en@gmail.com','Lai En Tailor','Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('may.tailor@gmail.com','May Tailor & Laundry','01'),
-('may.tailor@gmail.com','May Tailor & Laundry','02'),
-('may.tailor@gmail.com','May Tailor & Laundry','03'),
-('may.tailor@gmail.com','May Tailor & Laundry','04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('may.tailor@gmail.com','May Tailor Laundry','Tailored Shirt'),
+('may.tailor@gmail.com','May Tailor Laundry','2-Piece Suit'),
+('may.tailor@gmail.com','May Tailor Laundry','3-Piece Suit'),
+('may.tailor@gmail.com','May Tailor Laundry','Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('meiko@gmail.com','Meiko Tailor','01'),
-('meiko@gmail.com','Meiko Tailor','02'),
-('meiko@gmail.com','Meiko Tailor','03'),
-('meiko@gmail.com','Meiko Tailor','04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('meiko@gmail.com','Meiko Tailor','Tailored Shirt'),
+('meiko@gmail.com','Meiko Tailor','2-Piece Suit'),
+('meiko@gmail.com','Meiko Tailor','3-Piece Suit'),
+('meiko@gmail.com','Meiko Tailor','Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('perfect.attire@gmail.com','Perfect Attire','01'),
-('perfect.attire@gmail.com','Perfect Attire','02'),
-('perfect.attire@gmail.com','Perfect Attire','03'),
-('perfect.attire@gmail.com','Perfect Attire','04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('perfect.attire@gmail.com','Perfect Attire','Tailored Shirt'),
+('perfect.attire@gmail.com','Perfect Attire','2-Piece Suit'),
+('perfect.attire@gmail.com','Perfect Attire','3-Piece Suit'),
+('perfect.attire@gmail.com','Perfect Attire','Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('qmen@gmail.com','Q MENSWEAR','05'),
-('qmen@gmail.com','Q MENSWEAR','06'),
-('qmen@gmail.com','Q MENSWEAR','07'),
-('qmen@gmail.com','Q MENSWEAR','08');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('qmen@gmail.com','Q MENSWEAR','Mending & Sewing Service'),
+('qmen@gmail.com','Q MENSWEAR','Zip Replacements'),
+('qmen@gmail.com','Q MENSWEAR','Length Adjustments'),
+('qmen@gmail.com','Q MENSWEAR','Buttons Replacement');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('red.dot.bespoke@gmail.com','Red Dot Bespoke','01'),
-('red.dot.bespoke@gmail.com','Red Dot Bespoke','02'),
-('red.dot.bespoke@gmail.com','Red Dot Bespoke','03'),
-('red.dot.bespoke@gmail.com','Red Dot Bespoke','04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('red.dot.bespoke@gmail.com','Red Dot Bespoke','Tailored Shirt'),
+('red.dot.bespoke@gmail.com','Red Dot Bespoke','2-Piece Suit'),
+('red.dot.bespoke@gmail.com','Red Dot Bespoke','3-Piece Suit'),
+('red.dot.bespoke@gmail.com','Red Dot Bespoke','Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('tang.cottage@gmail.com','Tang Cottage','05'),
-('tang.cottage@gmail.com','Tang Cottage','06'),
-('tang.cottage@gmail.com','Tang Cottage','07'),
-('tang.cottage@gmail.com','Tang Cottage','08');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('tang.cottage@gmail.com','Tang Cottage','Mending & Sewing Service'),
+('tang.cottage@gmail.com','Tang Cottage','Zip Replacements'),
+('tang.cottage@gmail.com','Tang Cottage','Length Adjustments'),
+('tang.cottage@gmail.com','Tang Cottage','Buttons Replacement');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('AB.dry.clean@gmail.com','A&B Professional Dry Clean & L','09'),
-('AB.dry.clean@gmail.com','A&B Professional Dry Clean & L','10'),
-('AB.dry.clean@gmail.com','A&B Professional Dry Clean & L','11'),
-('AB.dry.clean@gmail.com','A&B Professional Dry Clean & L','12');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('AB.dry.clean@gmail.com','AB Professional Dry Clean','Curtain Cleaning Service'),
+('AB.dry.clean@gmail.com','AB Professional Dry Clean','Carpet Cleaning Service'),
+('AB.dry.clean@gmail.com','AB Professional Dry Clean','Laundry & Dry Cleaning Services'),
+('AB.dry.clean@gmail.com','AB Professional Dry Clean','Bag Cleaning Services');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('alt.fit@gmail.com','Alt-To-Fit','05'),
-('alt.fit@gmail.com','Alt-To-Fit','06'),
-('alt.fit@gmail.com','Alt-To-Fit','07'),
-('alt.fit@gmail.com','Alt-To-Fit','08');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('alt.fit@gmail.com','Alt-To-Fit','Mending & Sewing Service'),
+('alt.fit@gmail.com','Alt-To-Fit','Zip Replacements'),
+('alt.fit@gmail.com','Alt-To-Fit','Length Adjustments'),
+('alt.fit@gmail.com','Alt-To-Fit','Buttons Replacement');
+
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('wetailoring@gmail.com','We Tailoring','Tailored Shirt'),
+('wetailoring@gmail.com','We Tailoring','2-Piece Suit'),
+('wetailoring@gmail.com','We Tailoring','3-Piece Suit'),
+('wetailoring@gmail.com','We Tailoring','Tuxedo Suit');
+
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('wingonn@gmail.com','Wing Onn Tailor','Tailored Shirt'),
+('wingonn@gmail.com','Wing Onn Tailor','2-Piece Suit'),
+('wingonn@gmail.com','Wing Onn Tailor','3-Piece Suit'),
+('wingonn@gmail.com','Wing Onn Tailor','Tuxedo Suit');
+
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('wonderfulas@gmail.com','Wonderful Alteration Store','Mending & Sewing Service'),
+('wonderfulas@gmail.com','Wonderful Alteration Store','Zip Replacements'),
+('wonderfulas@gmail.com','Wonderful Alteration Store','Length Adjustments'),
+('wonderfulas@gmail.com','Wonderful Alteration Store','Buttons Replacement');
+

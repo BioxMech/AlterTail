@@ -34,7 +34,9 @@
     <!-- <div id="appt">
       <p>Your appointment with xxx will be on xxxx. <p>
     </div> -->
-    <p><a href="paymentPage.html" class="btn btn-light mt-2">Go Back</a></p>
+    <p><a href="../appointment.html" class="btn btn-light mt-2">View Appointments</a></p>
+    <p><a href="../index.html" class="btn btn-light mt-2">Return Home</a></p>
+
   </div>
 </body>
 </html>

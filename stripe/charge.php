@@ -14,6 +14,7 @@
  $last_name = $POST['last_name'];
  $email = $POST['email'];
  $token = $POST['stripeToken'];
+ $Total = $POST['Total'] * 100;
 
 // Create Customer In Stripe
 $customer = \Stripe\Customer::create(array(
@@ -23,7 +24,7 @@ $customer = \Stripe\Customer::create(array(
 
 // Charge Customer
 $charge = \Stripe\Charge::create(array(
-  "amount" => 100,
+  "amount" => $Total,
   "currency" => "sgd",
   "description" => "Payment",
   "customer" => $customer->id

@@ -44,11 +44,11 @@ function getAvailabilities(schedule_id) {
   })
 }
 
-//Retrieve appointments made for the Tailor
+//Retrieve appointments on Seller side
 function getAppointments(schedule_id) {
   
   var url = `https://www.supersaas.com/api/range/${schedule_id}.json?api_key=60Sdu0PWYumxHliWn1Uieg`;
-  let final_url = `${'https://cors-anywhere.herokuapp.com/'}${url}`;
+  // let final_url = `${'https://cors-anywhere.herokuapp.com/'}${url}`;
 
   axios.get(`${'https://cors-anywhere.herokuapp.com/'}${url}`,
   {
@@ -68,15 +68,17 @@ function getAppointments(schedule_id) {
 }
 
 
-//Retrieve appointments made
+//Retrieve appointments made on User side
 function getAgenda(schedule_id, email) {
 
   console.log("======== DEBUG (getAgenda) ===========");
 
-  var url = `https://www.supersaas.com/api/agenda/${schedule_id}.json?user=${email}&api_key=60Sdu0PWYumxHliWn1Uieg`;
+  let html_str = "";
 
-  let final_url = `${'https://cors-anywhere.herokuapp.com/'}${url}`;
-  console.log(final_url);
+  var url = `https://www.supersaas.com/api/agenda/${schedule_id}.json?user=${email}&api_key=60Sdu0PWYumxHliWn1Uieg&account=PetrasTYR`;
+
+  // let final_url = `${'https://cors-anywhere.herokuapp.com/'}${url}`;
+  // console.log(final_url);
 
   axios.get(`${'https://cors-anywhere.herokuapp.com/'}${url}`,
   {
@@ -86,7 +88,19 @@ function getAgenda(schedule_id, email) {
   })
   .then((res) => {
     console.log("=========== DEBUG (success) ==========");
-    console.log(res);
+    // console.log(res['data']['bookings']);
+    var bookings_array = res['data']['bookings'];
+    console.log(bookings_array);
+    for (booking of bookings_array) {
+      let booking_id = booking.id;
+      let shop_name = booking.res_name;
+      let schedule_id = booking.schedule_id;
+      html_str += `<p>
+                      ${booking_id}
+                  </p>`;
+    }
+    document.getElementById("displayAppointments").innerHTML = html_str;
+    
   })
   .catch((err) => {
     console.log("=========== DEBUG (error) ==========");
@@ -94,10 +108,50 @@ function getAgenda(schedule_id, email) {
   })
 }
 
-function CreateEvent(schedule_id,booking_start,booking_end,SuperSaaS_user_id,fname) {
+//Retrieve all appointments made on User side
+function getAllAgenda(email) {
+
   console.log("======== DEBUG (getAgenda) ===========");
 
-  var url = `https://www.supersaas.com/api/bookings.json?schedule_id=${schedule_id}&api_key=60Sdu0PWYumxHliWn1Uieg&booking[start]=${booking_start}&booking[finish]=${booking_end}&user_id=${SuperSaaS_user_id}&booking[full_name]=${fname}`;
+  let html_str = "";
+
+  var url = `https://www.supersaas.com/api/agenda.json?user=${email}&api_key=60Sdu0PWYumxHliWn1Uieg&account=PetrasTYR`;
+
+  // let final_url = `${'https://cors-anywhere.herokuapp.com/'}${url}`;
+  // console.log(final_url);
+
+  axios.get(`${'https://cors-anywhere.herokuapp.com/'}${url}`,
+  {
+    headers: {
+      "Access-Control-Allow-Headers": "x-requested-with, x-requested-by"
+    }
+  })
+  .then((res) => {
+    console.log("=========== DEBUG (success) ==========");
+    // console.log(res['data']['bookings']);
+    var bookings_array = res['data']['bookings'];
+    console.log(bookings_array);
+    for (booking of bookings_array) {
+      let booking_id = booking.id;
+      let shop_name = booking.res_name;
+      let schedule_id = booking.schedule_id;
+      html_str += `<p>
+                      ${booking_id}
+                  </p>`;
+    }
+    document.getElementById("displayAppointments").innerHTML = html_str;
+    
+  })
+  .catch((err) => {
+    console.log("=========== DEBUG (error) ==========");
+    console.log(err.response);
+  })
+}
+
+function CreateEvent(schedule_id,booking_start,booking_end,SuperSaaS_user_id,fname, email) {
+  console.log("======== DEBUG (getAgenda) ===========");
+
+  var url = `https://www.supersaas.com/api/bookings.json?schedule_id=${schedule_id}&api_key=60Sdu0PWYumxHliWn1Uieg&booking[start]=${booking_start}&booking[finish]=${booking_end}&user_id=${SuperSaaS_user_id}&booking[full_name]=${fname}&booking[email]=${email}`;
 
   let final_url = `${'https://cors-anywhere.herokuapp.com/'}${url}`;
   console.log(final_url);
@@ -120,12 +174,13 @@ function CreateEvent(schedule_id,booking_start,booking_end,SuperSaaS_user_id,fna
 }
 
 function getSlotDetails(schedule_id) {
-  var selectedSlot = document.getElementById("dropDownMenu").value
+  var selectedSlot = document.getElementById("dropDownMenu").value;
   var booking_start = selectedSlot.slice(0,10) + '%20' + selectedSlot.slice(11,16);
-  // console.log(booking_start);
+  console.log(booking_start);
   var booking_end = selectedSlot.slice(0,10) + '%20' + selectedSlot.slice(17);
-  // console.log(booking_end);
-  CreateEvent(schedule_id,booking_start,booking_end,sessionStorage.getItem("SaaS_user_id"),sessionStorage.getItem("fname"));
+  console.log(booking_end);
+  console.log(sessionStorage.getItem("fname"));
+  CreateEvent(schedule_id,booking_start,booking_end,sessionStorage.getItem("SaaS_user_id"),sessionStorage.getItem("fname"),sessionStorage.getItem("email"));
 
 }
 

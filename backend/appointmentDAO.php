@@ -1,39 +1,38 @@
 <?php
 require_once "common.php";
 
-class UserDAO {
+class AppointmentDAO {
 
-    function add($user) {
+    function add($appointment) {
         $conn = new ConnectionManager();
         $pdo = $conn->getConnection();
-        $sql = 'insert into user (email, fname, SuperSaaS_user_id, gender, username, pw, phone, street_address, unit, postal_code)
-                    values (:email, :fname, :SuperSaaS_user_id, :gender, :username, :pw, :phone, :street_address, :unit, :postal_code)';
+        $sql = 'insert into appointments (user_email,seller_email,schedule_id,shop_name,image_url,service_id,service_title,service_description,service_price,appt_date_time)
+                    values (:user_email,:seller_email,:schedule_id,:shop_name,:image_url,:service_id,:service_title,:service_description,:service_price,:appt_date_time)';
 
         $stmt = $pdo->prepare($sql);
-        $email = $user->getEmail();
-        $fname = $user->getFName();
-        $SuperSaaS_user_id = $user->getSuperSaaSUserId();
-        $gender = $user->getGender();
-        $username = $user->getUsername();
-        $pw = $user->getPw();
-        $hashed = password_hash($pw, PASSWORD_DEFAULT);
-        $phone = $user->getPhone();
-        $street_address = $user->getStreetAddress();
-        $postal_code = $user->getPostalCode();
-        $unit = $user->getUnit();
-        // $shopname = $user->getShopName();
+        $user_email = $appointment->getUserEmail();
+        $seller_email = $appointment->getSellerEmail();
+        $schedule_id = $appointment->getScheduleID();
+        $shop_name = $appointment->getShopName();
+        $image_url = $appointment->getImageURL();
+        $service_id = $appointment->getServiceID();
+        $service_title = $appointment->getServiceTitle();
+        $service_description = $appointment->getServiceDescription();
+        $service_price = $appointment->getServicePrice();
+        $appt_date_time = $appointment->getApptDateTime();
+
         
-        $stmt->bindParam(':email',$email,PDO::PARAM_STR);
-        $stmt->bindParam(':fname',$fname,PDO::PARAM_STR);
-        $stmt->bindParam(':SuperSaaS_user_id',$SuperSaaS_user_id,PDO::PARAM_STR);
-        $stmt->bindParam(':gender',$gender,PDO::PARAM_STR);
-        $stmt->bindParam(':username',$username,PDO::PARAM_STR);
-        $stmt->bindParam(':pw',$hashed,PDO::PARAM_STR);
-        $stmt->bindParam(':phone',$phone,PDO::PARAM_STR);
-        $stmt->bindParam(':street_address',$street_address,PDO::PARAM_STR);
-        $stmt->bindParam(':unit',$unit,PDO::PARAM_STR);
-        $stmt->bindParam(':postal_code',$postal_code,PDO::PARAM_STR);
-        // $stmt->bindParam(':shopname',$shopname,PDO::PARAM_STR);
+        $stmt->bindParam(':user_email',$user_email,PDO::PARAM_STR);
+        $stmt->bindParam(':seller_email',$seller_email,PDO::PARAM_STR);
+        $stmt->bindParam(':schedule_id',$schedule_id,PDO::PARAM_STR);
+        $stmt->bindParam(':shop_name',$shop_name,PDO::PARAM_STR);
+        $stmt->bindParam(':image_url',$image_url,PDO::PARAM_STR);
+        $stmt->bindParam(':service_id',$service_id,PDO::PARAM_STR);
+        $stmt->bindParam(':service_title',$service_title,PDO::PARAM_STR);
+        $stmt->bindParam(':service_description',$service_description,PDO::PARAM_STR);
+        $stmt->bindParam(':service_price',$service_price,PDO::PARAM_STR);
+        $stmt->bindParam(':appt_date_time',$appt_date_time,PDO::PARAM_STR);
+
 
         $isAddOK = $stmt->execute();
         $stmt->closeCursor();

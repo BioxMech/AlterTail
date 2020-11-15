@@ -17,8 +17,6 @@ function show_shopPage(shop_name){
 
             service_str = "";
             serviceCheckbox_str = "";
-
-
             for(var record of records) {
                 // counter ++; 
     
@@ -41,6 +39,7 @@ function show_shopPage(shop_name){
                     <b>${shop_name}</b>
 
                 `;
+                
                 img_str = `
                 <img src="${shop_image}" class="img-fluid" alt="Responsive image"
                 style= "display: block;
@@ -48,6 +47,7 @@ function show_shopPage(shop_name){
                         margin-right: auto;
                         " >
                 `;
+                // console.log(shop_name)
 
                 shop_description_str = `
                 <p>${shop_description}</p>
@@ -86,7 +86,7 @@ function show_shopPage(shop_name){
 
                 serviceCheckbox_str += `
                 <label class="container">${service_title} - $${service_price}
-                    <input type="checkbox" name = "services[]" value="${service_title}" >
+                    <input type="checkbox" name = "services[]" value="${service_price}" id = "${service_title}_checkbox" onchange = "Price_Calculator('${service_title}', '${service_price}')">
                     <span class="checkmark"></span>
                 </label>
                 `;
@@ -105,17 +105,14 @@ function show_shopPage(shop_name){
             document.getElementById("serviceCheckbox").innerHTML = serviceCheckbox_str;
         }
     
-        }
-        var url = "projectAPI/user/retrieveShopPage.php?shop_name=" + shop_name;
-        
-    
-        request.open("GET", url, true);
-    
-        request.send();
+    }
+    var url = "projectAPI/user/retrieveShopPage.php?shop_name=" + shop_name;
+    request.open("GET", url, true);
+    request.send();
 }
 
 // session email 
-var email = sessionStorage.getItem("email")
+var email = sessionStorage.getItem("email");
 
 function retrieveProfileDetails() {
     var request = new XMLHttpRequest(); // Prep to make an HTTP request
@@ -151,15 +148,10 @@ function retrieveProfileDetails() {
             document.getElementById("shop_image").innerHTML = img_str;
         }
     
-
-        
-        }
-        var url = "projectAPI/user/retrieveProfile.php?email=" + email;
-        
-    
-        request.open("GET", url, true);
-    
-        request.send();
+    }
+    var url = "projectAPI/user/retrieveProfile.php?email=" + email;
+    request.open("GET", url, true);
+    request.send();
 }
 
 // function displaySlot() {
@@ -167,3 +159,77 @@ function retrieveProfileDetails() {
 //     console.log(selectedSlot);
 //     document.getElementById("dropdownMenuButton").innerText = selectedSlot;
 // }
+
+var total_price = 0;
+function Price_Calculator(service_title, service_price){
+    // console.log(service_title + '_checkbox');
+    // console.log(service_price);
+    var checkbox = document.getElementById(service_title + '_checkbox');
+    if (checkbox.checked == true){
+        // console.log(service_price);
+        total_price += parseInt(service_price);
+    }
+    else {
+        total_price -= parseInt(service_price);
+    }
+
+    total_price_str = `Total: $${total_price}`;
+    url_string = `stripe/paymentPage.php?Total=${total_price}`;
+
+    document.getElementById('TotalCosts').innerHTML = total_price_str;
+    document.getElementById('Total').value = total_price;
+    // document.getElementById('shop_url').href = url_string;
+    // document.getElementById('proceedToPayment').onclick = `pass_to_stripe('${total_price}')`;
+}
+
+function storeSessionDetails() {
+    var shop_page_user_email = document.getElementById("bookEmail").value;
+    var shop_page_name = document.getElementById("bookName").value;
+    var shop_page_phone = document.getElementById("bookPhoneNumber");
+    var shop_page_timeslot = document.getElementById("dropDownMenu").value;
+    var shop_page_total = document.getElementById("Total").value;
+    sessionStorage.setItem("shop_page_details", shop_page_user_email);
+    // console.log(sessionStorage.getItem("shop_page_email"));
+
+    
+    sessionStorage.setItem("shop_page_name", shop_page_name);
+    console.log(sessionStorage.getItem("shop_page_name"));
+
+    
+    sessionStorage.setItem("shop_page_phone",shop_page_phone);
+
+    
+    sessionStorage.setItem("shop_page_timeslot",shop_page_timeslot);
+    
+    
+    sessionStorage.setItem("shop_page_total",shop_page_total);
+    console.log(sessionStorage.getItem("shop_page_total"));
+}
+
+function delay (URL) {
+    setTimeout( function() { window.location = URL }, 2000 );
+}
+
+function setSpinner() {
+    document.getElementById("proceedToPayment").innerHTML = "Loading...<div class='spinner-border' role='status'></div>"
+}
+// function pass_to_stripe(){
+//     // alert('lit');
+//     var request = new XMLHttpRequest(); // Prep to make an HTTP request
+
+//     request.onreadystatechange = function() {
+        
+//         // Check if response is ready!
+//         alert(this.readyState);
+//         alert(this.status);
+//         if( this.readyState == 4 && this.status == 200 ){
+//             alert('x');
+//         }
+//     }
+
+//     var url = "./stripe/charge.php?totalprice=" + total_price;
+//     // alert(url);
+//     request.open("GET", url, true);
+//     request.send();
+// }
+
