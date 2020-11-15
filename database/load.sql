@@ -301,10 +301,11 @@ INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES
 ('tang.cottage@gmail.com','Tang Cottage','08');
 
 INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('AB.dry.clean@gmail.com','AB Professional','09'),
-('AB.dry.clean@gmail.com','AB Professional','10'),
-('AB.dry.clean@gmail.com','AB Professional','11'),
-('AB.dry.clean@gmail.com','AB Professional','12');
+('AB.dry.clean@gmail.com','AB Professional','05'),
+('AB.dry.clean@gmail.com','AB Professional','06'),
+('AB.dry.clean@gmail.com','AB Professional','07'),
+('AB.dry.clean@gmail.com','AB Professional','08'),
+('AB.dry.clean@gmail.com','AB Professional','13');
 
 INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
 ('alt.fit@gmail.com','Alt-To-Fit','05'),

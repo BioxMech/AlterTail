@@ -26,3 +26,9 @@ Install library by running 'composer require stripe/stripe-php'
 
 * Import database from database/load.sql 
 * Import database from stripe/paypage.sql
+
+On paymentPage.php,
+Name and email (No restriction)
+credit card number(4242 4242 4242 4242)
+CVC and ZIP(Any number)
+Date(any future date)
