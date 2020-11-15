@@ -75,7 +75,47 @@ function getAgenda(schedule_id, email) {
 
   let html_str = "";
 
-  var url = `https://www.supersaas.com/api/agenda/${schedule_id}.json?user=${email}&api_key=60Sdu0PWYumxHliWn1Uieg`;
+  var url = `https://www.supersaas.com/api/agenda/${schedule_id}.json?user=${email}&api_key=60Sdu0PWYumxHliWn1Uieg&account=PetrasTYR`;
+
+  // let final_url = `${'https://cors-anywhere.herokuapp.com/'}${url}`;
+  // console.log(final_url);
+
+  axios.get(`${'https://cors-anywhere.herokuapp.com/'}${url}`,
+  {
+    headers: {
+      "Access-Control-Allow-Headers": "x-requested-with, x-requested-by"
+    }
+  })
+  .then((res) => {
+    console.log("=========== DEBUG (success) ==========");
+    // console.log(res['data']['bookings']);
+    var bookings_array = res['data']['bookings'];
+    console.log(bookings_array);
+    for (booking of bookings_array) {
+      let booking_id = booking.id;
+      let shop_name = booking.res_name;
+      let schedule_id = booking.schedule_id;
+      html_str += `<p>
+                      ${booking_id}
+                  </p>`;
+    }
+    document.getElementById("displayAppointments").innerHTML = html_str;
+    
+  })
+  .catch((err) => {
+    console.log("=========== DEBUG (error) ==========");
+    console.log(err.response);
+  })
+}
+
+//Retrieve all appointments made on User side
+function getAllAgenda(email) {
+
+  console.log("======== DEBUG (getAgenda) ===========");
+
+  let html_str = "";
+
+  var url = `https://www.supersaas.com/api/agenda.json?user=${email}&api_key=60Sdu0PWYumxHliWn1Uieg&account=PetrasTYR`;
 
   // let final_url = `${'https://cors-anywhere.herokuapp.com/'}${url}`;
   // console.log(final_url);
