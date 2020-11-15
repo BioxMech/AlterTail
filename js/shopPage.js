@@ -39,7 +39,7 @@ function show_shopPage(shop_name){
                     <b>${shop_name}</b>
 
                 `;
-
+                
                 img_str = `
                 <img src="${shop_image}" class="img-fluid" alt="Responsive image"
                 style= "display: block;
@@ -47,6 +47,7 @@ function show_shopPage(shop_name){
                         margin-right: auto;
                         " >
                 `;
+                console.log(shop_name)
 
                 shop_description_str = `
                 <p>${shop_description}</p>
@@ -173,10 +174,11 @@ function Price_Calculator(service_title, service_price){
     }
 
     total_price_str = `Total: $${total_price}`;
-    url_string = `stripe/paymentPage.php?Total=${total_price}`;
+    // url_string = `stripe/paymentPage.php?Total=${total_price}`;
 
     document.getElementById('TotalCosts').innerHTML = total_price_str;
-    document.getElementById('shop_url').href = url_string;
+    document.getElementById('Total').value = total_price;
+    // document.getElementById('shop_url').href = url_string;
     // document.getElementById('proceedToPayment').onclick = `pass_to_stripe('${total_price}')`;
 }
 

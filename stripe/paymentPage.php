@@ -112,6 +112,12 @@
        <input type="email" name="email" class="form-control mb-3 StripeElement StripeElement--empty" placeholder="Email Address">
        <input type="hidden" name="shop_name">
        <input type="hidden" name="time">
+
+        <?php
+        $Total = $_GET['Total']; 
+        echo "<input type='hidden' name='Total' value=$Total>";
+        ?>
+
        <div id="card-element" class="form-control">
           <!-- a Stripe Element will be inserted here. -->
         </div>
