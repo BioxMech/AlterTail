@@ -4,6 +4,7 @@
   require_once('lib/pdo_db.php');
   require_once('models/Customer.php');
   require_once('models/Transaction.php');
+  require_once "../backend/common.php";
 
   \Stripe\Stripe::setApiKey('sk_test_51HYTEuFW7whrGeRW9iflK349xjEmCUf4OOsSMRuztxa8DY1MDhCNdupz9ZGr3ayP1upXm1JW0aYUxd6okkikK9TY00rxWyiEyK');
 
