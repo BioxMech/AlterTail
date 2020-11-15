@@ -22,11 +22,13 @@
  $shop_page_timeslot = $_POST['timeslot'];
  $shop_page_shop_name = $_POST['shop_name'];
  $shop_page_selected_services = $_POST['selected_services'];
+ $shop_page_image_url = $_POST['image_url'];
+ $shop_page_service_desc = $_POST['service_desc'];
  $token = $_POST['stripeToken'];
  $Total = $_POST['Total'] * 100;
 
  //Create Appointment
- $appointment = new Appointment($shop_page_user_email,$shop_page_seller_email,$shop_page_schedule_id,$shop_page_shop_name," ",$shop_page_selected_services,"description","price",$shop_page_timeslot);
+ $appointment = new Appointment($shop_page_user_email,$shop_page_seller_email,$shop_page_schedule_id,$shop_page_shop_name,$shop_page_image_url,$shop_page_selected_services,$shop_page_service_desc,"price",$shop_page_timeslot);
 ?>
 
 <?php

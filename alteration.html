@@ -28,6 +28,9 @@
      <link rel="stylesheet" href="css/buttonEffects.css">
      <link rel="stylesheet" href="css/form.css">
 
+     <!-- Vue.js CDN V2 & Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
      <style>
          #search_button{
@@ -100,58 +103,32 @@
                     <a class="nav-link current" href="index.html" style="padding-bottom:unset;" >Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="allTailorPage.html" style="padding-bottom:unset;" >Tailoring</a>
+                    <a class="nav-link" href="location.html" style="padding-bottom:unset;" >Tailoring</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="location.html" style="padding-bottom:unset;" >Alteration</a>
-                </li>
-                <li class="nav-item">
-                    <!-- Dropdown menu -->
-                    <div class="dropdown">
-                        <a class="nav-link" href="#" style="padding-bottom:unset;" 
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cleaning</a>
-                        <!-- Options -->
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="allBagCleaningPage.html">Bag Cleaning</a>
-                            <a class="dropdown-item" href="allDryCleaningPage.html">Dry Cleaning</a>
-                        </div>
-                        <!-- Options -->
-                    </div>
-                    <!-- End of dropdown menu -->
+                    <a class="nav-link" href="alteration.html" style="padding-bottom:unset;" >Alteration</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="aboutUs.html" style="padding-bottom:unset;" >About Us</a>
                 </li>
             </ul>      
-
-            <!-- Right Side -->
-            <!-- <ul class="navbar-nav ml-auto" id="rightNav">
-                <li class="nav-item">
-                    <form>
-                        <input type="text" class="searchBar" placeholder="Search Shop Names">
-                    </form>
-                </li> -->
-                <!-- <li class="nav-item"> -->
-                    <!-- <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="registerSignin" data-target="#registerSigninModal">Register / Login</a> -->
-                <!-- </li> -->
-            <!-- </ul> -->
-            <!-- End of right side -->
-
         </div>
         <!-- End of collapse content (Nav Bar) -->
 
+        <!-- Right side -->
         <div id="navbarNavRight">
             <ul class="navbar-nav flex-row ml-auto" id="registerProfile">
-              <!-- <li class="nav-item mt-2 mr-1" id="change">
-                <form>
-                    <input type="text" class="searchBar" placeholder="Search Shop Names">
-                </form>
-              </li>
-              <li class="nav-item mt-1" > -->
-                  <!-- Replace me with Sign in or Profile -->
-              <!-- </li> -->
+              <li class="nav-item mt-2 mr-1" id="change">
+                <!-- Search bar -->
+                <search-component></search-component>
+             </li>
+             <div id="change2">
+                <!-- Replace me with Sign in or Profile -->
+             </div>
             </ul>
         </div>
+        <!-- End of right side -->
+        
     </nav>
     <!-- End Navigation Bar -->
 
@@ -159,7 +136,7 @@
     <!-- Start of Register/Sign up modal -->
   <div class="modal fade" id="registerSigninModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-      <div class="modal-content"> 
+      <div class="modal-content">
 
         <!-- Tabs -->
         <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
@@ -240,7 +217,7 @@
 
                         <div class="form-label-group row">
                           <input type="text" class="form-control" v-bind:class="{'is-invalid': emailnotValid, 'is-valid': emailisValid }" id="registerEmail" placeholder="email" required="" name="email"
-                          pattern="^[a-zA-Z\d+.]+@([\w-]+\.)+[\w-]{2,4}$" v-model="registerEmail" v-on:keyup="checkEmail">
+                          pattern="^[a-zA-Z\d+._]+@([\w-]+\.)+[\w-]{2,4}$" v-model="registerEmail" v-on:keyup="checkEmail">
                           <label for="registerEmail">Email Address</label>
                           <small class="form-text text-muted">We'll never share your email with anyone else.</small>
                           <div class="valid-feedback" v-bind:style="emailValidStyle"> {{ emailValid }} </div>
@@ -249,7 +226,7 @@
 
                         <div class="form-label-group row">
                           <input type="text" class="form-control" v-bind:class="{'is-invalid': usernamenotValid, 'is-valid': usernameisValid}" id="registerUsername" placeholder="username" required="" name="username" 
-                          pattern="^[a-zA-Z\d+]{3,}$" v-model="registerUsername" v-on:keyup="checkUsername">
+                          pattern="^[a-zA-Z\d+]{3,15}$" v-model="registerUsername" v-on:keyup="checkUsername">
                           <label for="registerUsername">Username</label>
                           <small class="form-text text-muted">It will also be your display name.</small>
                           <div class="valid-feedback" v-bind:style="usernameValidStyle"> {{ usernameValid }} </div>
@@ -280,10 +257,11 @@
                             <div class="valid-feedback">You have a nice name.</div>
                             <div class="invalid-feedback"></div>
                           </div>
+                          <input type="hidden" name="SuperSaaS_user_id" id="SuperSaaS_user_id">
                         </div>
 
                         <div class="form-check form-check-inline row">
-                          Gender: 
+                          Gender: &nbsp
                         </div>
                         <div class="form-check form-check-inline row">
                           <input class="form-check-input" type="radio" name="gender" id="male_btn" value="Male" required>
@@ -291,6 +269,7 @@
                             Male
                           </label>
                         </div>
+                        &nbsp
                         <div class="form-check form-check-inline row mb-3">
                           <input class="form-check-input" type="radio" name="gender" id="female_btn" value="Female">
                           <label class="form-check-label" for="female_btn">
@@ -318,8 +297,8 @@
                           <input type="text" class="form-control" id="registerUnit" placeholder="Unit" name="unit" pattern="\d{1,2}-\d{2,4}">
                           <label for="registerUnit">Unit</label>
                           <small class="form-text text-muted">For example: 05-64</small>
-                          <div class="valid-feedback">Your unit number looks good!</div>
-                          <div class="invalid-feedback">Your unit number is invalid.</div>
+                          <!-- <div class="valid-feedback">Your unit number looks good!</div>
+                          <div class="invalid-feedback">Your unit number is invalid.</div> -->
                         </div>
 
                         <div class="form-label-group row">
@@ -604,41 +583,367 @@
     <script src="js/loaded.js"></script>
     
     
-    <script>
-        // Animate the Loader
-        ;(function(){
-        function id(v){return document.getElementById(v); }
-        function loadbar() {
-            var ovrl = id("overlay"),
-                prog = id("progress"),
-                stat = id("progstat"),
-                img = document.images,
-                c = 0;
-                tot = img.length;
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
 
-            function imgLoaded(){
-            c += 1;
-            var perc = ((100/tot*c) << 0) +"%";
-            prog.style.width = perc;
-            stat.innerHTML = "Loading "+ perc;
-            if(c===tot) return doneLoading();
+    <!-- Custom Vue.Js -->
+    <script>
+        var app = new Vue({
+            el: "#myForm1",
+            data: {
+              emailisValid: false,
+              emailnotValid: false,
+              usernameisValid: false,
+              usernamenotValid: false,
+              show: false,
+              registerName: '',
+              registerPassword: '',
+              hideLength: true,
+              hideUpper: true,
+              hideLower: true,
+              hideNumber: true,
+              registerUsername: '',
+              registerEmail: '',
+              usernameValid: '',
+              usernameValidStyle: {
+                color: 'red'
+              },
+              emailValid: '',
+              emailValidStyle: {
+                color: 'red'
+              },
+              emailInvalid: 'The email address entered is invalid',
+              usernameInvalid: 'Username needs to be at least 3 characters long'
+            },
+            methods: {
+              display: function() {
+                if (this.show == false) {
+                  this.show = true
+                }
+                else {
+                  this.show = false
+                }
+              },
+              passwordLength: function() {
+                if (this.registerPassword.length >= 6) {
+                  this.hideLength = false;
+                  return "✔ MUST contain at least 6 characters"
+                }
+                this.hideLength = true;
+                 
+              },
+              passwordUpper: function () {
+                if (/[A-Z]/.test(this.registerPassword)) {
+                  this.hideUpper = false;
+                  return "✔ MUST contain at least one uppercase letter."
+                }
+                this.hideUpper = true;
+              },
+              passwordLower: function () {
+                if (/[a-z]/.test(this.registerPassword)) {
+                  this.hideLower = false;
+                  return "✔ MUST contain at least one lowercase letter."
+                }
+                this.hideLower = true;
+              },
+              passwordNumber: function () {
+                if (/[\d]/.test(this.registerPassword)) {
+                  this.hideNumber = false;
+                  return "✔ MUST contain at least one number."
+                }
+                this.hideNumber = true;
+              },
+              checkUsername: function() {
+                // URL to an API endpoint
+                let url = 'projectAPI/user/checkUsername.php?username=' + this.registerUsername
+
+                // send a req to the above specified API endpoint
+                axios.get(url)
+                .then(response => {
+
+                  // response is the data
+                  let user_objects = response.data
+
+                  // view it
+                  // console.log(response.data)
+
+                  this.usernameInvalid = this.registerUsername + " already exist."
+                //   this.usernameValidStyle.color = "red"
+
+                  
+                  this.usernameisValid = false
+                  this.usernamenotValid = true
+                })
+                .catch(error => {
+                  // shows the status, e.g. 404
+                  // console.log(error.response.status)
+                  this.usernameValid = "You can use " + this.registerUsername + " as your username."
+                  this.usernameValidStyle.color = "green"
+
+                  this.usernameInvalid = "Username needs to be at least 3 characters long"
+
+                  this.usernameisValid = true
+                  this.usernamenotValid = false
+                })
+              },
+              checkEmail: function() {
+                // URL to an API endpoint
+                let url = 'projectAPI/user/checkEmail.php?email=' + this.registerEmail
+
+                // send a req to the above specified API endpoint
+                axios.get(url)
+                .then(response => {
+
+                  // response is the data
+                  let user_objects = response.data
+
+                  // view it
+                  // console.log(response.data)
+
+                  this.emailInvalid = this.registerEmail + " already exist."
+                //   this.emailValidStyle.color = "red"
+
+                  this.emailnotValid = true
+                  this.emailisValid = false
+                })
+                .catch(error => {
+                  // shows the status, e.g. 404
+                  // console.log(error.response.status)
+
+                  this.emailValid = "You can use " + this.registerEmail + " as your email."
+                  this.emailValidStyle.color = "green"
+
+                  this.emailInvalid = "The email address entered is invalid"
+
+                  this.emailnotValid = false
+                  this.emailisValid = true
+                })
+              }
             }
-            function doneLoading(){
-            ovrl.style.opacity = 0;
-            setTimeout(function(){ 
-                ovrl.style.display = "none";
-            }, 1200);
+        })
+
+
+        Vue.component('search-component',  {
+          template: `
+          <div class="dropdown">
+            <input type="text" class="searchBar" placeholder="Search Shop Names" v-model="query" @keyup="getData()" autocomplete="off" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
+            <div class="dropdown-menu" v-if="search_data.length">
+              <ul class="list-group">
+                <a href="#" class="dropdown-item" v-for="data1 in search_data" v-on:click="goToPage( data1.shop_name, data1.schedule_id )">{{ data1.shop_name }}</a>
+              </ul>
+            </div>
+          </div>
+          `,
+          data:function(){
+            return{
+              query:'',
+              search_data:[],
+              shop_name: '',
+              schedule_id: ''
             }
-            for(var i=0; i<tot; i++) {
-            var tImg     = new Image();
-            tImg.onload  = imgLoaded;
-            tImg.onerror = imgLoaded;
-            tImg.src     = img[i].src;
-            }    
-        }
-        document.addEventListener('DOMContentLoaded', loadbar, false);
-        }());
+          },
+          methods:{
+            getData:function(){
+              let url = 'projectAPI/user/fetch.php?query=' + this.query;
+
+              axios.get(url)
+                .then(response => {
+                  let user_objects = response.data;
+                  this.search_data = user_objects.records
+                })
+              
+            },
+            goToPage: function(shop_name, schedule_id) {
+              window.location.replace("/AlterTail/shopPage.html?shop_name=" + shop_name + "&schedule_id=" + schedule_id);
+            }
+          }
+        });
+
+        var application = new Vue({
+          el:'#registerProfile'
+        });
+
+
+       
     </script>
+
+
+
+    <!-- Form animation -->
+    <script>
+      $(document).ready(function(){
+      // ----------- Set all elements as INVALID --------------
+      var myInputElements = document.querySelectorAll(".form-control");
+      var i;
+    //   for (i = 0; i < myInputElements.length; i++) {
+    //     myInputElements[i].classList.add('is-invalid');
+    //     myInputElements[i].classList.remove('is-valid');
+    //   }
+      // ------------ Check passwords similarity --------------
+      $('#registerPassword, #cregisterPassword').on('keyup', function () {
+        if ($('#registerPassword').val() != '' && $('#cregisterPassword').val() != '' && $('#registerPassword').val() == $('#cregisterPassword').val() ) {
+          $('#cPwdValid').show();
+          $('#cPwdInvalid').hide();
+          $('#cPwdInvalid').html('Passwords Match').css('color', 'green');
+          $('.myCpwdClass').addClass('is-valid');
+          $('.myCpwdClass').removeClass('is-invalid');
+          $("#submitBtn").attr("disabled",false);
+          $('#submitBtn').addClass('btn-primary').removeClass('btn-secondary');
+          for (i = 0; i < myInputElements.length; i++) {
+            var myElement = document.getElementById(myInputElements[i].id);
+            if (myElement.classList.contains('is-invalid')) {
+              $("#submitBtn").attr("disabled",true);
+              $('#submitBtn').addClass('btn-secondary').removeClass('btn-primary');
+              break;
+            }
+          }
+        } else {
+          $('#cPwdValid').hide();
+          $('#cPwdInvalid').show();
+          $('#cPwdInvalid').html('Not Matching').css('color', 'red');
+          $('.myCpwdClass').removeClass('is-valid');
+          $('.myCpwdClass').addClass('is-invalid');
+          $("#submitBtn").attr("disabled",true);
+          $('#submitBtn').addClass('btn-secondary').removeClass('btn-primary');
+        }
+      });
+      // ----------------- Validate on submit -----------------
+      let currForm1 = document.getElementById('myForm1');
+      currForm1.addEventListener('submit', function(event) {
+        if (currForm1.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        else {
+          $("#submitBtn").attr("disabled",false);
+          $('#submitBtn').addClass('btn-primary').removeClass('btn-secondary');
+          currForm1.classList.add('was-validated');
+        }
+      }, false);
+      // ----------------- Validate on input -----------------
+      currForm1.querySelectorAll('.form-control').forEach(input => {
+        input.addEventListener(('input'), () => {
+          if (input.checkValidity()) {
+            input.classList.remove('is-invalid');
+            input.classList.add('is-valid');
+          } else {
+            input.classList.remove('is-valid');
+            input.classList.add('is-invalid');
+          }
+          var is_valid = $('.form-control').length === $('.form-control.is-valid').length;
+          $("#submitBtn").attr("disabled", !is_valid);
+          if (is_valid) {
+            $("#submitBtn").attr("disabled",false);
+            $('#submitBtn').addClass('btn-primary').removeClass('btn-secondary');
+          } else {
+            $("#submitBtn").attr("disabled",true);
+            $('#submitBtn').addClass('btn-secondary').removeClass('btn-primary');
+          }
+        });
+      });
+      // ------------------------------------------------------
+    });
+
+    function submitForm(){ 
+  // Call submit() method on <form id='myform'>
+  document.getElementById('signInForm').submit(); 
+} 
+
+    // this is the id of the form
+    $("#signInForm").submit(function(e) {
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+
+    var form = $(this);
+    var emailOutput = document.getElementById("emailOutput");
+    var passwordOutput = document.getElementById("passwordOutput");
+    var email = document.getElementById("signinEmail").value;
+    var password = document.getElementById("psw").value;
+    var name = document.getElementById("registerName").value;
+
+    
+    $.ajax({
+          type: "GET",
+          url: "projectAPI/user/verification.php?email=" + email + "&pw=" + password,
+          data: form.serialize(), // serializes the form's elements.
+          success: function(data)
+          {
+            // $('#signInForm').attr('validated',true);
+            // $('#signInForm').submit();
+
+            // sets a session
+            sessionStorage.setItem('email', email);
+            
+            // refreshes the page
+            submitForm()
+
+          },
+          statusCode: {
+              401: function() {
+                emailOutput.innerHTML = "";
+                // passwordOutput.innerHTML = "Wrong Password";
+                passwordOutput.innerHTML = `
+                <div class="w3-animate-left text-danger">
+                  &#x274C Password is <b>wrong</b> or <b>invalid</b> 
+                </div>
+                `;
+              },
+              404: function() {
+                passwordOutput.innerHTML = "";
+                // emailOutput.innerHTML = "Email does not exist";
+                emailOutput.innerHTML = `
+                <div class="w3-animate-left text-danger">
+                  &#x274C Email does <b>not exist</b> or <b>invalid</b> 
+                </div>
+                `;
+              }
+            }
+            
+        });
+
+        return false; 
+
+    });
+
+// testing purpose
+console.log(sessionStorage.getItem('email'));
+
+
+// Animate the Loader
+;(function(){
+  function id(v){return document.getElementById(v); }
+  function loadbar() {
+    var ovrl = id("overlay"),
+        prog = id("progress"),
+        stat = id("progstat"),
+        img = document.images,
+        c = 0;
+        tot = img.length;
+
+    function imgLoaded(){
+      c += 1;
+      var perc = ((100/tot*c) << 0) +"%";
+      prog.style.width = perc;
+      stat.innerHTML = "Loading "+ perc;
+      if(c===tot) return doneLoading();
+    }
+    function doneLoading(){
+      ovrl.style.opacity = 0;
+      setTimeout(function(){ 
+        ovrl.style.display = "none";
+      }, 1200);
+    }
+    for(var i=0; i<tot; i++) {
+      var tImg     = new Image();
+      tImg.onload  = imgLoaded;
+      tImg.onerror = imgLoaded;
+      tImg.src     = img[i].src;
+    }    
+  }
+  document.addEventListener('DOMContentLoaded', loadbar, false);
+}());
+
+    </script>  
 
   </body>
 </html>

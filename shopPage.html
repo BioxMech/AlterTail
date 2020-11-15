@@ -388,7 +388,7 @@
                     <h4 style="font-weight:bold; ">Meet up with our Exports</h4>
                     <br><br>
                     <p><strong>Choose preferred time slot</strong></p>
-
+                    <small>Please wait for timeslots to be displayed</small>
                     <!-- Availabilities dropdown menu -->
                     <!-- <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onchange='displaySlot()'>
@@ -437,7 +437,7 @@
                     </div>
 
                     <div class="form-label-group row">
-                    <input type="text" class="form-control" id="bookEmail" placeholder="email" required="" name="bookEmail"
+                    <input type="text" class="form-control" readonly id="bookEmail" placeholder="email" required="" name="bookEmail"
                     pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
                     <label for="bookEmail">Email Address</label>
                     </div>
@@ -446,7 +446,8 @@
                     <input type="number" class="form-control" id="bookPhoneNumber" placeholder="Phone Number" required="" name="bookPhoneNumber" pattern="[0-9]{8,8}">
                     <label for="bookPhoneNumber"></i>Phone Number</label>
                     </div>
-                
+                    <input type='hidden' id='shop_image_url' value="hello">
+                    <input type='hidden' id='shop_service_desc' value="hello">
                 <p><strong>Type of Service</strong></p>
                 <div>
                     <!-- <label class="container">Tailored Shirts

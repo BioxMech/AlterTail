@@ -31,7 +31,6 @@ if($num>0) {
             "schedule_id" => $schedule_id,
             "shop_name" => $shop_name,
             "image_url" => $image_url,
-            "service_id" => $service_id,
             "service_title" => $service_title,
             "service_description" => $service_description,
             "service_price" => $service_price,

@@ -126,6 +126,8 @@
         echo "<input type='hidden' id='shop_page_timeslot' name='timeslot' value=''>";
         echo "<input type='hidden' id='shop_page_shop_name' name='shop_name' value=''>";
         echo "<input type='hidden' id='shop_page_selected_services' name='selected_services' value=''>";
+        echo "<input type='hidden' id='shop_page_image_url' name='image_url' value=''>";
+        echo "<input type='hidden' id='shop_page_shop_desc' name='service_desc' value=''>";
         // echo "<input type='hidden' id='shop_page_shop_image' name='shop_image' value=>";
         ?>
 
@@ -287,6 +289,8 @@
     console.log(sessionStorage.getItem("shop_page_total"));
     console.log(sessionStorage.getItem("shop_page_shop_name"));
     console.log(sessionStorage.getItem("shop_page_seller_email"))
+    console.log(sessionStorage.getItem("shop_page_image_url"));
+    console.log(sessionStorage.getItem("shop_page_service_desc"));
     // console.log(sessionStorage.getItem("shop_page_shop_image"));
     var total_amt = sessionStorage.getItem("shop_page_total");
     // console.log(total_amt);
@@ -299,6 +303,8 @@
     document.getElementById("shop_page_timeslot").value = sessionStorage.getItem("shop_page_timeslot");
     document.getElementById("shop_page_shop_name").value = sessionStorage.getItem("shop_page_shop_name");
     document.getElementById("shop_page_selected_services").value = sessionStorage.getItem("shop_page_selected_services");
+    document.getElementById("shop_page_image_url").value = sessionStorage.getItem("shop_page_image_url");
+    document.getElementById("shop_page_shop_desc").value = sessionStorage.getItem("shop_page_service_desc");
     // document.getElementById("shop_page_shop_image").value = sessionStorage.getItem("shop_page_shop_image");
   </script>
 </body>

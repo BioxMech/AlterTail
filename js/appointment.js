@@ -17,7 +17,8 @@ function displayAppointment() {
             var modal_str = document.getElementById("modalContent").innerHTML
             for(var user of records) {
                 var datetime = user.appt_date_time.split(" ")[0].split("-");                
-                
+                var title = user.service_title.split(" - ")[0];
+                var price = user.service_title.split(" - ")[1];
 
                 modal_str += 
                     `
@@ -62,7 +63,7 @@ function displayAppointment() {
 
                         <!-- Details -->
                         <td style="padding-top: 30px;">
-                        <strong>SGD$ ${user.service_price}</strong> &nbsp (${user.service_title})
+                        <strong>SGD ${price}</strong> &nbsp (${title})
                         <p>
                             ${user.appt_date_time}
                         </p>
@@ -94,7 +95,7 @@ function displayAppointment() {
 
                         <!-- Details -->
                         <td style="padding-top: 30px;">
-                        <strong>SGD$ ${user.service_price}</strong> &nbsp (${user.service_title})
+                        <strong>SGD ${price}</strong> &nbsp (${title})
                         <p>
                             ${user.appt_date_time}
                         </p>
@@ -125,9 +126,11 @@ function displayAppointment() {
             </td>
 
             <td style="padding-top: 30px;">
-                <p>You do not have any scheduled appointments currently. </p>
-                <p>To start booking for appointments with sellers at AlterTail, you can browse through our services below: </p>
-                <a class="button" href="alteration.html">Alteration</a> and/or <a class="button" href="location.html">Tailoring</a>
+                <p>You <b>do not</b> have any scheduled appointments currently. </p>
+                <p>
+                <i class="fas fa-shopping-basket"></i>
+                To start booking for appointments with sellers at AlterTail, you can browse through our services stated below: </p>
+                <a class="button" href="alteration.html">Alteration</a> &nbsp <a class="button" href="location.html">Tailoring</a>
             </td>
                         `;
         }

@@ -94,6 +94,8 @@ function show_shopPage(shop_name){
             // console.log(services)
             document.getElementsByClassName("shop_name")[0].innerHTML = shop_name_str;
             document.getElementsByClassName("shop_name")[1].innerHTML = shop_name_str;
+            document.getElementById("shop_image_url").value = shop_image;
+            document.getElementById("shop_service_desc").value = shop_description;
             // document.getElementsByClassName("shop_name")[2].innerHTML = shop_name_str;
 
             // document.getElementById("bookingConfirm").innerHTML = booking_confirm_str;
@@ -204,6 +206,9 @@ function Price_Calculator(){
     // console.log(service_price);
     // var checkbox = document.getElementById(service_title + '_checkbox');
     var checkbox = document.getElementById("serviceCheckbox").value;
+    var x = document.getElementById("serviceCheckbox");
+    var index =  x.selectedIndex;
+    sessionStorage.setItem("shop_page_selected_services",x.options[index].text);
     // if (checkbox.checked == true){
     //     // console.log(service_price);
     //     total_price += parseInt(service_price);
@@ -229,17 +234,21 @@ function storeSessionDetails() {
     var shop_page_user_email = document.getElementById("bookEmail").value;
     var shop_page_name = document.getElementById("bookName").value;
     var shop_page_phone = document.getElementById("bookPhoneNumber").value;
-    // var shop_page_timeslot = document.getElementById("serviceCheckbox").value;
+    var shop_page_timeslot = document.getElementById("dropDownMenu").value;
+    var shop_page_shop_image = document.getElementById("shop_image_url").value;
+    var shop_page_shop_desc = document.getElementById("shop_service_desc").value;
 
     var shop_page_total = document.getElementById("Total").value;
 
     sessionStorage.setItem("shop_page_user_email", shop_page_user_email);
     sessionStorage.setItem("shop_page_name", shop_page_name);
     sessionStorage.setItem("shop_page_phone",shop_page_phone);
-    sessionStorage.setItem("shop_page_timeslot",shop_page_timeslot);
     sessionStorage.setItem("shop_page_total",shop_page_total);
-    sessionStorage.setItem("shop_page_selected_services", selected_service_arr);
-    alert(sessionStorage.getItem("shop_page_selected_services"));
+    sessionStorage.setItem("shop_page_timeslot",shop_page_timeslot);
+    sessionStorage.setItem("shop_page_image_url", shop_page_shop_image);
+    sessionStorage.setItem("shop_page_service_desc", shop_page_shop_desc);
+    // sessionStorage.setItem("shop_page_selected_services", selected_service_arr);
+    // alert(sessionStorage.getItem("shop_page_selected_services"));
     console.log(sessionStorage.getItem("shop_page_selected_services"));
 }
 
