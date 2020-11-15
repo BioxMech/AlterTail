@@ -41,66 +41,52 @@
     <nav class="navbar navbar-expand-lg navbar-light" >
         
   
-        <!-- Hamburger Name -->
-        <button class="navbar-toggler mr-4" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-  
-        <a class="navbar-brand mr-auto" href="index.html">
-            <img src="images/logo.jpg" class="d-inline-block align-top navBarLogo" loading="lazy">
-        </a>
-        
-        <!-- Collapse Content (Nav Bar) -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-                
-            <!-- Left Side Nav -->
-            <ul class="navbar-nav mr-auto" id="leftSideNav">
-                <li class="nav-item">
-                    <a class="nav-link current" href="index.html" style="padding-bottom:unset;" >Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="allTailorPage.html" style="padding-bottom:unset;" >Tailoring</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="location.html" style="padding-bottom:unset;" >Alteration</a>
-                </li>
-                <li class="nav-item">
-                    <!-- Dropdown menu -->
-                    <div class="dropdown">
-                        <a class="nav-link" href="#" style="padding-bottom:unset;" 
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cleaning</a>
-                        <!-- Options -->
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="allBagCleaningPage.html">Bag Cleaning</a>
-                            <a class="dropdown-item" href="allDryCleaningPage.html">Dry Cleaning</a>
-                        </div>
-                        <!-- Options -->
-                    </div>
-                    <!-- End of dropdown menu -->
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="aboutUs.html" style="padding-bottom:unset;" >About Us</a>
-                </li>
-            </ul>      
-        </div>
-        <!-- End of collapse content (Nav Bar) -->
+      <!-- Hamburger Name -->
+      <button class="navbar-toggler mr-4" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <!-- Right side -->
-        <div id="navbarNavRight">
-            <ul class="navbar-nav flex-row ml-auto" id="registerProfile">
-              <li class="nav-item mt-2 mr-1" id="change">
-                <!-- Search bar -->
-                <search-component></search-component>
-             </li>
-             <div id="change2">
-                <!-- Replace me with Sign in or Profile -->
-             </div>
-            </ul>
-        </div>
-        <!-- End of right side -->
-        
-    </nav>
-    <!-- End Navigation Bar -->
+      <a class="navbar-brand mr-auto" href="index.html">
+          <img src="images/logo.jpg" class="d-inline-block align-top navBarLogo" loading="lazy">
+      </a>
+      
+      <!-- Collapse Content (Nav Bar) -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+              
+          <!-- Left Side Nav -->
+          <ul class="navbar-nav mr-auto" id="leftSideNav">
+              <li class="nav-item">
+                  <a class="nav-link current" href="index.html" style="padding-bottom:unset;" >Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="location.html" style="padding-bottom:unset;" >Tailoring</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="location.html" style="padding-bottom:unset;" >Alteration</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="aboutUs.html" style="padding-bottom:unset;" >About Us</a>
+              </li>
+          </ul>      
+      </div>
+      <!-- End of collapse content (Nav Bar) -->
+
+      <!-- Right side -->
+      <div id="navbarNavRight">
+          <ul class="navbar-nav flex-row ml-auto" id="registerProfile">
+            <li class="nav-item mt-2 mr-1" id="change">
+              <!-- Search bar -->
+              <search-component></search-component>
+           </li>
+           <div id="change2">
+              <!-- Replace me with Sign in or Profile -->
+           </div>
+          </ul>
+      </div>
+      <!-- End of right side -->
+      
+  </nav>
+  <!-- End Navigation Bar -->
 
 
   <!-- Start of Register/Sign up modal -->
@@ -374,7 +360,9 @@
       <div class="container h-100">
         <div class="d-flex h-100 text-center align-items-center">
           <div class="w-100 text-white">
-            <h1 class="display-3" style="font-family: 'open_sansbold';">About Us</h1>
+            <h1  style="font-family: 'open_sansbold';
+                                        text-shadow: 3px 3px 3px #000000;
+                                        font-size: 50px;">About Us</h1>
             
             
           </div>
@@ -444,20 +432,11 @@
       <div class="col-md-2 mx-auto">
 
         <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">About us</h5>
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Backgroundfinfo</h5>
 
         <ul class="list-unstyled">
           <li>
             <a href="aboutus.html">About Us</a>
-          </li>
-          <li>
-            <a href="#!">Community</a>
-          </li>
-          <li>
-            <a href="#!">Career</a>
-          </li>
-          <li>
-            <a href="#!">Contact Us</a>
           </li>
         </ul>
 
@@ -479,12 +458,6 @@
           <li>
             <a href="#!">Tailoring</a>
           </li>
-          <li>
-            <a href="#!">Bag Cleaning</a>
-          </li>
-          <li>
-            <a href="#!">Dry Cleaning</a>
-          </li>
         </ul>
 
       </div>
@@ -500,16 +473,10 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="#!">Payment methods</a>
+            <a href="terms.html">Terms and conditions</a>
           </li>
           <li>
-            <a href="#!">Shipping methods</a>
-          </li>
-          <li>
-            <a href="#!">Terms and conditions</a>
-          </li>
-          <li>
-            <a href="#!">Privacy Policy</a>
+            <a href="privacypolicy.html">Privacy Policy</a>
           </li>
         </ul>
 

@@ -1,4 +1,4 @@
-// var shopname = "Red Dot Bespoke";
+
 
 function show_shopPage(shop_name){
     var request = new XMLHttpRequest(); // Prep to make an HTTP request
@@ -7,7 +7,6 @@ function show_shopPage(shop_name){
         
         // Check if response is ready!
         if( this.readyState == 4 && this.status == 200 ) {
-            // alert("lalalla");
             // Convert responseText to JSON
             // console.log(this.responseText);
             var response_json = JSON.parse(this.responseText);
@@ -103,6 +102,14 @@ function show_shopPage(shop_name){
             document.getElementById("shop_services").innerHTML = service_str;
             document.getElementById("shop_address").innerHTML = shop_address_str;
             document.getElementById("serviceCheckbox").innerHTML = serviceCheckbox_str;
+
+
+            if (sessionStorage.length != 0) {
+                document.getElementById("bookButton").setAttribute("class", "nav-item mt-3 mr-1");
+            }
+            else {
+                document.getElementById("bookButton").setAttribute("class", "nav-item mt-1 mr-1");
+            }
         }
     
     }
@@ -161,6 +168,17 @@ function retrieveProfileDetails() {
 // }
 
 var total_price = 0;
+var selected_service_arr = [];
+
+function removeItemOnce(arr, value) {
+    var index = arr.indexOf(value);
+    if (index > -1) {
+      arr.splice(index, 1);
+    }
+    return arr;
+  }
+  
+
 function Price_Calculator(service_title, service_price){
     // console.log(service_title + '_checkbox');
     // console.log(service_price);
@@ -168,6 +186,8 @@ function Price_Calculator(service_title, service_price){
     if (checkbox.checked == true){
         // console.log(service_price);
         total_price += parseInt(service_price);
+        selected_service_arr.push([service_title, service_price]);
+        console.log(selected_service_arr);
     }
     else {
         total_price -= parseInt(service_price);
@@ -178,32 +198,27 @@ function Price_Calculator(service_title, service_price){
 
     document.getElementById('TotalCosts').innerHTML = total_price_str;
     document.getElementById('Total').value = total_price;
+
     // document.getElementById('shop_url').href = url_string;
     // document.getElementById('proceedToPayment').onclick = `pass_to_stripe('${total_price}')`;
 }
 
+
 function storeSessionDetails() {
     var shop_page_user_email = document.getElementById("bookEmail").value;
     var shop_page_name = document.getElementById("bookName").value;
-    var shop_page_phone = document.getElementById("bookPhoneNumber");
+    var shop_page_phone = document.getElementById("bookPhoneNumber").value;
     var shop_page_timeslot = document.getElementById("dropDownMenu").value;
     var shop_page_total = document.getElementById("Total").value;
-    sessionStorage.setItem("shop_page_details", shop_page_user_email);
-    // console.log(sessionStorage.getItem("shop_page_email"));
 
-    
+    sessionStorage.setItem("shop_page_user_email", shop_page_user_email);
     sessionStorage.setItem("shop_page_name", shop_page_name);
-    console.log(sessionStorage.getItem("shop_page_name"));
-
-    
     sessionStorage.setItem("shop_page_phone",shop_page_phone);
-
-    
     sessionStorage.setItem("shop_page_timeslot",shop_page_timeslot);
-    
-    
     sessionStorage.setItem("shop_page_total",shop_page_total);
-    console.log(sessionStorage.getItem("shop_page_total"));
+    sessionStorage.setItem("shop_page_selected_services", selected_service_arr);
+    alert(sessionStorage.getItem("shop_page_selected_services"));
+    console.log(sessionStorage.getItem("shop_page_selected_services"));
 }
 
 function delay (URL) {

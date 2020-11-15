@@ -29,14 +29,16 @@
         <link rel="stylesheet" href="css/animation.css">
         <link rel="stylesheet" href="css/buttonEffects.css">
         <link rel="stylesheet" href="css/form.css">
+        <link rel="stylesheet" href="css/new.css">
     
         <!-- Vue.js CDN V2 & Axios -->
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     
         
+
       </head>
-      <body onload="loggedIn(); ">
+      <body onload="loggedIn(); displayAppointment();">
         
         <div id="overlay">
             <div id="progstat"></div>
@@ -369,17 +371,17 @@
               <tr>
                 <!-- <th scope="row">1</th> -->
                 <!-- Image + Shop Name -->
-                <td>
+                <!-- <td>
                   <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="images/alteration_shop12.jpg" alt="Card image cap">
                     <div class="card-body">
                       <h5 class="card-title" style="text-align: center;">Assemble</h5>
                     </div>
                   </div>
-                </td>
+                </td> -->
 
                 <!-- Details -->
-                <td>
+                <!-- <td>
                   <strong>$50</strong>
                   <p>3-Piece Suit</p>
                   <p>
@@ -392,29 +394,29 @@
                   </p>
                   <p>
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmation">
-                      Cancel
-                    </button>
-                    &nbsp
-                    <button type="button" class="btn btn-dark">
-                      To Assemble
-                    </button>
+                        Cancel
+                      </button>
+                      &nbsp
+                      <button type="button" class="btn btn-dark">
+                        To Assemble
+                      </button>
                   </p>
                 </td>
-              </tr>
+              </tr> -->
 
               <tr>
                 <!-- Image + Shop Name -->
-                <td>
+                <!-- <td>
                   <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="images/alteration_shop12.jpg" alt="Card image cap">
                     <div class="card-body">
                       <h5 class="card-title" style="text-align: center;">Assemble</h5>
                     </div>
                   </div>
-                </td>
+                </td> -->
 
                 <!-- Details -->
-                <td>
+                <!-- <td>
                   <p><strong>$50</strong> &nbsp (3-Piece Suit)</p>
                   <p><strong>
                     08:00 - 11:00, Wednesday, <br>
@@ -425,16 +427,12 @@
                     The 3pc suit is the most flattering garment that a man can own. The vest cinches in the waist, giving a natural V-shape to the upper body. You may also wear the vest, shirt and trousers without a jacket - a way to upkeep formality without compromising on style.
                   </p>
                   <p>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmation">
-                      Cancel
-                    </button>
+                    <a href="" class="cancelButton" data-toggle="modal" data-target="#confirmation">Cancel</a>
                     &nbsp
-                    <button type="button" class="btn btn-dark">
-                      To Assemble
-                    </button>
+                    <a href="shopPage.html" class="button">To Assemble</a>
                   </p>
                 </td>
-              </tr>
+              </tr> -->
             </tbody>
           </table>
       </div>
@@ -442,9 +440,12 @@
 
 
       <!-- Confirmation Modal -->
-      <div class="modal fade" id="confirmation" tabindex="-1" role="dialog" aria-labelledby="confirmationLabel" aria-hidden="true">
+      <div id="modalContent">
+          
+      </div>
+      <!-- <div class="modal fade" id="confirmation" tabindex="-1" role="dialog" aria-labelledby="confirmationLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
+          <div class="modal-content" id="modalContent">
             <div class="modal-header">
               <h5 class="modal-title" id="confirmationLabel">Confirmation to cancel appointment with Assemble</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -452,15 +453,19 @@
               </button>
             </div>
             <div class="modal-body">
-              Are you sure you want to cancel your appointment with Assemble? Once cancel, your appointment timeslot will be given away.
+              Are you sure you want to cancel your appointment with Assemble? Once cancelled, your appointment timeslot will be given away.
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-danger" onclick="alert('Cancelled')">Cancel Appointment</button>
+              <form action="backend/processDelete.php" method="POST">
+                <input type="hidden" value="" name="shop_name">
+                <input type="hidden" value="" name="email" id="hiddenEmail">
+                <input type="submit" class="btn btn-danger" value="Cancel Appointment"></input>
+              </form>
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
 
 
@@ -629,7 +634,7 @@
         <script src="js/form.js"></script>
         <script src="js/loaded.js"></script>
         <script src="js/appointment.js"></Script>
-        <!-- <script src="js/protect.js"></script> -->
+        <script src="js/protect.js"></script>
     
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -855,7 +860,12 @@
   
       </script>
   
-  
+        <script>
+            if (sessionStorage.length > 0) {
+                document.getElementById("hiddenEmail").setAttribute("value", sessionStorage.getItem("email"))
+            }
+            
+        </script>
   
       <!-- Form animation -->
       <script>
