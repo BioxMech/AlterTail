@@ -183,21 +183,25 @@ function Price_Calculator(service_title, service_price){
 }
 
 function storeSessionDetails() {
-    let shop_page_email = document.getElementById("bookEmail").value;
-    sessionStorage.setItem("shop_page_email", shop_page_email);
+    var shop_page_user_email = document.getElementById("bookEmail").value;
+    var shop_page_name = document.getElementById("bookName").value;
+    var shop_page_phone = document.getElementById("bookPhoneNumber");
+    var shop_page_timeslot = document.getElementById("dropDownMenu").value;
+    var shop_page_total = document.getElementById("Total").value;
+    sessionStorage.setItem("shop_page_details", shop_page_user_email);
     // console.log(sessionStorage.getItem("shop_page_email"));
 
-    let shop_page_name = document.getElementById("bookName").value;
+    
     sessionStorage.setItem("shop_page_name", shop_page_name);
     console.log(sessionStorage.getItem("shop_page_name"));
 
-    let shop_page_phone = document.getElementById("bookPhoneNumber");
+    
     sessionStorage.setItem("shop_page_phone",shop_page_phone);
 
-    let shop_page_timeslot = document.getElementById("dropDownMenu").value;
+    
     sessionStorage.setItem("shop_page_timeslot",shop_page_timeslot);
     
-    let shop_page_total = document.getElementById("Total").value;
+    
     sessionStorage.setItem("shop_page_total",shop_page_total);
     console.log(sessionStorage.getItem("shop_page_total"));
 }

@@ -45,33 +45,32 @@ service_price varchar(10) not null,
 service_description varchar(1000) not null,
 service_lead_time varchar(50) not null,
 service_image_url varchar(100) not null,
-constraint services_pk primary key(service_id)
+constraint services_pk primary key(service_title)
 );
 
 create table seller_service
 ( email varchar(50) not null,
 shop_name varchar(40) not null,
-service_id varchar(50) not null,
-constraint seller_service_pk primary key(email, shop_name, service_id),
+service_title varchar(50) not null,
+constraint seller_service_pk primary key(email, shop_name, service_title),
 constraint seller_service_fk1 foreign key(email, shop_name) references seller(email, shop_name),
-constraint seller_service_fk2 foreign key(service_id) references service(service_id)
+constraint seller_service_fk2 foreign key(service_title) references service(service_title)
 );
 
-create table transactions
+create table apppintments
 (user_email varchar(50) not null,
 seller_email varchar(50 ) not null,
 schedule_id varchar(50) not null,
 shop_name varchar(40) not null,
 image_url varchar(100),
-service_id varchar(50) not null,
 service_title varchar(50) not null,
 service_description varchar(1000) not null,
 service_price varchar(10) not null,
 appt_date_time varchar(50) not null,
-constraint transactions_pk primary key(user_email, shop_name,service_id),
+constraint transactions_pk primary key(user_email, shop_name,service_title),
 constraint transactions_fk1 foreign key(user_email) references  user(email),
 constraint transactions_fk2 foreign key(seller_email,shop_name) references seller(email,shop_name),
-constraint transactions_fk3 foreign key(service_id) references service(service_id)
+constraint transactions_fk3 foreign key(service_title) references service(service_title)
 );
 
 INSERT INTO `user` (`email`, `fname`, `SuperSaaS_user_id`, `gender`, `username`, `pw`, `phone`, `street_address`, `unit`, `postal_code`, `image_url`) VALUES
@@ -181,142 +180,142 @@ INSERT INTO `service`(`service_id`, `service_title`, `service_price`, `service_d
 ('12','Bag Cleaning Services','50',"We have years of experience in luxury bag repair and restoration. We provide the best Bag – Wallet Cleaning Service In Singapore. Our goal is to preserve the tip-top conditions of your luxury bags, hence enhancing the value you have invested in them.",'8 days','cleaning3.jpg');
 
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('suityourself@gmail.com','SuitYourself','01'),
-('suityourself@gmail.com','SuitYourself','02'),
-('suityourself@gmail.com','SuitYourself','03'),
-('suityourself@gmail.com','SuitYourself','04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('suityourself@gmail.com','SuitYourself','Tailored Shirt'),
+('suityourself@gmail.com','SuitYourself','2-Piece Suit'),
+('suityourself@gmail.com','SuitYourself','3-Piece Suit'),
+('suityourself@gmail.com','SuitYourself','Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('alt.unisex@gmail.com','Alteration of Unisex Clothing','05'),
-('alt.unisex@gmail.com','Alteration of Unisex Clothing','06'),
-('alt.unisex@gmail.com','Alteration of Unisex Clothing','07'),
-('alt.unisex@gmail.com','Alteration of Unisex Clothing','08');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('alt.unisex@gmail.com','Alteration of Unisex Clothing','Mending & Sewing Service'),
+('alt.unisex@gmail.com','Alteration of Unisex Clothing','Zip Replacements'),
+('alt.unisex@gmail.com','Alteration of Unisex Clothing','Length Adjustments'),
+('alt.unisex@gmail.com','Alteration of Unisex Clothing','Buttons Replacement');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('assemble@gmail.com','Assemble','01'),
-('assemble@gmail.com','Assemble','02'),
-('assemble@gmail.com','Assemble','03'),
-('assemble@gmail.com','Assemble','04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('assemble@gmail.com','Assemble','Tailored Shirt'),
+('assemble@gmail.com','Assemble','2-Piece Suit'),
+('assemble@gmail.com','Assemble','3-Piece Suit'),
+('assemble@gmail.com','Assemble','Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('editsuits@gmail.com','Edit Suits Co','01'),
-('editsuits@gmail.com','Edit Suits Co','02'),
-('editsuits@gmail.com','Edit Suits Co','03'),
-('editsuits@gmail.com','Edit Suits Co','04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('editsuits@gmail.com','Edit Suits Co','Tailored Shirt'),
+('editsuits@gmail.com','Edit Suits Co','2-Piece Suit'),
+('editsuits@gmail.com','Edit Suits Co','3-Piece Suit'),
+('editsuits@gmail.com','Edit Suits Co','Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('ehkay@gmail.com','Ehkay Corner Tailors','01'),
-('ehkay@gmail.com','Ehkay Corner Tailors','02'),
-('ehkay@gmail.com','Ehkay Corner Tailors','03'),
-('ehkay@gmail.com','Ehkay Corner Tailors','04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('ehkay@gmail.com','Ehkay Corner Tailors','Tailored Shirt'),
+('ehkay@gmail.com','Ehkay Corner Tailors','2-Piece Suit'),
+('ehkay@gmail.com','Ehkay Corner Tailors','3-Piece Suit'),
+('ehkay@gmail.com','Ehkay Corner Tailors','Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('ethan.men@gmail.com','Ethan Men','01'),
-('ethan.men@gmail.com','Ethan Men','02'),
-('ethan.men@gmail.com','Ethan Men','03'),
-('ethan.men@gmail.com','Ethan Men','04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('ethan.men@gmail.com','Ethan Men','Tailored Shirt'),
+('ethan.men@gmail.com','Ethan Men','2-Piece Suit'),
+('ethan.men@gmail.com','Ethan Men','3-Piece Suit'),
+('ethan.men@gmail.com','Ethan Men','Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('gentlementale@gmail.com',"A Gentleman's Tale",'01'),
-('gentlementale@gmail.com',"A Gentleman's Tale",'02'),
-('gentlementale@gmail.com',"A Gentleman's Tale",'03'),
-('gentlementale@gmail.com',"A Gentleman's Tale",'04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('gentlementale@gmail.com',"A Gentleman's Tale",'Tailored Shirt'),
+('gentlementale@gmail.com',"A Gentleman's Tale",'2-Piece Suit'),
+('gentlementale@gmail.com',"A Gentleman's Tale",'3-Piece Suit'),
+('gentlementale@gmail.com',"A Gentleman's Tale",'Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('ginz.collection@gmail.com','Ginz Collection','05'),
-('ginz.collection@gmail.com','Ginz Collection','06'),
-('ginz.collection@gmail.com','Ginz Collection','07'),
-('ginz.collection@gmail.com','Ginz Collection','08');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('ginz.collection@gmail.com','Ginz Collection','Mending & Sewing Service'),
+('ginz.collection@gmail.com','Ginz Collection','Zip Replacements'),
+('ginz.collection@gmail.com','Ginz Collection','Length Adjustments'),
+('ginz.collection@gmail.com','Ginz Collection','Buttons Replacement');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
 
-('haute@gmail.com','Haute Alteration Initiative','05'),
-('haute@gmail.com','Haute Alteration Initiative','06'),
-('haute@gmail.com','Haute Alteration Initiative','07'),
-('haute@gmail.com','Haute Alteration Initiative','08');
+('haute@gmail.com','Haute Alteration Initiative','Mending & Sewing Service'),
+('haute@gmail.com','Haute Alteration Initiative','Zip Replacements'),
+('haute@gmail.com','Haute Alteration Initiative','Length Adjustments'),
+('haute@gmail.com','Haute Alteration Initiative','Buttons Replacement');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('jeansfix@gmail.com','JeansFix','05'),
-('jeansfix@gmail.com','JeansFix','06'),
-('jeansfix@gmail.com','JeansFix','07'),
-('jeansfix@gmail.com','JeansFix','08');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('jeansfix@gmail.com','JeansFix','Mending & Sewing Service'),
+('jeansfix@gmail.com','JeansFix','Zip Replacements'),
+('jeansfix@gmail.com','JeansFix','Length Adjustments'),
+('jeansfix@gmail.com','JeansFix','Buttons Replacement');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('jenny.dress@gmail.com','JennyMe Dressmaking','01'),
-('jenny.dress@gmail.com','JennyMe Dressmaking','02'),
-('jenny.dress@gmail.com','JennyMe Dressmaking','03'),
-('jenny.dress@gmail.com','JennyMe Dressmaking','04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('jenny.dress@gmail.com','JennyMe Dressmaking','Tailored Shirt'),
+('jenny.dress@gmail.com','JennyMe Dressmaking','2-Piece Suit'),
+('jenny.dress@gmail.com','JennyMe Dressmaking','3-Piece Suit'),
+('jenny.dress@gmail.com','JennyMe Dressmaking','Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('lai.en@gmail.com','Lai En Tailor','01'),
-('lai.en@gmail.com','Lai En Tailor','02'),
-('lai.en@gmail.com','Lai En Tailor','03'),
-('lai.en@gmail.com','Lai En Tailor','04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('lai.en@gmail.com','Lai En Tailor','Tailored Shirt'),
+('lai.en@gmail.com','Lai En Tailor','2-Piece Suit'),
+('lai.en@gmail.com','Lai En Tailor','3-Piece Suit'),
+('lai.en@gmail.com','Lai En Tailor','Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('may.tailor@gmail.com','May Tailor Laundry','01'),
-('may.tailor@gmail.com','May Tailor Laundry','02'),
-('may.tailor@gmail.com','May Tailor Laundry','03'),
-('may.tailor@gmail.com','May Tailor Laundry','04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('may.tailor@gmail.com','May Tailor Laundry','Tailored Shirt'),
+('may.tailor@gmail.com','May Tailor Laundry','2-Piece Suit'),
+('may.tailor@gmail.com','May Tailor Laundry','3-Piece Suit'),
+('may.tailor@gmail.com','May Tailor Laundry','Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('meiko@gmail.com','Meiko Tailor','01'),
-('meiko@gmail.com','Meiko Tailor','02'),
-('meiko@gmail.com','Meiko Tailor','03'),
-('meiko@gmail.com','Meiko Tailor','04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('meiko@gmail.com','Meiko Tailor','Tailored Shirt'),
+('meiko@gmail.com','Meiko Tailor','2-Piece Suit'),
+('meiko@gmail.com','Meiko Tailor','3-Piece Suit'),
+('meiko@gmail.com','Meiko Tailor','Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('perfect.attire@gmail.com','Perfect Attire','01'),
-('perfect.attire@gmail.com','Perfect Attire','02'),
-('perfect.attire@gmail.com','Perfect Attire','03'),
-('perfect.attire@gmail.com','Perfect Attire','04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('perfect.attire@gmail.com','Perfect Attire','Tailored Shirt'),
+('perfect.attire@gmail.com','Perfect Attire','2-Piece Suit'),
+('perfect.attire@gmail.com','Perfect Attire','3-Piece Suit'),
+('perfect.attire@gmail.com','Perfect Attire','Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('qmen@gmail.com','Q MENSWEAR','05'),
-('qmen@gmail.com','Q MENSWEAR','06'),
-('qmen@gmail.com','Q MENSWEAR','07'),
-('qmen@gmail.com','Q MENSWEAR','08');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('qmen@gmail.com','Q MENSWEAR','Mending & Sewing Service'),
+('qmen@gmail.com','Q MENSWEAR','Zip Replacements'),
+('qmen@gmail.com','Q MENSWEAR','Length Adjustments'),
+('qmen@gmail.com','Q MENSWEAR','Buttons Replacement');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('red.dot.bespoke@gmail.com','Red Dot Bespoke','01'),
-('red.dot.bespoke@gmail.com','Red Dot Bespoke','02'),
-('red.dot.bespoke@gmail.com','Red Dot Bespoke','03'),
-('red.dot.bespoke@gmail.com','Red Dot Bespoke','04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('red.dot.bespoke@gmail.com','Red Dot Bespoke','Tailored Shirt'),
+('red.dot.bespoke@gmail.com','Red Dot Bespoke','2-Piece Suit'),
+('red.dot.bespoke@gmail.com','Red Dot Bespoke','3-Piece Suit'),
+('red.dot.bespoke@gmail.com','Red Dot Bespoke','Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('tang.cottage@gmail.com','Tang Cottage','05'),
-('tang.cottage@gmail.com','Tang Cottage','06'),
-('tang.cottage@gmail.com','Tang Cottage','07'),
-('tang.cottage@gmail.com','Tang Cottage','08');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('tang.cottage@gmail.com','Tang Cottage','Mending & Sewing Service'),
+('tang.cottage@gmail.com','Tang Cottage','Zip Replacements'),
+('tang.cottage@gmail.com','Tang Cottage','Length Adjustments'),
+('tang.cottage@gmail.com','Tang Cottage','Buttons Replacement');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('AB.dry.clean@gmail.com','AB Professional Dry Clean','09'),
-('AB.dry.clean@gmail.com','AB Professional Dry Clean','10'),
-('AB.dry.clean@gmail.com','AB Professional Dry Clean','11'),
-('AB.dry.clean@gmail.com','AB Professional Dry Clean','12');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('AB.dry.clean@gmail.com','AB Professional Dry Clean','Curtain Cleaning Service'),
+('AB.dry.clean@gmail.com','AB Professional Dry Clean','Carpet Cleaning Service'),
+('AB.dry.clean@gmail.com','AB Professional Dry Clean','Laundry & Dry Cleaning Services'),
+('AB.dry.clean@gmail.com','AB Professional Dry Clean','Bag Cleaning Services');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('alt.fit@gmail.com','Alt-To-Fit','05'),
-('alt.fit@gmail.com','Alt-To-Fit','06'),
-('alt.fit@gmail.com','Alt-To-Fit','07'),
-('alt.fit@gmail.com','Alt-To-Fit','08');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('alt.fit@gmail.com','Alt-To-Fit','Mending & Sewing Service'),
+('alt.fit@gmail.com','Alt-To-Fit','Zip Replacements'),
+('alt.fit@gmail.com','Alt-To-Fit','Length Adjustments'),
+('alt.fit@gmail.com','Alt-To-Fit','Buttons Replacement');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('wetailoring@gmail.com','We Tailoring','01'),
-('wetailoring@gmail.com','We Tailoring','02'),
-('wetailoring@gmail.com','We Tailoring','03'),
-('wetailoring@gmail.com','We Tailoring','04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('wetailoring@gmail.com','We Tailoring','Tailored Shirt'),
+('wetailoring@gmail.com','We Tailoring','2-Piece Suit'),
+('wetailoring@gmail.com','We Tailoring','3-Piece Suit'),
+('wetailoring@gmail.com','We Tailoring','Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('wingonn@gmail.com','Wing Onn Tailor','01'),
-('wingonn@gmail.com','Wing Onn Tailor','02'),
-('wingonn@gmail.com','Wing Onn Tailor','03'),
-('wingonn@gmail.com','Wing Onn Tailor','04');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('wingonn@gmail.com','Wing Onn Tailor','Tailored Shirt'),
+('wingonn@gmail.com','Wing Onn Tailor','2-Piece Suit'),
+('wingonn@gmail.com','Wing Onn Tailor','3-Piece Suit'),
+('wingonn@gmail.com','Wing Onn Tailor','Tuxedo Suit');
 
-INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('wonderfulas@gmail.com','Wonderful Alteration Store','05'),
-('wonderfulas@gmail.com','Wonderful Alteration Store','06'),
-('wonderfulas@gmail.com','Wonderful Alteration Store','07'),
-('wonderfulas@gmail.com','Wonderful Alteration Store','08');
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_title`) VALUES 
+('wonderfulas@gmail.com','Wonderful Alteration Store','Mending & Sewing Service'),
+('wonderfulas@gmail.com','Wonderful Alteration Store','Zip Replacements'),
+('wonderfulas@gmail.com','Wonderful Alteration Store','Length Adjustments'),
+('wonderfulas@gmail.com','Wonderful Alteration Store','Buttons Replacement');
 

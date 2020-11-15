@@ -16,7 +16,6 @@
  $token = $POST['stripeToken'];
  $Total = $POST['Total'] * 100;
 
-
 // Create Customer In Stripe
 $customer = \Stripe\Customer::create(array(
   "email" => $email,
