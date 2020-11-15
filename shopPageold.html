@@ -49,8 +49,7 @@
       }
       var shop_name = $_GET['shop_name'];
       var schedule_id = $_GET['schedule_id'];
-    //   sessionStorage.setItem("shop_page_schedule_id", schedule_id);
-    //   alert(shop_name);
+      // alert(shop_name);
     </script>
 
   </head>
@@ -67,68 +66,68 @@
     <nav class="navbar navbar-expand-lg navbar-light" >
         
   
-        <!-- Hamburger Name -->
-        <button class="navbar-toggler mr-4" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-  
-        <a class="navbar-brand mr-auto" href="index.html">
-            <img src="images/logo.jpg" class="d-inline-block align-top navBarLogo" loading="lazy">
-        </a>
-        
-        <!-- Collapse Content (Nav Bar) -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-                
-            <!-- Left Side Nav -->
-            <ul class="navbar-nav mr-auto" id="leftSideNav">
-                <li class="nav-item">
-                    <a class="nav-link current" href="index.html" style="padding-bottom:unset;" >Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="allTailorPage.html" style="padding-bottom:unset;" >Tailoring</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="location.html" style="padding-bottom:unset;" >Alteration</a>
-                </li>
-                
-                <li class="nav-item">
-                    <a class="nav-link" href="aboutUs.html" style="padding-bottom:unset;" >About Us</a>
-                </li>
-            </ul>      
-  
-            <!-- Right Side -->
-            <!-- <ul class="navbar-nav ml-auto" id="rightNav">
-                <li class="nav-item">
-                    <form>
-                        <input type="text" class="searchBar" placeholder="Search Shop Names">
-                    </form>
-                </li> -->
-                <!-- <li class="nav-item"> -->
-                    <!-- <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="registerSignin" data-target="#registerSigninModal">Register / Login</a> -->
-                <!-- </li> -->
-            <!-- </ul> -->
-            <!-- End of right side -->
-  
-        </div>
-        <!-- End of collapse content (Nav Bar) -->
-  
-        <div id="navbarNavRight">
-          <ul class="navbar-nav flex-row ml-auto" id="registerProfile">
+      <!-- Hamburger Name -->
+      <button class="navbar-toggler mr-4" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <a class="navbar-brand mr-auto" href="index.html">
+          <img src="images/logo.jpg" class="d-inline-block align-top navBarLogo" loading="lazy">
+      </a>
+      
+      <!-- Collapse Content (Nav Bar) -->
+      <div class="collapse navbar-collapse" id="navbarNav">
               
-              <li class="nav-item mt-2 mr-1" id="change">
-                  <!-- Search bar -->
-                  <search-component></search-component>
-               </li>
-              <li class="nav-item mt-1" id="bookButton">
-                  <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="book" data-target="#bookModal" onclick="retrieveProfileDetails()">Book an appointment</a>
+          <!-- Left Side Nav -->
+          <ul class="navbar-nav mr-auto" id="leftSideNav">
+              <li class="nav-item">
+                  <a class="nav-link current" href="index.html" style="padding-bottom:unset;" >Home</a>
               </li>
-               <div id="change2">
-                  <!-- Replace me with Sign in or Profile -->
-               </div>
-          </ul>
+              <li class="nav-item">
+                  <a class="nav-link" href="allTailorPage.html" style="padding-bottom:unset;" >Tailoring</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="location.html" style="padding-bottom:unset;" >Alteration</a>
+              </li>
+              
+              <li class="nav-item">
+                  <a class="nav-link" href="aboutUs.html" style="padding-bottom:unset;" >About Us</a>
+              </li>
+          </ul>      
+
+          <!-- Right Side -->
+          <!-- <ul class="navbar-nav ml-auto" id="rightNav">
+              <li class="nav-item">
+                  <form>
+                      <input type="text" class="searchBar" placeholder="Search Shop Names">
+                  </form>
+              </li> -->
+              <!-- <li class="nav-item"> -->
+                  <!-- <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="registerSignin" data-target="#registerSigninModal">Register / Login</a> -->
+              <!-- </li> -->
+          <!-- </ul> -->
+          <!-- End of right side -->
+
       </div>
-    </nav>
-    <!-- End Navigation Bar -->
+      <!-- End of collapse content (Nav Bar) -->
+
+      <div id="navbarNavRight">
+        <ul class="navbar-nav flex-row ml-auto" id="registerProfile">
+            
+            <li class="nav-item mt-2 mr-1" id="change">
+                <!-- Search bar -->
+                <search-component></search-component>
+             </li>
+            <li class="nav-item mt-1" id="bookButton">
+                <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="book" data-target="#bookModal" onclick="retrieveProfileDetails()">Book an appointment</a>
+            </li>
+             <div id="change2">
+                <!-- Replace me with Sign in or Profile -->
+             </div>
+        </ul>
+    </div>
+  </nav>
+  <!-- End Navigation Bar -->
 
 
 <!-- Start of Register/Sign up modal -->
@@ -412,7 +411,7 @@
                  </ul>
                 </div> -->
                 <div>
-                  <select id='dropDownMenu'>
+                  <select id='dropDownMenu' onselect="">
                     <!-- <option>Hello</option> -->
                   </select>
                 </div>
@@ -435,7 +434,7 @@
                 <strong>Your Details</strong>
               </h4>
 
-              <div  style="margin: 10px; width:90%" onsubmit="getSlotDetails(schedule_id)">
+              <form  style="margin: 10px; width:90%">
 
                 <div class="form-label-group row">
                   <input type="text" class="form-control" id="bookName" placeholder="Name" required="" name="bookName"
@@ -468,6 +467,9 @@
                   <input type="text" class="form-control" id="bookPostal" placeholder="Postal" required name="postal_code" pattern="(?=.*\d).{6,6}">
                   <label for="registerPostal">Postal Code</label>
                 </div> -->
+                
+              </form>
+
               
               <p><strong>Type of Service</strong></p>
               <div id="serviceCheckbox">
@@ -496,28 +498,25 @@
               <p id = 'TotalCosts' style = "color:red">Total: $0</p>
               <br>
 
-              <input type = 'hidden' id = 'Total' name = 'Total' value = ''>
-
               <p><strong>Leave a message</strong></p>
-              <textarea name="remarks" rows="4" cols="40" ></textarea>
+              <textarea name="remarks" rows="4" cols="40" >
+              </textarea>
               <br><br>
               
-              <button type="button" onclick="getSlotDetails(schedule_id)" id="scheduleEvent" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-dismiss="modal" data-target="#bookModal" >
-                Close
+              <button type="button" id="scheduleEvent" class="btn btn-outline-secondary btn-sm" onclick="getSlotDetails(schedule_id)" data-toggle="modal" data-dismiss="modal" data-target="#bookedSuccessModal" >
+                Schedule Event Only
               </button>
 
       
-              <a class="shop_url" id="shop_url" href="javascript:delay('stripe/paymentPage.php')">
+              <a class="shop_url" id="shop_url" href="stripe/paymentPage.html">
 
-              <button id="proceedToPayment" class="btn btn-dark btn-sm" data-toggle="modal" onclick="getSlotDetails(schedule_id); storeSessionDetails(); setSpinner(); grabScheduleID(schedule_id);" >
+              <button id="proceedToPayment" class="btn btn-dark btn-sm" data-toggle="modal">
                 Proceed to payment
                 <i style="font-size:18px" class="fa">&#xf155;</i>
                 
-                </button>
+              </button>
 
               </a>
-            </div>
-
               </div>
             </div>
           </div>
@@ -794,9 +793,7 @@
     <!--Image bg-->
   <div class= "shoptitle relative">
     <div id="shop_image">
-
     </div>
-    
     <!-- Shop Name -->
     <div class="shop_name" id="shop_name" 
         style ="
@@ -956,7 +953,9 @@
 
         <!-- Content -->
         <h5 class="font-weight-bold text-uppercase mt-3 mb-4">AlterTail</h5>
-        <p>AlterTail is a one-stop fashion maintenance portal for residents in Singapore, providing fashion services such as alteration service, tailors and dry-cleaners.</p>
+        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+          consectetur
+          adipisicing elit.</p>
 
       </div>
       <!-- Grid column -->
@@ -967,11 +966,20 @@
       <div class="col-md-2 mx-auto">
 
         <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Backgroundfinfo</h5>
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">About us</h5>
 
         <ul class="list-unstyled">
           <li>
             <a href="aboutus.html">About Us</a>
+          </li>
+          <li>
+            <a href="#!">Community</a>
+          </li>
+          <li>
+            <a href="#!">Career</a>
+          </li>
+          <li>
+            <a href="#!">Contact Us</a>
           </li>
         </ul>
 
@@ -993,6 +1001,12 @@
           <li>
             <a href="#!">Tailoring</a>
           </li>
+          <li>
+            <a href="#!">Bag Cleaning</a>
+          </li>
+          <li>
+            <a href="#!">Dry Cleaning</a>
+          </li>
         </ul>
 
       </div>
@@ -1008,10 +1022,16 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="terms.html">Terms and conditions</a>
+            <a href="#!">Payment methods</a>
           </li>
           <li>
-            <a href="privacypolicy.html">Privacy Policy</a>
+            <a href="#!">Shipping methods</a>
+          </li>
+          <li>
+            <a href="#!">Terms and conditions</a>
+          </li>
+          <li>
+            <a href="#!">Privacy Policy</a>
           </li>
         </ul>
 
