@@ -14,7 +14,8 @@
  $first_name = $_POST['first_name'];
  $last_name = $_POST['last_name'];
  $email = $_POST['email'];
- $shop_page_email = $_POST['user_email'];
+ $shop_page_user_email = $_POST['user_email'];
+ $shop_page_seller_email = $_POST['seller_email'];
 //  $shop_page_modal = $_POST['name'];
  $shop_page_phone = $_POST['phone'];
  $shop_page_schedule_id = $_POST['schedule_id'];
@@ -25,7 +26,7 @@
  $Total = $_POST['Total'] * 100;
 
  //Create Appointment
- $appointment = new Appointment($shop_page_email,$shop_page_email,$shop_page_schedule_id,$shop_page_shop_name," ",$shop_page_selected_services,"hello",$shop_page_selected_services,$shop_page_timeslot);
+ $appointment = new Appointment($shop_page_user_email,$shop_page_seller_email,$shop_page_schedule_id,$shop_page_shop_name," ",$shop_page_selected_services,"description","price",$shop_page_timeslot);
 ?>
 
 <?php

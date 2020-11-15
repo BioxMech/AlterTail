@@ -51,6 +51,8 @@
       }
       var shop_name = $_GET['shop_name'];
       var schedule_id = $_GET['schedule_id'];
+      var shop_page_seller_email = $_GET['seller_email'];
+      // alert(shop_page_seller_email)
     //   sessionStorage.setItem("shop_page_schedule_id", schedule_id);
     //   sessionStorage.setItem("shop_page_shop_name",shop_name)
       // alert(shop_name);
@@ -492,8 +494,13 @@
                     
                 </div>
 
-                </div>
-                </div>
+              <button id="proceedToPayment" class="btn btn-dark btn-sm" data-toggle="modal" onclick="getSlotDetails(schedule_id); storeSessionDetails(); setSpinner(); grabScheduleID(schedule_id, shop_name,shop_page_seller_email);" >
+                Proceed to payment
+                <i style="font-size:18px" class="fa">&#xf155;</i>
+                
+                </button>
+
+              </a>
             </div>
             </div>
         </div>

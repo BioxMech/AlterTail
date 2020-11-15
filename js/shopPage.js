@@ -247,8 +247,9 @@ function setSpinner() {
     document.getElementById("proceedToPayment").innerHTML = "Loading...<div class='spinner-border' role='status'></div>"
 }
 
-function grabScheduleID(schedule_id, shop_name) {
+function grabScheduleID(schedule_id, shop_name,shop_page_seller_email) {
       sessionStorage.setItem("shop_page_schedule_id", schedule_id);
       sessionStorage.setItem("shop_page_shop_name",shop_name);
+      sessionStorage.setItem("shop_page_seller_email",shop_page_seller_email);
       
 }
