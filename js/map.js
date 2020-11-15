@@ -249,7 +249,7 @@ function displaycard(){
                     </div>
                 </div>
               <p class="card-text">${shop.shop_summary}</p>
-              <button type="button" class="btn btn-link" style = "padding-left: 0px; padding-top: 0px; color:darkslategrey;" onclick="window.location='shopPage.html?shop_name=${shop.name}&schedule_id=${shop.schedule_id}';">Read More</button>
+              <button type="button" class="btn btn-link" style = "padding-left: 0px; padding-top: 0px; color:darkslategrey;" onclick="window.location='shopPage.html?shop_name=${shop.name.replace("'", "\\'")}&schedule_id=${shop.schedule_id}';">Read More</button>
             </div>
           </div>
         </div>
@@ -267,7 +267,6 @@ function displaycard(){
     `;
   }
   
-  console.log(str);
   document.getElementById("shop_cards").innerHTML = str;
 }
 
@@ -323,7 +322,7 @@ function filteredcard(){
                   </div>
               </div>
             <p class="card-text">${sorted_array[z][4]}</p>
-            <button type="button" class="btn btn-link" style = "padding-left: 0px; padding-top: 0px; color:darkslategrey;" onclick="window.location='shopPage.html?shop_name=${sorted_array[z][1]}&schedule_id=${sorted_array[z][5]}';">Read More</button>
+            <button type="button" class="btn btn-link" style = "padding-left: 0px; padding-top: 0px; color:darkslategrey;" onclick="window.location='shopPage.html?shop_name=${sorted_array[z][1].replace("'", "\\'")}&schedule_id=${sorted_array[z][5]}';">Read More</button>
           </div>
         </div>
       </div>
