@@ -120,8 +120,8 @@ Our clients include leading professionals, government officials, executives, bus
 '535037', '01-124', '168898', 'Alteration ', '5.0', '1', 'images/alteration_shop7.jpg', '1.2833984', '103.8313791'),
 
 ('jeansfix@gmail.com', 'JeansFix', '1 Raffles Link', 'Not all jeans fit your body perfectly but denim connoisseur, Jeansfix, will come to the rescue. Whether be amending a waistband or fixing rips that have happened over time, they’re the experts in this', 'Not all jeans fit your body perfectly but denim connoisseur, Jeansfix, will come to the rescue. Whether be amending a waistband or fixing rips that have happened over time, they’re the experts in this area.', '535038','B1-06', '039393', 'Alteration', '4.7', '7', 'images/alteration_shop5.jpg', '1.292053', '103.8536675'),
-('jenny.dress@gmail.com', 'Jenny & Me Dressmaking', '211 Holland Ave ', 'With over three decades of experience under her belt, Jenny is a force to be reckoned with. Aside from her well-honed expertise at crafting dresses and shirts from scratch, she does meticulous alterat', 'With over three decades of experience under her belt, Jenny is a force to be reckoned with. Aside from her well-honed expertise at crafting dresses and shirts from scratch, she does meticulous alterations for all sorts of clothing, and won’t hesitate to dish our her professional advice on how best to get the right fit.', '535039','03-45','278967', 'Tailoring ', '4.8', '105', 'images/alteration_shop10.jpg', '1.3105374', '103.7933396'),
-('may.tailor@gmail.com', 'May Tailor & Laundry', '304 Orchard Road ', 'Our mission is to provide excellent laundry & tailoring service, coupled with our competitive prices, to deliver the clothes that suits you as well as to put a smile on your face. Your satisfaction is', 'Our mission is to provide excellent laundry & tailoring service, coupled with our competitive prices, to deliver the clothes that suits you as well as to put a smile on your face. Your satisfaction is our responsibility!', '535040','04-56', '238863', 'Tailoring', '3.7', '6', 'images/alteration_shop3.jpg', '1.3587297', '103.8237878'),
+('jenny.dress@gmail.com', 'JennyMe Dressmaking', '211 Holland Ave ', 'With over three decades of experience under her belt, Jenny is a force to be reckoned with. Aside from her well-honed expertise at crafting dresses and shirts from scratch, she does meticulous alterat', 'With over three decades of experience under her belt, Jenny is a force to be reckoned with. Aside from her well-honed expertise at crafting dresses and shirts from scratch, she does meticulous alterations for all sorts of clothing, and won’t hesitate to dish our her professional advice on how best to get the right fit.', '535039','03-45','278967', 'Tailoring ', '4.8', '105', 'images/alteration_shop10.jpg', '1.3105374', '103.7933396'),
+('may.tailor@gmail.com', 'May Tailor Laundry', '304 Orchard Road ', 'Our mission is to provide excellent laundry & tailoring service, coupled with our competitive prices, to deliver the clothes that suits you as well as to put a smile on your face. Your satisfaction is', 'Our mission is to provide excellent laundry & tailoring service, coupled with our competitive prices, to deliver the clothes that suits you as well as to put a smile on your face. Your satisfaction is our responsibility!', '535040','04-56', '238863', 'Tailoring', '3.7', '6', 'images/alteration_shop3.jpg', '1.3587297', '103.8237878'),
 ('qmen@gmail.com', 'Q MENSWEAR', '116A Telok Ayer St', 'Every house has their own signature cut, technical expertise or style which sets it apart from other houses or menswear brand. At Q MENSWEAR, we also have our own set of standards when it comes to our', 'Every house has their own signature cut, technical expertise or style which sets it apart from other houses or menswear brand. At Q MENSWEAR, we also have our own set of standards when it comes to our garments.', '535041','01-123', '068585', 'Alteration', '4.4', '17', 'images/alteration_shop1 .jpg', '1.281934', '103.8460651'),
 ('suityourself@gmail.com', 'SuitYourself', '14 Scotts Rd', 'We specialise in creating high quality suits and shirts for your everyday and once-in-a-lifetime moments at affordable prices.', 
 'We specialise in creating high quality suits and shirts for your everyday and once-in-a-lifetime moments at affordable prices. We have extensive knowledge of modern fashion trends and provide excellent cut and workmanship, accompanied by reasonable prices. Our friendly and personalised services include: tuxedos, evening suits, casual suits, formal suits and wedding suits. A wide selection of high quality imported textiles & accessories will also be provided to compliment your suit. <br><br>
@@ -139,7 +139,7 @@ As a premium bespoke tailor, the final result is constructed with precise measur
 <br><br>
 We cherish cultivating long-lasting relationships with our customers as we believe that people are always on the search to find the perfect tailor to serve them as they reach different milestones in their lives – we want A Gentleman\'s Tale to be there for them every step of the way. We are meticulous, have a keen eye for detail and are dedicated to going above and beyond to provide first-class customer service for our customers. ', 
 '535052','01-184', '310027', 'Tailoring', '5.0', '16', 'images/kingsman.jpg', '1.3323619', '103.8545369'),
-('AB.dry.clean@gmail.com', 'A&B Professional Dry Clean & L', '8 Kaki Bukit Ave 4', 'A&B Professional Dry Clean & Laundry ensures that their team handles each of your items with care. Trust that they will follow each item’s washing methods meticulously.', 'A&B Professional Dry Clean & Laundry ensures that their team handles each of your items with care. Trust that they will follow each item’s washing methods meticulously.', '535044','03-07', '415875', 'Laundry', '3.7', '3', 'images/alteration_shop20.jpg', '1.338600', '103.9063877'),
+('AB.dry.clean@gmail.com', 'AB Professional Dry Clean', '8 Kaki Bukit Ave 4', 'AB Professional Dry Clean ensures that their team handles each of your items with care. Trust that they will follow each item’s washing methods meticulously.', 'AB Professional Dry Clean ensures that their team handles each of your items with care. Trust that they will follow each item’s washing methods meticulously.', '535044','03-07', '415875', 'Laundry', '3.7', '3', 'images/alteration_shop20.jpg', '1.338600', '103.9063877'),
 ('assemble@gmail.com', 'Assemble', '181 Orchard Rd', 'Assemble Singapore was founded in 2014 by a local duo, Ken and Lyn. Their love for dressing up fashionably led them to pursue a business in tailoring. Touted as the first tailor in Singapore to provid', 
 'Assemble Singapore was founded in 2014 by a local duo, Ken and Lyn. Their love for dressing up fashionably led them to pursue a business in tailoring. Touted as the first tailor in Singapore to provide in-house and customisable lining, Assemble Singapore recently opened their flagship store at Orchard Central.
 <br><br>
@@ -157,7 +157,15 @@ With Edit Suits Co, you are always dressed for the occasion, be it a formal even
 ('lai.en@gmail.com', 'Lai En Tailor', '2 Defu Lane 10', 'Lai En Tailor is a small quaint tailor tucked in the east of Singapore. A local men-and-women tailor, Lai En Tailor has a reputation for great workmanship.', 'Lai En Tailor is a small quaint tailor tucked in the east of Singapore. A local men-and-women tailor, Lai En Tailor has a reputation for great workmanship.', '535048','02-533', '539183', 'Tailoring', '4.1', '61', 'images/alteration_shop13.jpg', '1.3587307', '103.8916398'),
 ('meiko@gmail.com', 'Meiko Tailor', '7 Raffles Blvd', 'With over 50 years of experience, Meiko Tailor has been continuously providing the locality with their fine craft and premium fabric. Throughout the business, they have developed the style in suit cra', 'With over 50 years of experience, Meiko Tailor has been continuously providing the locality with their fine craft and premium fabric. Throughout the business, they have developed the style in suit crafting pants and shirts, particularly bespoke suit. Their resident styling advisor has been trained in Academy of ImageWorks (AIM) which largely influenced his work. The shop accepts overseas order via mail and door to door visit within a specific area. ', '535049','02-01', '039595', 'Tailoring', '4.8', '23', 'images/2.jpg', '1.29221', '103.8563422'),
 ('perfect.attire@gmail.com', 'Perfect Attire', 'Oxley 138 Robinson Rd', 'Perfect Attire specialises in handcrafted bespoke suits, custom shirts and tailored pants at accessible prices. Founded by Tulsi Kamath and Shriram Iyer, who both share a passion for tailored clothing', 'Perfect Attire specialises in handcrafted bespoke suits, custom shirts and tailored pants at accessible prices. Founded by Tulsi Kamath and Shriram Iyer, who both share a passion for tailored clothing, the store prides itself for giving its customers the full bespoke experience with two fittings: muslin and basted', '535050','03-38', '068906', 'Tailoring', '5.0', '51', 'images/alteration_shop17.jpg', '1.278646', '103.8462309'),
-('red.dot.bespoke@gmail.com', 'Red Dot Bespoke', '11 New Bridge Rd', 'A new age bespoke tailor, Red Dot Bespoke strives to bring quality, comfort, and style while being friendly to your wallet.', 'A new age bespoke tailor, Red Dot Bespoke strives to bring quality, comfort, and style while being friendly to your wallet.', '535051','02-01', '059383', 'Tailoring', '4.9', '86', 'images/alteration_shop15.jpg', '1.2890101', '103.8455098');
+('red.dot.bespoke@gmail.com', 'Red Dot Bespoke', '11 New Bridge Rd', 'A new age bespoke tailor, Red Dot Bespoke strives to bring quality, comfort, and style while being friendly to your wallet.', 'A new age bespoke tailor, Red Dot Bespoke strives to bring quality, comfort, and style while being friendly to your wallet.', '535051','02-01', '059383', 'Tailoring', '4.9', '86', 'images/alteration_shop15.jpg', '1.2890101', '103.8455098'),
+('wealtering@gmail.com', 'We Altering', '26 TOA PAYOH EAST KIM KEAT VILLE', 'Home business - We Altering is ace at altering all sorts of materials from denim to cotton, and will even add a touch of detail such as pom-poms or sequins if you want to!', 'Home business - Loyal customers swear by this heartland tailor for fast alterations and super reliable service. Besides creating custom clothes, We Altering is ace at altering all sorts of materials from denim to cotton, and will even add a touch of detail such as pom-poms or sequins if you want to!', '535445','02-01', '310026', 'Alteration', '4.6', '86', 'images/tailor2.jpg', '1.3328809', '103.8392874'),
+
+('wingonn@gmail.com', 'Wing Onn Alteration', '184 Toa Payoh Central', 'Home business - With over 50 years of experience, Wing Onn Alteration has been continuously providing the locality with their fine craft and premium fabric.', 
+'Home business - With over 50 years of experience, Wing Onn Alteration has been continuously providing the locality with their fine craft and premium fabric. Throughout the business, they have developed the style in suit cra.', '535446','18-21', '310184', 'Alteration', '4.0', '10', 'images/slider-3.jpg', '1.3362801', '103.8496067'),
+
+('wonderfulas@gmail.com', 'Wonderful Alteration Store', 'Blk 127 Lor 1 Toa Payoh', 'Home business - If you’re in need of tailors with lots of experience with couture pieces, Wonderful Alteration Store is the place to go. Prices start from S$20 for a basic shortening job.', 
+'Home business - If you’re in need of tailors with lots of experience with couture pieces, Wonderful Alteration Store is the place to go. Prices start from S$20 for a basic shortening job. With over 50 years of experience, Wonderful Alteration Store has been continuously providing the locality with their fine craft and premium fabric. Throughout the business, they have developed the style in suit cra.', '535448','01-53', '310127', 'Alteration', '4.0', '8', 'images/slider-2.jpg', '1.3380839', '103.8359692')
+;
 
 INSERT INTO `service`(`service_id`, `service_title`, `service_price`, `service_description`, `service_lead_time`, `service_image_url`) VALUES 
 ('01','Tailored Shirt','109','100% customisable, made to measure shirts. Choose your fabric, collar, cuffs and buttons, and personalise your shirt with your very own monogram.','2 weeks','kingsmen3.jpg'),
@@ -172,7 +180,9 @@ INSERT INTO `service`(`service_id`, `service_title`, `service_price`, `service_d
 ('09','Curtain Cleaning Service','8',"Curtain cleaning is an essential part of house cleaning chores. We tend to overlook the importance of clean and fresh curtains in our homes. Curtains protect us from the sun it should be washed regularly to reduce the accumulation of dusts and allergens. We provide cleaning for different types of curtains - day, night, blackout, organza, roman blinds. Let us know your curtain type and we can advise on the suitable care methods.",'5 days','cleaning1.jpg'),
 ('10','Carpet Cleaning Service','8',"Carpet cleaning is an integral part of house cleaning work. Carpets are great decorative pieces however, it also attracts dust and allergens. We provide carpet cleaning services for your home. Our carpet cleaning service in Singapore delivers a superior cleaning method for your carpet to ensure that it is clean and hygienic. It is recommended to clean your carpet every 3 to 6 months if you have a pet or regularly use your carpet in your living space. We specialize in cleaning for both fabric and natural exotic animal skins carpet. As our carpet charges are based on per square feet, big or small carpet, you will be charged accordingly.",'7 days','cleaning2.jpg'),
 ('11','Laundry & Dry Cleaning Services','8',"We specialized in professional caring for various types of delicate fabric. Should your items require delicate care, it will be separated out and handled carefully through every stage of our cleaning process. Our garment care specialist will inspect and ensure that your items will receive the best care and attention during cleaning.",'4 days','cleaning3.jpg'),
-('12','Bag Cleaning Services','50',"We have years of experience in luxury bag repair and restoration. We provide the best Bag – Wallet Cleaning Service In Singapore. Our goal is to preserve the tip-top conditions of your luxury bags, hence enhancing the value you have invested in them.",'8 days','cleaning3.jpg');
+('12','Bag Cleaning Services','50',"We have years of experience in luxury bag repair and restoration. We provide the best Bag – Wallet Cleaning Service In Singapore. Our goal is to preserve the tip-top conditions of your luxury bags, hence enhancing the value you have invested in them.",'8 days','cleaning3.jpg'),
+('13','Blazer Alteration','90',"If you ever slip a jacket on and find the sleeves are a touch too long, the jacket’s bagging across your front, or swallowing the hollow of your back, don’t despair. A decent alterations tailor can work wonders, and tweak a ready-to-wear suit almost everywhere that matters, to help you achieve the look and feel of a bespoke suit.",'7 days','blazer.jpg')
+;
 
 
 INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
@@ -225,6 +235,7 @@ INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES
 
 INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
 
+('haute@gmail.com','Haute Alteration Initiative','13'),
 ('haute@gmail.com','Haute Alteration Initiative','05'),
 ('haute@gmail.com','Haute Alteration Initiative','06'),
 ('haute@gmail.com','Haute Alteration Initiative','07'),
@@ -237,10 +248,10 @@ INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES
 ('jeansfix@gmail.com','JeansFix','08');
 
 INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('jenny.dress@gmail.com','Jenny & Me Dressmaking','01'),
-('jenny.dress@gmail.com','Jenny & Me Dressmaking','02'),
-('jenny.dress@gmail.com','Jenny & Me Dressmaking','03'),
-('jenny.dress@gmail.com','Jenny & Me Dressmaking','04');
+('jenny.dress@gmail.com','JennyMe Dressmaking','01'),
+('jenny.dress@gmail.com','JennyMe Dressmaking','02'),
+('jenny.dress@gmail.com','JennyMe Dressmaking','03'),
+('jenny.dress@gmail.com','JennyMe Dressmaking','04');
 
 INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
 ('lai.en@gmail.com','Lai En Tailor','01'),
@@ -249,10 +260,10 @@ INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES
 ('lai.en@gmail.com','Lai En Tailor','04');
 
 INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('may.tailor@gmail.com','May Tailor & Laundry','01'),
-('may.tailor@gmail.com','May Tailor & Laundry','02'),
-('may.tailor@gmail.com','May Tailor & Laundry','03'),
-('may.tailor@gmail.com','May Tailor & Laundry','04');
+('may.tailor@gmail.com','May Tailor Laundry','01'),
+('may.tailor@gmail.com','May Tailor Laundry','02'),
+('may.tailor@gmail.com','May Tailor Laundry','03'),
+('may.tailor@gmail.com','May Tailor Laundry','04');
 
 INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
 ('meiko@gmail.com','Meiko Tailor','01'),
@@ -285,13 +296,35 @@ INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES
 ('tang.cottage@gmail.com','Tang Cottage','08');
 
 INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('AB.dry.clean@gmail.com','A&B Professional Dry Clean & L','09'),
-('AB.dry.clean@gmail.com','A&B Professional Dry Clean & L','10'),
-('AB.dry.clean@gmail.com','A&B Professional Dry Clean & L','11'),
-('AB.dry.clean@gmail.com','A&B Professional Dry Clean & L','12');
+('AB.dry.clean@gmail.com','AB Professional Dry Clean','09'),
+('AB.dry.clean@gmail.com','AB Professional Dry Clean','10'),
+('AB.dry.clean@gmail.com','AB Professional Dry Clean','11'),
+('AB.dry.clean@gmail.com','AB Professional Dry Clean','12');
 
 INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
 ('alt.fit@gmail.com','Alt-To-Fit','05'),
 ('alt.fit@gmail.com','Alt-To-Fit','06'),
 ('alt.fit@gmail.com','Alt-To-Fit','07'),
 ('alt.fit@gmail.com','Alt-To-Fit','08');
+
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
+('wealtering@gmail.com','We Altering','13'),
+('wealtering@gmail.com','We Altering','05'),
+('wealtering@gmail.com','We Altering','06'),
+('wealtering@gmail.com','We Altering','07'),
+('wealtering@gmail.com','We Altering','08');
+
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
+('wingonn@gmail.com','Wing Onn Alteration','13'),
+('wingonn@gmail.com','Wing Onn Alteration','05'),
+('wingonn@gmail.com','Wing Onn Alteration','06'),
+('wingonn@gmail.com','Wing Onn Alteration','07'),
+('wingonn@gmail.com','Wing Onn Alteration','08');
+
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
+('wonderfulas@gmail.com','Wonderful Alteration Store','13'),
+('wonderfulas@gmail.com','Wonderful Alteration Store','05'),
+('wonderfulas@gmail.com','Wonderful Alteration Store','06'),
+('wonderfulas@gmail.com','Wonderful Alteration Store','07'),
+('wonderfulas@gmail.com','Wonderful Alteration Store','08');
+
