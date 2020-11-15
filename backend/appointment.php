@@ -15,16 +15,14 @@ class Appointment {
     
 
     //construct User object
-    function __construct($user_email,$seller_email,$schedule_id,$shop_name,$image_url,$service_id,$service_title,$service_description,$service_price,$appt_date_time) {
+    function __construct($user_email,$seller_email,$schedule_id,$shop_name,$image_url,$service_title,$service_description,$service_price,$appt_date_time) {
         $this->user_email = $user_email;
         $this->seller_email = $seller_email;
         $this->schedule_id = $schedule_id;
         $this->shop_name = $shop_name;
         $this->image_url = $image_url;
-        $this->service_id = $service_id;
         $this->service_title = $service_title;
         $this->service_description = $service_description;
-        $this->street_address = $street_address;
         $this->service_price = $service_price;
         $this->appt_date_time = $appt_date_time;
         
@@ -48,10 +46,6 @@ class Appointment {
 
     public function getImageURL() {
         return $this->image_url;
-    }
-
-    public function getServiceID() {
-        return $this->service_id;
     }
 
     public function getServiceTitle() {
