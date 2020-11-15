@@ -25,5 +25,11 @@ AlterTail is a web application project produced by 5 individuals who are current
 Using command prompt, change current working directory to stripe folder 
 Install library by running 'composer require stripe/stripe-php' 
 
+* Import database from database/load.sql 
+* Import database from stripe/paypage.sql
 
- 
+On paymentPage.php,
+Name and email (No restriction)
+credit card number(4242 4242 4242 4242)
+CVC and ZIP(Any number)
+Date(any future date)
