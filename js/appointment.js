@@ -125,9 +125,11 @@ function displayAppointment() {
             </td>
 
             <td style="padding-top: 30px;">
-                <p>You do not have any scheduled appointments currently. </p>
-                <p>To start booking for appointments with sellers at AlterTail, you can browse through our services below: </p>
-                <a class="button" href="alteration.html">Alteration</a> and/or <a class="button" href="location.html">Tailoring</a>
+                <p>You <b>do not</b> have any scheduled appointments currently. </p>
+                <p>
+                <i class="fas fa-shopping-basket"></i>
+                To start booking for appointments with sellers at AlterTail, you can browse through our services stated below: </p>
+                <a class="button" href="alteration.html">Alteration</a> &nbsp <a class="button" href="location.html">Tailoring</a>
             </td>
                         `;
         }
