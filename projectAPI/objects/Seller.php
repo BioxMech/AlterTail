@@ -94,7 +94,26 @@ class Seller {
         return $stmt;
     }
 
-    
+    public function retrieveAlterationShop() {
+        $query = "SELECT * FROM seller WHERE shop_category = 'Alteration' ";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+    public function retrieveTailorShop() {
+        $query = "SELECT * FROM seller WHERE shop_category = 'Tailoring' ";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt;
+    }
+
 
 
 }
