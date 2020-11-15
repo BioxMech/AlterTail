@@ -5,12 +5,14 @@ var geocoder = new google.maps.Geocoder();
 var infowindow;
 var shop_array = [];
 var shop_name_array = [];
+var all_locations = [];
 
 document.getElementById("address").addEventListener("keyup", function(event) {
   if (event.key === "Enter") {
     showCloseLocations();
   }
 });
+
 
 function getAllShops()
 {
@@ -32,6 +34,7 @@ function getAllShops()
               var street_address = shop.street_address;
               var shop_summary = shop.shop_summary;
               var shop_description = shop.shop_description;
+              var schedule_id = shop.schedule_id;
               var postal_code = shop.postal_code;
               var rating = shop.rating;
               var rating_num = shop.rating_num;
@@ -51,11 +54,13 @@ function getAllShops()
               var street_address = street_address;
 
 
-            shop_details = {name, img, star, rating, shop_summary, rating_num, lat, lng };
+            shop_details = {name, img, star, rating, shop_summary, rating_num, lat, lng , schedule_id};
+            if (shop_name_array.length != 6) {
+              shop_name_array.push(name);
+            }
             shop_array.push(shop_details);
- 
+            displaycard(); 
         }
-          
       }
   }
 
@@ -66,10 +71,16 @@ function getAllShops()
 
   request.send();
 
+  if  (all_locations === []) {
+    all_locations = shop_array;
+  }
+
   return (shop_array);
 }
 
-var all_locations = getAllShops();
+function initializeShopDisplay() {
+  all_locations = getAllShops(); 
+}
 
 //initialize map on document ready
 document.addEventListener("DOMContentLoaded", function() {
@@ -97,6 +108,10 @@ document.addEventListener("DOMContentLoaded", function() {
 var selected_array = [];
 
 function showCloseLocations(filtered) { 
+  if (document.getElementById("address").value == "") {
+    return;
+  }
+
   document.getElementById("shop_cards").innerHTML = "";
   shop_array = [], shop_name_array = [];
   var i;
@@ -234,14 +249,25 @@ function displaycard(){
                     </div>
                 </div>
               <p class="card-text">${shop.shop_summary}</p>
-              <button type="button" class="btn btn-link" style = "padding-left: 0px; padding-top: 0px; color:darkslategrey;">Read More</button>
+              <button type="button" class="btn btn-link" style = "padding-left: 0px; padding-top: 0px; color:darkslategrey;" onclick="window.location='shopPage.html?shop_name=${shop.name}&schedule_id=${shop.schedule_id}';">Read More</button>
             </div>
           </div>
         </div>
         </div> 
       `;
     }
+    
   }
+  if (str.length == 0) {
+    str = `
+    <div class="alert alert-danger" role="alert" style = "height: 150px; margin-top: 8  0px; margin-bottom: 150px; padding-top: 40px;">
+        <h3 class="text-center font-weight-bold">Sorry, No Shop Near Your Specified Location!</h3>
+        <h4 class="text-center font-weight-bold">Please Try Again!!!</h4>
+      </div>  
+    `;
+  }
+  
+  console.log(str);
   document.getElementById("shop_cards").innerHTML = str;
 }
 
@@ -268,7 +294,7 @@ function filteredcard(){
 
     if(shop_name_array.indexOf(shop.name) != -1) {
       index_array.push((shop_name_array.indexOf(shop.name)));
-      result_array.push([shop.img,shop.name,shop.rating_num,shop.rating,shop.shop_summary]);
+      result_array.push([shop.img,shop.name,shop.rating_num,shop.rating,shop.shop_summary, shop.schedule_id]);
       
     }
     
@@ -297,13 +323,22 @@ function filteredcard(){
                   </div>
               </div>
             <p class="card-text">${sorted_array[z][4]}</p>
-            <button type="button" class="btn btn-link" style = "padding-left: 0px; padding-top: 0px; color:darkslategrey;">Read More</button>
+            <button type="button" class="btn btn-link" style = "padding-left: 0px; padding-top: 0px; color:darkslategrey;" onclick="window.location='shopPage.html?shop_name=${sorted_array[z][1]}&schedule_id=${sorted_array[z][5]}';">Read More</button>
           </div>
         </div>
       </div>
       </div>
     `;
   }
+  if (str.length == 0) {
+    str = `
+      <div class="alert alert-danger" role="alert" style = "height: 150px; margin-top: 8  0px; margin-bottom: 150px; padding-top: 40px;">
+        <h3 class="text-center font-weight-bold">Sorry, No Shop Near Your Specified Location!</h3>
+        <h4 class="text-center font-weight-bold">Please Try Again!!!</h4>
+      </div>  
+    `;
+  }
+
   document.getElementById("shop_cards").innerHTML = str;
 }
 

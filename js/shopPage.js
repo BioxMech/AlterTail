@@ -1,4 +1,4 @@
-// var shopname = "Red Dot Bespoke";
+
 
 function show_shopPage(shop_name){
     var request = new XMLHttpRequest(); // Prep to make an HTTP request
@@ -7,7 +7,6 @@ function show_shopPage(shop_name){
         
         // Check if response is ready!
         if( this.readyState == 4 && this.status == 200 ) {
-            // alert("lalalla");
             // Convert responseText to JSON
             // console.log(this.responseText);
             var response_json = JSON.parse(this.responseText);
@@ -103,6 +102,14 @@ function show_shopPage(shop_name){
             document.getElementById("shop_services").innerHTML = service_str;
             document.getElementById("shop_address").innerHTML = shop_address_str;
             document.getElementById("serviceCheckbox").innerHTML = serviceCheckbox_str;
+
+
+            if (sessionStorage.length != 0) {
+                document.getElementById("bookButton").setAttribute("class", "nav-item mt-3 mr-1");
+            }
+            else {
+                document.getElementById("bookButton").setAttribute("class", "nav-item mt-1 mr-1");
+            }
         }
     
     }
