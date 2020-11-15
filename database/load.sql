@@ -57,12 +57,14 @@ constraint seller_service_fk1 foreign key(email, shop_name) references seller(em
 constraint seller_service_fk2 foreign key(service_id) references service(service_id)
 );
 
-create table transactions
+create table appointments
 (user_email varchar(50) not null,
 seller_email varchar(50 ) not null,
+schedule_id varchar(50) not null,
 shop_name varchar(40) not null,
 image_url varchar(100),
 service_id varchar(50) not null,
+service_title varchar(50) not null,
 service_description varchar(1000) not null,
 service_price varchar(10) not null,
 appt_date_time varchar(50) not null,
