@@ -448,7 +448,7 @@
                 <strong>Your Details</strong>
               </h4>
 
-              <form  style="margin: 10px; width:90%">
+              <form action="stripe/paymentPage.php" style="margin: 10px; width:90%">
 
                 <div class="form-label-group row">
                   <input type="text" class="form-control" id="bookName" placeholder="Name" required="" name="bookName"
@@ -481,9 +481,6 @@
                   <input type="text" class="form-control" id="bookPostal" placeholder="Postal" required name="postal_code" pattern="(?=.*\d).{6,6}">
                   <label for="registerPostal">Postal Code</label>
                 </div> -->
-                
-              </form>
-
               
               <p><strong>Type of Service</strong></p>
               <div id="serviceCheckbox">
@@ -512,6 +509,8 @@
               <p id = 'TotalCosts' style = "color:red">Total: $0</p>
               <br>
 
+              <input type = 'hidden' id = 'Total' value = ''>
+
               <p><strong>Leave a message</strong></p>
               <textarea name="remarks" rows="4" cols="40" >
               </textarea>
@@ -522,7 +521,7 @@
               </button>
 
       
-              <a class="shop_url" id="shop_url" href="stripe/paymentPage.html">
+              <!-- <a class="shop_url" id="shop_url"> -->
 
               <button id="proceedToPayment" class="btn btn-dark btn-sm" data-toggle="modal">
                 Proceed to payment
@@ -530,7 +529,9 @@
                 
               </button>
 
-              </a>
+              <!-- </a> -->
+            </form>
+
               </div>
             </div>
           </div>

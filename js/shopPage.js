@@ -173,10 +173,11 @@ function Price_Calculator(service_title, service_price){
     }
 
     total_price_str = `Total: $${total_price}`;
-    url_string = `stripe/charge.php?Total=${total_price}`;
+    // url_string = `stripe/paymentPage.php?Total=${total_price}`;
 
     document.getElementById('TotalCosts').innerHTML = total_price_str;
-    document.getElementById('shop_url').href = url_string;
+    document.getElementById('Total').value = total_price;
+    // document.getElementById('shop_url').href = url_string;
     // document.getElementById('proceedToPayment').onclick = `pass_to_stripe('${total_price}')`;
 }
 
