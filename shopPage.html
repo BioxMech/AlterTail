@@ -85,62 +85,32 @@
                   <a class="nav-link current" href="index.html" style="padding-bottom:unset;" >Home</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="allTailorPage.html" style="padding-bottom:unset;" >Tailoring</a>
+                  <a class="nav-link" href="location.html" style="padding-bottom:unset;" >Tailoring</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="location.html" style="padding-bottom:unset;" >Alteration</a>
               </li>
               <li class="nav-item">
-                  <!-- Dropdown menu -->
-                  <div class="dropdown">
-                      <a class="nav-link" href="#" style="padding-bottom:unset;" 
-                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cleaning</a>
-                      <!-- Options -->
-                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="allBagCleaningPage.html">Bag Cleaning</a>
-                          <a class="dropdown-item" href="allDryCleaningPage.html">Dry Cleaning</a>
-                      </div>
-                      <!-- Options -->
-                  </div>
-                  <!-- End of dropdown menu -->
-              </li>
-              <li class="nav-item">
                   <a class="nav-link" href="aboutUs.html" style="padding-bottom:unset;" >About Us</a>
               </li>
           </ul>      
-
-          <!-- Right Side -->
-          <!-- <ul class="navbar-nav ml-auto" id="rightNav">
-              <li class="nav-item">
-                  <form>
-                      <input type="text" class="searchBar" placeholder="Search Shop Names">
-                  </form>
-              </li> -->
-              <!-- <li class="nav-item"> -->
-                  <!-- <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="registerSignin" data-target="#registerSigninModal">Register / Login</a> -->
-              <!-- </li> -->
-          <!-- </ul> -->
-          <!-- End of right side -->
-
       </div>
       <!-- End of collapse content (Nav Bar) -->
 
+      <!-- Right side -->
       <div id="navbarNavRight">
-        <ul class="navbar-nav flex-row ml-auto" id="registerProfile">
-            <li class="nav-item mt-2 mr-1">
-                <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="book" data-target="#bookModal" onclick="retrieveProfileDetails()">Book an appointment</a>
-            </li>
-
-          <!-- <li class="nav-item mt-2 mr-1" id="change">
-            <form>
-                <input type="text" class="searchBar" placeholder="Search Shop Names">
-            </form>
-          </li>
-          <li class="nav-item mt-1" > -->
+          <ul class="navbar-nav flex-row ml-auto" id="registerProfile">
+            <li class="nav-item mt-2 mr-1" id="change">
+              <!-- Search bar -->
+              <search-component></search-component>
+           </li>
+           <div id="change2">
               <!-- Replace me with Sign in or Profile -->
-          <!-- </li> -->
-        </ul>
-    </div>
+           </div>
+          </ul>
+      </div>
+      <!-- End of right side -->
+      
   </nav>
   <!-- End Navigation Bar -->
 
@@ -969,9 +939,7 @@
 
         <!-- Content -->
         <h5 class="font-weight-bold text-uppercase mt-3 mb-4">AlterTail</h5>
-        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-          consectetur
-          adipisicing elit.</p>
+        <p>AlterTail is a one-stop fashion maintenance portal for residents in Singapore, providing fashion services such as alteration service, tailors and dry-cleaners.</p>
 
       </div>
       <!-- Grid column -->
@@ -982,20 +950,11 @@
       <div class="col-md-2 mx-auto">
 
         <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">About us</h5>
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Backgroundfinfo</h5>
 
         <ul class="list-unstyled">
           <li>
             <a href="aboutus.html">About Us</a>
-          </li>
-          <li>
-            <a href="#!">Community</a>
-          </li>
-          <li>
-            <a href="#!">Career</a>
-          </li>
-          <li>
-            <a href="#!">Contact Us</a>
           </li>
         </ul>
 
@@ -1017,12 +976,6 @@
           <li>
             <a href="#!">Tailoring</a>
           </li>
-          <li>
-            <a href="#!">Bag Cleaning</a>
-          </li>
-          <li>
-            <a href="#!">Dry Cleaning</a>
-          </li>
         </ul>
 
       </div>
@@ -1038,16 +991,10 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="#!">Payment methods</a>
+            <a href="terms.html">Terms and conditions</a>
           </li>
           <li>
-            <a href="#!">Shipping methods</a>
-          </li>
-          <li>
-            <a href="#!">Terms and conditions</a>
-          </li>
-          <li>
-            <a href="#!">Privacy Policy</a>
+            <a href="privacypolicy.html">Privacy Policy</a>
           </li>
         </ul>
 

@@ -27,6 +27,7 @@
     <!-- <link rel="stylesheet" href="css/buttons.css"> -->
     <link rel="stylesheet" href="css/buttonEffects.css">   
     <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/shoppage.css">
 
   </head>
 
@@ -41,66 +42,52 @@
     <nav class="navbar navbar-expand-lg navbar-light" >
         
   
-        <!-- Hamburger Name -->
-        <button class="navbar-toggler mr-4" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-  
-        <a class="navbar-brand mr-auto" href="index.html">
-            <img src="images/logo.jpg" class="d-inline-block align-top navBarLogo" loading="lazy">
-        </a>
-        
-        <!-- Collapse Content (Nav Bar) -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-                
-            <!-- Left Side Nav -->
-            <ul class="navbar-nav mr-auto" id="leftSideNav">
-                <li class="nav-item">
-                    <a class="nav-link current" href="index.html" style="padding-bottom:unset;" >Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="allTailorPage.html" style="padding-bottom:unset;" >Tailoring</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="location.html" style="padding-bottom:unset;" >Alteration</a>
-                </li>
-                <li class="nav-item">
-                    <!-- Dropdown menu -->
-                    <div class="dropdown">
-                        <a class="nav-link" href="#" style="padding-bottom:unset;" 
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cleaning</a>
-                        <!-- Options -->
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="allBagCleaningPage.html">Bag Cleaning</a>
-                            <a class="dropdown-item" href="allDryCleaningPage.html">Dry Cleaning</a>
-                        </div>
-                        <!-- Options -->
-                    </div>
-                    <!-- End of dropdown menu -->
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="aboutUs.html" style="padding-bottom:unset;" >About Us</a>
-                </li>
-            </ul>      
-        </div>
-        <!-- End of collapse content (Nav Bar) -->
+      <!-- Hamburger Name -->
+      <button class="navbar-toggler mr-4" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <!-- Right side -->
-        <div id="navbarNavRight">
-            <ul class="navbar-nav flex-row ml-auto" id="registerProfile">
-              <li class="nav-item mt-2 mr-1" id="change">
-                <!-- Search bar -->
-                <search-component></search-component>
-             </li>
-             <div id="change2">
-                <!-- Replace me with Sign in or Profile -->
-             </div>
-            </ul>
-        </div>
-        <!-- End of right side -->
-        
-    </nav>
-    <!-- End Navigation Bar -->
+      <a class="navbar-brand mr-auto" href="index.html">
+          <img src="images/logo.jpg" class="d-inline-block align-top navBarLogo" loading="lazy">
+      </a>
+      
+      <!-- Collapse Content (Nav Bar) -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+              
+          <!-- Left Side Nav -->
+          <ul class="navbar-nav mr-auto" id="leftSideNav">
+              <li class="nav-item">
+                  <a class="nav-link current" href="index.html" style="padding-bottom:unset;" >Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="location.html" style="padding-bottom:unset;" >Tailoring</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="location.html" style="padding-bottom:unset;" >Alteration</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="aboutUs.html" style="padding-bottom:unset;" >About Us</a>
+              </li>
+          </ul>      
+      </div>
+      <!-- End of collapse content (Nav Bar) -->
+
+      <!-- Right side -->
+      <div id="navbarNavRight">
+          <ul class="navbar-nav flex-row ml-auto" id="registerProfile">
+            <li class="nav-item mt-2 mr-1" id="change">
+              <!-- Search bar -->
+              <search-component></search-component>
+           </li>
+           <div id="change2">
+              <!-- Replace me with Sign in or Profile -->
+           </div>
+          </ul>
+      </div>
+      <!-- End of right side -->
+      
+  </nav>
+  <!-- End Navigation Bar -->
 
 
   <!-- Start of Register/Sign up modal -->
@@ -347,23 +334,36 @@
 </div>
 <!-- End of Register/Sign up modal -->
 
-    <!-- Main Header -->
-    <!--Image bg-->
-    <img src="images/1.jpeg" class="img-fluid" alt="Responsive image"
-      style= "display: block;
-              margin-left: auto;
-              margin-right: auto;
-              " >
-
-    <div class="centered" style ="position: absolute;
-                                  top: 50%; 
-                                  left: 50%; 
-                                  transform: translate(-50%, -50%);
-                                  color:white;
-                                  font-family: Arial, Helvetica, sans-serif;">
-    <font size="12"><b>Privary Policy</b></font>
-    </div>
-    <!-- End of main header -->
+<div class= "title relative">
+   <div id="shop_image">
+     <img src="images/1.jpeg" class="img-fluid" alt="Responsive image"
+     style= "display: block;
+             margin-left: auto;
+             margin-right: auto;
+             " >
+   </div>
+   
+   <!-- Shop Name -->
+   <div class="text" id="text" 
+       style ="
+         text-shadow: 3px 3px 3px #000000; 
+         font-family: 'open_sansbold';
+         font-size: 50px;
+         color: white;
+         position: absolute;
+         top: 0;
+         right: 0;
+         bottom: 0;
+         left: 0;
+         z-index: 1;
+         margin: auto;
+         width: 100%;
+         height: 30px;
+         text-align: center;
+         line-height: 1em; ">
+     <b>Privacy Policy</b>
+   </div>
+ </div>
 
     <div class="container content" style="margin-top: 75px;">
         <p>
@@ -782,133 +782,112 @@
 <!-- Footer -->
 <footer class="page-footer font-small text-white bg-dark pt-4" >
 
-  <!-- Footer Links -->
-  <div class="container text-center text-md-left">
-
-    <!-- Grid row -->
-    <div class="row">
-
-      <!-- Grid column -->
-      <div class="col-md-4 mx-auto">
-
-        <!-- Content -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">AlterTail</h5>
-        <p>AlterTail is a one-stop fashion maintenance portal for residents in Singapore, providing fashion services such as alteration service, tailors and dry-cleaners.</p>
-
-      </div>
-      <!-- Grid column -->
-
-      <hr class="clearfix w-100 d-md-none">
-
-      <!-- Grid column -->
-      <div class="col-md-2 mx-auto">
-
-        <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">About us</h5>
-
-        <ul class="list-unstyled">
-          <li>
-            <a href="aboutus.html">About Us</a>
-          </li>
-          <li>
-            <a href="#!">Community</a>
-          </li>
-          <li>
-            <a href="#!">Career</a>
-          </li>
-          <li>
-            <a href="#!">Contact Us</a>
-          </li>
-        </ul>
-
-      </div>
-      <!-- Grid column -->
-
-      <hr class="clearfix w-100 d-md-none">
-
-      <!-- Grid column -->
-      <div class="col-md-2 mx-auto">
-
-        <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Services</h5>
-
-        <ul class="list-unstyled">
-          <li>
-            <a href="#!">Alterations</a>
-          </li>
-          <li>
-            <a href="#!">Tailoring</a>
-          </li>
-          <li>
-            <a href="#!">Bag Cleaning</a>
-          </li>
-          <li>
-            <a href="#!">Dry Cleaning</a>
-          </li>
-        </ul>
-
-      </div>
-      <!-- Grid column -->
-
-      <hr class="clearfix w-100 d-md-none">
-
-      <!-- Grid column -->
-      <div class="col-md-2 mx-auto">
-
-        <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Information</h5>
-
-        <ul class="list-unstyled">
-          <li>
-            <a href="#!">Payment methods</a>
-          </li>
-          <li>
-            <a href="#!">Shipping methods</a>
-          </li>
-          <li>
-            <a href="#!">Terms and conditions</a>
-          </li>
-          <li>
-            <a href="#!">Privacy Policy</a>
-          </li>
-        </ul>
-
-      </div>
-      <!-- Grid column -->
-
-    </div>
-    <!-- Grid row -->
-
-  </div>
-  <!-- Footer Links -->
-
-  <!-- <hr> -->
-  <hr>
-
-  <!-- Social buttons -->
-  <ul class="list-unstyled list-inline text-center">
-    <li class="list-inline-item">
-      <a class="btn-floating btn-fb mx-1" href="https://www.facebook.com/sg.altertail.3" target="_blank" rel="noopener"> 
-        <i class="fab fa-facebook-f"> </i>
-      </a>
-    </li>
-    
-    <li class="list-inline-item">
-      <a class="btn-floating btn-tw mx-1" href="https://twitter.com/AltertailS" target="_blank" rel="noopener">
-        <i class="fab fa-twitter"> </i>
-      </a>
-    </li>
-  </ul>
-  <!-- Social buttons -->
-
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="aboutus.html">AlterTail.co</a>
-  </div>
-  <!-- Copyright -->
-
-</footer>
-<!-- Footer -->
+   <!-- Footer Links -->
+   <div class="container text-center text-md-left">
+ 
+     <!-- Grid row -->
+     <div class="row">
+ 
+       <!-- Grid column -->
+       <div class="col-md-4 mx-auto">
+ 
+         <!-- Content -->
+         <h5 class="font-weight-bold text-uppercase mt-3 mb-4">AlterTail</h5>
+         <p>AlterTail is a one-stop fashion maintenance portal for residents in Singapore, providing fashion services such as alteration service, tailors and dry-cleaners.</p>
+ 
+       </div>
+       <!-- Grid column -->
+ 
+       <hr class="clearfix w-100 d-md-none">
+ 
+       <!-- Grid column -->
+       <div class="col-md-2 mx-auto">
+ 
+         <!-- Links -->
+         <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Backgroundfinfo</h5>
+ 
+         <ul class="list-unstyled">
+           <li>
+             <a href="aboutus.html">About Us</a>
+           </li>
+         </ul>
+ 
+       </div>
+       <!-- Grid column -->
+ 
+       <hr class="clearfix w-100 d-md-none">
+ 
+       <!-- Grid column -->
+       <div class="col-md-2 mx-auto">
+ 
+         <!-- Links -->
+         <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Services</h5>
+ 
+         <ul class="list-unstyled">
+           <li>
+             <a href="#!">Alterations</a>
+           </li>
+           <li>
+             <a href="#!">Tailoring</a>
+           </li>
+         </ul>
+ 
+       </div>
+       <!-- Grid column -->
+ 
+       <hr class="clearfix w-100 d-md-none">
+ 
+       <!-- Grid column -->
+       <div class="col-md-2 mx-auto">
+ 
+         <!-- Links -->
+         <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Information</h5>
+ 
+         <ul class="list-unstyled">
+           <li>
+             <a href="terms.html">Terms and conditions</a>
+           </li>
+           <li>
+             <a href="privacypolicy.html">Privacy Policy</a>
+           </li>
+         </ul>
+ 
+       </div>
+       <!-- Grid column -->
+ 
+     </div>
+     <!-- Grid row -->
+ 
+   </div>
+   <!-- Footer Links -->
+ 
+   <!-- <hr> -->
+   <hr>
+ 
+   <!-- Social buttons -->
+   <ul class="list-unstyled list-inline text-center">
+     <li class="list-inline-item">
+       <a class="btn-floating btn-fb mx-1" href="https://www.facebook.com/sg.altertail.3" target="_blank" rel="noopener"> 
+         <i class="fab fa-facebook-f"> </i>
+       </a>
+     </li>
+     
+     <li class="list-inline-item">
+       <a class="btn-floating btn-tw mx-1" href="https://twitter.com/AltertailS" target="_blank" rel="noopener">
+         <i class="fab fa-twitter"> </i>
+       </a>
+     </li>
+   </ul>
+   <!-- Social buttons -->
+ 
+   <!-- Copyright -->
+   <div class="footer-copyright text-center py-3">© 2020 Copyright:
+     <a href="aboutus.html">AlterTail.co</a>
+   </div>
+   <!-- Copyright -->
+ 
+ </footer>
+ <!-- Footer -->
 
     <!-- Custom Javscript -->
     <script src="js/form.js"></script>
