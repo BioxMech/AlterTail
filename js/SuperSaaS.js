@@ -44,11 +44,11 @@ function getAvailabilities(schedule_id) {
   })
 }
 
-//Retrieve appointments made for the Tailor
+//Retrieve appointments on Seller side
 function getAppointments(schedule_id) {
   
   var url = `https://www.supersaas.com/api/range/${schedule_id}.json?api_key=60Sdu0PWYumxHliWn1Uieg`;
-  let final_url = `${'https://cors-anywhere.herokuapp.com/'}${url}`;
+  // let final_url = `${'https://cors-anywhere.herokuapp.com/'}${url}`;
 
   axios.get(`${'https://cors-anywhere.herokuapp.com/'}${url}`,
   {
@@ -68,7 +68,7 @@ function getAppointments(schedule_id) {
 }
 
 
-//Retrieve appointments made
+//Retrieve appointments made on User side
 function getAgenda(schedule_id, email) {
 
   console.log("======== DEBUG (getAgenda) ===========");
@@ -77,8 +77,8 @@ function getAgenda(schedule_id, email) {
 
   var url = `https://www.supersaas.com/api/agenda/${schedule_id}.json?user=${email}&api_key=60Sdu0PWYumxHliWn1Uieg`;
 
-  let final_url = `${'https://cors-anywhere.herokuapp.com/'}${url}`;
-  console.log(final_url);
+  // let final_url = `${'https://cors-anywhere.herokuapp.com/'}${url}`;
+  // console.log(final_url);
 
   axios.get(`${'https://cors-anywhere.herokuapp.com/'}${url}`,
   {
