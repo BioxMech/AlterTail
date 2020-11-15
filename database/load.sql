@@ -181,7 +181,8 @@ INSERT INTO `service`(`service_id`, `service_title`, `service_price`, `service_d
 ('10','Carpet Cleaning Service','8',"Carpet cleaning is an integral part of house cleaning work. Carpets are great decorative pieces however, it also attracts dust and allergens. We provide carpet cleaning services for your home. Our carpet cleaning service in Singapore delivers a superior cleaning method for your carpet to ensure that it is clean and hygienic. It is recommended to clean your carpet every 3 to 6 months if you have a pet or regularly use your carpet in your living space. We specialize in cleaning for both fabric and natural exotic animal skins carpet. As our carpet charges are based on per square feet, big or small carpet, you will be charged accordingly.",'7 days','cleaning2.jpg'),
 ('11','Laundry & Dry Cleaning Services','8',"We specialized in professional caring for various types of delicate fabric. Should your items require delicate care, it will be separated out and handled carefully through every stage of our cleaning process. Our garment care specialist will inspect and ensure that your items will receive the best care and attention during cleaning.",'4 days','cleaning3.jpg'),
 ('12','Bag Cleaning Services','50',"We have years of experience in luxury bag repair and restoration. We provide the best Bag – Wallet Cleaning Service In Singapore. Our goal is to preserve the tip-top conditions of your luxury bags, hence enhancing the value you have invested in them.",'8 days','cleaning3.jpg'),
-('13','Blazer Alteration','90',"If you ever slip a jacket on and find the sleeves are a touch too long, the jacket’s bagging across your front, or swallowing the hollow of your back, don’t despair. A decent alterations tailor can work wonders, and tweak a ready-to-wear suit almost everywhere that matters, to help you achieve the look and feel of a bespoke suit.",'7 days','blazer.jpg')
+('13','Blazer Alteration','90',"If you ever slip a jacket on and find the sleeves are a touch too long, the jacket’s bagging across your front, or swallowing the hollow of your back, don’t despair. A decent alterations tailor can work wonders, and tweak a ready-to-wear suit almost everywhere that matters, to help you achieve the look and feel of a bespoke suit.",'7 days','blazer.jpg'),
+('14','Blazer Alteration','60',"If you ever slip a jacket on and find the sleeves are a touch too long, the jacket’s bagging across your front, or swallowing the hollow of your back, don’t despair. A decent alterations tailor can work wonders, and tweak a ready-to-wear suit almost everywhere that matters, to help you achieve the look and feel of a bespoke suit.",'7 days','blazer.jpg')
 ;
 
 
@@ -308,23 +309,22 @@ INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES
 ('alt.fit@gmail.com','Alt-To-Fit','08');
 
 INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('wealtering@gmail.com','We Altering','13'),
+('wealtering@gmail.com','We Altering','14'),
 ('wealtering@gmail.com','We Altering','05'),
 ('wealtering@gmail.com','We Altering','06'),
 ('wealtering@gmail.com','We Altering','07'),
 ('wealtering@gmail.com','We Altering','08');
 
 INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('wingonn@gmail.com','Wing Onn Alteration','13'),
+('wingonn@gmail.com','Wing Onn Alteration','14'),
 ('wingonn@gmail.com','Wing Onn Alteration','05'),
 ('wingonn@gmail.com','Wing Onn Alteration','06'),
 ('wingonn@gmail.com','Wing Onn Alteration','07'),
 ('wingonn@gmail.com','Wing Onn Alteration','08');
 
 INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('wonderfulas@gmail.com','Wonderful Alteration Store','13'),
+('wonderfulas@gmail.com','Wonderful Alteration Store','14'),
 ('wonderfulas@gmail.com','Wonderful Alteration Store','05'),
 ('wonderfulas@gmail.com','Wonderful Alteration Store','06'),
 ('wonderfulas@gmail.com','Wonderful Alteration Store','07'),
 ('wonderfulas@gmail.com','Wonderful Alteration Store','08');
-
