@@ -425,7 +425,7 @@
                  </ul>
                 </div> -->
                 <div>
-                  <select id='dropDownMenu' onselect="">
+                  <select id='dropDownMenu'>
                     <!-- <option>Hello</option> -->
                   </select>
                 </div>
@@ -448,7 +448,7 @@
                 <strong>Your Details</strong>
               </h4>
 
-              <form action="stripe/paymentPage.php" style="margin: 10px; width:90%">
+              <div  style="margin: 10px; width:90%" onsubmit="getSlotDetails(schedule_id)">
 
                 <div class="form-label-group row">
                   <input type="text" class="form-control" id="bookName" placeholder="Name" required="" name="bookName"
@@ -515,21 +515,21 @@
               <textarea name="remarks" rows="4" cols="40" ></textarea>
               <br><br>
               
-              <button type="button" id="scheduleEvent" class="btn btn-outline-secondary btn-sm" onclick="getSlotDetails(schedule_id)" data-toggle="modal" data-dismiss="modal" data-target="#bookedSuccessModal" >
-                Schedule Event Only
+              <button type="button" onclick="getSlotDetails(schedule_id)" id="scheduleEvent" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-dismiss="modal" data-target="#bookModal" >
+                Close
               </button>
 
       
-              <!-- <a class="shop_url" id="shop_url"> -->
+              <a class="shop_url" id="shop_url" href="javascript:delay('stripe/paymentPage.php')">
 
-              <button id="proceedToPayment" class="btn btn-dark btn-sm" data-toggle="modal">
+              <button id="proceedToPayment" class="btn btn-dark btn-sm" data-toggle="modal" onclick="getSlotDetails(schedule_id); storeSessionDetails(); setSpinner()" >
                 Proceed to payment
                 <i style="font-size:18px" class="fa">&#xf155;</i>
                 
-              </button>
+                </button>
 
-              <!-- </a> -->
-            </form>
+              </a>
+            </div>
 
               </div>
             </div>
