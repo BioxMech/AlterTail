@@ -1,4 +1,5 @@
 var email = sessionStorage.getItem("email")
+alert(email);
 
 function displayAppointment() {
     var request = new XMLHttpRequest(); // Prep to make an HTTP request
@@ -17,7 +18,8 @@ function displayAppointment() {
             var modal_str = document.getElementById("modalContent").innerHTML
             for(var user of records) {
                 var datetime = user.appt_date_time.split(" ")[0].split("-");                
-                
+                var title = user.service_title.split(" - ")[0];
+                var price = user.service_title.split(" - ")[1];
 
                 modal_str += 
                     `
@@ -62,7 +64,7 @@ function displayAppointment() {
 
                         <!-- Details -->
                         <td style="padding-top: 30px;">
-                        <strong>SGD$ ${user.service_price}</strong> &nbsp (${user.service_title})
+                        <strong>SGD$ ${price}</strong> &nbsp (${title})
                         <p>
                             ${user.appt_date_time}
                         </p>
@@ -94,7 +96,7 @@ function displayAppointment() {
 
                         <!-- Details -->
                         <td style="padding-top: 30px;">
-                        <strong>SGD$ ${user.service_price}</strong> &nbsp (${user.service_title})
+                        <strong>SGD$ ${price}</strong> &nbsp (${title})
                         <p>
                             ${user.appt_date_time}
                         </p>

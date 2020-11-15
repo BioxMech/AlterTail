@@ -125,7 +125,7 @@ class User {
 
    public function retrieveAppointments($email) {
        // select all query
-       $query = "SELECT * FROM appointments WHERE user_email = ?";
+       $query = "SELECT * FROM appointment WHERE user_email = ?";
 
        // prepare query statement
        $stmt = $this->conn->prepare($query);
