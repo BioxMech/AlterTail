@@ -117,12 +117,15 @@
 
         <?php
         // $Total = $_GET['Total']; 
-        echo "<input type='hidden' id='shop_page_total' name='Total' value=>";
-        echo "<input type='hidden' id='shop_page_user_email' name='user_email' value=>";
-        echo "<input type='hidden' id='shop_page_name' name='shop_name' value=>";
-        echo "<input type='hidden' id='shop_page_phone' name='phone' value=>";
-        echo "<input type='hidden' id='shop_page_schedule_id' name='schedule_id' value=>";
-        echo "<input type='hidden' id='shop_page_timeslot' name='timeslot' value=>";
+        echo "<input type='hidden' id='shop_page_total' name='Total' value=''>";
+        echo "<input type='hidden' id='shop_page_user_email' name='user_email' value=''>";
+        echo "<input type='hidden' id='shop_page_name' name='name' value=''>";
+        echo "<input type='hidden' id='shop_page_phone' name='phone' value=''>";
+        echo "<input type='hidden' id='shop_page_schedule_id' name='schedule_id' value=''>";
+        echo "<input type='hidden' id='shop_page_timeslot' name='timeslot' value=''>";
+        echo "<input type='hidden' id='shop_page_shop_name' name='shop_name' value=''>";
+        echo "<input type='hidden' id='shop_page_selected_services' name='selected_services' value=''>";
+        // echo "<input type='hidden' id='shop_page_shop_image' name='shop_image' value=>";
         ?>
 
        <div id="card-element" class="form-control">
@@ -133,7 +136,8 @@
         <div id="card-errors" role="alert"></div>
       </div>
 
-      <button>Submit Payment</button>
+      <button type='submit'>Submit Payment</button>
+      <!-- <input type='submit' value='Submit Payment'> -->
     </form>
   </div>
 
@@ -280,14 +284,19 @@
     console.log(sessionStorage.getItem("shop_page_schedule_id"));
     console.log(sessionStorage.getItem("shop_page_timeslot"));
     console.log(sessionStorage.getItem("shop_page_total"));
+    console.log(sessionStorage.getItem("shop_page_shop_name"));
+    // console.log(sessionStorage.getItem("shop_page_shop_image"));
     var total_amt = sessionStorage.getItem("shop_page_total");
-    console.log(total_amt);
+    // console.log(total_amt);
     document.getElementById("shop_page_total").value = total_amt;
     document.getElementById("shop_page_user_email").value = sessionStorage.getItem("shop_page_user_email");
     document.getElementById("shop_page_name").value = sessionStorage.getItem("shop_page_name");
     document.getElementById("shop_page_phone").value = sessionStorage.getItem("shop_page_phone");
     document.getElementById("shop_page_schedule_id").value = sessionStorage.getItem("shop_page_schedule_id");
     document.getElementById("shop_page_timeslot").value = sessionStorage.getItem("shop_page_timeslot");
+    document.getElementById("shop_page_shop_name").value = sessionStorage.getItem("shop_page_shop_name");
+    document.getElementById("shop_page_selected_services").value = sessionStorage.getItem("shop_page_selected_services");
+    // document.getElementById("shop_page_shop_image").value = sessionStorage.getItem("shop_page_shop_image");
   </script>
 </body>
 </html>
