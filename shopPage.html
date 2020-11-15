@@ -457,10 +457,9 @@
                 </div>
 
                 <div class="form-label-group row">
-                  <input type="text" class="form-control" id="bookEmail" placeholder="email" readonly required="" name="bookEmail"
+                  <input type="text" class="form-control" id="bookEmail" placeholder="email" required="" name="bookEmail"
                   pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
                   <label for="bookEmail">Email Address</label>
-                  <small>For confirmation purposes, confirmation email will be sent to this email.</small>
                 </div>
 
                 <div class="form-label-group row" >
@@ -510,11 +509,10 @@
               <p id = 'TotalCosts' style = "color:red">Total: $0</p>
               <br>
 
-              <input type = 'hidden' id = 'Total' value = ''>
+              <input type = 'hidden' id = 'Total' name = 'Total' value = ''>
 
               <p><strong>Leave a message</strong></p>
-              <textarea name="remarks" rows="4" cols="40" >
-              </textarea>
+              <textarea name="remarks" rows="4" cols="40" ></textarea>
               <br><br>
               
               <button type="button" id="scheduleEvent" class="btn btn-outline-secondary btn-sm" onclick="getSlotDetails(schedule_id)" data-toggle="modal" data-dismiss="modal" data-target="#bookedSuccessModal" >
@@ -524,7 +522,11 @@
       
               <!-- <a class="shop_url" id="shop_url"> -->
 
-            
+              <button id="proceedToPayment" class="btn btn-dark btn-sm" data-toggle="modal">
+                Proceed to payment
+                <i style="font-size:18px" class="fa">&#xf155;</i>
+                
+              </button>
 
               <!-- </a> -->
             </form>
@@ -535,7 +537,6 @@
         </div>
       </div>
     </div>
-  </div>
   <!-- End of Book modal -->
 
   <!-- Start of bookedSuccess modal -->
