@@ -22,8 +22,9 @@ $customer = \Stripe\Customer::create(array(
 ));
 
 // Charge Customer
+$price = $_GET['Total'];
 $charge = \Stripe\Charge::create(array(
-  "amount" => 100,
+  "amount" => $price,
   "currency" => "sgd",
   "description" => "Payment",
   "customer" => $customer->id

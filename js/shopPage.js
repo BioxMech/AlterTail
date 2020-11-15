@@ -106,9 +106,7 @@ function show_shopPage(shop_name){
     
     }
     var url = "projectAPI/user/retrieveShopPage.php?shop_name=" + shop_name;
-    
     request.open("GET", url, true);
-
     request.send();
 }
 
@@ -151,9 +149,7 @@ function retrieveProfileDetails() {
     
     }
     var url = "projectAPI/user/retrieveProfile.php?email=" + email;
-    
     request.open("GET", url, true);
-
     request.send();
 }
 
@@ -177,7 +173,30 @@ function Price_Calculator(service_title, service_price){
     }
 
     total_price_str = `Total: $${total_price}`;
+    url_string = `stripe/charge.php?Total=${total_price}`;
 
     document.getElementById('TotalCosts').innerHTML = total_price_str;
+    document.getElementById('shop_url').href = url_string;
+    // document.getElementById('proceedToPayment').onclick = `pass_to_stripe('${total_price}')`;
 }
+
+// function pass_to_stripe(){
+//     // alert('lit');
+//     var request = new XMLHttpRequest(); // Prep to make an HTTP request
+
+//     request.onreadystatechange = function() {
+        
+//         // Check if response is ready!
+//         alert(this.readyState);
+//         alert(this.status);
+//         if( this.readyState == 4 && this.status == 200 ){
+//             alert('x');
+//         }
+//     }
+
+//     var url = "./stripe/charge.php?totalprice=" + total_price;
+//     // alert(url);
+//     request.open("GET", url, true);
+//     request.send();
+// }
 
