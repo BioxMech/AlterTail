@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Font Awesome Script -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+   
+    <!-- Title -->
+   <title>Location</title>
+
+   <!-- Title Image -->
+   <link rel="icon" href="images/logo4.jpg" type="image/jpg">
+
+     <!-- Custom CSS -->
+     <link rel="stylesheet" href="css/main.css">
+     <link rel="stylesheet" href="css/loader.css">
+     <link rel="stylesheet" href="css/animation.css">
+     <link rel="stylesheet" href="css/location.css">
+     <link rel="stylesheet" href="css/buttonEffects.css">
+     <link rel="stylesheet" href="css/form.css">
+
+
+     <style>
+         #search_button{
+            width: 8%;
+            padding: 5px;
+            margin: 5px;
+            background: red;
+            color: white;
+            font-size: 12px;
+            border: 1px solid red;
+            border-left: none; /* Prevent double borders */
+            cursor: pointer;
+            border-radius: 50%;
+         }
+
+
+         .info1
+         {
+              background-color: transparent;
+              color: black;
+              border-color:lightgray;
+              font-family:Helvetica, sans-serif;
+              padding-left:20px; 
+              padding-right:20px;
+              border-radius: 20px;
+
+              
+        }
+
+        .info1:hover
+        {
+          color:black;
+          background-color: transparent;
+          border-color: black;
+        }
+
+     </style>
+
+
+
+  </head>
+
+
+  <body onload="initializeShopDisplay(); loggedIn()"></body>
+ 
+    <div id="overlay">
+        <div id="progstat"></div>
+        <div id="progress"></div>
+    </div>
+
+    <!-- Start Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light" >
+        
+  
+        <!-- Hamburger Name -->
+        <button class="navbar-toggler mr-4" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <a class="navbar-brand mr-auto" href="index.html">
+            <img src="images/logo.jpg" class="d-inline-block align-top navBarLogo" loading="lazy">
+        </a>
+        
+        <!-- Collapse Content (Nav Bar) -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+                
+            <!-- Left Side Nav -->
+            <ul class="navbar-nav mr-auto" id="leftSideNav">
+                <li class="nav-item">
+                    <a class="nav-link current" href="index.html" style="padding-bottom:unset;" >Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="allTailorPage.html" style="padding-bottom:unset;" >Tailoring</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="location.html" style="padding-bottom:unset;" >Alteration</a>
+                </li>
+                <li class="nav-item">
+                    <!-- Dropdown menu -->
+                    <div class="dropdown">
+                        <a class="nav-link" href="#" style="padding-bottom:unset;" 
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cleaning</a>
+                        <!-- Options -->
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="allBagCleaningPage.html">Bag Cleaning</a>
+                            <a class="dropdown-item" href="allDryCleaningPage.html">Dry Cleaning</a>
+                        </div>
+                        <!-- Options -->
+                    </div>
+                    <!-- End of dropdown menu -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="aboutUs.html" style="padding-bottom:unset;" >About Us</a>
+                </li>
+            </ul>      
+
+            <!-- Right Side -->
+            <!-- <ul class="navbar-nav ml-auto" id="rightNav">
+                <li class="nav-item">
+                    <form>
+                        <input type="text" class="searchBar" placeholder="Search Shop Names">
+                    </form>
+                </li> -->
+                <!-- <li class="nav-item"> -->
+                    <!-- <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="registerSignin" data-target="#registerSigninModal">Register / Login</a> -->
+                <!-- </li> -->
+            <!-- </ul> -->
+            <!-- End of right side -->
+
+        </div>
+        <!-- End of collapse content (Nav Bar) -->
+
+        <div id="navbarNavRight">
+            <ul class="navbar-nav flex-row ml-auto" id="registerProfile">
+              <!-- <li class="nav-item mt-2 mr-1" id="change">
+                <form>
+                    <input type="text" class="searchBar" placeholder="Search Shop Names">
+                </form>
+              </li>
+              <li class="nav-item mt-1" > -->
+                  <!-- Replace me with Sign in or Profile -->
+              <!-- </li> -->
+            </ul>
+        </div>
+    </nav>
+    <!-- End Navigation Bar -->
+
+
+    <!-- Start of Register/Sign up modal -->
+  <div class="modal fade" id="registerSigninModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+      <div class="modal-content"> 
+
+        <!-- Tabs -->
+        <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Login</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Register</a>
+            </li>
+        </ul>
+        <!-- End of Tabs -->
+
+        <!-- <div class="modal-header">
+          <img src="images/logo.jpg" class="modalFormImage">
+          <h5 class="modalDescription mb-4">All-in-one tailoring/alteration/cleaning services platform</h5>
+        </div> -->
+
+        <div class="modal-body">
+            <div class="tab-content" id="pills-tabContent">
+
+                <!-- Sign in tab -->
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                    <!-- Sign in forms -->
+                    <!-- <form class="form-signin" method="POST" id="root"> -->
+                    <form class="form-signin" action="backend/process_login.php" method="POST" id="signInForm">
+
+                        <img src="images/logo.jpg" class="modalFormImage">
+                        <h5 class="modalDescription mb-4">All-in-one tailoring/alteration/cleaning services platform</h5>
+                            
+                        <div class="form-group row">
+                          <i class="fas fa-envelope prefix modalIcon"></i>
+                          <div class="col-sm-11 ml-auto">
+                            <div class="form-label-group row">
+                              <input type="text" class="form-control modalInput" id="signinEmail" placeholder="email" required name="email" >
+                              <span class="border"></span>
+                              <label for="signinEmail">Email Address</label>
+                            </div>
+                            <!-- Error Message -->
+                            <div id="emailOutput"></div>
+                          </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                          <i class="fas fa-lock prefix modalIcon"></i>
+                          <div class="col-sm-11 ml-auto">
+                            <div class="form-label-group row">
+                            <input type="password" class="form-control modalInput" id="psw" placeholder="password" required="" name="password" >
+                            <span class="border"></span>
+                            <label for="psw"></i>Password</label>
+                          </div>
+                          <!-- Error Message -->
+                          <div id="passwordOutput"></div>
+                        </div>
+                        
+                        </div>
+                        <div class="form-group form-check row">
+                          <input type="checkbox" class="form-check-input" id="rememberMe">
+                          <label class="form-check-label" for="rememberMe">Remember Me</label>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearAllSignin()">Close</button>
+                            <input type="submit" class="btn btn-dark" value="Sign in" id="signinSubmit">
+                        </div>
+                    </form>
+                    <!-- End of sign in forms -->
+                </div>
+                <!-- End of Signin Tab -->
+
+                <!-- Register Tab -->
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+                    <!-- Register form -->
+                    <form class="form-signin needs-validation" id="myForm1" action="backend/process_register.php" method="POST" autocomplete="off" onsubmit="saveSession()">
+                        <img src="images/logo.jpg" class="modalFormImage">
+                        <h5 class="modalDescription mb-4">All-in-one tailoring/alteration/cleaning services platform
+                        <br>Sign up with us now to get your clothing or bag cleaned, altered or tailored!</h5>
+
+                        <div class="form-label-group row">
+                          <input type="text" class="form-control" v-bind:class="{'is-invalid': emailnotValid, 'is-valid': emailisValid }" id="registerEmail" placeholder="email" required="" name="email"
+                          pattern="^[a-zA-Z\d+.]+@([\w-]+\.)+[\w-]{2,4}$" v-model="registerEmail" v-on:keyup="checkEmail">
+                          <label for="registerEmail">Email Address</label>
+                          <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                          <div class="valid-feedback" v-bind:style="emailValidStyle"> {{ emailValid }} </div>
+                          <div class="invalid-feedback"> {{ emailInvalid }} </div>
+                        </div>
+
+                        <div class="form-label-group row">
+                          <input type="text" class="form-control" v-bind:class="{'is-invalid': usernamenotValid, 'is-valid': usernameisValid}" id="registerUsername" placeholder="username" required="" name="username" 
+                          pattern="^[a-zA-Z\d+]{3,}$" v-model="registerUsername" v-on:keyup="checkUsername">
+                          <label for="registerUsername">Username</label>
+                          <small class="form-text text-muted">It will also be your display name.</small>
+                          <div class="valid-feedback" v-bind:style="usernameValidStyle"> {{ usernameValid }} </div>
+                          <div class="invalid-feedback"> {{ usernameInvalid }} </div>
+                        </div>
+                        
+                        <!-- <div class="form-row row">
+                          <div class="col-sm-6">
+                            <div class="form-label-group">
+                              <input type="text" class="form-control" id="registerFirstName" placeholder="firstName" required="" name="fname">
+                              <label for="registerFirstName"></i>First Name</label>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-label-group">
+                              <input type="text" class="form-control" id="registerLastName" placeholder="lastName" required="" name="lname">
+                              <label for="registerLastName"></i>Last Name</label>
+                            </div>
+                          </div>
+                        </div> -->
+
+                        <div class="form-group">
+                          <div class="form-label-group row">
+                            <input type="text" class="form-control" id="registerName" placeholder="name" name="name" pattern="^[a-zA-Z\s]{3,}$" 
+                            v-model="registerName" v-on:blur="display" v-on:focus="display" required>
+                            <label for="registerName">Name</label>
+                            <small class="form-text text-muted">First name + Last Name | For example: Bob Dylan</small>
+                            <div class="valid-feedback">You have a nice name.</div>
+                            <div class="invalid-feedback"></div>
+                          </div>
+                        </div>
+
+                        <div class="form-check form-check-inline row">
+                          Gender: 
+                        </div>
+                        <div class="form-check form-check-inline row">
+                          <input class="form-check-input" type="radio" name="gender" id="male_btn" value="Male" required>
+                          <label class="form-check-label" for="male_btn" style="padding-right: 5px;">
+                            Male
+                          </label>
+                        </div>
+                        <div class="form-check form-check-inline row mb-3">
+                          <input class="form-check-input" type="radio" name="gender" id="female_btn" value="Female">
+                          <label class="form-check-label" for="female_btn">
+                            Female
+                          </label>
+                        </div>
+
+                        <div class="form-label-group row" >
+                          <input type="text" class="form-control" id="registerPhoneNumber" placeholder="Phone Number" required="" name="phone" pattern="[0-9]{8,8}">
+                          <label for="registerPhoneNumber"></i>Phone Number</label>
+                          <small class="form-text text-muted">For example "98763210"</small>
+                          <div class="valid-feedback">Your phone number looks good!</div>
+                          <div class="invalid-feedback">Your phone number is invalid.</div>
+                        </div>
+
+                        <div class="form-label-group row">
+                          <input type="text" class="form-control" id="registerStreetAddress" placeholder="Address" required="" name="street_address" pattern="^[a-zA-Z0-9\s]{10,}$">
+                          <label for="registerStreetAddress">Street Address</label>
+                          <small class="form-text text-muted">Street name, street number and block number</small>
+                          <div class="valid-feedback">Your street address looks good!</div>
+                          <div class="invalid-feedback">Your street address is invalid.</div>
+                        </div>
+
+                        <div class="form-label-group row">
+                          <input type="text" class="form-control" id="registerUnit" placeholder="Unit" name="unit" pattern="\d{1,2}-\d{2,4}">
+                          <label for="registerUnit">Unit</label>
+                          <small class="form-text text-muted">For example: 05-64</small>
+                          <div class="valid-feedback">Your unit number looks good!</div>
+                          <div class="invalid-feedback">Your unit number is invalid.</div>
+                        </div>
+
+                        <div class="form-label-group row">
+                          <input type="text" class="form-control" id="registerPostal" placeholder="Postal" required name="postal_code" pattern="(?=.*\d).{6,6}">
+                          <label for="registerPostal">Postal Code</label>
+                          <small class="form-text text-muted">For example: 512678</small>
+                          <div class="valid-feedback">Your postal code looks good!</div>
+                          <div class="invalid-feedback">Your postal code is invalid.</div>
+                        </div>
+                        
+                        <div class="form-label-group row">
+                          <input type="password" class="form-control" id="registerPassword" placeholder="password" required="" name="pw"
+                          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" v-model="registerPassword" v-on:blur="display" v-on:focus="display" required>
+                          <label for="registerPassword"></i>Password</label>
+                          
+                          <span id="togglePassword1">Show&nbsp</span>password: <i class="fa fa-eye-slash mt-1" id="eye1" aria-hidden="true"  class="bg-dark" onclick="if (registerPassword.type == 'text') registerPassword.type = 'password';
+                          else registerPassword.type = 'text'; switchEye()" ></i>
+
+                          <div class="valid-feedback">Your password meets all the requirements!</div>
+                          <div v-if="show" class="invalid-feedback"> 
+                            <ul style="list-style-type: none;">
+                              <li>
+                                <span class="text-success">
+                                  {{ passwordLength() }}</span>
+                                <div v-if="hideLength">✖ Minimum of 6 to 18 characters long</div>
+                              </li>
+                              <li>
+                                <span class="text-success">
+                                  {{ passwordLower() }}</span>
+                                <div v-if="hideLower">✖ MUST contain at least one lowercase letter.</div>
+                              </li>
+                              <li>
+                                <span class="text-success">
+                                  {{ passwordUpper() }}</span>
+                                <div v-if="hideUpper">✖ MUST contain at least one uppercase letter.</div>
+                              </li>
+                              <li>
+                                <span class="text-success">
+                                  {{ passwordNumber() }}</span>
+                                <div v-if="hideNumber">✖ MUST contain at least one number.</div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+
+                        <div class="form-label-group row">
+                          <input type="password" id="cregisterPassword" class="form-control myCpwdClass" placeholder="password" required="" name="pw2" 
+                          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" required>
+                          <label for="cregisterPassword"></i>Confirm Password</label>
+
+                          <div id="cPwdValid" class="valid-feedback">Passwords Match</div>
+                          <div id="cPwdInvalid" class="invalid-feedback"></div>
+                              
+                          <span id="togglePassword2">Show&nbsp</span>password: <i class="fa fa-eye-slash mt-1" id="eye2" aria-hidden="true"  class="bg-dark" onclick="if (cregisterPassword.type == 'text') cregisterPassword.type = 'password';
+                          else cregisterPassword.type = 'text'; cswitchEye()" ></i>
+
+                        </div>
+                          
+                        
+                        <div class="form-group form-check row">
+                          <input type="checkbox" class="form-check-input" id="registerPromotion">
+                          <label class="form-check-label" for="registerPromotion">I'd like to receive exclusive offers and promotions via SMS</label>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearAllRegister()">Close</button>
+                            <!-- <button type="button" class="btn btn-primary">Sign up</button> -->
+                            <input type="submit" class="btn btn-primary" value="Sign up" id="submitBtn">
+                        </div>
+                        <small class="form-text text-muted">By clicking "SIGN UP"; I agree to AlterTail's Terms of Use and Privacy Policy</small>
+                    </form>
+                    <!-- End of register form -->
+                </div>
+                <!-- End of register tab -->
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of Register/Sign up modal -->
+  <hr style="margin: 0;">
+  
+     <!--Main Content-->
+     
+    <div class = "shadow pl-5 mb-5 bg-white rounded">
+        <div class="row">
+          <div class="col-lg-6 text-left pt-5">
+            <div class = "shadow rounded-pill row" style = "width: 500px; height: 50px;">
+                <input class="form-control col-sm-5 border-0" id="address" value="" placeholder="Location" style = "margin-left: 20px; margin-top: 5px; margin-right: 5px; margin-bottom: 5px;"/>
+                <select class = " form-control col-sm-2" id="radius_km" style = "margin-top: 5px;  margin-bottom: 5px; margin-right: 5px; margin-left: 5px;">
+                    <option value=1>1km</option>
+                    <option value=2>2km</option>
+                    <option value=5>5km</option>
+                    <option value=30>30km</option>
+                </select>
+                <!-- <button class = "col-sm-1" onClick="showCloseLocations();" id = "search_button" style = "margin-left: 15px;"><i class="fa fa-search"></i></button>           -->
+            </div>
+            <div style = "margin-top: 15px;">
+              <button class="btn btn-info info1" onclick="showCloseLocations();">Nearest Shops</button>
+              <button class="btn btn-info info1" onclick="applyfilter()">Rating</button>
+            </div>
+
+              <h2 class = "font-weight-bold mb-3" style = "margin-top: 15px;">Shops near you</h2>
+              <!-- <h5 class= "mb-3 font-weight-bold">Orchard</h5> -->
+
+            <!-- Filtered Cards -->
+            <div id="shop_cards" class="container">
+                <!-- <div class="card mb-3" style="max-width: 1000px;">
+                    <div class="row no-gutters">
+                      <div class="col-md-4" style = "margin-top: auto; margin-bottom: auto;">
+                        <img src="images/alteration_shop1 .jpg" class="card-img" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                            <div class = "row">
+                                <h5 class="card-title col-xs-5" style = "margin-left: 15px; margin-top: 1px;">Q MENSWEAR</h5>
+                                <div class = "col-xs-3" style = "margin-left:15px;">
+                                    <img class="card-img-top" src="images/star.png" alt="Card image cap" style="width: 15px; height: 15px;">
+                                </div>
+                                <div class = "col-xs-4">
+                                    <p class = "font-weight-bold" style="margin: 0px; padding-top: 2px; padding-left:5px;">
+                                        4.4 (17)
+                                    </p>
+                                </div>
+                            </div>
+                          <p class="card-text">Every house has their own signature cut, technical expertise or style which sets it apart from other houses or menswear brand. At Q MENSWEAR, we also have our own set of standards when it comes to our garments.</p>
+                          <button type="button" class="btn btn-link" style = "padding-left: 0px; padding-top: 0px; color:darkslategrey;">Read More</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card mb-3" style="max-width: 1000px;">
+                    <div class="row no-gutters">
+                      <div class="col-md-4" style = "margin-top: auto; margin-bottom: auto;">
+                        <img src="images/alteration_shop2.jpg" class="card-img" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                            <div class = "row">
+                                <h5 class="card-title col-xs-5" style = "margin-left: 15px; margin-top: 1px;">SuitYourself</h5>
+                                <div class = "col-xs-3" style = "margin-left:15px;">
+                                    <img class="card-img-top" src="images/star.png" alt="Card image cap" style="width: 15px; height: 15px;">
+                                </div>
+                                <div class = "col-xs-4">
+                                    <p class = "font-weight-bold" style="margin: 0px; padding-top: 2px; padding-left:5px;">
+                                        4.6 (225)
+                                    </p>
+                                </div>
+                            </div>
+                          <p class="card-text">We specialise in creating high quality suits and shirts for your everyday and once-in-a-lifetime moments at affordable prices.</p>
+                          <button type="button" class="btn btn-link" style = "padding-left: 0px; padding-top: 0px; color:darkslategrey;">Read More</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card mb-3" style="max-width: 1000px;">
+                    <div class="row no-gutters">
+                      <div class="col-md-4" style = "margin-top: auto; margin-bottom: auto;">
+                        <img src="images/alteration_shop3.jpg" class="card-img" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                            <div class = "row">
+                                <h5 class="card-title col-xs-5" style = "margin-left: 15px; margin-top: 1px;">May Tailor & Laundry</h5>
+                                <div class = "col-xs-3" style = "margin-left:15px;">
+                                    <img class="card-img-top" src="images/star.png" alt="Card image cap" style="width: 15px; height: 15px;">
+                                </div>
+                                <div class = "col-xs-4">
+                                    <p class = "font-weight-bold" style="margin: 0px; padding-top: 2px; padding-left:5px;">
+                                        3.7 (16)
+                                    </p>
+                                </div>
+                            </div>
+                          <p class="card-text">Our mission is to provide excellent laundry & tailoring service, coupled with our competitive prices, to deliver the clothes that suits you as well as to put a smile on your face. Your satisfaction is our responsibility!</p>
+                          <button type="button" class="btn btn-link" style = "padding-left: 0px; padding-top: 0px; color:darkslategrey;">Read More</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card mb-3" style="max-width: 1000px;">
+                    <div class="row no-gutters">
+                      <div class="col-md-4" style = "margin-top: auto; margin-bottom: auto;">
+                        <img src="images/alteration_shop4.jpeg" class="card-img" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                            <div class = "row">
+                                <h5 class="card-title col-xs-5" style = "margin-left: 15px; margin-top: 1px;">Mohan's Custom Tailors</h5>
+                                <div class = "col-xs-3" style = "margin-left:15px;">
+                                    <img class="card-img-top" src="images/star.png" alt="Card image cap" style="width: 15px; height: 15px;">
+                                </div>
+                                <div class = "col-xs-4">
+                                    <p class = "font-weight-bold" style="margin: 0px; padding-top: 2px; padding-left:5px;">
+                                        4.7 (145)
+                                    </p>
+                                </div>
+                            </div>
+                          <p class="card-text">At Mohan's Custom Tailors we know the importance of a perfect fit, which is why all our garments are hand-made under strict quality control.</p>
+                          <button type="button" class="btn btn-link" style = "padding-left: 0px; padding-top: 0px; color:darkslategrey;">Read More</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card mb-3" style="max-width: 1000px;">
+                    <div class="row no-gutters">
+                      <div class="col-md-4" style = "margin-top: auto; margin-bottom: auto;">
+                        <img src="images/alteration_shop5.jpg" class="card-img" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                            <div class = "row">
+                                <h5 class="card-title col-xs-5" style = "margin-left: 15px; margin-top: 1px;">Meng Yee Alteration</h5>
+                                <div class = "col-xs-3" style = "margin-left:15px;">
+                                    <img class="card-img-top" src="images/star.png" alt="Card image cap" style="width: 15px; height: 15px;">
+                                </div>
+                                <div class = "col-xs-4">
+                                    <p class = "font-weight-bold" style="margin: 0px; padding-top: 2px; padding-left:5px;">
+                                        2.9 (16)
+                                    </p>
+                                </div>
+                            </div>
+                          <p class="card-text">Garment alteration, make to measure suits, copying of runway styles and bespoke creations..</p>
+                          <button type="button" class="btn btn-link" style = "padding-left: 0px; padding-top: 0px; color:darkslategrey;">Read More</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card mb-3" style="max-width: 1000px;">
+                    <div class="row no-gutters">
+                      <div class="col-md-4" style = "margin-top: auto; margin-bottom: auto;">
+                        <img src="images/alteration_shop6.jpg" class="card-img" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                            <div class = "row">
+                                <h5 class="card-title col-xs-5" style = "margin-left: 15px; margin-top: 1px;">Ehkay Corner Tailors</h5>
+                                <div class = "col-xs-3" style = "margin-left:15px;">
+                                    <img class="card-img-top" src="images/star.png" alt="Card image cap" style="width: 15px; height: 15px;">
+                                </div>
+                                <div class = "col-xs-4">
+                                    <p class = "font-weight-bold" style="margin: 0px; padding-top: 2px; padding-left:5px;">
+                                        4.9 (235)
+                                    </p>
+                                </div>
+                            </div>
+                          <p class="card-text">Now through ehkaycornertailor.com, the Singapore tailor tradition of craftsmanship and personalized service is available with online convenience.</p>
+                          <button type="button" class="btn btn-link" style = "padding-left: 0px; padding-top: 0px; color:darkslategrey;">Read More</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+               
+            </div>
+            
+            <!-- End of Filtered Cards -->
+          </div>
+
+        <div class="col-lg-6">
+            <div id="map_canvas" style="width:100%; height:100%;">
+            </div>
+        </div>
+      </div>
+
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+      <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVSvjaWcTJLKRKyfzrBYvKVFZ0MoCfCuc&callback=initMap&libraries=geometry&v=weekly"
+        ></script>
+        <!-- defer -->
+
+      <link rel="stylesheet" type="text/css" href="css/map.css" />
+      
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <!-- Custom JS -->
+    <script src="js/form.js"></script>
+    <script src="js/alteration.js"></script>
+    <script src="js/loaded.js"></script>
+    
+    
+    <script>
+        // Animate the Loader
+        ;(function(){
+        function id(v){return document.getElementById(v); }
+        function loadbar() {
+            var ovrl = id("overlay"),
+                prog = id("progress"),
+                stat = id("progstat"),
+                img = document.images,
+                c = 0;
+                tot = img.length;
+
+            function imgLoaded(){
+            c += 1;
+            var perc = ((100/tot*c) << 0) +"%";
+            prog.style.width = perc;
+            stat.innerHTML = "Loading "+ perc;
+            if(c===tot) return doneLoading();
+            }
+            function doneLoading(){
+            ovrl.style.opacity = 0;
+            setTimeout(function(){ 
+                ovrl.style.display = "none";
+            }, 1200);
+            }
+            for(var i=0; i<tot; i++) {
+            var tImg     = new Image();
+            tImg.onload  = imgLoaded;
+            tImg.onerror = imgLoaded;
+            tImg.src     = img[i].src;
+            }    
+        }
+        document.addEventListener('DOMContentLoaded', loadbar, false);
+        }());
+    </script>
+
+  </body>
+</html>

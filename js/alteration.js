@@ -24,9 +24,9 @@ function getAllShops()
       if( this.readyState == 4 && this.status == 200 ) {
 
          // Convert responseText to JSON
+         console.log(this.responseText);
          var response_json = JSON.parse(this.responseText);
          var records = response_json.records;
-
  
          for (shop of records) 
          {
@@ -55,6 +55,7 @@ function getAllShops()
 
 
             shop_details = {name, img, star, rating, shop_summary, rating_num, lat, lng , schedule_id};
+            console.log(shop_details);
             if (shop_name_array.length != 6) {
               shop_name_array.push(name);
             }
@@ -65,7 +66,7 @@ function getAllShops()
   }
 
   // Using the api to retrieve the user's shop details
-  var url = "projectAPI/user/retrieveTailorShop.php";
+  var url = "projectAPI/user/retrieveAlterationShop.php?";
 
   request.open("GET", url);
 
