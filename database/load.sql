@@ -132,12 +132,12 @@ Our clients include leading professionals, government officials, executives, bus
 <br><br>
 we have a team of experienced and professional tailors who are capable to provide meticulous stitching, sewing and alteration services in Singapore. A selected number of outlets are equipped with individual fitting rooms where you are able to fit your clothings and allow our tailors to make tailored and personalised adjustments for your garments. We use premium quality zippers, threads and sewing accessories sourced locally in Singapore.', 
 '535043','03-35', '180270', 'Alteration ', '5', '1', 'images/alteration_shop11.jpg', '1.3008231', '103.8521835'),
-('gentlementale@gmail.com', 'A Gentleman\'s Tale', '27 Toa Payoh E', 'A Gentleman’s Tale was founded in 2015 Kenneth and Lyn with the aim of combining their passion and skills in fashion and tailoring. ', 
-'A Gentleman’s Tale was founded in 2015 Kenneth and Lyn with the aim of combining their passion and skills in fashion and tailoring.
+('gentlementale@gmail.com', 'A Gentleman\'s Tale', '27 Toa Payoh E', 'Home business - A Gentleman’s Tale was founded in 2015 Ezra Chooi with the aim of combining his passion and skills in fashion and tailoring. ', 
+"Home business - A Gentleman’s Tale was founded in 2015 Ezra Chooi with the aim of combining his passion and skills in fashion and tailoring.
 <br><br>
-As a premium bespoke tailor, the final result is constructed with precise measurements, and made to customers’ specifications. Without the use of base templates, our professional tailors create a new pattern for each individual customer so that we do not miss out on hints of differences on the wearer’s body.
+As a premium bespoke tailor, the final result is constructed with precise measurements, and made to customers’ specifications. Without the use of base templates, a new pattern for each individual customer will be created so that we do not miss out on hints of differences on the wearer’s body.
 <br><br>
-We cherish cultivating long-lasting relationships with our customers as we believe that people are always on the search to find the perfect tailor to serve them as they reach different milestones in their lives – we want A Gentleman\'s Tale to be there for them every step of the way. We are meticulous, have a keen eye for detail and are dedicated to going above and beyond to provide first-class customer service for our customers. ', 
+We cherish cultivating long-lasting relationships with our customers as we believe that people are always on the search to find the perfect tailor to serve them as they reach different milestones in their lives – we want A Gentleman\'s Tale to be there for them every step of the way. We are meticulous, have a keen eye for detail and are dedicated to going above and beyond to provide first-class customer service for our customers. ", 
 '535052','01-184', '310027', 'Tailoring', '5.0', '16', 'images/kingsman.jpg', '1.3323619', '103.8545369'),
 ('AB.dry.clean@gmail.com', 'AB Professional Dry Clean', '8 Kaki Bukit Ave 4', 'AB Professional Dry Clean ensures that their team handles each of your items with care. Trust that they will follow each item’s washing methods meticulously.', 'AB Professional Dry Clean ensures that their team handles each of your items with care. Trust that they will follow each item’s washing methods meticulously.', '535044','03-07', '415875', 'Laundry', '3.7', '3', 'images/alteration_shop20.jpg', '1.338600', '103.9063877'),
 ('assemble@gmail.com', 'Assemble', '181 Orchard Rd', 'Assemble Singapore was founded in 2014 by a local duo, Ken and Lyn. Their love for dressing up fashionably led them to pursue a business in tailoring. Touted as the first tailor in Singapore to provid', 
@@ -157,7 +157,13 @@ With Edit Suits Co, you are always dressed for the occasion, be it a formal even
 ('lai.en@gmail.com', 'Lai En Tailor', '2 Defu Lane 10', 'Lai En Tailor is a small quaint tailor tucked in the east of Singapore. A local men-and-women tailor, Lai En Tailor has a reputation for great workmanship.', 'Lai En Tailor is a small quaint tailor tucked in the east of Singapore. A local men-and-women tailor, Lai En Tailor has a reputation for great workmanship.', '535048','02-533', '539183', 'Tailoring', '4.1', '61', 'images/alteration_shop13.jpg', '1.3587307', '103.8916398'),
 ('meiko@gmail.com', 'Meiko Tailor', '7 Raffles Blvd', 'With over 50 years of experience, Meiko Tailor has been continuously providing the locality with their fine craft and premium fabric. Throughout the business, they have developed the style in suit cra', 'With over 50 years of experience, Meiko Tailor has been continuously providing the locality with their fine craft and premium fabric. Throughout the business, they have developed the style in suit crafting pants and shirts, particularly bespoke suit. Their resident styling advisor has been trained in Academy of ImageWorks (AIM) which largely influenced his work. The shop accepts overseas order via mail and door to door visit within a specific area. ', '535049','02-01', '039595', 'Tailoring', '4.8', '23', 'images/2.jpg', '1.29221', '103.8563422'),
 ('perfect.attire@gmail.com', 'Perfect Attire', 'Oxley 138 Robinson Rd', 'Perfect Attire specialises in handcrafted bespoke suits, custom shirts and tailored pants at accessible prices. Founded by Tulsi Kamath and Shriram Iyer, who both share a passion for tailored clothing', 'Perfect Attire specialises in handcrafted bespoke suits, custom shirts and tailored pants at accessible prices. Founded by Tulsi Kamath and Shriram Iyer, who both share a passion for tailored clothing, the store prides itself for giving its customers the full bespoke experience with two fittings: muslin and basted', '535050','03-38', '068906', 'Tailoring', '5.0', '51', 'images/alteration_shop17.jpg', '1.278646', '103.8462309'),
-('red.dot.bespoke@gmail.com', 'Red Dot Bespoke', '11 New Bridge Rd', 'A new age bespoke tailor, Red Dot Bespoke strives to bring quality, comfort, and style while being friendly to your wallet.', 'A new age bespoke tailor, Red Dot Bespoke strives to bring quality, comfort, and style while being friendly to your wallet.', '535051','02-01', '059383', 'Tailoring', '4.9', '86', 'images/alteration_shop15.jpg', '1.2890101', '103.8455098');
+('red.dot.bespoke@gmail.com', 'Red Dot Bespoke', '11 New Bridge Rd', 'A new age bespoke tailor, Red Dot Bespoke strives to bring quality, comfort, and style while being friendly to your wallet.', 'A new age bespoke tailor, Red Dot Bespoke strives to bring quality, comfort, and style while being friendly to your wallet.', '535051','02-01', '059383', 'Tailoring', '4.9', '86', 'images/alteration_shop15.jpg', '1.2890101', '103.8455098'),
+('wetailoring@gmail.com', 'We Tailoring', '26 TOA PAYOH EAST KIM KEAT VILLE', 'Home business - A new age bespoke tailor, We Tailoring strives to bring quality, comfort, and style while being friendly to your wallet.', 'Home business - A new age bespoke tailor, We Tailoring strives to bring quality, comfort, and style while being friendly to your wallet.', '535445','02-01', '310026', 'Tailoring', '4.6', '86', 'images/tailor2.jpg', '1.3328809', '103.8392874'),
+('wingonn@gmail.com', 'Wing Onn Tailor', '184 Toa Payoh Central', 'Home business - With over 50 years of experience, Wing Onn Tailor has been continuously providing the locality with their fine craft and premium fabric. Throughout the business, they have developed the style in suit cra', 
+'Home business - With over 50 years of experience, Wing Onn Tailor has been continuously providing the locality with their fine craft and premium fabric. Throughout the business, they have developed the style in suit cra.', '535446','18-21', '310184', 'Tailoring', '4.0', '10', 'images/tailor2.jpg', '1.3324969', '103.8404862'),
+('wonderfulas@gmail.com', 'Wonderful Alteration Store', 'Blk 127 Lor 1 Toa Payoh', 'Home business - If you’re in need of tailors with lots of experience with couture pieces, Wonderful Alteration Store is the place to go. Prices start from S$20 for a basic shortening job.', 
+'Home business - If you’re in need of tailors with lots of experience with couture pieces, Wonderful Alteration Store is the place to go. Prices start from S$20 for a basic shortening job. With over 50 years of experience, Wonderful Alteration Store has been continuously providing the locality with their fine craft and premium fabric. Throughout the business, they have developed the style in suit cra.', '535448','01-53', '310127', 'Tailoring', '4.0', '8', 'images/slider-2.jpg', '1.3380839', '103.8359692')
+;
 
 INSERT INTO `service`(`service_id`, `service_title`, `service_price`, `service_description`, `service_lead_time`, `service_image_url`) VALUES 
 ('01','Tailored Shirt','109','100% customisable, made to measure shirts. Choose your fabric, collar, cuffs and buttons, and personalise your shirt with your very own monogram.','2 weeks','kingsmen3.jpg'),
@@ -295,3 +301,22 @@ INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES
 ('alt.fit@gmail.com','Alt-To-Fit','06'),
 ('alt.fit@gmail.com','Alt-To-Fit','07'),
 ('alt.fit@gmail.com','Alt-To-Fit','08');
+
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
+('wetailoring@gmail.com','We Tailoring','01'),
+('wetailoring@gmail.com','We Tailoring','02'),
+('wetailoring@gmail.com','We Tailoring','03'),
+('wetailoring@gmail.com','We Tailoring','04');
+
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
+('wingonn@gmail.com','Wing Onn Tailor','01'),
+('wingonn@gmail.com','Wing Onn Tailor','02'),
+('wingonn@gmail.com','Wing Onn Tailor','03'),
+('wingonn@gmail.com','Wing Onn Tailor','04');
+
+INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
+('wonderfulas@gmail.com','Wonderful Alteration Store','05'),
+('wonderfulas@gmail.com','Wonderful Alteration Store','06'),
+('wonderfulas@gmail.com','Wonderful Alteration Store','07'),
+('wonderfulas@gmail.com','Wonderful Alteration Store','08');
+
