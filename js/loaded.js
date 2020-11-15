@@ -45,7 +45,6 @@ function loggedIn(isProfilePage=false) {
         //         </form>
         document.getElementById("change2").innerHTML = `    
             <li class="nav-item mt-1" >
-                <!-- Replace me with Sign in or Profile -->
                 <a href="" class="nav-link" style="padding-bottom:unset;" data-toggle="modal" id="registerSignin" data-target="#registerSigninModal">Register / Login</a>
             </li>
         `;
@@ -230,14 +229,13 @@ function getProfileDetails(email, isProfilePage) {
                 document.getElementById("change").setAttribute("class", "nav-item mt-4 mr-1");
                 document.getElementById("change2").innerHTML = `
                 <li class="nav-item mt-1" >
-                    <!-- Replace me with Sign in or Profile -->
                     <div class="dropdown">
                         <a class="nav-link" href="profile.html" style="padding-bottom:unset;" 
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> ${name}&nbsp<img id="profileImage" src="images/profile_image.jpg" /></a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="profile.html">My Profile</a>
-                            <a class="dropdown-item" href="cart.html">My Appointment</a>
+                            <a class="dropdown-item" href="appointment.html">My Appointment</a>
                             <a class="dropdown-item" href="#" onclick="signOut()">Sign Out</a>
                         </div>
                     </div>
