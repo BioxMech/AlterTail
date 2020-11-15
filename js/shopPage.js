@@ -107,8 +107,25 @@ function show_shopPage(shop_name){
             }
             else {
                 document.getElementById("bookButton").setAttribute("class", "nav-item mt-1 mr-1");
-                document.getElementById("modalDeveloper").innerHTML = `
-                
+                document.getElementById("modalBookie").innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" style="text-align: center;">&#10060	You require access to our website.</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Booking of an appointment requires you to have an account with AlterTail. 
+                        <br>
+                        Please <b>register</b> an account with us or <b>login</b> to your account.</p>
+                        <!-- <button type="button" class="btn btn-outline-primary">Head to Register / Login</button> -->
+                        <button class="button" data-toggle="modal" data-dismiss="modal" data-target="#registerSigninModal" >Head to Register / Login</button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
                 `;
             }
         }
