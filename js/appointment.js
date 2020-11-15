@@ -13,45 +13,110 @@ function displayAppointment() {
             // console.log(records)
 
             var str = ``;
-
+            var current = 0;
+            var modal_str = document.getElementById("modalContent").innerHTML
             for(var user of records) {
-                str += `
-                <td>
-                  <!-- Image + Shop Name -->
-                  <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="${user.image_url}" alt="${user.shop_name}">
-                    <div class="card-body">
-                      <h5 class="card-title" style="text-align: center;">${user.shop_name}</h5>
-                    </div>
-                  </div>
-                </td>
+                var datetime = user.appt_date_time.split(" ")[0].split("-");                
+                
 
-                <!-- Details -->
-                <td>
-                  <strong>${user.service_price}</strong>
-                  <p>${user.service_title}</p>
-                  <p>
-                    ${user.appt_date_time}
-                  </p>
-                  <p>
-                    ${user.service_description}
-                  </p>
-                  <p>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmation">
-                      Cancel
-                    </button>
-                    &nbsp
-                    <button type="button" class="btn btn-dark">
-                      To ${user.shop_name}
-                    </button>
-                  </p>
-                </td>
-              </tr>
+                modal_str += 
+                    `
+                    <div class="modal fade" id="confirmation${user.shop_name}" tabindex="-1" role="dialog" aria-labelledby="confirmationLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content" id="modalContent">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="confirmationLabel">Confirmation to cancel appointment with ${user.shop_name}</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          Are you sure you want to cancel your appointment with Assemble? Once cancelled, your appointment timeslot will be given away.
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <form action="backend/processDelete.php" method="POST">
+                            <input type="hidden" value="${user.shop_name}" name="shop_name">
+                            <input type="hidden" value="${email}" name="email" >
+                            <input type="submit" class="btn btn-danger" value="Cancel Appointment"></input>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>  
+                
                 `;
+
+                if (current > datetime[0][2]) {
+                    str += `
+                    <tr>
+                        <td>
+                        <!-- Image + Shop Name -->
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="${user.image_url}" alt="${user.shop_name}">
+                            <div class="card-body">
+                            <strong><h4 class="card-title" style="text-align: center;">${user.shop_name}</h4></strong>
+                            </div>
+                        </div>
+                        </td>
+
+                        <!-- Details -->
+                        <td style="padding-top: 30px;">
+                        <strong>SGD$ ${user.service_price}</strong> &nbsp (${user.service_title})
+                        <p>
+                            ${user.appt_date_time}
+                        </p>
+                        <p>
+                            ${user.service_description}
+                        </p>
+                        <p style="margin-top: 10px;">
+                            <a href="" class="cancelButton" data-toggle="modal" data-target="#confirmation${user.shop_name}">Cancel</a>
+                            &nbsp
+                            <a href="shopPage.html?shop_name${user.shop_name}" class="button">To ${user.shop_name}</a>
+                        </p>
+                        </td>
+                    </tr>
+                        `;
+                    
+                }
+                else {
+                    str = `
+                    <tr>
+                        <td>
+                        <!-- Image + Shop Name -->
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="${user.image_url}" alt="${user.shop_name}">
+                            <div class="card-body">
+                            <strong><h4 class="card-title" style="text-align: center;">${user.shop_name}</h4></strong>
+                            </div>
+                        </div>
+                        </td>
+
+                        <!-- Details -->
+                        <td style="padding-top: 30px;">
+                        <strong>SGD$ ${user.service_price}</strong> &nbsp (${user.service_title})
+                        <p>
+                            ${user.appt_date_time}
+                        </p>
+                        <p>
+                            ${user.service_description}
+                        </p>
+                        <p style="margin-top: 10px;">
+                            <a href="" class="cancelButton" data-toggle="modal" data-target="#confirmation${user.shop_name}">Cancel</a>
+                            &nbsp
+                            <a href="shopPage.html?shop_name=${user.shop_name}" class="button">To ${user.shop_name}</a>
+                        </p>
+                        </td>
+                    </tr>
+                        ` + str;
+                    current = datetime[0][2]
+                }
+                
                 
             }
 
             document.getElementById("mainContent").innerHTML = str;
+            document.getElementById("modalContent").innerHTML = modal_str;
         }
         else {
             document.getElementById("mainContent").innerHTML = `
@@ -75,4 +140,40 @@ function displayAppointment() {
     
         request.send();
     
+}
+
+function modalCreation(shop_name) {
+
+    var modal_str = document.getElementById("modalContent").innerHTML
+                modal_str += 
+                    `
+                <div class="modal fade" id="#confirmation${shop_name}" tabindex="-1" role="dialog" aria-labelledby="confirmationLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content" id="modalContent">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="confirmationLabel">Confirmation to cancel appointment with ${shop_name}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to cancel your appointment with ${shop_name}? Once cancelled, your appointment timeslot will be given away.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <form action="backend/processDelete.php" method="POST">
+                                    <input type="hidden" value="${shop_name}" name="shop_name">
+                                    <input type="hidden" value="${email}" name="email">
+                                    <input type="submit" class="btn btn-danger" value="Cancel Appointment"></input>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>            
+                
+                `;
+                console.log(shop_name)
+
+    document.getElementById("modalContent").innerHTML = modal_str;
+
 }
