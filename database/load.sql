@@ -119,7 +119,7 @@ Our clients include leading professionals, government officials, executives, bus
 
 '535037', '01-124', '168898', 'Alteration ', '5.0', '1', 'images/alteration_shop7.jpg', '1.2833984', '103.8313791'),
 
-('jeansfix@gmail.com', 'JeansFix', '1 Raffles Link', 'Not all jeans fit your body perfectly but denim connoisseur, Jeansfix, will come to the rescue. Whether be amending a waistband or fixing rips that have happened over time, they’re the experts in this', 'Not all jeans fit your body perfectly but denim connoisseur, Jeansfix, will come to the rescue. Whether be amending a waistband or fixing rips that have happened over time, they’re the experts in this area.', '535038','B1-06', '039393', 'Alteration', '4.7', '7', 'images/alteration_shop5.jpg', '1.292053', '103.8536675'),
+('jeansfix@gmail.com', 'JeansFix', '1 Raffles Link', 'Not all jeans fit your body perfectly but denim connoisseur, Jeansfix, will come to the rescue. Whether be amending a waistband or fixing rips that have happened over time, they’re the experts in this', 'Not all jeans fit your body perfectly but denim connoisseur, Jeansfix, will come to the rescue. Whether be amending a waistband or fixing rips that have happened over time, they’re the experts in this area.', '535038','B1-06', '039393', 'Alteration', '4.7', '7', 'images/slider-1.jpg', '1.292053', '103.8536675'),
 ('jenny.dress@gmail.com', 'JennyMe Dressmaking', '211 Holland Ave ', 'With over three decades of experience under her belt, Jenny is a force to be reckoned with. Aside from her well-honed expertise at crafting dresses and shirts from scratch, she does meticulous alterat', 'With over three decades of experience under her belt, Jenny is a force to be reckoned with. Aside from her well-honed expertise at crafting dresses and shirts from scratch, she does meticulous alterations for all sorts of clothing, and won’t hesitate to dish our her professional advice on how best to get the right fit.', '535039','03-45','278967', 'Tailoring ', '4.8', '105', 'images/alteration_shop10.jpg', '1.3105374', '103.7933396'),
 ('may.tailor@gmail.com', 'May Tailor Laundry', '304 Orchard Road ', 'Our mission is to provide excellent laundry & tailoring service, coupled with our competitive prices, to deliver the clothes that suits you as well as to put a smile on your face. Your satisfaction is', 'Our mission is to provide excellent laundry & tailoring service, coupled with our competitive prices, to deliver the clothes that suits you as well as to put a smile on your face. Your satisfaction is our responsibility!', '535040','04-56', '238863', 'Tailoring', '3.7', '6', 'images/alteration_shop3.jpg', '1.3587297', '103.8237878'),
 ('qmen@gmail.com', 'Q MENSWEAR', '116A Telok Ayer St', 'Every house has their own signature cut, technical expertise or style which sets it apart from other houses or menswear brand. At Q MENSWEAR, we also have our own set of standards when it comes to our', 'Every house has their own signature cut, technical expertise or style which sets it apart from other houses or menswear brand. At Q MENSWEAR, we also have our own set of standards when it comes to our garments.', '535041','01-123', '068585', 'Alteration', '4.4', '17', 'images/alteration_shop1 .jpg', '1.281934', '103.8460651'),
@@ -132,14 +132,16 @@ Our clients include leading professionals, government officials, executives, bus
 <br><br>
 we have a team of experienced and professional tailors who are capable to provide meticulous stitching, sewing and alteration services in Singapore. A selected number of outlets are equipped with individual fitting rooms where you are able to fit your clothings and allow our tailors to make tailored and personalised adjustments for your garments. We use premium quality zippers, threads and sewing accessories sourced locally in Singapore.', 
 '535043','03-35', '180270', 'Alteration ', '5', '1', 'images/alteration_shop11.jpg', '1.3008231', '103.8521835'),
-('gentlementale@gmail.com', 'A Gentleman\'s Tale', '27 Toa Payoh E', 'A Gentleman’s Tale was founded in 2015 Kenneth and Lyn with the aim of combining their passion and skills in fashion and tailoring. ', 
-'A Gentleman’s Tale was founded in 2015 Kenneth and Lyn with the aim of combining their passion and skills in fashion and tailoring.
+('gentlementale@gmail.com', 'Ezra\'s Alteration', '27 Toa Payoh E', "Home business - Ezra's Alteration was founded in 2015 Ezra Chooi with the aim of combining his passion and skills in fashion and alteration. ", 
+"Home business - Ezra's Alteration was founded in 2015 Ezra Chooi with the aim of combining his passion and skills in fashion and alteration.
 <br><br>
-As a premium bespoke tailor, the final result is constructed with precise measurements, and made to customers’ specifications. Without the use of base templates, our professional tailors create a new pattern for each individual customer so that we do not miss out on hints of differences on the wearer’s body.
+As a premium bespoke tailor, the final result is constructed with precise measurements, and made to customers’ specifications. Without the use of base templates, a new pattern for each individual customer will be created so that we do not miss out on hints of differences on the wearer’s body.
 <br><br>
-We cherish cultivating long-lasting relationships with our customers as we believe that people are always on the search to find the perfect tailor to serve them as they reach different milestones in their lives – we want A Gentleman\'s Tale to be there for them every step of the way. We are meticulous, have a keen eye for detail and are dedicated to going above and beyond to provide first-class customer service for our customers. ', 
-'535052','01-184', '310027', 'Tailoring', '5.0', '16', 'images/kingsman.jpg', '1.3323619', '103.8545369'),
-('AB.dry.clean@gmail.com', 'AB Professional Dry Clean', '8 Kaki Bukit Ave 4', 'AB Professional Dry Clean ensures that their team handles each of your items with care. Trust that they will follow each item’s washing methods meticulously.', 'AB Professional Dry Clean ensures that their team handles each of your items with care. Trust that they will follow each item’s washing methods meticulously.', '535044','03-07', '415875', 'Laundry', '3.7', '3', 'images/alteration_shop20.jpg', '1.338600', '103.9063877'),
+We cherish cultivating long-lasting relationships with our customers as we believe that people are always on the search to find the perfect tailor to serve them as they reach different milestones in their lives – we want A Gentleman\'s Tale to be there for them every step of the way. We are meticulous, have a keen eye for detail and are dedicated to going above and beyond to provide first-class customer service for our customers. ", 
+'535052','01-184', '310027', 'Alteration', '5.0', '16', 'images/kingsman.jpg', '1.3323619', '103.8545369'),
+
+('AB.dry.clean@gmail.com', 'AB Professional', '8 Kaki Bukit Ave 4', 'AB Professional ensures that their team handles each of your items with care. Trust that they will follow each item’s washing methods meticulously.', 'AB Professional ensures that their team handles each of your items with care. Trust that they will follow each item’s washing methods meticulously.', '535044','03-07', '415875', 'Alteration', '3.7', '3', 'images/alteration_shop20.jpg', '1.338600', '103.9063877'),
+
 ('assemble@gmail.com', 'Assemble', '181 Orchard Rd', 'Assemble Singapore was founded in 2014 by a local duo, Ken and Lyn. Their love for dressing up fashionably led them to pursue a business in tailoring. Touted as the first tailor in Singapore to provid', 
 'Assemble Singapore was founded in 2014 by a local duo, Ken and Lyn. Their love for dressing up fashionably led them to pursue a business in tailoring. Touted as the first tailor in Singapore to provide in-house and customisable lining, Assemble Singapore recently opened their flagship store at Orchard Central.
 <br><br>
@@ -173,7 +175,7 @@ INSERT INTO `service`(`service_id`, `service_title`, `service_price`, `service_d
 ('03','3-Piece Suit','1020',"The 3pc suit is the most flattering garment that a man can own. The vest cinches in the waist, giving a natural V-shape to the upper body. You may also wear the vest, shirt and trousers without a jacket - a way to upkeep formality without compromising on style.",'4-5 weeks','kingsman8.jpg'),
 ('04','Tuxedo Suit','990',"Tuxedos are versatile formal wear for black tie occasions. The main difference between a tuxedo and a 2 piece suit is in the suit lapel - a tuxedo has a satin lapel and a shawl collar. You may choose to wear the tuxedo with a tuxedo bib front shirt, or a regular white shirt.",'4-5 weeks','kingsman7.jpg'),
 
-('05','Mending & Sewing Service','12',"Tears and holes are common issues that we face in our garments. Our professional tailors will repair your garment by using suitable threads or cloth to ensure that the holes are concealed to our best ability, bringing a new lease of life to them. Depending on the size of the hole and fabric material, mending service is done either by hand stitching or machine sewing.",'3 days','alteration_shop5.jpg'),
+('05','Mending & Sewing Service','12',"Tears and holes are common issues that we face in our garments. Our professional tailors will repair your garment by using suitable threads or cloth to ensure that the holes are concealed to our best ability, bringing a new lease of life to them. Depending on the size of the hole and fabric material, mending service is done either by hand stitching or machine sewing.",'3 days','mending.jpg'),
 ('06','Zip Replacements','8',"We sourced our zippers locally in Singapore and we stock more than 50 assortment colors and lengths of zippers made available to choose from. We will try our best to match the closest colour against your garment for any replacement made.",'2 days','zip.jpg'),
 ('07','Length Adjustments','14',"We offer shortening and lengthening services so your bottoms and dresses will suit the look you desire. Measurements for your garment length adjustments are done in person with our staff or tailor.",'4 days','alteration_shop11.jpg'),
 ('08','Buttons Replacement','3',"Buttons are often use on garments embellishment or for fastening usage. It may easily crack or chip after a long period of wear. We offer a wide range of buttons to suit your needs. We understand that some buttons are unique to your garment as such, we are able to accommodate the sourcing of unique buttons direct from shops and brands.",'2 days','alteration_shop5.jpg'),
@@ -223,10 +225,10 @@ INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES
 ('ethan.men@gmail.com','Ethan Men','04');
 
 INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('gentlementale@gmail.com',"A Gentleman's Tale",'01'),
-('gentlementale@gmail.com',"A Gentleman's Tale",'02'),
-('gentlementale@gmail.com',"A Gentleman's Tale",'03'),
-('gentlementale@gmail.com',"A Gentleman's Tale",'04');
+('gentlementale@gmail.com',"Ezra's Alteration",'01'),
+('gentlementale@gmail.com',"Ezra's Alteration",'02'),
+('gentlementale@gmail.com',"Ezra's Alteration",'03'),
+('gentlementale@gmail.com',"Ezra's Alteration",'04');
 
 INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
 ('ginz.collection@gmail.com','Ginz Collection','05'),
@@ -297,10 +299,10 @@ INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES
 ('tang.cottage@gmail.com','Tang Cottage','08');
 
 INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
-('AB.dry.clean@gmail.com','AB Professional Dry Clean','09'),
-('AB.dry.clean@gmail.com','AB Professional Dry Clean','10'),
-('AB.dry.clean@gmail.com','AB Professional Dry Clean','11'),
-('AB.dry.clean@gmail.com','AB Professional Dry Clean','12');
+('AB.dry.clean@gmail.com','AB Professional','09'),
+('AB.dry.clean@gmail.com','AB Professional','10'),
+('AB.dry.clean@gmail.com','AB Professional','11'),
+('AB.dry.clean@gmail.com','AB Professional','12');
 
 INSERT INTO `seller_service`(`email`, `shop_name`, `service_id`) VALUES 
 ('alt.fit@gmail.com','Alt-To-Fit','05'),
