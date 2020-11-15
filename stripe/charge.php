@@ -4,6 +4,7 @@
   require_once('lib/pdo_db.php');
   require_once('models/Customer.php');
   require_once('models/Transaction.php');
+  require_once "../backend/common.php";
 
   \Stripe\Stripe::setApiKey('sk_test_51HYTEuFW7whrGeRW9iflK349xjEmCUf4OOsSMRuztxa8DY1MDhCNdupz9ZGr3ayP1upXm1JW0aYUxd6okkikK9TY00rxWyiEyK');
 
@@ -14,6 +15,7 @@
  $last_name = $POST['last_name'];
  $email = $POST['email'];
  $token = $POST['stripeToken'];
+ $Total = $POST['Total'] * 100;
 
 // Create Customer In Stripe
 $customer = \Stripe\Customer::create(array(
@@ -22,9 +24,8 @@ $customer = \Stripe\Customer::create(array(
 ));
 
 // Charge Customer
-$price = $_GET['Total'];
 $charge = \Stripe\Charge::create(array(
-  "amount" => $price,
+  "amount" => $Total,
   "currency" => "sgd",
   "description" => "Payment",
   "customer" => $customer->id

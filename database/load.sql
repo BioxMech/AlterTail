@@ -5,7 +5,7 @@ create database AlterTail;
 use AlterTail;
 
 create table user
-(email varchar(50) not null,
+(email varchar(40) not null,
  fname varchar(50) not null,
  SuperSaaS_user_id varchar(10),
  gender varchar(10) not null,
@@ -20,9 +20,9 @@ create table user
  );
 
 create table seller 
-(email varchar(50) not null,
- shop_name varchar(40) not null,
- street_address varchar(60) not null,
+(email varchar(40) not null,
+ shop_name varchar(30) not null,
+ street_address varchar(50) not null,
  shop_summary varchar(200) not null,
  shop_description varchar(2000) not null,
  schedule_id varchar(10) not null,
@@ -34,44 +34,43 @@ create table seller
  image_url varchar(100),
  lat varchar(20) not null,
  lng varchar(20) not null,
- constraint seller_pk primary key(email,shop_name)
---  constraint seller_fk1 foreign key(email) references user(email)
+ constraint seller_pk primary key(email,shop_name),
+ constraint seller_fk1 foreign key(email) references user(email)
 );
 
-create table service
+create table service 
 (service_id varchar(50) not null,
 service_title varchar(50) not null,
 service_price varchar(10) not null,
 service_description varchar(1000) not null,
 service_lead_time varchar(50) not null,
 service_image_url varchar(100) not null,
-constraint services_pk primary key(service_id)
+constraint service_pk primary key(service_id)
 );
 
 create table seller_service
-( email varchar(50) not null,
-shop_name varchar(40) not null,
+( email varchar(40) not null,
+shop_name varchar(30) not null,
 service_id varchar(50) not null,
 constraint seller_service_pk primary key(email, shop_name, service_id),
 constraint seller_service_fk1 foreign key(email, shop_name) references seller(email, shop_name),
 constraint seller_service_fk2 foreign key(service_id) references service(service_id)
 );
 
-create table appointments
+create table appointment
 (user_email varchar(50) not null,
-seller_email varchar(50 ) not null,
+seller_email varchar(50 ),
 schedule_id varchar(50) not null,
 shop_name varchar(40) not null,
 image_url varchar(100),
-service_id varchar(50) not null,
 service_title varchar(50) not null,
-service_description varchar(1000) not null,
-service_price varchar(10) not null,
+service_description varchar(1000),
+service_price varchar(10),
 appt_date_time varchar(50) not null,
-constraint transactions_pk primary key(user_email, shop_name,service_id),
-constraint transactions_fk1 foreign key(user_email) references  user(email),
-constraint transactions_fk2 foreign key(seller_email,shop_name) references seller(email,shop_name),
-constraint transactions_fk3 foreign key(service_id) references service(service_id)
+constraint transactions_pk primary key(user_email, shop_name, service_title),
+constraint transactions_fk1 foreign key(user_email) references user(email),
+constraint transactions_fk2 foreign key(seller_email,shop_name) references seller(email,shop_name)
+-- constraint transactions_fk3 foreign key(service_title) references service(service_title)
 );
 
 INSERT INTO `user` (`email`, `fname`, `SuperSaaS_user_id`, `gender`, `username`, `pw`, `phone`, `street_address`, `unit`, `postal_code`, `image_url`) VALUES

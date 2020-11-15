@@ -38,7 +38,7 @@ function show_shopPage(shop_name){
                     <b>${shop_name}</b>
 
                 `;
-
+                
                 img_str = `
                 <img src="${shop_image}" class="img-fluid" alt="Responsive image"
                 style= "display: block;
@@ -46,6 +46,7 @@ function show_shopPage(shop_name){
                         margin-right: auto;
                         " >
                 `;
+                // console.log(shop_name)
 
                 shop_description_str = `
                 <p>${shop_description}</p>
@@ -167,6 +168,17 @@ function retrieveProfileDetails() {
 // }
 
 var total_price = 0;
+var selected_service_arr = [];
+
+function removeItemOnce(arr, value) {
+    var index = arr.indexOf(value);
+    if (index > -1) {
+      arr.splice(index, 1);
+    }
+    return arr;
+  }
+  
+
 function Price_Calculator(service_title, service_price){
     // console.log(service_title + '_checkbox');
     // console.log(service_price);
@@ -174,19 +186,48 @@ function Price_Calculator(service_title, service_price){
     if (checkbox.checked == true){
         // console.log(service_price);
         total_price += parseInt(service_price);
+        selected_service_arr.push([service_title, service_price]);
+        console.log(selected_service_arr);
     }
     else {
         total_price -= parseInt(service_price);
     }
 
     total_price_str = `Total: $${total_price}`;
-    url_string = `stripe/charge.php?Total=${total_price}`;
+    url_string = `stripe/paymentPage.php?Total=${total_price}`;
 
     document.getElementById('TotalCosts').innerHTML = total_price_str;
-    document.getElementById('shop_url').href = url_string;
+    document.getElementById('Total').value = total_price;
+
+    // document.getElementById('shop_url').href = url_string;
     // document.getElementById('proceedToPayment').onclick = `pass_to_stripe('${total_price}')`;
 }
 
+
+function storeSessionDetails() {
+    var shop_page_user_email = document.getElementById("bookEmail").value;
+    var shop_page_name = document.getElementById("bookName").value;
+    var shop_page_phone = document.getElementById("bookPhoneNumber").value;
+    var shop_page_timeslot = document.getElementById("dropDownMenu").value;
+    var shop_page_total = document.getElementById("Total").value;
+
+    sessionStorage.setItem("shop_page_user_email", shop_page_user_email);
+    sessionStorage.setItem("shop_page_name", shop_page_name);
+    sessionStorage.setItem("shop_page_phone",shop_page_phone);
+    sessionStorage.setItem("shop_page_timeslot",shop_page_timeslot);
+    sessionStorage.setItem("shop_page_total",shop_page_total);
+    sessionStorage.setItem("shop_page_selected_services", selected_service_arr);
+    alert(sessionStorage.getItem("shop_page_selected_services"));
+    console.log(sessionStorage.getItem("shop_page_selected_services"));
+}
+
+function delay (URL) {
+    setTimeout( function() { window.location = URL }, 2000 );
+}
+
+function setSpinner() {
+    document.getElementById("proceedToPayment").innerHTML = "Loading...<div class='spinner-border' role='status'></div>"
+}
 // function pass_to_stripe(){
 //     // alert('lit');
 //     var request = new XMLHttpRequest(); // Prep to make an HTTP request
