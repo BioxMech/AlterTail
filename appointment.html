@@ -36,7 +36,7 @@
     
         
       </head>
-      <body onload="loggedIn(); displayAppointment();">
+      <body onload="loggedIn(); ">
         
         <div id="overlay">
             <div id="progstat"></div>
@@ -358,19 +358,14 @@
 
 
       <!-- Main Content -->
-
-      <!-- <header>
-          Shop Name / Category / Services / Price / Scheduled Datetime
-      </header> -->
-
-      <div class="container" id="mainContent">
+      <div class="container">
         <table class="table" style="margin-top: 30px;">
             <thead>
               <tr>
                 <th scope="col" colspan="4" style="text-align: center;">My Appointments</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="mainContent">
               <tr>
                 <!-- <th scope="row">1</th> -->
                 <!-- Image + Shop Name -->
@@ -394,9 +389,6 @@
                   </p>
                   <p>
                     The 3pc suit is the most flattering garment that a man can own. The vest cinches in the waist, giving a natural V-shape to the upper body. You may also wear the vest, shirt and trousers without a jacket - a way to upkeep formality without compromising on style.
-                  </p>
-                  <p>
-                    DateTime
                   </p>
                   <p>
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmation">
@@ -446,6 +438,7 @@
             </tbody>
           </table>
       </div>
+      <!-- End of Main Content -->
 
 
       <!-- Confirmation Modal -->
@@ -635,7 +628,8 @@
         <!-- Custom Javscript -->
         <script src="js/form.js"></script>
         <script src="js/loaded.js"></script>
-        <script src="js/protect.js"></script>
+        <script src="js/appointment.js"></Script>
+        <!-- <script src="js/protect.js"></script> -->
     
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -123,6 +123,21 @@ class User {
         return $stmt;
    }
 
+   public function retrieveAppointments($email) {
+       // select all query
+       $query = "SELECT * FROM transactions WHERE email = ?";
+
+       // prepare query statement
+       $stmt = $this->conn->prepare($query);
+
+       // bind
+       $stmt->bindParam(1, $email);
+
+       // execute query
+       $stmt->execute();
+
+       return $stmt;
+   }
 }
 
 
