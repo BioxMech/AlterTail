@@ -39,7 +39,7 @@ function show_shopPage(shop_name){
                     <b>${shop_name}</b>
 
                 `;
-
+                
                 img_str = `
                 <img src="${shop_image}" class="img-fluid" alt="Responsive image"
                 style= "display: block;
@@ -47,6 +47,7 @@ function show_shopPage(shop_name){
                         margin-right: auto;
                         " >
                 `;
+                console.log(shop_name)
 
                 shop_description_str = `
                 <p>${shop_description}</p>
