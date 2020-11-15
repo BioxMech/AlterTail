@@ -28,6 +28,7 @@ if($num>0) {
         $item = array(
             "user_email" => $user_email,
             "seller_email" => $seller_email,
+            "schedule_id" => $schedule_id,
             "shop_name" => $shop_name,
             "image_url" => $image_url,
             "service_id" => $service_id,

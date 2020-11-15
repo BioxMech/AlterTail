@@ -60,6 +60,7 @@ constraint seller_service_fk2 foreign key(service_id) references service(service
 create table transactions
 (user_email varchar(50) not null,
 seller_email varchar(50 ) not null,
+schedule_id varchar(50) not null,
 shop_name varchar(40) not null,
 image_url varchar(100),
 service_id varchar(50) not null,
