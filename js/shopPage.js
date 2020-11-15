@@ -13,7 +13,7 @@ function show_shopPage(shop_name){
             // console.log(records)
 
             service_str = "";
-            serviceCheckbox_str = "";
+            serviceCheckbox_str = "<option>Please select one option</option>";
             for(var record of records) {
                 // counter ++; 
     
@@ -81,12 +81,14 @@ function show_shopPage(shop_name){
                     </div>
                 `;
 
-                serviceCheckbox_str += `
-                <label class="container">${service_title} - $${service_price}
-                    <input type="checkbox" name = "services[]" value="${service_price}" id = "${service_title}_checkbox" onchange = "Price_Calculator('${service_title}', '${service_price}')">
-                    <span class="checkmark"></span>
-                </label>
-                `;
+                // serviceCheckbox_str += `
+                // <label class="container">${service_title} - $${service_price}
+                //     <input type="checkbox" name = "services[]" value="${service_price}" id = "${service_title}_checkbox" onchange = "Price_Calculator('${service_title}', '${service_price}')">
+                //     <span class="checkmark"></span>
+                // </label>
+                // `;
+                serviceCheckbox_str += `<option id="${service_title}" value="${service_price}">${service_title} - $${service_price}</option>`;
+                // serviceCheckbox_str += `<option value='hello'>hello</option>`;
                 
             }
             // console.log(services)
@@ -197,20 +199,21 @@ function removeItemOnce(arr, value) {
   }
   
 
-function Price_Calculator(service_title, service_price){
+function Price_Calculator(){
     // console.log(service_title + '_checkbox');
     // console.log(service_price);
-    var checkbox = document.getElementById(service_title + '_checkbox');
-    if (checkbox.checked == true){
-        // console.log(service_price);
-        total_price += parseInt(service_price);
-        selected_service_arr.push([service_title, service_price]);
-        console.log(selected_service_arr);
-    }
-    else {
-        total_price -= parseInt(service_price);
-    }
-
+    // var checkbox = document.getElementById(service_title + '_checkbox');
+    var checkbox = document.getElementById("serviceCheckbox").value;
+    // if (checkbox.checked == true){
+    //     // console.log(service_price);
+    //     total_price += parseInt(service_price);
+    //     selected_service_arr.push([service_title, service_price]);
+    //     console.log(selected_service_arr);
+    // }
+    // else {
+    //     total_price -= parseInt(service_price);
+    // }
+    total_price = parseInt(checkbox);
     total_price_str = `Total: $${total_price}`;
     url_string = `stripe/paymentPage.php?Total=${total_price}`;
 
@@ -226,7 +229,8 @@ function storeSessionDetails() {
     var shop_page_user_email = document.getElementById("bookEmail").value;
     var shop_page_name = document.getElementById("bookName").value;
     var shop_page_phone = document.getElementById("bookPhoneNumber").value;
-    var shop_page_timeslot = document.getElementById("dropDownMenu").value;
+    // var shop_page_timeslot = document.getElementById("serviceCheckbox").value;
+
     var shop_page_total = document.getElementById("Total").value;
 
     sessionStorage.setItem("shop_page_user_email", shop_page_user_email);
