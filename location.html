@@ -71,8 +71,8 @@
   </head>
 
 
-  <body onload="loggedIn()">
-
+  <body onload="initializeShopDisplay(); loggedIn()"></body>
+ 
     <div id="overlay">
         <div id="progstat"></div>
         <div id="progress"></div>
@@ -159,7 +159,7 @@
     <!-- Start of Register/Sign up modal -->
   <div class="modal fade" id="registerSigninModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-      <div class="modal-content">
+      <div class="modal-content"> 
 
         <!-- Tabs -->
         <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
@@ -417,7 +417,7 @@
                 <!-- <button class = "col-sm-1" onClick="showCloseLocations();" id = "search_button" style = "margin-left: 15px;"><i class="fa fa-search"></i></button>           -->
             </div>
             <div style = "margin-top: 15px;">
-              <button class="btn btn-info info1" onclick="showCloseLocations();">Location</button>
+              <button class="btn btn-info info1" onclick="showCloseLocations();">Nearest Shops</button>
               <button class="btn btn-info info1" onclick="applyfilter()">Rating</button>
             </div>
 
@@ -426,7 +426,7 @@
 
             <!-- Filtered Cards -->
             <div id="shop_cards" class="container">
-                <div class="card mb-3" style="max-width: 1000px;">
+                <!-- <div class="card mb-3" style="max-width: 1000px;">
                     <div class="row no-gutters">
                       <div class="col-md-4" style = "margin-top: auto; margin-bottom: auto;">
                         <img src="images/alteration_shop1 .jpg" class="card-img" alt="...">
@@ -569,7 +569,7 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                
             </div>
             
@@ -602,6 +602,7 @@
     <script src="js/form.js"></script>
     <script src="js/map.js"></script>
     <script src="js/loaded.js"></script>
+    
     
     <script>
         // Animate the Loader
