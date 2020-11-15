@@ -204,6 +204,9 @@ function Price_Calculator(){
     // console.log(service_price);
     // var checkbox = document.getElementById(service_title + '_checkbox');
     var checkbox = document.getElementById("serviceCheckbox").value;
+    var x = document.getElementById("serviceCheckbox");
+    var index =  x.selectedIndex;
+    sessionStorage.setItem("shop_page_selected_services",x.options[index].text);
     // if (checkbox.checked == true){
     //     // console.log(service_price);
     //     total_price += parseInt(service_price);
@@ -229,16 +232,16 @@ function storeSessionDetails() {
     var shop_page_user_email = document.getElementById("bookEmail").value;
     var shop_page_name = document.getElementById("bookName").value;
     var shop_page_phone = document.getElementById("bookPhoneNumber").value;
-    // var shop_page_timeslot = document.getElementById("serviceCheckbox").value;
+    var shop_page_timeslot = document.getElementById("dropDownMenu").value;
 
     var shop_page_total = document.getElementById("Total").value;
 
     sessionStorage.setItem("shop_page_user_email", shop_page_user_email);
     sessionStorage.setItem("shop_page_name", shop_page_name);
     sessionStorage.setItem("shop_page_phone",shop_page_phone);
-    sessionStorage.setItem("shop_page_timeslot",shop_page_timeslot);
     sessionStorage.setItem("shop_page_total",shop_page_total);
-    sessionStorage.setItem("shop_page_selected_services", selected_service_arr);
+    sessionStorage.setItem("shop_page_timeslot",shop_page_timeslot);
+    // sessionStorage.setItem("shop_page_selected_services", selected_service_arr);
     alert(sessionStorage.getItem("shop_page_selected_services"));
     console.log(sessionStorage.getItem("shop_page_selected_services"));
 }
