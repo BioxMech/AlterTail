@@ -47,7 +47,7 @@ function show_shopPage(shop_name){
                         margin-right: auto;
                         " >
                 `;
-                console.log(shop_name)
+                // console.log(shop_name)
 
                 shop_description_str = `
                 <p>${shop_description}</p>
@@ -174,7 +174,7 @@ function Price_Calculator(service_title, service_price){
     }
 
     total_price_str = `Total: $${total_price}`;
-    // url_string = `stripe/paymentPage.php?Total=${total_price}`;
+    url_string = `stripe/paymentPage.php?Total=${total_price}`;
 
     document.getElementById('TotalCosts').innerHTML = total_price_str;
     document.getElementById('Total').value = total_price;
@@ -182,6 +182,33 @@ function Price_Calculator(service_title, service_price){
     // document.getElementById('proceedToPayment').onclick = `pass_to_stripe('${total_price}')`;
 }
 
+function storeSessionDetails() {
+    let shop_page_email = document.getElementById("bookEmail").value;
+    sessionStorage.setItem("shop_page_email", shop_page_email);
+    // console.log(sessionStorage.getItem("shop_page_email"));
+
+    let shop_page_name = document.getElementById("bookName").value;
+    sessionStorage.setItem("shop_page_name", shop_page_name);
+    console.log(sessionStorage.getItem("shop_page_name"));
+
+    let shop_page_phone = document.getElementById("bookPhoneNumber");
+    sessionStorage.setItem("shop_page_phone",shop_page_phone);
+
+    let shop_page_timeslot = document.getElementById("dropDownMenu").value;
+    sessionStorage.setItem("shop_page_timeslot",shop_page_timeslot);
+    
+    let shop_page_total = document.getElementById("Total").value;
+    sessionStorage.setItem("shop_page_total",shop_page_total);
+    console.log(sessionStorage.getItem("shop_page_total"));
+}
+
+function delay (URL) {
+    setTimeout( function() { window.location = URL }, 2000 );
+}
+
+function setSpinner() {
+    document.getElementById("proceedToPayment").innerHTML = "Loading...<div class='spinner-border' role='status'></div>"
+}
 // function pass_to_stripe(){
 //     // alert('lit');
 //     var request = new XMLHttpRequest(); // Prep to make an HTTP request

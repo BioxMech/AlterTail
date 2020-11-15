@@ -174,7 +174,7 @@ function CreateEvent(schedule_id,booking_start,booking_end,SuperSaaS_user_id,fna
 }
 
 function getSlotDetails(schedule_id) {
-  var selectedSlot = document.getElementById("dropDownMenu").value
+  var selectedSlot = document.getElementById("dropDownMenu").value;
   var booking_start = selectedSlot.slice(0,10) + '%20' + selectedSlot.slice(11,16);
   console.log(booking_start);
   var booking_end = selectedSlot.slice(0,10) + '%20' + selectedSlot.slice(17);
