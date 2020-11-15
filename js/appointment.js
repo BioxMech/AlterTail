@@ -1,5 +1,4 @@
 var email = sessionStorage.getItem("email")
-alert(email);
 
 function displayAppointment() {
     var request = new XMLHttpRequest(); // Prep to make an HTTP request
@@ -64,7 +63,7 @@ function displayAppointment() {
 
                         <!-- Details -->
                         <td style="padding-top: 30px;">
-                        <strong>SGD$ ${price}</strong> &nbsp (${title})
+                        <strong>SGD ${price}</strong> &nbsp (${title})
                         <p>
                             ${user.appt_date_time}
                         </p>
@@ -96,7 +95,7 @@ function displayAppointment() {
 
                         <!-- Details -->
                         <td style="padding-top: 30px;">
-                        <strong>SGD$ ${price}</strong> &nbsp (${title})
+                        <strong>SGD ${price}</strong> &nbsp (${title})
                         <p>
                             ${user.appt_date_time}
                         </p>
