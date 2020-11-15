@@ -34,8 +34,8 @@ create table seller
  image_url varchar(100),
  lat varchar(20) not null,
  lng varchar(20) not null,
- constraint seller_pk primary key(email,shop_name),
- constraint seller_fk1 foreign key(email) references user(email)
+ constraint seller_pk primary key(email,shop_name)
+--  constraint seller_fk1 foreign key(email) references user(email)
 );
 
 create table service 

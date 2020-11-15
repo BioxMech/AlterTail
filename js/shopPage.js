@@ -248,3 +248,8 @@ function setSpinner() {
 //     request.send();
 // }
 
+
+
+function grabScheduleID(schedule_id) {
+      sessionStorage.setItem("shop_page_schedule_id", schedule_id);
+}
