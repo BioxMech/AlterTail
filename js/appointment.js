@@ -72,7 +72,7 @@ function displayAppointment() {
                         <p style="margin-top: 10px;">
                             <a href="" class="cancelButton" data-toggle="modal" data-target="#confirmation${user.shop_name}">Cancel</a>
                             &nbsp
-                            <a href="shopPage.html?shop_name${user.shop_name}" class="button">To ${user.shop_name}</a>
+                            <a href="shopPage.html?shop_name${user.shop_name}" class="button" style="width:10%">To ${user.shop_name}</a>
                         </p>
                         </td>
                     </tr>
@@ -126,8 +126,8 @@ function displayAppointment() {
 
             <td style="padding-top: 30px;">
                 <p>You do not have any scheduled appointments currently. </p>
-                <p>To start booking for appointments at AlterTail, you can browse through our services below: </p>
-                <a href="">Alteration</a>, <a href="">Tailoring</a> and/or <a href="">Cleaning</a>
+                <p>To start booking for appointments with sellers at AlterTail, you can browse through our services below: </p>
+                <a class="button" href="alteration.html">Alteration</a> and/or <a class="button" href="location.html">Tailoring</a>
             </td>
                         `;
         }
