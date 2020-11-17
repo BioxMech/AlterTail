@@ -49,7 +49,8 @@ if($num > 0) {
 
         $item = array(
             "shop_name" => $shop_name,
-            "schedule_id" => $schedule_id
+            "schedule_id" => $schedule_id,
+            "seller_email" => $email
             );
 
         array_push($result_arr["records"], $item);
