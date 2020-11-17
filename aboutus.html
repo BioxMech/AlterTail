@@ -20,6 +20,8 @@
     <!-- Title Image -->
     <link rel="icon" href="images/logo4.jpg" type="image/jpg">
 
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/loader.css">
@@ -27,6 +29,10 @@
     <!-- <link rel="stylesheet" href="css/buttons.css"> -->
     <link rel="stylesheet" href="css/buttonEffects.css">   
     <link rel="stylesheet" href="css/form.css">
+
+    <!-- Vue.js CDN V2 & Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
   </head>
 
@@ -62,7 +68,7 @@
                   <a class="nav-link" href="location.html" style="padding-bottom:unset;" >Tailoring</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="location.html" style="padding-bottom:unset;" >Alteration</a>
+                  <a class="nav-link" href="alteration.html" style="padding-bottom:unset;" >Alteration</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="aboutUs.html" style="padding-bottom:unset;" >About Us</a>
@@ -173,7 +179,7 @@
 
                       <div class="form-label-group row">
                         <input type="text" class="form-control" v-bind:class="{'is-invalid': emailnotValid, 'is-valid': emailisValid }" id="registerEmail" placeholder="email" required="" name="email"
-                        pattern="^[a-zA-Z\d+.]+@([\w-]+\.)+[\w-]{2,4}$" v-model="registerEmail" v-on:keyup="checkEmail">
+                        pattern="^[a-zA-Z\d+._]+@([\w-]+\.)+[\w-]{2,4}$" v-model="registerEmail" v-on:keyup="checkEmail">
                         <label for="registerEmail">Email Address</label>
                         <small class="form-text text-muted">We'll never share your email with anyone else.</small>
                         <div class="valid-feedback" v-bind:style="emailValidStyle"> {{ emailValid }} </div>
@@ -182,7 +188,7 @@
 
                       <div class="form-label-group row">
                         <input type="text" class="form-control" v-bind:class="{'is-invalid': usernamenotValid, 'is-valid': usernameisValid}" id="registerUsername" placeholder="username" required="" name="username" 
-                        pattern="^[a-zA-Z\d+]{3,}$" v-model="registerUsername" v-on:keyup="checkUsername">
+                        pattern="^[a-zA-Z\d+]{3,15}$" v-model="registerUsername" v-on:keyup="checkUsername">
                         <label for="registerUsername">Username</label>
                         <small class="form-text text-muted">It will also be your display name.</small>
                         <div class="valid-feedback" v-bind:style="usernameValidStyle"> {{ usernameValid }} </div>
@@ -213,10 +219,11 @@
                           <div class="valid-feedback">You have a nice name.</div>
                           <div class="invalid-feedback"></div>
                         </div>
+                        <input type="hidden" name="SuperSaaS_user_id" id="SuperSaaS_user_id">
                       </div>
 
                       <div class="form-check form-check-inline row">
-                        Gender: 
+                        Gender: &nbsp
                       </div>
                       <div class="form-check form-check-inline row">
                         <input class="form-check-input" type="radio" name="gender" id="male_btn" value="Male" required>
@@ -224,6 +231,7 @@
                           Male
                         </label>
                       </div>
+                      &nbsp
                       <div class="form-check form-check-inline row mb-3">
                         <input class="form-check-input" type="radio" name="gender" id="female_btn" value="Female">
                         <label class="form-check-label" for="female_btn">
@@ -251,8 +259,8 @@
                         <input type="text" class="form-control" id="registerUnit" placeholder="Unit" name="unit" pattern="\d{1,2}-\d{2,4}">
                         <label for="registerUnit">Unit</label>
                         <small class="form-text text-muted">For example: 05-64</small>
-                        <div class="valid-feedback">Your unit number looks good!</div>
-                        <div class="invalid-feedback">Your unit number is invalid.</div>
+                        <!-- <div class="valid-feedback">Your unit number looks good!</div>
+                        <div class="invalid-feedback">Your unit number is invalid.</div> -->
                       </div>
 
                       <div class="form-label-group row">
@@ -332,7 +340,7 @@
   </div>
 </div>
 <!-- End of Register/Sign up modal -->
-
+<hr style="margin: 0;">
 
 
     <!--Image bg-->
@@ -399,7 +407,7 @@
     </div>
     <!-- End of Special Context -->
 
-    <div class="container" style = "margin: 50px; ">   
+    <div class="container main" style="margin-bottom: 60px;" >   
         <div class="main-titles-head">
         <p class="tiltle-para" style="text-align: center;">AlterTail is a one-stop fashion maintenance portal for residents in Singapore. Launched in 2020, it is a platform tailored for the region. We aim to connect users with fashion service providers such as alteration service, tailors and dry-cleaners, providing users with an easy, secure and fast online shopping experience through strong payment and fulfilment support.</p>
         <p class="tiltle-para" style="text-align: center;">Our platform offers a wide spectrum of businesses as we want to offer our customers options from both the higher-end and also on the affordable end. This encapsulates the more exquisite retail businesses and the more neighbourhood-friendly home-based businesses, bringing the best of both worlds to our customers.</p>
@@ -432,7 +440,7 @@
       <div class="col-md-2 mx-auto">
 
         <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Backgroundfinfo</h5>
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Company</h5>
 
         <ul class="list-unstyled">
           <li>
@@ -453,10 +461,10 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="#!">Alterations</a>
+            <a href="alteration.html">Alterations</a>
           </li>
           <li>
-            <a href="#!">Tailoring</a>
+            <a href="location.html">Tailoring</a>
           </li>
         </ul>
 
@@ -473,7 +481,7 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="terms.html">Terms and conditions</a>
+            <a href="terms.html">Terms and Conditions</a>
           </li>
           <li>
             <a href="privacypolicy.html">Privacy Policy</a>

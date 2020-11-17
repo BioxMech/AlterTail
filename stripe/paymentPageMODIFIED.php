@@ -1,46 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-    <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- Font Awesome Script -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-    <!-- Title -->
-    <title>AltTailor</title>
-
-    <!-- Title Image -->
-    <link rel="icon" href="images/logo4.jpg" type="image/jpg">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/loader.css">
-    <link rel="stylesheet" href="css/animation.css">
-    <link rel="stylesheet" href="css/buttonEffects.css">
-    <link rel="stylesheet" href="css/form.css">
+      <!-- Font Awesome CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+      <!-- Font Awesome Script -->
+      <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
     <!-- Vue.js CDN V2 & Axios -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-    
-  </head>
-  <body onload="loggedIn(); displayHome();">
-    
-    <div id="overlay">
-        <div id="progstat"></div>
-        <div id="progress"></div>
-    </div>
+  <title>Payment Page</title>
+
+    <!-- Title Image -->
+    <link rel="icon" href="../images/logo4.jpg" type="image/jpg">
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+      <!-- Title Image -->
+      <link rel="icon" href="../images/logo4.jpg" type="image/jpg">
+      <!-- Custom CSS -->
+      <link rel="stylesheet" href="../css/main.css">
+      <link rel="stylesheet" href="../css/loader.css">
+      <link rel="stylesheet" href="../css/animation.css">
+      <!-- <link rel="stylesheet" href="css/buttons.css"> -->
+      <link rel="stylesheet" href="../css/buttonEffects.css">
+      <link rel="stylesheet" href="../css/form.css">
+</head>
+
+<body onload="loggedIn();">
 
     <!-- Start Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light" >
@@ -52,7 +50,7 @@
         </button>
   
         <a class="navbar-brand mr-auto" href="index.html">
-            <img src="images/logo.jpg" class="d-inline-block align-top navBarLogo" loading="lazy">
+            <img src="../images/logo.jpg" class="d-inline-block align-top navBarLogo" loading="lazy">
         </a>
         
         <!-- Collapse Content (Nav Bar) -->
@@ -61,16 +59,16 @@
             <!-- Left Side Nav -->
             <ul class="navbar-nav mr-auto" id="leftSideNav">
                 <li class="nav-item">
-                    <a class="nav-link current" href="index.html" style="padding-bottom:unset;" >Home</a>
+                    <a class="nav-link current" href="../index.html" style="padding-bottom:unset;" >Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="location.html" style="padding-bottom:unset;" >Tailoring</a>
+                    <a class="nav-link" href="../location.html" style="padding-bottom:unset;" >Tailoring</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="alteration.html" style="padding-bottom:unset;" >Alteration</a>
+                    <a class="nav-link" href="../alteration.html" style="padding-bottom:unset;" >Alteration</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="aboutUs.html" style="padding-bottom:unset;" >About Us</a>
+                    <a class="nav-link" href="../aboutUs.html" style="padding-bottom:unset;" >About Us</a>
                 </li>
             </ul>      
         </div>
@@ -123,9 +121,9 @@
 
                     <!-- Sign in forms -->
                     <!-- <form class="form-signin" method="POST" id="root"> -->
-                    <form class="form-signin" action="backend/process_login.php" method="POST" id="signInForm">
+                    <form class="form-signin" action="../backend/process_login.php" method="POST" id="signInForm">
 
-                        <img src="images/logo.jpg" class="modalFormImage">
+                        <img src="../images/logo.jpg" class="modalFormImage">
                         <h5 class="modalDescription mb-4">All-in-one tailoring/alteration/cleaning services platform</h5>
                             
                         <div class="form-group row">
@@ -171,8 +169,8 @@
                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 
                     <!-- Register form -->
-                    <form class="form-signin needs-validation" id="myForm1" action="backend/process_register.php" method="POST" autocomplete="off" onsubmit="saveSession()">
-                        <img src="images/logo.jpg" class="modalFormImage">
+                    <form class="form-signin needs-validation" id="myForm1" action="../backend/process_register.php" method="POST" autocomplete="off" onsubmit="saveSession()">
+                        <img src="../images/logo.jpg" class="modalFormImage">
                         <h5 class="modalDescription mb-4">All-in-one tailoring/alteration/cleaning services platform
                         <br>Sign up with us now to get your clothing or bag cleaned, altered or tailored!</h5>
 
@@ -341,101 +339,46 @@
   <!-- End of Register/Sign up modal -->
   <hr style="margin: 0;">
 
-    
-  <!-- Carousel -->
-    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
-        </ol>
 
-        <div class="carousel-inner" id="carouselItems">
-          <!-- Carousel Slides -->
-            <div class="carousel-item active">
-                <img src="images/alteration_shop11.jpg" class="d-block w-100">
-                <div class="carousel-caption d-none d-md-block carouselDescription" >
-                    <h2 class="star_h2" id="slide_heading1"><b>Tang Cottage</b></h2>
-                    <p>Owner of Tang Cottage, May Tang has more than twenty years of experience. While she was trained in clothing making, she has built a strong reputation for providing quality alteration services to her</p>
-                </div>
-            </div>
-            <div class="carousel-item ">
-                <img src="images/alteration_shop1 .jpg" class="d-block w-100">
-                <div class="carousel-caption d-none d-md-block carouselDescription" >
-                    <h2 class="star_h2" id="slide_heading1"><b>Q MENSWEAR</b></h2>
-                    <p>Every house has their own signature cut, technical expertise or style which sets it apart from other houses or menswear brand. At Q MENSWEAR, we also have our own set of standards</p>
-                </div>
-            </div>
-            <div class="carousel-item ">
-                <img src="images/tailor2.jpg" class="d-block w-100">
-                <div class="carousel-caption d-none d-md-block carouselDescription" >
-                    <h2 class="star_h2" id="slide_heading1"><b>Wing Onn Alteration</b></h2>
-                    <p>Home business - We Altering is ace at altering all sorts of materials from denim to cotton, and will even add a touch of detail such as pom-poms or sequins if you want to!</p>
-                </div>
-            </div>
-            <div class="carousel-item ">
-                <img src="images/slider-2.jpg" class="d-block w-100">
-                <div class="carousel-caption d-none d-md-block carouselDescription" >
-                    <h2 class="star_h2" id="slide_heading1"><b>Wonderful Alteration Store</b></h2>
-                    <p>Home business - If you’re in need of tailors with lots of experience with couture pieces, Wonderful Alteration Store is the place to go. Prices start from S$20 for a basic shortening job.</p>
-                </div>
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-    </div>
-    <!-- End of Carousel -->
-    
-    <!-- ======================================== BODY ======================================== -->
+  <div class="container">
+    <h2 class="my-4 text-center">Payment</h2>
+    <form action="./charge.php" method="post" id="payment-form">
+      <div class="form-row">
+       <input type="text" name="first_name" class="form-control mb-3 StripeElement StripeElement--empty" placeholder="First Name">
+       <input type="text" name="last_name" class="form-control mb-3 StripeElement StripeElement--empty" placeholder="Last Name">
+       <input type="email" name="email" class="form-control mb-3 StripeElement StripeElement--empty" placeholder="Email Address">
+       <input type="hidden" name="shop_name">
+       <input type="hidden" name="time">
+       
 
-    <!-- Special Context  -->
-    <div class="container specialContext">
-      <div class="row">
-        <div class="col-sm-4">
-          <img class="specialImage" src="images/allinone.png">
-          <h4><strong>All-in-one Service Platform</strong></h4>
-          <p>
-            AlterTail provides alterations, tailoring and cleaning services
-          </p>
+        <?php
+        // $Total = $_GET['Total']; 
+        echo "<input type='hidden' id='shop_page_total' name='Total' value=''>";
+        echo "<input type='hidden' id='shop_page_user_email' name='user_email' value=''>";
+        echo "<input type='hidden' id='shop_page_seller_email' name='seller_email' value=''>";
+        echo "<input type='hidden' id='shop_page_name' name='name' value=''>";
+        echo "<input type='hidden' id='shop_page_phone' name='phone' value=''>";
+        echo "<input type='hidden' id='shop_page_schedule_id' name='schedule_id' value=''>";
+        echo "<input type='hidden' id='shop_page_timeslot' name='timeslot' value=''>";
+        echo "<input type='hidden' id='shop_page_shop_name' name='shop_name' value=''>";
+        echo "<input type='hidden' id='shop_page_selected_services' name='selected_services' value=''>";
+        echo "<input type='hidden' id='shop_page_image_url' name='image_url' value=''>";
+        echo "<input type='hidden' id='shop_page_shop_desc' name='service_desc' value=''>";
+        // echo "<input type='hidden' id='shop_page_shop_image' name='shop_image' value=>";
+        ?>
+
+       <div id="card-element" class="form-control">
+          <!-- a Stripe Element will be inserted here. -->
         </div>
-        <div class="col-sm-4">
-          <img class="specialImage" src="images/qualityService.png">
-          <h4><strong>Quality Service</strong></h4>
-          <p>
-            Obtain high quality services provided by dedicated artisans
-          </p>
-        </div>
-        <div class="col-sm-4">
-          <img class="specialImage" src="images/securePayment.png">
-          <h4><strong>Secure Payment</strong></h4>
-          <p>
-            We use the most secure technology to protect your every transaction.
-          </p>
-        </div>
+
+        <!-- Used to display form errors -->
+        <div id="card-errors" role="alert"></div>
       </div>
-    </div>
-    <!-- End of Special Context -->
 
-    <!-- Main Content -->
-    <div id="mainContent" class="container main">
-
-        <!-- Main Content Cards -->
-        <div class="row row-cols-1 row-cols-md-3 mb-4" id='shopCards'>
-            <!-- Top rated shop shown -->
-        </div>        
-        <!-- End of main Content Cards -->
-
-    </div>
-    <!-- End of Main Content -->
-
+      <button type='submit'>Submit Payment</button>
+      <!-- <input type='submit' value='Submit Payment'> -->
+    </form>
+  </div>
 
 <!-- Footer -->
 <footer class="page-footer font-small text-white bg-dark pt-4" >
@@ -466,7 +409,7 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="aboutus.html">About Us</a>
+            <a href="../aboutus.html">About Us</a>
           </li>
         </ul>
 
@@ -483,10 +426,10 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="alteration.html">Alterations</a>
+            <a href="../alteration.html">Alterations</a>
           </li>
           <li>
-            <a href="location.html">Tailoring</a>
+            <a href="../location.html">Tailoring</a>
           </li>
         </ul>
 
@@ -503,10 +446,10 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="terms.html">Terms and Conditions</a>
+            <a href="../terms.html">Terms and Conditions</a>
           </li>
           <li>
-            <a href="privacypolicy.html">Privacy Policy</a>
+            <a href="../privacypolicy.html">Privacy Policy</a>
           </li>
         </ul>
 
@@ -540,7 +483,7 @@
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="aboutus.html">AlterTail.co</a>
+    <a href="../aboutus.html">AlterTail.co</a>
   </div>
   <!-- Copyright -->
 
@@ -548,19 +491,44 @@
 <!-- Footer -->
 
 
-    <!-- Custom JavaScript -->
-    <script src="js/form.js"></script>
-    <script src="js/loaded.js"></script>
-    <script src="js/index.js"></script>
 
-    
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="./js/charge.js"></script>
+  <script src="../js/loaded.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    console.log(sessionStorage.getItem("shop_page_selected_services"));
+    console.log(sessionStorage.getItem("shop_page_user_email"));
+    console.log(sessionStorage.getItem("shop_page_name"));
+    console.log(sessionStorage.getItem("shop_page_phone"));
+    console.log(sessionStorage.getItem("shop_page_schedule_id"));
+    console.log(sessionStorage.getItem("shop_page_timeslot"));
+    console.log(sessionStorage.getItem("shop_page_total"));
+    console.log(sessionStorage.getItem("shop_page_shop_name"));
+    console.log(sessionStorage.getItem("shop_page_seller_email"))
+    console.log(sessionStorage.getItem("shop_page_image_url"));
+    console.log(sessionStorage.getItem("shop_page_service_desc"));
+    // console.log(sessionStorage.getItem("shop_page_shop_image"));
+    var total_amt = sessionStorage.getItem("shop_page_total");
+    // console.log(total_amt);
+    document.getElementById("shop_page_total").value = total_amt;
+    document.getElementById("shop_page_user_email").value = sessionStorage.getItem("shop_page_user_email");
+    document.getElementById("shop_page_seller_email").value = sessionStorage.getItem("shop_page_seller_email");
+    document.getElementById("shop_page_name").value = sessionStorage.getItem("shop_page_name");
+    document.getElementById("shop_page_phone").value = sessionStorage.getItem("shop_page_phone");
+    document.getElementById("shop_page_schedule_id").value = sessionStorage.getItem("shop_page_schedule_id");
+    document.getElementById("shop_page_timeslot").value = sessionStorage.getItem("shop_page_timeslot");
+    document.getElementById("shop_page_shop_name").value = sessionStorage.getItem("shop_page_shop_name");
+    document.getElementById("shop_page_selected_services").value = sessionStorage.getItem("shop_page_selected_services");
+    document.getElementById("shop_page_image_url").value = sessionStorage.getItem("shop_page_image_url");
+    document.getElementById("shop_page_shop_desc").value = sessionStorage.getItem("shop_page_service_desc");
+    // document.getElementById("shop_page_shop_image").value = sessionStorage.getItem("shop_page_shop_image");
+  </script>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
 
     <!-- Custom Vue.Js -->
@@ -632,7 +600,7 @@
               },
               checkUsername: function() {
                 // URL to an API endpoint
-                let url = 'projectAPI/user/checkUsername.php?username=' + this.registerUsername
+                let url = '../projectAPI/user/checkUsername.php?username=' + this.registerUsername
 
                 // send a req to the above specified API endpoint
                 axios.get(url)
@@ -665,7 +633,7 @@
               },
               checkEmail: function() {
                 // URL to an API endpoint
-                let url = 'projectAPI/user/checkEmail.php?email=' + this.registerEmail
+                let url = '../projectAPI/user/checkEmail.php?email=' + this.registerEmail
 
                 // send a req to the above specified API endpoint
                 axios.get(url)
@@ -721,7 +689,7 @@
           },
           methods:{
             getData:function(){
-              let url = 'projectAPI/user/fetch.php?query=' + this.query;
+              let url = '../projectAPI/user/fetch.php?query=' + this.query;
 
               axios.get(url)
                 .then(response => {
@@ -841,7 +809,7 @@
     
     $.ajax({
           type: "GET",
-          url: "projectAPI/user/verification.php?email=" + email + "&pw=" + password,
+          url: "../projectAPI/user/verification.php?email=" + email + "&pw=" + password,
           data: form.serialize(), // serializes the form's elements.
           success: function(data)
           {
@@ -853,8 +821,6 @@
             
             // refreshes the page
             submitForm()
-
-            window.location.replace("index.html#");
 
           },
           statusCode: {
@@ -923,6 +889,5 @@ console.log(sessionStorage.getItem('email'));
 }());
 
     </script>  
-
-  </body>
+</body>
 </html>

@@ -45,318 +45,304 @@
             <div id="progress"></div>
         </div>
     
-        <!-- Start Navigation Bar -->
-        <nav class="navbar navbar-expand-lg navbar-light" >
-            
+    <!-- Start Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light" >
+        
+  
+      <!-- Hamburger Name -->
+      <button class="navbar-toggler mr-4" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <a class="navbar-brand mr-auto" href="index.html">
+          <img src="images/logo.jpg" class="d-inline-block align-top navBarLogo" loading="lazy">
+      </a>
       
-            <!-- Hamburger Name -->
-            <button class="navbar-toggler mr-4" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-      
-            <a class="navbar-brand mr-auto" href="index.html">
-                <img src="images/logo.jpg" class="d-inline-block align-top navBarLogo" loading="lazy">
-            </a>
-            
-            <!-- Collapse Content (Nav Bar) -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                    
-                <!-- Left Side Nav -->
-                <ul class="navbar-nav mr-auto" id="leftSideNav">
-                    <li class="nav-item">
-                        <a class="nav-link current" href="index.html" style="padding-bottom:unset;" >Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="allTailorPage.html" style="padding-bottom:unset;" >Tailoring</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="location.html" style="padding-bottom:unset;" >Alteration</a>
-                    </li>
-                    <li class="nav-item">
-                        <!-- Dropdown menu -->
-                        <div class="dropdown">
-                            <a class="nav-link" href="#" style="padding-bottom:unset;" 
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cleaning</a>
-                            <!-- Options -->
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="allBagCleaningPage.html">Bag Cleaning</a>
-                                <a class="dropdown-item" href="allDryCleaningPage.html">Dry Cleaning</a>
-                            </div>
-                            <!-- Options -->
-                        </div>
-                        <!-- End of dropdown menu -->
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="aboutUs.html" style="padding-bottom:unset;" >About Us</a>
-                    </li>
-                </ul>      
-            </div>
-            <!-- End of collapse content (Nav Bar) -->
-    
-            <!-- Right side -->
-            <div id="navbarNavRight">
-                <ul class="navbar-nav flex-row ml-auto" id="registerProfile">
-                  <li class="nav-item mt-2 mr-1 " id="change">
-                    <!-- Search bar -->
-                    <search-component></search-component>
-                 </li>
-                 <div id="change2">
-                    <!-- Replace me with Sign in or Profile -->
-                 </div>
-                </ul>
-            </div>
-            <!-- End of right side -->
-            
-        </nav>
-        <!-- End Navigation Bar -->
-    
-    
-        <!-- Start of Register/Sign up modal -->
-      <div class="modal fade" id="registerSigninModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-          <div class="modal-content">
-    
-            <!-- Tabs -->
-            <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
-                <li class="nav-item" role="presentation">
-                  <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Login</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Register</a>
-                </li>
-            </ul>
-            <!-- End of Tabs -->
-    
-            <!-- <div class="modal-header">
-              <img src="images/logo.jpg" class="modalFormImage">
-              <h5 class="modalDescription mb-4">All-in-one tailoring/alteration/cleaning services platform</h5>
-            </div> -->
-    
-            <div class="modal-body">
-                <div class="tab-content" id="pills-tabContent">
-    
-                    <!-- Sign in tab -->
-                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-    
-                        <!-- Sign in forms -->
-                        <!-- <form class="form-signin" method="POST" id="root"> -->
-                        <form class="form-signin" action="backend/process_login.php" method="POST" id="signInForm">
-    
-                            <img src="images/logo.jpg" class="modalFormImage">
-                            <h5 class="modalDescription mb-4">All-in-one tailoring/alteration/cleaning services platform</h5>
-                                
-                            <div class="form-group row">
-                              <i class="fas fa-envelope prefix modalIcon"></i>
-                              <div class="col-sm-11 ml-auto">
-                                <div class="form-label-group row">
-                                  <input type="text" class="form-control modalInput" id="signinEmail" placeholder="email" required name="email" >
-                                  <span class="border"></span>
-                                  <label for="signinEmail">Email Address</label>
-                                </div>
-                                <!-- Error Message -->
-                                <div id="emailOutput"></div>
-                              </div>
-                            </div>
-                            
-                            <div class="form-group row">
-                              <i class="fas fa-lock prefix modalIcon"></i>
-                              <div class="col-sm-11 ml-auto">
-                                <div class="form-label-group row">
-                                <input type="password" class="form-control modalInput" id="psw" placeholder="password" required="" name="password" >
-                                <span class="border"></span>
-                                <label for="psw"></i>Password</label>
-                              </div>
-                              <!-- Error Message -->
-                              <div id="passwordOutput"></div>
-                            </div>
-                            
-                            </div>
-                            <div class="form-group form-check row">
-                              <input type="checkbox" class="form-check-input" id="rememberMe">
-                              <label class="form-check-label" for="rememberMe">Remember Me</label>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearAllSignin()">Close</button>
-                                <input type="submit" class="btn btn-dark" value="Sign in" id="signinSubmit">
-                            </div>
-                        </form>
-                        <!-- End of sign in forms -->
-                    </div>
-                    <!-- End of Signin Tab -->
-    
-                    <!-- Register Tab -->
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-    
-                        <!-- Register form -->
-                        <form class="form-signin needs-validation" id="myForm1" action="backend/process_register.php" method="POST" autocomplete="off" onsubmit="saveSession()">
-                            <img src="images/logo.jpg" class="modalFormImage">
-                            <h5 class="modalDescription mb-4">All-in-one tailoring/alteration/cleaning services platform
-                            <br>Sign up with us now to get your clothing or bag cleaned, altered or tailored!</h5>
-    
-                            <div class="form-label-group row">
-                              <input type="text" class="form-control" v-bind:class="{'is-invalid': emailnotValid, 'is-valid': emailisValid }" id="registerEmail" placeholder="email" required="" name="email"
-                              pattern="^[a-zA-Z\d+._]+@([\w-]+\.)+[\w-]{2,4}$" v-model="registerEmail" v-on:keyup="checkEmail">
-                              <label for="registerEmail">Email Address</label>
-                              <small class="form-text text-muted">We'll never share your email with anyone else.</small>
-                              <div class="valid-feedback" v-bind:style="emailValidStyle"> {{ emailValid }} </div>
-                              <div class="invalid-feedback"> {{ emailInvalid }} </div>
-                            </div>
-    
-                            <div class="form-label-group row">
-                              <input type="text" class="form-control" v-bind:class="{'is-invalid': usernamenotValid, 'is-valid': usernameisValid}" id="registerUsername" placeholder="username" required="" name="username" 
-                              pattern="^[a-zA-Z\d+]{3,15}$" v-model="registerUsername" v-on:keyup="checkUsername">
-                              <label for="registerUsername">Username</label>
-                              <small class="form-text text-muted">It will also be your display name.</small>
-                              <div class="valid-feedback" v-bind:style="usernameValidStyle"> {{ usernameValid }} </div>
-                              <div class="invalid-feedback"> {{ usernameInvalid }} </div>
-                            </div>
-                            
-                            <!-- <div class="form-row row">
-                              <div class="col-sm-6">
-                                <div class="form-label-group">
-                                  <input type="text" class="form-control" id="registerFirstName" placeholder="firstName" required="" name="fname">
-                                  <label for="registerFirstName"></i>First Name</label>
-                                </div>
-                              </div>
-                              <div class="col-sm-6">
-                                <div class="form-label-group">
-                                  <input type="text" class="form-control" id="registerLastName" placeholder="lastName" required="" name="lname">
-                                  <label for="registerLastName"></i>Last Name</label>
-                                </div>
-                              </div>
-                            </div> -->
-    
-                            <div class="form-group">
-                              <div class="form-label-group row">
-                                <input type="text" class="form-control" id="registerName" placeholder="name" name="name" pattern="^[a-zA-Z\s]{3,}$" 
-                                v-model="registerName" v-on:blur="display" v-on:focus="display" required>
-                                <label for="registerName">Name</label>
-                                <small class="form-text text-muted">First name + Last Name | For example: Bob Dylan</small>
-                                <div class="valid-feedback">You have a nice name.</div>
-                                <div class="invalid-feedback"></div>
-                              </div>
-                              <input type="hidden" name="SuperSaaS_user_id" id="SuperSaaS_user_id">
-                            </div>
-    
-                            <div class="form-check form-check-inline row">
-                              Gender: &nbsp
-                            </div>
-                            <div class="form-check form-check-inline row">
-                              <input class="form-check-input" type="radio" name="gender" id="male_btn" value="Male" required>
-                              <label class="form-check-label" for="male_btn" style="padding-right: 5px;">
-                                Male
-                              </label>
-                            </div>
-                            &nbsp
-                            <div class="form-check form-check-inline row mb-3">
-                              <input class="form-check-input" type="radio" name="gender" id="female_btn" value="Female">
-                              <label class="form-check-label" for="female_btn">
-                                Female
-                              </label>
-                            </div>
-    
-                            <div class="form-label-group row" >
-                              <input type="text" class="form-control" id="registerPhoneNumber" placeholder="Phone Number" required="" name="phone" pattern="[0-9]{8,8}">
-                              <label for="registerPhoneNumber"></i>Phone Number</label>
-                              <small class="form-text text-muted">For example "98763210"</small>
-                              <div class="valid-feedback">Your phone number looks good!</div>
-                              <div class="invalid-feedback">Your phone number is invalid.</div>
-                            </div>
-    
-                            <div class="form-label-group row">
-                              <input type="text" class="form-control" id="registerStreetAddress" placeholder="Address" required="" name="street_address" pattern="^[a-zA-Z0-9\s]{10,}$">
-                              <label for="registerStreetAddress">Street Address</label>
-                              <small class="form-text text-muted">Street name, street number and block number</small>
-                              <div class="valid-feedback">Your street address looks good!</div>
-                              <div class="invalid-feedback">Your street address is invalid.</div>
-                            </div>
-    
-                            <div class="form-label-group row">
-                              <input type="text" class="form-control" id="registerUnit" placeholder="Unit" name="unit" pattern="\d{1,2}-\d{2,4}">
-                              <label for="registerUnit">Unit</label>
-                              <small class="form-text text-muted">For example: 05-64</small>
-                              <!-- <div class="valid-feedback">Your unit number looks good!</div>
-                              <div class="invalid-feedback">Your unit number is invalid.</div> -->
-                            </div>
-    
-                            <div class="form-label-group row">
-                              <input type="text" class="form-control" id="registerPostal" placeholder="Postal" required name="postal_code" pattern="(?=.*\d).{6,6}">
-                              <label for="registerPostal">Postal Code</label>
-                              <small class="form-text text-muted">For example: 512678</small>
-                              <div class="valid-feedback">Your postal code looks good!</div>
-                              <div class="invalid-feedback">Your postal code is invalid.</div>
-                            </div>
-                            
-                            <div class="form-label-group row">
-                              <input type="password" class="form-control" id="registerPassword" placeholder="password" required="" name="pw"
-                              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" v-model="registerPassword" v-on:blur="display" v-on:focus="display" required>
-                              <label for="registerPassword"></i>Password</label>
-                              
-                              <span id="togglePassword1">Show&nbsp</span>password: <i class="fa fa-eye-slash mt-1" id="eye1" aria-hidden="true"  class="bg-dark" onclick="if (registerPassword.type == 'text') registerPassword.type = 'password';
-                              else registerPassword.type = 'text'; switchEye()" ></i>
-    
-                              <div class="valid-feedback">Your password meets all the requirements!</div>
-                              <div v-if="show" class="invalid-feedback"> 
-                                <ul style="list-style-type: none;">
-                                  <li>
-                                    <span class="text-success">
-                                      {{ passwordLength() }}</span>
-                                    <div v-if="hideLength">✖ Minimum of 6 to 18 characters long</div>
-                                  </li>
-                                  <li>
-                                    <span class="text-success">
-                                      {{ passwordLower() }}</span>
-                                    <div v-if="hideLower">✖ MUST contain at least one lowercase letter.</div>
-                                  </li>
-                                  <li>
-                                    <span class="text-success">
-                                      {{ passwordUpper() }}</span>
-                                    <div v-if="hideUpper">✖ MUST contain at least one uppercase letter.</div>
-                                  </li>
-                                  <li>
-                                    <span class="text-success">
-                                      {{ passwordNumber() }}</span>
-                                    <div v-if="hideNumber">✖ MUST contain at least one number.</div>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-    
-                            <div class="form-label-group row">
-                              <input type="password" id="cregisterPassword" class="form-control myCpwdClass" placeholder="password" required="" name="pw2" 
-                              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" required>
-                              <label for="cregisterPassword"></i>Confirm Password</label>
-    
-                              <div id="cPwdValid" class="valid-feedback">Passwords Match</div>
-                              <div id="cPwdInvalid" class="invalid-feedback"></div>
-                                  
-                              <span id="togglePassword2">Show&nbsp</span>password: <i class="fa fa-eye-slash mt-1" id="eye2" aria-hidden="true"  class="bg-dark" onclick="if (cregisterPassword.type == 'text') cregisterPassword.type = 'password';
-                              else cregisterPassword.type = 'text'; cswitchEye()" ></i>
-    
-                            </div>
-                              
-                            
-                            <div class="form-group form-check row">
-                              <input type="checkbox" class="form-check-input" id="registerPromotion">
-                              <label class="form-check-label" for="registerPromotion">I'd like to receive exclusive offers and promotions via SMS</label>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearAllRegister()">Close</button>
-                                <!-- <button type="button" class="btn btn-primary">Sign up</button> -->
-                                <input type="submit" class="btn btn-primary" value="Sign up" id="submitBtn">
-                            </div>
-                            <small class="form-text text-muted">By clicking "SIGN UP"; I agree to AlterTail's Terms of Use and Privacy Policy</small>
-                        </form>
-                        <!-- End of register form -->
-                    </div>
-                    <!-- End of register tab -->
-                  </div>
-            </div>
-          </div>
-        </div>
+      <!-- Collapse Content (Nav Bar) -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+              
+          <!-- Left Side Nav -->
+          <ul class="navbar-nav mr-auto" id="leftSideNav">
+              <li class="nav-item">
+                  <a class="nav-link current" href="index.html" style="padding-bottom:unset;" >Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="location.html" style="padding-bottom:unset;" >Tailoring</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="alteration.html" style="padding-bottom:unset;" >Alteration</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="aboutUs.html" style="padding-bottom:unset;" >About Us</a>
+              </li>
+          </ul>      
       </div>
-      <!-- End of Register/Sign up modal -->
-      <hr style="margin: 0;">
+      <!-- End of collapse content (Nav Bar) -->
+
+      <!-- Right side -->
+      <div id="navbarNavRight">
+          <ul class="navbar-nav flex-row ml-auto" id="registerProfile">
+            <li class="nav-item mt-2 mr-1" id="change">
+              <!-- Search bar -->
+              <search-component></search-component>
+           </li>
+           <div id="change2">
+              <!-- Replace me with Sign in or Profile -->
+           </div>
+          </ul>
+      </div>
+      <!-- End of right side -->
+      
+  </nav>
+  <!-- End Navigation Bar -->
+
+
+  <!-- Start of Register/Sign up modal -->
+<div class="modal fade" id="registerSigninModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+    <div class="modal-content">
+
+      <!-- Tabs -->
+      <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Login</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Register</a>
+          </li>
+      </ul>
+      <!-- End of Tabs -->
+
+      <!-- <div class="modal-header">
+        <img src="images/logo.jpg" class="modalFormImage">
+        <h5 class="modalDescription mb-4">All-in-one tailoring/alteration/cleaning services platform</h5>
+      </div> -->
+
+      <div class="modal-body">
+          <div class="tab-content" id="pills-tabContent">
+
+              <!-- Sign in tab -->
+              <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                  <!-- Sign in forms -->
+                  <!-- <form class="form-signin" method="POST" id="root"> -->
+                  <form class="form-signin" action="backend/process_login.php" method="POST" id="signInForm">
+
+                      <img src="images/logo.jpg" class="modalFormImage">
+                      <h5 class="modalDescription mb-4">All-in-one tailoring/alteration/cleaning services platform</h5>
+                          
+                      <div class="form-group row">
+                        <i class="fas fa-envelope prefix modalIcon"></i>
+                        <div class="col-sm-11 ml-auto">
+                          <div class="form-label-group row">
+                            <input type="text" class="form-control modalInput" id="signinEmail" placeholder="email" required name="email" >
+                            <span class="border"></span>
+                            <label for="signinEmail">Email Address</label>
+                          </div>
+                          <!-- Error Message -->
+                          <div id="emailOutput"></div>
+                        </div>
+                      </div>
+                      
+                      <div class="form-group row">
+                        <i class="fas fa-lock prefix modalIcon"></i>
+                        <div class="col-sm-11 ml-auto">
+                          <div class="form-label-group row">
+                          <input type="password" class="form-control modalInput" id="psw" placeholder="password" required="" name="password" >
+                          <span class="border"></span>
+                          <label for="psw"></i>Password</label>
+                        </div>
+                        <!-- Error Message -->
+                        <div id="passwordOutput"></div>
+                      </div>
+                      
+                      </div>
+                      <div class="form-group form-check row">
+                        <input type="checkbox" class="form-check-input" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">Remember Me</label>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearAllSignin()">Close</button>
+                          <input type="submit" class="btn btn-dark" value="Sign in" id="signinSubmit">
+                      </div>
+                  </form>
+                  <!-- End of sign in forms -->
+              </div>
+              <!-- End of Signin Tab -->
+
+              <!-- Register Tab -->
+              <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+                  <!-- Register form -->
+                  <form class="form-signin needs-validation" id="myForm1" action="backend/process_register.php" method="POST" autocomplete="off" onsubmit="saveSession()">
+                      <img src="images/logo.jpg" class="modalFormImage">
+                      <h5 class="modalDescription mb-4">All-in-one tailoring/alteration/cleaning services platform
+                      <br>Sign up with us now to get your clothing or bag cleaned, altered or tailored!</h5>
+
+                      <div class="form-label-group row">
+                        <input type="text" class="form-control" v-bind:class="{'is-invalid': emailnotValid, 'is-valid': emailisValid }" id="registerEmail" placeholder="email" required="" name="email"
+                        pattern="^[a-zA-Z\d+._]+@([\w-]+\.)+[\w-]{2,4}$" v-model="registerEmail" v-on:keyup="checkEmail">
+                        <label for="registerEmail">Email Address</label>
+                        <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <div class="valid-feedback" v-bind:style="emailValidStyle"> {{ emailValid }} </div>
+                        <div class="invalid-feedback"> {{ emailInvalid }} </div>
+                      </div>
+
+                      <div class="form-label-group row">
+                        <input type="text" class="form-control" v-bind:class="{'is-invalid': usernamenotValid, 'is-valid': usernameisValid}" id="registerUsername" placeholder="username" required="" name="username" 
+                        pattern="^[a-zA-Z\d+]{3,15}$" v-model="registerUsername" v-on:keyup="checkUsername">
+                        <label for="registerUsername">Username</label>
+                        <small class="form-text text-muted">It will also be your display name.</small>
+                        <div class="valid-feedback" v-bind:style="usernameValidStyle"> {{ usernameValid }} </div>
+                        <div class="invalid-feedback"> {{ usernameInvalid }} </div>
+                      </div>
+                      
+                      <!-- <div class="form-row row">
+                        <div class="col-sm-6">
+                          <div class="form-label-group">
+                            <input type="text" class="form-control" id="registerFirstName" placeholder="firstName" required="" name="fname">
+                            <label for="registerFirstName"></i>First Name</label>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-label-group">
+                            <input type="text" class="form-control" id="registerLastName" placeholder="lastName" required="" name="lname">
+                            <label for="registerLastName"></i>Last Name</label>
+                          </div>
+                        </div>
+                      </div> -->
+
+                      <div class="form-group">
+                        <div class="form-label-group row">
+                          <input type="text" class="form-control" id="registerName" placeholder="name" name="name" pattern="^[a-zA-Z\s]{3,}$" 
+                          v-model="registerName" v-on:blur="display" v-on:focus="display" required>
+                          <label for="registerName">Name</label>
+                          <small class="form-text text-muted">First name + Last Name | For example: Bob Dylan</small>
+                          <div class="valid-feedback">You have a nice name.</div>
+                          <div class="invalid-feedback"></div>
+                        </div>
+                        <input type="hidden" name="SuperSaaS_user_id" id="SuperSaaS_user_id">
+                      </div>
+
+                      <div class="form-check form-check-inline row">
+                        Gender: &nbsp
+                      </div>
+                      <div class="form-check form-check-inline row">
+                        <input class="form-check-input" type="radio" name="gender" id="male_btn" value="Male" required>
+                        <label class="form-check-label" for="male_btn" style="padding-right: 5px;">
+                          Male
+                        </label>
+                      </div>
+                      &nbsp
+                      <div class="form-check form-check-inline row mb-3">
+                        <input class="form-check-input" type="radio" name="gender" id="female_btn" value="Female">
+                        <label class="form-check-label" for="female_btn">
+                          Female
+                        </label>
+                      </div>
+
+                      <div class="form-label-group row" >
+                        <input type="text" class="form-control" id="registerPhoneNumber" placeholder="Phone Number" required="" name="phone" pattern="[0-9]{8,8}">
+                        <label for="registerPhoneNumber"></i>Phone Number</label>
+                        <small class="form-text text-muted">For example "98763210"</small>
+                        <div class="valid-feedback">Your phone number looks good!</div>
+                        <div class="invalid-feedback">Your phone number is invalid.</div>
+                      </div>
+
+                      <div class="form-label-group row">
+                        <input type="text" class="form-control" id="registerStreetAddress" placeholder="Address" required="" name="street_address" pattern="^[a-zA-Z0-9\s]{10,}$">
+                        <label for="registerStreetAddress">Street Address</label>
+                        <small class="form-text text-muted">Street name, street number and block number</small>
+                        <div class="valid-feedback">Your street address looks good!</div>
+                        <div class="invalid-feedback">Your street address is invalid.</div>
+                      </div>
+
+                      <div class="form-label-group row">
+                        <input type="text" class="form-control" id="registerUnit" placeholder="Unit" name="unit" pattern="\d{1,2}-\d{2,4}">
+                        <label for="registerUnit">Unit</label>
+                        <small class="form-text text-muted">For example: 05-64</small>
+                        <!-- <div class="valid-feedback">Your unit number looks good!</div>
+                        <div class="invalid-feedback">Your unit number is invalid.</div> -->
+                      </div>
+
+                      <div class="form-label-group row">
+                        <input type="text" class="form-control" id="registerPostal" placeholder="Postal" required name="postal_code" pattern="(?=.*\d).{6,6}">
+                        <label for="registerPostal">Postal Code</label>
+                        <small class="form-text text-muted">For example: 512678</small>
+                        <div class="valid-feedback">Your postal code looks good!</div>
+                        <div class="invalid-feedback">Your postal code is invalid.</div>
+                      </div>
+                      
+                      <div class="form-label-group row">
+                        <input type="password" class="form-control" id="registerPassword" placeholder="password" required="" name="pw"
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" v-model="registerPassword" v-on:blur="display" v-on:focus="display" required>
+                        <label for="registerPassword"></i>Password</label>
+                        
+                        <span id="togglePassword1">Show&nbsp</span>password: <i class="fa fa-eye-slash mt-1" id="eye1" aria-hidden="true"  class="bg-dark" onclick="if (registerPassword.type == 'text') registerPassword.type = 'password';
+                        else registerPassword.type = 'text'; switchEye()" ></i>
+
+                        <div class="valid-feedback">Your password meets all the requirements!</div>
+                        <div v-if="show" class="invalid-feedback"> 
+                          <ul style="list-style-type: none;">
+                            <li>
+                              <span class="text-success">
+                                {{ passwordLength() }}</span>
+                              <div v-if="hideLength">✖ Minimum of 6 to 18 characters long</div>
+                            </li>
+                            <li>
+                              <span class="text-success">
+                                {{ passwordLower() }}</span>
+                              <div v-if="hideLower">✖ MUST contain at least one lowercase letter.</div>
+                            </li>
+                            <li>
+                              <span class="text-success">
+                                {{ passwordUpper() }}</span>
+                              <div v-if="hideUpper">✖ MUST contain at least one uppercase letter.</div>
+                            </li>
+                            <li>
+                              <span class="text-success">
+                                {{ passwordNumber() }}</span>
+                              <div v-if="hideNumber">✖ MUST contain at least one number.</div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div class="form-label-group row">
+                        <input type="password" id="cregisterPassword" class="form-control myCpwdClass" placeholder="password" required="" name="pw2" 
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" required>
+                        <label for="cregisterPassword"></i>Confirm Password</label>
+
+                        <div id="cPwdValid" class="valid-feedback">Passwords Match</div>
+                        <div id="cPwdInvalid" class="invalid-feedback"></div>
+                            
+                        <span id="togglePassword2">Show&nbsp</span>password: <i class="fa fa-eye-slash mt-1" id="eye2" aria-hidden="true"  class="bg-dark" onclick="if (cregisterPassword.type == 'text') cregisterPassword.type = 'password';
+                        else cregisterPassword.type = 'text'; cswitchEye()" ></i>
+
+                      </div>
+                        
+                      
+                      <div class="form-group form-check row">
+                        <input type="checkbox" class="form-check-input" id="registerPromotion">
+                        <label class="form-check-label" for="registerPromotion">I'd like to receive exclusive offers and promotions via SMS</label>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearAllRegister()">Close</button>
+                          <!-- <button type="button" class="btn btn-primary">Sign up</button> -->
+                          <input type="submit" class="btn btn-primary" value="Sign up" id="submitBtn">
+                      </div>
+                      <small class="form-text text-muted">By clicking "SIGN UP"; I agree to AlterTail's Terms of Use and Privacy Policy</small>
+                  </form>
+                  <!-- End of register form -->
+              </div>
+              <!-- End of register tab -->
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End of Register/Sign up modal -->
+<hr style="margin: 0;">
 
 
       <!-- Main Content -->
@@ -469,166 +455,115 @@
 
 
 
-    <!-- Footer -->
-    <footer class="page-footer font-small text-white bg-dark pt-4" >
+ <!-- Footer -->
+<footer class="page-footer font-small text-white bg-dark pt-4" >
 
-        <!-- Footer Links -->
-        <div class="container text-center text-md-left">
-    
-        <!-- Grid row -->
-        <div class="row">
-    
-            <!-- Grid column -->
-            <div class="col-md-4 mx-auto">
-    
-            <!-- Content -->
-            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">AlterTail</h5>
-            <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-                consectetur
-                adipisicing elit.</p>
-    
-            </div>
-            <!-- Grid column -->
-    
-            <hr class="clearfix w-100 d-md-none">
-    
-            <!-- Grid column -->
-            <div class="col-md-2 mx-auto">
-    
-            <!-- Links -->
-            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">About us</h5>
-    
-            <ul class="list-unstyled">
-                <li>
-                <a href="#!">About Us</a>
-                </li>
-                <li>
-                <a href="#!">Community</a>
-                </li>
-                <li>
-                <a href="#!">Career</a>
-                </li>
-                <li>
-                <a href="#!">Contact Us</a>
-                </li>
-            </ul>
-    
-            </div>
-            <!-- Grid column -->
-    
-            <hr class="clearfix w-100 d-md-none">
-    
-            <!-- Grid column -->
-            <div class="col-md-2 mx-auto">
-    
-            <!-- Links -->
-            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Services</h5>
-    
-            <ul class="list-unstyled">
-                <li>
-                <a href="#!">Alterations</a>
-                </li>
-                <li>
-                <a href="#!">Tailoring</a>
-                </li>
-                <li>
-                <a href="#!">Bag Cleaning</a>
-                </li>
-                <li>
-                <a href="#!">Dry Cleaning</a>
-                </li>
-            </ul>
-    
-            </div>
-            <!-- Grid column -->
-    
-            <hr class="clearfix w-100 d-md-none">
-    
-            <!-- Grid column -->
-            <div class="col-md-2 mx-auto">
-    
-            <!-- Links -->
-            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Information</h5>
-    
-            <ul class="list-unstyled">
-                <li>
-                <a href="#!">Payment methods</a>
-                </li>
-                <li>
-                <a href="#!">Shipping methods</a>
-                </li>
-                <li>
-                <a href="#!">Terms and conditions</a>
-                </li>
-                <li>
-                <a href="#!">Privacy Policy</a>
-                </li>
-            </ul>
-    
-            </div>
-            <!-- Grid column -->
-    
-        </div>
-        <!-- Grid row -->
-    
-        </div>
-        <!-- Footer Links -->
-    
-        <!-- <hr> -->
-    
-        <!-- Call to action -->
-        <!-- <ul class="list-unstyled list-inline text-center py-2">
-        <li class="list-inline-item">
-            <h5 class="mb-1">Register for free</h5>
-        </li>
-        <li class="list-inline-item">
-            <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
-        </li>
-        </ul> -->
-        <!-- Call to action -->
-    
-        <hr>
-    
-        <!-- Social buttons -->
-        <ul class="list-unstyled list-inline text-center">
-        <li class="list-inline-item">
-            <a class="btn-floating btn-fb mx-1" href="https://www.facebook.com/sg.altertail.3" target="_blank" rel="noopener"> 
-            <i class="fab fa-facebook-f"> </i>
-            </a>
-        </li>
-        
-        <li class="list-inline-item">
-            <a class="btn-floating btn-tw mx-1" href="https://twitter.com/AltertailS"
-            target="_blank" rel="noopener">
-            <i class="fab fa-twitter"> </i>
-            </a>
-        </li>
-        <li class="list-inline-item">
-            <a class="btn-floating btn-gplus mx-1">
-            <i class="fab fa-google-plus-g"> </i>
-            </a>
-        </li>
-        <li class="list-inline-item">
-            <a class="btn-floating btn-li mx-1">
-            <i class="fab fa-linkedin-in"> </i>
-            </a>
-        </li>
-        <li class="list-inline-item">
-            <a class="btn-floating btn-dribbble mx-1">
-            <i class="fab fa-dribbble"> </i>
-            </a>
-        </li>
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-4 mx-auto">
+
+        <!-- Content -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">AlterTail</h5>
+        <p>AlterTail is a one-stop fashion maintenance portal for residents in Singapore, providing fashion services such as alteration service, tailors and dry-cleaners.</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Company</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="aboutus.html">About Us</a>
+          </li>
         </ul>
-        <!-- Social buttons -->
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Services</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="alteration.html">Alterations</a>
+          </li>
+          <li>
+            <a href="location.html">Tailoring</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Information</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="terms.html">Terms and Conditions</a>
+          </li>
+          <li>
+            <a href="privacypolicy.html">Privacy Policy</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- <hr> -->
+  <hr>
+
+  <!-- Social buttons -->
+  <ul class="list-unstyled list-inline text-center">
+    <li class="list-inline-item">
+      <a class="btn-floating btn-fb mx-1" href="https://www.facebook.com/sg.altertail.3" target="_blank" rel="noopener"> 
+        <i class="fab fa-facebook-f"> </i>
+      </a>
+    </li>
     
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2020 Copyright:
-        <a href="#">AlterTail.co</a>
-        </div>
-        <!-- Copyright -->
-    
-    </footer>
-    <!-- Footer -->
+    <li class="list-inline-item">
+      <a class="btn-floating btn-tw mx-1" href="https://twitter.com/AltertailS" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"> </i>
+      </a>
+    </li>
+  </ul>
+  <!-- Social buttons -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="aboutus.html">AlterTail.co</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
     
         <!-- Custom Javscript -->
         <script src="js/form.js"></script>

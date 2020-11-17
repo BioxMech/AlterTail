@@ -17,7 +17,10 @@ function displayHome() {
             let isActive = false;
             let carCounter = 0;
             // random 0 to 10
-            var randomizer = Math.floor(Math.random() * 11) / 2
+            var randomizer = 0
+            while (randomizer == 0) {
+                randomizer = Math.ceil(Math.floor(Math.random() * 11) / 2)
+            }
 
             for(var record of records) {
                 if (counter < 9) {
@@ -51,6 +54,7 @@ function displayHome() {
                             </div>
                         </div>
                         `;
+                        console.log("isactive " + counter)
                     }
                     else {
                         car += `        
@@ -63,9 +67,11 @@ function displayHome() {
                         </div>
                         `;
                         isActive = true;
+                        console.log("ACTIVATE "  + counter)
                     }
                     carCounter += 1;
                 }
+                
 
                 counter += 1;
                 if (counter >= 9 && carCounter >= 4) {
