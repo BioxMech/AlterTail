@@ -82,6 +82,7 @@ function getProfileDetails(email, isProfilePage) {
             var email = profile.email;
             var name = profile.fname;
             var SuperSaaS_user_id = profile.SuperSaaS_user_id;
+            console.log(SuperSaaS_user_id);
             var gender = profile.gender;
             var username = profile.username;
             var password = profile.pw;
