@@ -15,9 +15,6 @@ AlterTail bridges the gap between the the low to middle income individuals and t
   * Filter shops by ratings or distance 
   * View it on a google map in real-time
 
-# About
-AlterTail is a web application project produced by 5 individuals who are currently enrolled in Singapore Management University, pursuing a bachelor of Science (Information Systems) degree.
-
 # Instructions
 
 * Install Stripe Dependencies 
@@ -32,3 +29,6 @@ Name and email (No restriction)
 credit card number(4242 4242 4242 4242)
 CVC and ZIP(Any number)
 Date(any future date)
+
+# About
+AlterTail is a web application project produced by 5 individuals who are currently enrolled in Singapore Management University, pursuing a bachelor of Science (Information Systems) degree.
