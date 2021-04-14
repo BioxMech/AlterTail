@@ -1,4 +1,5 @@
 drop database if exists AlterTail;
+-- hi
 
 create database AlterTail;
 

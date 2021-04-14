@@ -1,4 +1,5 @@
 <?php
+// hi
   // DB Params
   define("DB_HOST", "localhost");
   define("DB_USER", "root");

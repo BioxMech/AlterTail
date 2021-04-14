@@ -1,4 +1,5 @@
 <?php
+// hi
 
 class ConnectionManager {
     
